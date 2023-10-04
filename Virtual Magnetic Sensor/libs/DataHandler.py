@@ -286,46 +286,44 @@ class DataHandler:
         return converted_dict
 
     def save_py(self) -> bool:
-        if not os.access(self.filepath.parent, os.W_OK):
+        try:
+            if not os.path.exists(self.filepath.parent):
+                os.makedirs(self.filepath.parent)
+
+            # Convert ndarray in dict to list
+            data_dict = self.gui_dict()
+            for obj, obj_dict in data_dict.items():
+                if isinstance(obj_dict, dict):
+                    for key, val in obj_dict.items():
+                        if isinstance(val, np.ndarray):
+                            data_dict[obj][key] = val.tolist()
+
+            import json
+            print(data_dict)
+            with open(self.filepath.with_suffix(".py"), 'w') as file:
+                json.dump(data_dict, file, indent=4)
+
+            return True
+        except IOError:
             return False
-        else:
-            try:
-
-                # Convert ndarray in dict to list
-                data_dict = self.gui_dict()
-                for obj, obj_dict in data_dict.items():
-                    if isinstance(obj_dict, dict):
-                        for key, val in obj_dict.items():
-                            if isinstance(val, np.ndarray):
-                                data_dict[obj][key] = val.tolist()
-
-                import json
-                print(data_dict)
-                with open(self.filepath.with_suffix(".py"), 'w') as file:
-                    json.dump(data_dict, file, indent=4)
-
-                return True
-            except IOError:
-                return False
 
     def save_ini(self) -> bool:
         config = configparser.ConfigParser()
 
         config.read_dict(self.gui_dict())
 
-        if not os.access(self.filepath.parent, os.W_OK):
+        try:
+            if not os.path.exists(self.filepath.parent):
+                os.makedirs(self.filepath.parent)
+
+            with open(self.filepath.with_suffix(".ini"), 'w') as file:
+                config.write(file)
+
+            file.close()
+
+            return True
+        except IOError:
             return False
-        else:
-            try:
-
-                with open(self.filepath.with_suffix(".ini"), 'w') as file:
-                    config.write(file)
-
-                file.close()
-
-                return True
-            except IOError:
-                return False
 
     def save_h5(self) -> bool:
         """Outputs the parameters and measurement data held by the object to a specified file.
@@ -355,19 +353,18 @@ class DataHandler:
                 else:
                     raise ValueError('Cannot save %s type' % type(item))
 
-        if not os.access(self.filepath.parent, os.W_OK):
+        try:
+            if not os.path.exists(self.filepath.parent):
+                os.makedirs(self.filepath.parent)
+
+            with h5.File(self.filepath.with_suffix(".hdf5"), mode='w') as file:
+                rec_save_dict(file, '/', self.to_dict())
+
+            file.close()
+
+            return True
+        except IOError:
             return False
-        else:
-            try:
-
-                with h5.File(self.filepath.with_suffix(".hdf5"), mode='w') as file:
-                    rec_save_dict(file, '/', self.to_dict())
-
-                file.close()
-
-                return True
-            except IOError:
-                return False
 
     def update_objects(self, frames: List[any]) -> None:
         """The method updates the data contained in the object based on the current gui entries.
