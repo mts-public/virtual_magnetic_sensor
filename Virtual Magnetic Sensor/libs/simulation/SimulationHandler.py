@@ -103,6 +103,9 @@ class SimulationHandler:
             if config_handler.config['GENERAL']['auto_save']:
                 if not data_handler.save_h5():
                     showerror(title="Error", message="File could not be saved.")
+                    gui_handler.enable_gui_operation()
+                    gui_handler.status_bar().set("Error. File could not be saved.")
+                    return
 
         if config_handler.config['GENERAL']['auto_save']:
             showinfo(title="Info", message="All files successfully saved.")
