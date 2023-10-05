@@ -73,8 +73,8 @@ class GearRackFrame(ObjectFrame):
                                               label="Max Mesh Size:", unit="mm", col_shift=1)
 
         self.info_button = ttk.Button(master=self.button_frame, text="?", width=3, command=InfoFrame)
-        self.info_button.pack(side="right", anchor="ne", padx=(1, config_handler.config['gui']['padding']),
-                              pady=config_handler.config['gui']['h_spacing'])
+        self.info_button.pack(side="right", anchor="ne", padx=(1, config_handler.config['GUI']['padding']),
+                              pady=config_handler.config['GUI']['h_spacing'])
         gui_handler.buttons.append(self.info_button)
 
         self.button_frame.grid(column=0, row=5, columnspan=3, rowspan=1, sticky='s,w,e')
