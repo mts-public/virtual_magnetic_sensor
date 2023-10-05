@@ -63,11 +63,6 @@ class SimulationHandler:
             sim_stack = data_stack
             sim_tabs = gui_handler.tabs
 
-        if config_handler.config.has_option('GENERAL', 'max_process_memory'):
-            max_memory = float(config_handler.config['GENERAL']['max_process_memory'])
-        else:
-            max_memory = 4096.0
-
         gui_handler.disable_gui_operation()
         gui_handler.status_bar().set("Working...")
 
@@ -87,7 +82,8 @@ class SimulationHandler:
                     queue.put(n)
                     shared_list = manager.list()
                     process = Process(target=multiprocessing_tasks.run_work,
-                                      args=(data_handler, max_memory, shared_list, queue))
+                                      args=(data_handler, config_handler.config['GENERAL']['max_process_memory'],
+                                            shared_list, queue))
                     process.start()
                     process.join()
                     n = queue.get()
