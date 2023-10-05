@@ -87,7 +87,7 @@ class MenuBar(tk.Menu):
         self.help_menu = tk.Menu(self, tearoff=False)
         self.help_menu.add_command(
             label='Documentation',
-            command=self.dummy_click,
+            command=lambda: showinfo(title='Documentation', message='Coming soon.'),
         )
         self.help_menu.add_command(
             label='Info',
@@ -137,7 +137,3 @@ class MenuBar(tk.Menu):
         self.sim_menu.entryconfig("Draw (NGSolve)", state=tk.DISABLED)
         self.help_menu.entryconfig("Documentation", state=tk.DISABLED)
         self.help_menu.entryconfig("Info", state=tk.DISABLED)
-
-    @staticmethod
-    def dummy_click() -> None:
-        showinfo(title='Error', message='Not implemented yet.')
