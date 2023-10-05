@@ -1,7 +1,6 @@
 from tkinter import ttk
 from typing import Callable
-from typing import Union
-from configparser import ConfigParser
+from typing import Union, Dict
 
 from libs.gui.GUIHandler import GUIHandler
 
@@ -25,7 +24,7 @@ class RemoveButton:
 
     def __init__(self,
                  master: Union[ttk.LabelFrame, ttk.Frame],
-                 config: ConfigParser,
+                 config: Dict[str, Dict[str, any]],
                  gui_handler: GUIHandler,
                  command: Callable) -> None:
 
