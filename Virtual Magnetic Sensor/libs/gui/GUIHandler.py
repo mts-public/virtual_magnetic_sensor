@@ -70,6 +70,11 @@ class GUIHandler:
             if type(bar).__name__ == "MenuBar":
                 return bar
 
+    def sim_frame(self):
+        for frame in self.tabs[self.selected_tab()].frames:
+            if type(frame).__name__ == "SimParamsFrame":
+                return frame
+
     def enable_gui_operation(self) -> None:
         self.bindings_enable()
         for bar in self.bars:
