@@ -79,9 +79,12 @@ class DataHandler:
 
         self.filepath = Path(path.parent.as_posix(), path.stem)
 
-        with h5.File(path.as_posix(), 'r') as file:
-            data_dict = rec_load_dict(file, '/')
-        file.close()
+        try:
+            with h5.File(path.as_posix(), 'r') as file:
+                data_dict = rec_load_dict(file, '/')
+            file.close()
+        except FileNotFoundError:
+            data_dict = dict()
 
         self.objects.clear()
 
@@ -112,7 +115,11 @@ class DataHandler:
         spec = importlib.util.spec_from_file_location(module, path.as_posix())
 
         setup = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(setup)
+
+        try:
+            spec.loader.exec_module(setup)
+        except FileNotFoundError:
+            pass
 
         self.objects.clear()
 

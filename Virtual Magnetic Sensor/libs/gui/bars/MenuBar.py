@@ -56,7 +56,7 @@ class MenuBar(tk.Menu):
         self.file_menu.add_separator()
         self.file_menu.add_command(
             label='Settings',
-            command=lambda: self.settings_menu(config_handler),
+            command=lambda: SettingsFrame(config_handler),
             accelerator="Ctrl+Alt+S"
         )
         self.file_menu.add_separator()
@@ -141,8 +141,3 @@ class MenuBar(tk.Menu):
     @staticmethod
     def dummy_click() -> None:
         showinfo(title='Error', message='Not implemented yet.')
-
-    @staticmethod
-    def settings_menu(config_handler: ConfigHandler):
-        SettingsFrame(config_handler)
-        config_handler.load_config()

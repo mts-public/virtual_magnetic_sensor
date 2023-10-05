@@ -12,7 +12,8 @@ from libs.gui.GUIHandler import GUIHandler
 class FileDialogs:
 
     @staticmethod
-    def open(data_stack: List[DataHandler], config_handler: ConfigHandler, gui_handler: GUIHandler) -> None:
+    def open(data_stack: List[DataHandler], config_handler: ConfigHandler, gui_handler: GUIHandler,
+             filename: str = "") -> None:
 
         filetypes = [('HDF5 Files', '*.hdf5 *.hdf *.h4 *.hdf4 *.he2 *.h5 *.he'),
                      ('INI Files', '*.ini *.INI'),
@@ -22,11 +23,16 @@ class FileDialogs:
         if data_stack:
             idx = gui_handler.selected_tab()
         else:
-            gui_handler.add_tab(DataHandler.template(), data_stack, config_handler)
+            if not filename:
+                gui_handler.add_tab(DataHandler.template(), data_stack, config_handler)
+            else:
+                gui_handler.add_tab(DataHandler.template(), data_stack, config_handler, Path(filename).stem)
             idx = 0
 
-        filename: str = fd.askopenfilename(title='Select a File', initialdir=data_stack[idx].filepath.parent.as_posix(),
-                                           filetypes=filetypes)
+        if not filename:
+            filename = fd.askopenfilename(title='Select a File',
+                                          initialdir=data_stack[idx].filepath.parent.as_posix(),
+                                          filetypes=filetypes)
 
         if filename:
             filepath = Path(filename)
@@ -35,14 +41,14 @@ class FileDialogs:
             if filepath.suffix.lower() in ['.hdf5', '.hdf', '.h4', '.hdf4', '.he2', '.h5', '.he']:
                 data_stack[idx].load_h5(filepath)
                 gui_handler.tabs[idx].refresh_frames(data_stack[idx], config_handler, gui_handler)
+            elif filepath.suffix.lower() in ['.ini']:
+                data_stack[idx].load_ini(filepath)
+                gui_handler.tabs[idx].refresh_frames(data_stack[idx], config_handler, gui_handler)
             elif filepath.suffix.lower() in ['.py']:
                 new_stack: List[DataHandler] = data_stack[idx].load_py(filepath)
                 gui_handler.close_tab(data_stack, idx)
                 for num, data_handler in enumerate(new_stack):
                     gui_handler.add_tab(data_handler, data_stack, config_handler, filepath.stem+str(num))
-            elif filepath.suffix.lower() in ['.ini']:
-                data_stack[idx].load_ini(filepath)
-                gui_handler.tabs[idx].refresh_frames(data_stack[idx], config_handler, gui_handler)
             else:
                 showerror(title="Error", message="Filetype not supported.")
 
