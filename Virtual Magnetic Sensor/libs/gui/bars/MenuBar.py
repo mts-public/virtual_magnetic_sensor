@@ -68,7 +68,7 @@ class MenuBar(tk.Menu):
 
         self.sim_menu = tk.Menu(self, tearoff=False)
         self.sim_menu.add_command(
-            label='Draw (NGSolve)',
+            label='Draw (Netgen)',
             command=lambda: SimulationHandler.draw(multiprocessing_tasks, data_stack, gui_handler,
                                                    gui_handler.selected_tab()),
             accelerator='F8')
