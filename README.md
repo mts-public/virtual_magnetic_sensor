@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/700318323.svg)](https://zenodo.org/badge/latestdoi/700318323)
+
 # virtual_magnetic_sensor
 Virtual Magnetic Sensor is a simulation software for the simulation of magnetic problems in regard to magnetic sensor technology.
 
