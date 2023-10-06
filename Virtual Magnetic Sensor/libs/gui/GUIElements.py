@@ -280,7 +280,7 @@ class GUIElements:
     @staticmethod
     def init_style(master: tk.Tk, config: Dict[str, Dict[str, any]]) -> None:
         master.tk.eval("""
-            set base_theme_dir libs/gui/themes/awthemes-10.4.0/
+            set base_theme_dir resources/themes/awthemes-10.4.0/
 
             package ifneeded awthemes 10.4.0 \
                 [list source [file join $base_theme_dir awthemes.tcl]]
