@@ -7,7 +7,6 @@ from pyngcore import TaskManager
 
 from libs.DataHandler import DataHandler
 from libs.elements.components.Gear import Gear
-from libs.elements.components.GearRack import GearRack
 
 from libs.simulation.ngsolve.CSGeometry import CSGeometry
 
