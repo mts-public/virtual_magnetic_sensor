@@ -40,8 +40,6 @@ class NGMesh:
                  data_handler: DataHandler) -> None:
         """Constructor method."""
 
-        self.data_handler = data_handler
-
         self.mp = msh.MeshingParameters(
             curvaturesafety=2,
             segmentsperedge=1,
@@ -54,16 +52,19 @@ class NGMesh:
             optsteps3d=1,
             optimize3d="m"
         )
-        self.restrict_mesh(self.mp)
+        self.restrict_mesh(data_handler, self.mp)
 
         self.netgen_mesh = msh.Mesh()
         self.mesh_badness = 0
         self.mesh = ng.Mesh(self.netgen_mesh)
-        self.init_mesh_t = self.data_handler.sim_params().t0
+        self.init_mesh_t = data_handler.sim_params().t0
 
-    def init_mesh(self, mp: msh.MeshingParameters) -> List[Union[msh.Mesh, float]]:
+    @staticmethod
+    def init_mesh(data_handler: DataHandler, mp: msh.MeshingParameters) -> List[Union[msh.Mesh, float]]:
         """Method to initialize the full mesh and geometry.
 
+        :param data_handler: Object of the Data class containing all simulation relevant data.
+        :type data_handler: DataHandler
         :param mp: Meshing parameters.
         :type mp: netgen.mesh.MeshingParameters
 
@@ -71,14 +72,14 @@ class NGMesh:
         :rtype: List[Union[netgen.meshing.Mesh, float]]
         """
 
-        ng_geometry: CSGeometry = CSGeometry(self.data_handler)
+        ng_geometry: CSGeometry = CSGeometry(data_handler)
         with TaskManager():
             net_mesh = ng_geometry.geometry.GenerateMesh(mp)
         init_badness = net_mesh.CalcTotalBadness(mp)
 
         return [net_mesh, init_badness]
 
-    def update(self, t: float) -> None:
+    def update(self, data_handler: DataHandler, t: float) -> None:
         """The method updates the mesh based on the current rotation angle of the gear theta. When possible, the gears
             mesh gets rotated and optimized. If the badness of the rotated mesh exceeds a certain badness, the full mesh
             gets rebuild.
@@ -87,11 +88,10 @@ class NGMesh:
         temp_mesh = self.mesh.ngmesh.Copy()
         rebuild_mesh = True
 
-        for component in self.data_handler.components():
+        for component in data_handler.components():
             if isinstance(component, Gear):
                 if component.rotate_mesh and temp_mesh.Points():
-                    [temp_mesh, rotated_badness] = self.rotate_gear_mesh(temp_mesh, self.mp, component,
-                                                                         self.data_handler, t)
+                    [temp_mesh, rotated_badness] = self.rotate_gear_mesh(temp_mesh, self.mp, component, data_handler)
                     print("Initial Badness: " + str(self.mesh_badness))
                     print("Badness after Rotation: " + str(rotated_badness))
                     print("Init Mesh T: " + str(self.init_mesh_t))
@@ -103,7 +103,7 @@ class NGMesh:
 
         if rebuild_mesh:
             print("-------> Rebuild Mesh")
-            [temp_mesh, self.mesh_badness] = self.init_mesh(self.mp)
+            [temp_mesh, self.mesh_badness] = self.init_mesh(data_handler, self.mp)
             print("New Badness: " + str(self.mesh_badness))
             self.init_mesh_t = t
 
@@ -113,8 +113,8 @@ class NGMesh:
         ng.Redraw()
 
     @staticmethod
-    def rotate_gear_mesh(mesh: msh.Mesh, mp: msh.MeshingParameters, gear: Gear, data_handler: DataHandler,
-                         t: float) -> List[Union[msh.Mesh, float]]:
+    def rotate_gear_mesh(mesh: msh.Mesh, mp: msh.MeshingParameters, gear: Gear,
+                         data_handler: DataHandler) -> List[Union[msh.Mesh, float]]:
         """Method to rotate the gear in the mesh by one time step and optimize it.
 
         :param mesh: Netgen mesh.
@@ -125,50 +125,42 @@ class NGMesh:
         :type gear: Gear
         :param data_handler: Object of the Data class containing all simulation relevant data.
         :type data_handler: DataHandler
-        :param t: Current time stamp.
-        :type t: float
 
         :return: The rotated and optimized mesh and its badness.
         :rtype: List[union[netgen.meshing.Mesh, float]]
         """
 
-        position_t1 = gear.position(gear.theta)
-        axis_t1 = gear.rotation_axis(gear.theta)
-        if not np.isclose(t, data_handler.sim_params().t0):
-            position_t0 = gear.position(gear.theta - gear.omega * data_handler.sim_params().dt)
-            axis_t0 = gear.rotation_axis(gear.theta - gear.omega * data_handler.sim_params().dt)
-            dt: float = data_handler.sim_params().dt
-        else:
-            position_t0 = position_t1
-            axis_t0 = axis_t1
-            dt: float = 0.0
+        position = [gear.position(gear.theta - gear.omega * data_handler.sim_params().dt), gear.position(gear.theta)]
+        axis = [gear.rotation_axis(gear.theta - gear.omega * data_handler.sim_params().dt),
+                gear.rotation_axis(gear.theta)]
+        trans_matrix = [gear.transformation_matrix(axis[0]), gear.transformation_matrix(axis[1])]
 
-        trans_matrix_t1 = gear.transformation_matrix(axis_t1)
-        trans_matrix_t0 = gear.transformation_matrix(axis_t0)
-
-        for num, p in enumerate(mesh.Points()):
-            p_canonical: np.ndarray = np.linalg.inv(trans_matrix_t0).dot(np.array([p[0], p[1], p[2]]) - position_t0)
+        for p in mesh.Points():
+            p_canonical: np.ndarray = np.linalg.inv(trans_matrix[0]).dot(np.array([p[0], p[1], p[2]]) - position[0])
             if abs(p_canonical[2]) <= gear.length/2 * (1 + 1e-3) and sqrt(
                     pow(p_canonical[0], 2) + pow(p_canonical[1], 2)) <= (
                     gear.diameter[1] + gear.tooth_height)/2 * (1 + 1e-3):
-                p_rotated: np.ndarray = gear.rotation_matrix(gear.omega*dt).dot(p_canonical)
-                p_new: np.ndarray = trans_matrix_t1.dot(p_rotated)
-                p[0] = p_new[0] + position_t1[0]
-                p[1] = p_new[1] + position_t1[1]
-                p[2] = p_new[2] + position_t1[2]
+                p_rotated: np.ndarray = gear.rotation_matrix(gear.omega*data_handler.sim_params().dt).dot(p_canonical)
+                p_new: np.ndarray = trans_matrix[1].dot(p_rotated)
+                p[0] = p_new[0] + position[1][0]
+                p[1] = p_new[1] + position[1][1]
+                p[2] = p_new[2] + position[1][2]
 
         mesh.OptimizeVolumeMesh(mp)
         badness: float = mesh.CalcTotalBadness(mp)
         return [mesh, badness]
 
-    def restrict_mesh(self, mp: msh.MeshingParameters) -> None:
+    @staticmethod
+    def restrict_mesh(data_handler: DataHandler, mp: msh.MeshingParameters) -> None:
         """Restrict the maximum mesh size on chosen points of the grid.
 
+        :param data_handler: Object of the Data class containing all simulation relevant data.
+        :type data_handler: DataHandler
         :param mp: Meshing parameters.
         :type mp: msh.MeshingParameters
         """
 
-        for sensor in self.data_handler.field_recorders():
+        for sensor in data_handler.field_recorders():
             for x in sensor.x:
                 for y in sensor.y:
                     for z in sensor.z:

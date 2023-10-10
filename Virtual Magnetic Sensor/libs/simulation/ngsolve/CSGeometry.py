@@ -24,8 +24,6 @@ class CSGeometry:
                  data_handler: DataHandler) -> None:
         """Constructor method."""
 
-        self.data_handler = data_handler
-
         self.materials = {
             "component": "iron",
             "magnet": "magnet",
@@ -33,17 +31,19 @@ class CSGeometry:
             "outer": "air"
         }
 
-        self.border_geometry = CSGEnvironment(self.data_handler.sim_params())
-        self.components_geometries = CSGComponents(self.data_handler.components())
-        self.magnet_geometries = CSGMagnets(self.data_handler.physical_magnets())
-        self.sensor_geometries = CSGSensors(self.data_handler.physical_sensors())
+        self.border_geometry = CSGEnvironment(data_handler.sim_params())
+        self.components_geometries = CSGComponents(data_handler.components())
+        self.magnet_geometries = CSGMagnets(data_handler.physical_magnets())
+        self.sensor_geometries = CSGSensors(data_handler.physical_sensors())
 
-        self.geometry = self.init_geometry()
+        self.geometry = self.init_geometry(data_handler)
         self.geometry.Draw()
 
-    def init_geometry(self) -> csg.CSGeometry:
+    def init_geometry(self, data_handler: DataHandler) -> csg.CSGeometry:
         """Creates the overall geometry of all elements of the simulation. Result can be displayed in the netgen gui.
 
+        :param data_handler: Object of the Data class containing all simulation relevant data.
+        :type data_handler: DataHandler
         :return: Geometry of the whole scenery.
         :rtype: netgen.csg.CSGeometry
         """
@@ -56,7 +56,7 @@ class CSGeometry:
                 magnet_body -= body
             bodies_list.append(magnet_body)
             geometry.Add(magnet_body.mat(self.materials["magnet"] + str(num)),
-                         maxh=self.data_handler.physical_magnets()[num].maxh,
+                         maxh=data_handler.physical_magnets()[num].maxh,
                          col=(0.5, 0.5, 0.5))
 
         for num, component_body in enumerate(self.components_geometries.bodies):
@@ -64,19 +64,19 @@ class CSGeometry:
                 component_body -= body
             bodies_list.append(component_body)
             geometry.Add(component_body.mat(self.materials["component"] + str(num)),
-                         maxh=self.data_handler.components()[num].maxh, col=(0.9, 0.9, 0.9))
+                         maxh=data_handler.components()[num].maxh, col=(0.9, 0.9, 0.9))
 
         for num, sensor_body in enumerate(self.sensor_geometries.bodies):
             for body in bodies_list:
                 sensor_body -= body
             bodies_list.append(sensor_body)
-            geometry.Add(sensor_body.mat(self.materials["sensor"]), maxh=self.data_handler.physical_sensors()[num].maxh,
+            geometry.Add(sensor_body.mat(self.materials["sensor"]), maxh=data_handler.physical_sensors()[num].maxh,
                          col=(0.2, 0.2, 0.2))
 
         outer_body = self.border_geometry.body
         for body in bodies_list:
             outer_body -= body
-        geometry.Add(outer_body.mat(self.materials["outer"]), maxh=self.data_handler.sim_params().maxh_global,
+        geometry.Add(outer_body.mat(self.materials["outer"]), maxh=data_handler.sim_params().maxh_global,
                      transparent=True)
 
         return geometry

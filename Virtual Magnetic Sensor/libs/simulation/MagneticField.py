@@ -9,9 +9,11 @@ class MagneticField(metaclass=abc.ABCMeta):
     """
 
     @abc.abstractmethod
-    def create_field(self, t) -> None:
+    def create_field(self, data_handler, t: float) -> None:
         """Method to initialize the magnetic field and perform the necessary calculations.
 
+        :param data_handler: Object of the Data class containing all simulation relevant data.
+        :type data_handler: DataHandler
         :param t: Current time stamp:
         :type t: float
 

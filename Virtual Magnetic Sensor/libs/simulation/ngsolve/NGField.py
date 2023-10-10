@@ -44,25 +44,22 @@ class NGField(MagneticField, ABC):
     def __init__(self, data_handler: DataHandler) -> None:
         """Constructor method."""
 
-        self.data_handler = data_handler
-
         self.mu0 = 4 * pi * 1e-7
 
         self.ng_mesh = NGMesh(data_handler)
 
-    def get_mesh(self):
-        return self.ng_mesh.mesh, self.ng_mesh.mesh_badness
-
-    def create_field(self, t: float) -> None:
+    def create_field(self, data_handler: DataHandler, t: float) -> None:
         """Method to initialize and calculate the magnetic field based on the given parameters.
 
+        :param data_handler: Object of the Data class containing all simulation relevant data.
+        :type data_handler: DataHandler
         :param t: Current time stamp:
         :type t: float
 
         """
 
         # Update the mesh
-        self.ng_mesh.update(t)
+        self.ng_mesh.update(data_handler, t)
 
         # Declare finite element space.
         fes = ng.HCurl(self.ng_mesh.mesh, order=3, nograds=True)
@@ -78,9 +75,9 @@ class NGField(MagneticField, ABC):
 
         # Store the material specific mu_r in a dict.
         mur_dict = {}
-        for num, magnet in enumerate(self.data_handler.physical_magnets()):
+        for num, magnet in enumerate(data_handler.physical_magnets()):
             mur_dict["magnet" + str(num)] = magnet.mu_r
-        for num, component in enumerate(self.data_handler.components()):
+        for num, component in enumerate(data_handler.components()):
             mur_dict["iron" + str(num)] = component.mu_r
         self.mur = self.ng_mesh.mesh.MaterialCF(mur_dict, default=1)
 
@@ -97,14 +94,14 @@ class NGField(MagneticField, ABC):
 
         # Store the magnetisation of the particular elements in the simulation in a dict.
         mag_dict = {}
-        for num, magnet in enumerate(self.data_handler.physical_magnets()):
+        for num, magnet in enumerate(data_handler.physical_magnets()):
             mag_dict["magnet" + str(num)] = tuple(magnet.m_vec)
         self.mag = self.ng_mesh.mesh.MaterialCF(mag_dict, default=(0, 0, 0))
 
         # Define the right side of the pde
-        for num, _ in enumerate(self.data_handler.physical_magnets()):
+        for num, _ in enumerate(data_handler.physical_magnets()):
             f += self.mag * ng.curl(v) * ng.dx("magnet" + str(num))
-        for field in self.data_handler.uni_fields():
+        for field in data_handler.uni_fields():
             f += ng.CoefficientFunction(tuple(field.h_vec)) * ng.curl(v) * ng.dx
 
         # Assemble linear and bi-linear form
@@ -117,8 +114,8 @@ class NGField(MagneticField, ABC):
 
         # Return solution vector.
         with ng.TaskManager():
-            ng.solvers.CG(sol=self.gfu.vec, rhs=f.vec, mat=a.mat, pre=c.mat, tol=self.data_handler.sim_params().tol,
-                          maxsteps=self.data_handler.sim_params().maxit)
+            ng.solvers.CG(sol=self.gfu.vec, rhs=f.vec, mat=a.mat, pre=c.mat, tol=data_handler.sim_params().tol,
+                          maxsteps=data_handler.sim_params().maxit)
             # sol        : Start vector for CG method. Gets overwritten by the solution vector.
             # rhs        : Right hand side of the equation.
             # mat        : Left hand side of the equation.

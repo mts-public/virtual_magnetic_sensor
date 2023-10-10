@@ -41,7 +41,7 @@ class SimulationHandler:
                 if hasattr(component, "update"):
                     component.update(t)
 
-            field.create_field(t)
+            field.create_field(data_handler, t)
 
             for num, obj in enumerate(data_handler.objects):
                 if hasattr(obj, "set_data"):
@@ -126,7 +126,7 @@ class SimulationHandler:
 
         field_factory = MagneticFieldFactory()
         field = field_factory.init_field('ngsolve', data_handler)
-        field.create_field(data_handler.sim_params().t0)
+        field.create_field(data_handler, data_handler.sim_params().t0)
         field.draw()
 
         netgen.gui.win.mainloop()
