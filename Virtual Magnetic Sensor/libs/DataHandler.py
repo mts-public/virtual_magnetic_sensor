@@ -496,6 +496,20 @@ class DataHandler:
 
         return sensors_list
 
+    def gmr_sensors(self):
+        """Method returns the objects of type GMRSensor in a list.
+
+        :return: List of objects of type GMRSensor.
+        :rtype: List[GMRSensor]
+        """
+
+        sensors_list = list()
+        for obj in self.objects:
+            if isinstance(obj, GMRSensor):
+                sensors_list.append(obj)
+
+        return sensors_list
+
     def field_recorders(self):
         """Method returns the objects of type FieldRecorder in a list.
 

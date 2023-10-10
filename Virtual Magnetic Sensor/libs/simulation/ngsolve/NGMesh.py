@@ -159,6 +159,10 @@ class NGMesh:
         :param mp: Meshing parameters.
         :type mp: msh.MeshingParameters
         """
+        for sensor in data_handler.gmr_sensors():
+            for _, page in enumerate(sensor.gmr_sampling_matrix):
+                for p in page:
+                    mp.RestrictH(x=p[0], y=p[1], z=p[2], h=sensor.maxh)
 
         for sensor in data_handler.field_recorders():
             for x in sensor.x:
