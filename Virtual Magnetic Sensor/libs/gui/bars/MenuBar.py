@@ -120,7 +120,7 @@ class MenuBar(tk.Menu):
         self.file_menu.entryconfig("Settings", state=tk.NORMAL)
         self.sim_menu.entryconfig("Run", state=tk.NORMAL)
         self.sim_menu.entryconfig("Run All", state=tk.NORMAL)
-        self.sim_menu.entryconfig("Draw (NGSolve)", state=tk.NORMAL)
+        self.sim_menu.entryconfig("Draw (Netgen)", state=tk.NORMAL)
         self.help_menu.entryconfig("Documentation", state=tk.NORMAL)
         self.help_menu.entryconfig("Info", state=tk.NORMAL)
 
@@ -134,6 +134,6 @@ class MenuBar(tk.Menu):
         self.file_menu.entryconfig("Close", state=tk.DISABLED)
         self.sim_menu.entryconfig("Run", state=tk.DISABLED)
         self.sim_menu.entryconfig("Run All", state=tk.DISABLED)
-        self.sim_menu.entryconfig("Draw (NGSolve)", state=tk.DISABLED)
+        self.sim_menu.entryconfig("Draw (Netgen)", state=tk.DISABLED)
         self.help_menu.entryconfig("Documentation", state=tk.DISABLED)
         self.help_menu.entryconfig("Info", state=tk.DISABLED)
