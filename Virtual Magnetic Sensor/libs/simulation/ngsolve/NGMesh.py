@@ -6,7 +6,6 @@ from typing import Union, List, Tuple, Dict
 from pyngcore import TaskManager
 
 from libs.DataHandler import DataHandler
-from libs.elements.components.Gear import Gear
 
 from libs.simulation.ngsolve.CSGeometry import CSGeometry
 
@@ -88,17 +87,17 @@ class NGMesh:
         temp_mesh = self.mesh.ngmesh.Copy()
         rebuild_mesh = True
 
-        for component in data_handler.components():
-            if isinstance(component, Gear):
-                if component.rotate_mesh and temp_mesh.Points():
-                    [temp_mesh, rotated_badness] = self.rotate_gear_mesh(temp_mesh, self.mp, component, data_handler)
+        for num, obj in enumerate(data_handler.objects):
+            if type(obj).__name__ == "Gear":
+                if obj.rotate_mesh and temp_mesh.Points():
+                    [temp_mesh, rotated_badness] = self.rotate_gear_mesh(temp_mesh, self.mp, data_handler, num)
                     print("Initial Badness: " + str(self.mesh_badness))
                     print("Badness after Rotation: " + str(rotated_badness))
                     print("Init Mesh T: " + str(self.init_mesh_t))
                     print("T: " + str(t))
 
                     if rotated_badness < self.mesh_badness * 1.1 and \
-                            component.omega * t < component.omega * self.init_mesh_t + component.rotate_mesh_max_angle:
+                            obj.omega * t < obj.omega * self.init_mesh_t + obj.rotate_mesh_max_angle:
                         rebuild_mesh = False
 
         if rebuild_mesh:
@@ -113,34 +112,39 @@ class NGMesh:
         ng.Redraw()
 
     @staticmethod
-    def rotate_gear_mesh(mesh: msh.Mesh, mp: msh.MeshingParameters, gear: Gear,
-                         data_handler: DataHandler) -> List[Union[msh.Mesh, float]]:
+    def rotate_gear_mesh(mesh: msh.Mesh, mp: msh.MeshingParameters, data_handler: DataHandler,
+                         idx: int) -> List[Union[msh.Mesh, float]]:
         """Method to rotate the gear in the mesh by one time step and optimize it.
 
         :param mesh: Netgen mesh.
         :type mesh: netgen.meshing.Mesh
         :param mp: Meshing parameters.
         :type mp: netgen.meshing.MeshingParameters
-        :param gear: Global instance of the Gear class.
-        :type gear: Gear
         :param data_handler: Object of the Data class containing all simulation relevant data.
         :type data_handler: DataHandler
+        :param idx: Index of the gear object in data_handler
+        :type idx: int
 
         :return: The rotated and optimized mesh and its badness.
         :rtype: List[union[netgen.meshing.Mesh, float]]
         """
 
-        position = [gear.position(gear.theta - gear.omega * data_handler.sim_params().dt), gear.position(gear.theta)]
-        axis = [gear.rotation_axis(gear.theta - gear.omega * data_handler.sim_params().dt),
-                gear.rotation_axis(gear.theta)]
-        trans_matrix = [gear.transformation_matrix(axis[0]), gear.transformation_matrix(axis[1])]
+        position = [data_handler.objects[idx].position(
+            data_handler.objects[idx].theta - data_handler.objects[idx].omega * data_handler.sim_params().dt),
+            data_handler.objects[idx].position(data_handler.objects[idx].theta)]
+        axis = [data_handler.objects[idx].rotation_axis(
+            data_handler.objects[idx].theta - data_handler.objects[idx].omega * data_handler.sim_params().dt),
+            data_handler.objects[idx].rotation_axis(data_handler.objects[idx].theta)]
+        trans_matrix = [data_handler.objects[idx].transformation_matrix(axis[0]),
+                        data_handler.objects[idx].transformation_matrix(axis[1])]
 
         for p in mesh.Points():
             p_canonical: np.ndarray = np.linalg.inv(trans_matrix[0]).dot(np.array([p[0], p[1], p[2]]) - position[0])
-            if abs(p_canonical[2]) <= gear.length/2 * (1 + 1e-3) and sqrt(
+            if abs(p_canonical[2]) <= data_handler.objects[idx].length/2 * (1 + 1e-3) and sqrt(
                     pow(p_canonical[0], 2) + pow(p_canonical[1], 2)) <= (
-                    gear.diameter[1] + gear.tooth_height)/2 * (1 + 1e-3):
-                p_rotated: np.ndarray = gear.rotation_matrix(gear.omega*data_handler.sim_params().dt).dot(p_canonical)
+                    data_handler.objects[idx].diameter[1] + data_handler.objects[idx].tooth_height)/2 * (1 + 1e-3):
+                p_rotated: np.ndarray = data_handler.objects[idx].rotation_matrix(
+                    data_handler.objects[idx].omega*data_handler.sim_params().dt).dot(p_canonical)
                 p_new: np.ndarray = trans_matrix[1].dot(p_rotated)
                 p[0] = p_new[0] + position[1][0]
                 p[1] = p_new[1] + position[1][1]
