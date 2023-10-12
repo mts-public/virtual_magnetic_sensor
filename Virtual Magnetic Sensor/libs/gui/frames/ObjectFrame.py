@@ -42,6 +42,9 @@ class ObjectFrame(ttk.LabelFrame):
         else:
             Gui.insert(self.entries, sim_object)
 
+        if hasattr(self, 'update_buttons'):
+            self.update_buttons(sim_object)
+
     def remove_frame(self, gui_handler: GUIHandler) -> None:
         self.remove(self)
         for button in self.buttons:
