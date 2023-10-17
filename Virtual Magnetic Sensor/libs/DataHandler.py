@@ -351,13 +351,15 @@ class DataHandler:
             """
 
             for key, item in dictionary.items():
-                if isinstance(item, (np.ndarray, int, float, str, bytes, list, np.int, np.float, np.int32, np.float32)):
+                if isinstance(item, (np.ndarray, int, float, str, bytes, list, np.int, np.float, np.int32, np.float32,
+                                     np.bool, np.bool_)):
                     h5file[filename + key] = item
                 elif isinstance(item, Path):
                     h5file[filename + key] = item.as_posix()
                 elif isinstance(item, dict):
                     rec_save_dict(h5file, filename + key + '/', item)
                 else:
+                    print(key)
                     raise ValueError('Cannot save %s type' % type(item))
 
         try:
