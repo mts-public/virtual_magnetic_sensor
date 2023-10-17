@@ -300,17 +300,16 @@ class Gear(Component):
         :rtype: numpy.ndarray
         """
 
-        z_vec: np.ndarray = axis / np.linalg.norm(axis)
-
-        if z_vec[0] != 0 or z_vec[1] != 0:
-            x_vec: np.ndarray = np.array([z_vec[2], 0, -z_vec[0]])
+        if (axis == np.array([0.0, 0.0, 1.0])).all():
+            return np.eye(3)
+        elif (axis == np.array([0.0, 0.0, -1.0])).all():
+            return -np.eye(3)
         else:
-            x_vec: np.ndarray = np.array([z_vec[2], 0.0, 0.0])
-        x_vec /= np.linalg.norm(x_vec)
-        y_vec: np.ndarray = np.cross(x_vec, z_vec)
-        y_vec /= np.linalg.norm(y_vec)
-
-        return np.column_stack((x_vec, y_vec, z_vec))
+            z_vec: np.ndarray = axis / np.linalg.norm(axis)
+            x_vec = np.cross(np.array([0.0, 0.0, -1.0]), z_vec)
+            x_vec /= np.linalg.norm(x_vec)
+            y_vec = np.cross(z_vec, x_vec)
+            return np.column_stack((x_vec, y_vec, z_vec))
 
     def rotation_axis(self, angle: float) -> np.ndarray:
         """Method to calculate the final rotation axis considering the wobble angle.
