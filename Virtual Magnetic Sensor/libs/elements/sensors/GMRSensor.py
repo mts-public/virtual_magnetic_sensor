@@ -152,16 +152,16 @@ class GMRSensor(Sensor):
         self.gmr_sampling_matrix = self.get_gmr_sampling_matrix()
         self.sensor_sampling_matrix = self.get_sensor_sampling_matrix()
 
-        self.gmr_config: configparser.ConfigParser = configparser.ConfigParser()
-        self.gmr_config.read(Path('cfg/gmr_characteristics.ini'))
+        gmr_config: configparser.ConfigParser = configparser.ConfigParser()
+        gmr_config.read(Path('cfg/gmr_characteristics.ini'))
         self.coeffs: list = [1.442, -1.26e-6, 0.0, 0.0, 0.0]
-        if self.gmr_config.has_section('COEFFICIENTS'):
+        if gmr_config.has_section('COEFFICIENTS'):
             self.coeffs = [
-                float(self.gmr_config['COEFFICIENTS'].get('q0', '1.442')),
-                float(self.gmr_config['COEFFICIENTS'].get('q1', '-1.26e-6')),
-                float(self.gmr_config['COEFFICIENTS'].get('q2', '0.0')),
-                float(self.gmr_config['COEFFICIENTS'].get('q3', '0.0')),
-                float(self.gmr_config['COEFFICIENTS'].get('q4', '0.0'))
+                float(gmr_config['COEFFICIENTS'].get('q0', '1.442')),
+                float(gmr_config['COEFFICIENTS'].get('q1', '-1.26e-6')),
+                float(gmr_config['COEFFICIENTS'].get('q2', '0.0')),
+                float(gmr_config['COEFFICIENTS'].get('q3', '0.0')),
+                float(gmr_config['COEFFICIENTS'].get('q4', '0.0'))
             ]
 
     @classmethod
