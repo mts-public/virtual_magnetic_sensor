@@ -50,6 +50,24 @@ class DataHandler:
 
         return cls([SimParams.template()])
 
+    def deploy_dict(self, dictionary: Dict[str, any]):
+        """Deploy the information stored in a dictionary to the objects list.
+
+        :param dictionary: Dictionary storing the simulation objects.
+        :type: Dict[str, any]
+        """
+
+        self.objects.clear()
+        for key in dictionary:
+            if key[-1].isnumeric():
+                num = key.lstrip(string.ascii_letters+string.punctuation)
+                key = key.rstrip(string.digits+string.punctuation)
+            else:
+                num = ''
+            if key in globals():
+                if hasattr(globals()[key], 'from_dict'):
+                    self.objects.append(globals()[key].from_dict(dictionary[key+num]))
+
     def load_h5(self, path: Path) -> None:
         """Method changes the object list based on data from a HDF5 file.
 
@@ -86,17 +104,7 @@ class DataHandler:
         except FileNotFoundError:
             data_dict = dict()
 
-        self.objects.clear()
-
-        for key in data_dict:
-            if key[-1].isnumeric():
-                num = key.lstrip(string.ascii_letters+string.punctuation)
-                key = key.rstrip(string.digits+string.punctuation)
-            else:
-                num = ''
-            if key in globals():
-                if hasattr(globals()[key], 'from_dict'):
-                    self.objects.append(globals()[key].from_dict(data_dict[key+num]))
+        self.deploy_dict(data_dict)
 
         if self.sim_params() is None:
             self.objects.append(SimParams.template())
@@ -121,21 +129,17 @@ class DataHandler:
         except FileNotFoundError:
             pass
 
-        self.objects.clear()
-
         data_stack: List[DataHandler] = list()
         series = None
         size = None
 
+        self.deploy_dict(setup.__dict__)
+        for obj in self.objects:
+            if hasattr(obj, 'convert_to_si'):
+                obj.convert_to_si()
+
         for key, value in setup.__dict__.items():
-            if key[-1].isnumeric():
-                key = key.rstrip(string.digits+string.punctuation)
-            if key in globals():
-                if hasattr(globals()[key], "from_dict"):
-                    self.objects.append(globals()[key].from_dict(value))
-                    if hasattr(self.objects[-1], "convert_to_si"):
-                        self.objects[-1].convert_to_si()
-            elif key.lower() == "series":
+            if key.lower() == "series":
                 series = value
                 size = len(list(list(series.values())[0].values())[0])
 
@@ -182,16 +186,10 @@ class DataHandler:
         str_dict = {section: dict(file.items(section)) for section in file.sections()}
         data_dict = DataHandler.convert_dict(str_dict)
 
-        self.objects.clear()
-
-        for key, value in data_dict.items():
-            if key[-1].isnumeric():
-                key = key.rstrip(string.digits+string.punctuation)
-            if key in globals():
-                if hasattr(globals()[key], "from_dict"):
-                    self.objects.append(globals()[key].from_dict(value))
-                    if hasattr(self.objects[-1], "convert_to_si"):
-                        self.objects[-1].convert_to_si()
+        self.deploy_dict(data_dict)
+        for obj in self.objects:
+            if hasattr(obj, 'convert_to_si'):
+                obj.convert_to_si()
 
         if self.sim_params() is None:
             self.objects.append(SimParams.template())
