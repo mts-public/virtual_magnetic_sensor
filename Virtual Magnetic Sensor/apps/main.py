@@ -13,11 +13,11 @@ from libs.simulation.SimulationHandler import SimulationHandler
 class MultiprocessingTasks:
 
     @staticmethod
-    def run_work(*args) -> None:
+    def run_process(*args) -> None:
         SimulationHandler.run_process(*args)
 
     @staticmethod
-    def draw_work(*args) -> None:
+    def draw_process(*args) -> None:
         SimulationHandler.draw_process(*args)
 
 
