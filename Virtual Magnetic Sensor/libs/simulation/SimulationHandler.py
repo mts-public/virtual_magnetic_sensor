@@ -23,7 +23,7 @@ class SimulationHandler:
         pass
 
     @staticmethod
-    def run_work(data_handler: DataHandler, max_memory: float, shared_list: Manager, queue: Queue) -> None:
+    def run_process(data_handler: DataHandler, max_memory: float, shared_list: Manager, queue: Queue) -> None:
 
         n = queue.get()
 
@@ -53,8 +53,8 @@ class SimulationHandler:
         queue.put(n)
 
     @staticmethod
-    def run_task(multiprocessing_tasks, data_stack: List[DataHandler],
-                 config_handler: ConfigHandler, gui_handler: GUIHandler, idx: Union[int, None] = None) -> None:
+    def run_thread(multiprocessing_tasks, data_stack: List[DataHandler],
+                   config_handler: ConfigHandler, gui_handler: GUIHandler, idx: Union[int, None] = None) -> None:
 
         if idx:
             sim_stack = [data_stack[idx]]
@@ -81,7 +81,7 @@ class SimulationHandler:
                     queue = Queue()
                     queue.put(n)
                     shared_list = manager.list()
-                    process = Process(target=multiprocessing_tasks.run_work,
+                    process = Process(target=multiprocessing_tasks.run_process,
                                       args=(data_handler, config_handler.config['GENERAL']['max_process_memory'],
                                             shared_list, queue))
                     process.start()
@@ -114,13 +114,13 @@ class SimulationHandler:
         """Method updates the data handler with the entries in the gui and performs the simulation"""
 
         if data_stack:
-            thread_pool_executor.submit(SimulationHandler.run_task, multiprocessing_tasks,
+            thread_pool_executor.submit(SimulationHandler.run_thread, multiprocessing_tasks,
                                         data_stack, config_handler, gui_handler, idx)
         else:
             showerror(title="Error", message="No data to run.")
 
     @staticmethod
-    def draw_work(data_handler: DataHandler):
+    def draw_process(data_handler: DataHandler):
 
         import netgen.gui
 
@@ -132,7 +132,7 @@ class SimulationHandler:
         netgen.gui.win.mainloop()
 
     @staticmethod
-    def draw_task(multiprocessing_tasks, data_stack: List[DataHandler], gui_handler: GUIHandler, idx: int) -> None:
+    def draw_thread(multiprocessing_tasks, data_stack: List[DataHandler], gui_handler: GUIHandler, idx: int) -> None:
         """Method updates the data handler with the entries in the gui, performs a simulation of the frame at t0 and
             draws the result in the netgen gui"""
 
@@ -144,7 +144,7 @@ class SimulationHandler:
         for component in data_handler.components():
             component.update(data_handler.sim_params().t0)
 
-        process = Process(target=multiprocessing_tasks.draw_work, args=(data_handler,))
+        process = Process(target=multiprocessing_tasks.draw_process, args=(data_handler,))
         process.start()
         process.join()
 
@@ -154,7 +154,7 @@ class SimulationHandler:
     def draw(multiprocessing_tasks, data_stack: List[DataHandler],
              gui_handler: GUIHandler, idx: int):
         if data_stack:
-            thread_pool_executor.submit(SimulationHandler.draw_task, multiprocessing_tasks,
+            thread_pool_executor.submit(SimulationHandler.draw_thread, multiprocessing_tasks,
                                         data_stack, gui_handler, idx)
         else:
             showerror(title="Error", message="No data to draw.")

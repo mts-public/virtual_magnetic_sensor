@@ -14,11 +14,11 @@ class MultiprocessingTasks:
 
     @staticmethod
     def run_work(*args) -> None:
-        SimulationHandler.run_work(*args)
+        SimulationHandler.run_process(*args)
 
     @staticmethod
     def draw_work(*args) -> None:
-        SimulationHandler.draw_work(*args)
+        SimulationHandler.draw_process(*args)
 
 
 if __name__ == '__main__':
