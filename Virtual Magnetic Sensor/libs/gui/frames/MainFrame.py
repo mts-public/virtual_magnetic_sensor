@@ -30,6 +30,7 @@ class MainFrame(tk.Tk):
         self.config_handler = ConfigHandler()
 
         super().__init__()
+        self.focus_force()
         self.title("Virtual Magnetic Sensor")
         Gui.init_style(self, self.config_handler.config)
         self.gui_handler = GUIHandler(self, self.bindings_enable, self.bindings_disable)
