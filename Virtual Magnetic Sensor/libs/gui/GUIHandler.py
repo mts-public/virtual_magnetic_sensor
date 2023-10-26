@@ -49,10 +49,16 @@ class GUIHandler:
             else:
                 return
 
-        if idx < len(data_stack):
+        if idx < len(data_stack) and idx < len(self.tabs):
             self.notebook.forget(idx)
             data_stack.pop(idx)
             self.tabs.pop(idx)
+
+    def close_all_tabs(self, data_stack: List[DataHandler]):
+        for num, _ in reversed(list(enumerate(self.tabs))):
+            self.notebook.forget(num)
+        data_stack.clear()
+        self.tabs.clear()
 
     def selected_tab(self) -> int:
         try:
