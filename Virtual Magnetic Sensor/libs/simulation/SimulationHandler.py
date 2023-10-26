@@ -110,14 +110,15 @@ class SimulationHandler:
 
     @staticmethod
     def run(multiprocessing_tasks, data_stack: List[DataHandler], config_handler: ConfigHandler,
-            gui_handler: GUIHandler, idx: Union[int, None] = None):
+            gui_handler: GUIHandler, idx: Union[int, None] = None) -> Union[None, futures.Future]:
         """Method updates the data handler with the entries in the gui and performs the simulation"""
 
         if data_stack:
-            thread_pool_executor.submit(SimulationHandler.run_thread, multiprocessing_tasks,
-                                        data_stack, config_handler, gui_handler, idx)
+            return thread_pool_executor.submit(SimulationHandler.run_thread, multiprocessing_tasks,
+                                               data_stack, config_handler, gui_handler, idx)
         else:
             showerror(title="Error", message="No data to run.")
+            return
 
     @staticmethod
     def draw_process(data_handler: DataHandler):
@@ -152,10 +153,10 @@ class SimulationHandler:
 
     @staticmethod
     def draw(multiprocessing_tasks, data_stack: List[DataHandler],
-             gui_handler: GUIHandler, idx: int):
+             gui_handler: GUIHandler, idx: int) -> Union[None, futures.Future]:
         if data_stack:
-            thread_pool_executor.submit(SimulationHandler.draw_thread, multiprocessing_tasks,
-                                        data_stack, gui_handler, idx)
+            return thread_pool_executor.submit(SimulationHandler.draw_thread, multiprocessing_tasks,
+                                               data_stack, gui_handler, idx)
         else:
             showerror(title="Error", message="No data to draw.")
-
+            return
