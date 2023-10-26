@@ -22,7 +22,8 @@ class MainFrame(tk.Tk):
     gui_handler: GUIHandler
 
     def __init__(self,
-                 multiprocessing_tasks) -> None:
+                 multiprocessing_tasks,
+                 test_flag: int = 0) -> None:
         self.multiprocessing_tasks = multiprocessing_tasks
 
         screen_width, screen_height = Gui.screen_size()
@@ -49,7 +50,8 @@ class MainFrame(tk.Tk):
 
         self.bindings_enable()
 
-        self.mainloop()
+        if not test_flag:
+            self.mainloop()
 
     def bindings_enable(self):
         self.bind_all("<Alt-Insert>", lambda event: self.gui_handler.add_tab(DataHandler.template(),
