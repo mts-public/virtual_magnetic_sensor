@@ -53,6 +53,10 @@ class MenuBar(tk.Menu):
             command=lambda: gui_handler.close_tab(data_stack),
             accelerator="Strg+X"
         )
+        self.file_menu.add_cascade(
+            label='Close All',
+            command=lambda: gui_handler.close_all_tabs(data_stack)
+        )
         self.file_menu.add_separator()
         self.file_menu.add_command(
             label='Settings',
@@ -117,6 +121,7 @@ class MenuBar(tk.Menu):
         self.file_menu.entryconfig("Save as", state=tk.NORMAL)
         self.file_menu.entryconfig("Export", state=tk.NORMAL)
         self.file_menu.entryconfig("Close", state=tk.NORMAL)
+        self.file_menu.entryconfig("Close All", state=tk.NORMAL)
         self.file_menu.entryconfig("Settings", state=tk.NORMAL)
         self.sim_menu.entryconfig("Run", state=tk.NORMAL)
         self.sim_menu.entryconfig("Run All", state=tk.NORMAL)
@@ -132,6 +137,7 @@ class MenuBar(tk.Menu):
         self.file_menu.entryconfig("Export", state=tk.DISABLED)
         self.file_menu.entryconfig("Settings", state=tk.DISABLED)
         self.file_menu.entryconfig("Close", state=tk.DISABLED)
+        self.file_menu.entryconfig("Close All", state=tk.DISABLED)
         self.sim_menu.entryconfig("Run", state=tk.DISABLED)
         self.sim_menu.entryconfig("Run All", state=tk.DISABLED)
         self.sim_menu.entryconfig("Draw (Netgen)", state=tk.DISABLED)
