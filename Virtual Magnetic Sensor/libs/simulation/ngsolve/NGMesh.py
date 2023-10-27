@@ -99,6 +99,9 @@ class NGMesh:
                     if rotated_badness < self.mesh_badness * 1.1 and \
                             obj.omega * t < obj.omega * self.init_mesh_t + obj.rotate_mesh_max_angle:
                         rebuild_mesh = False
+            elif type(obj).__name__ == "GearRack":
+                rebuild_mesh = True
+                break
 
         if rebuild_mesh:
             print("-------> Rebuild Mesh")
