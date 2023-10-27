@@ -283,7 +283,7 @@ class DataHandler:
                     else:
                         string_arrays = value.split('][')
                     for array in string_arrays:
-                        numpy_arrays.append(np.fromstring(array.strip('[]'), sep=' '))
+                        numpy_arrays.append(np.fromstring(array.strip().strip('[]'), sep=' '))
                     converted_dict[key] = np.squeeze([array for array in numpy_arrays])
                 else:
                     converted_dict[key] = value
