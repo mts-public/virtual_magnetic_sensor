@@ -144,26 +144,26 @@ def compare_data_handler(data_handler_1: DataHandler, data_handler_2: DataHandle
 
 def test_load_h5():
     # v1.0.0
-    data_handler110 = DataHandler()
-    data_handler110.load_h5(Path('resources/save_files/1.0.0/100.hdf5'))
+    data_handler100 = DataHandler()
+    data_handler100.load_h5(Path('resources/save_files/1.0.0/100.hdf5'))
 
-    assert compare_data_handler(data_handler110, template())
+    assert compare_data_handler(data_handler100, template())
 
 
 def test_load_ini():
     # v1.0.0
-    data_handler110 = DataHandler()
-    data_handler110.load_ini(Path('resources/save_files/1.0.0/100.ini'))
+    data_handler100 = DataHandler()
+    data_handler100.load_ini(Path('resources/save_files/1.0.0/100.ini'))
 
-    assert compare_data_handler(data_handler110, template())
+    assert compare_data_handler(data_handler100, template())
 
 
 def test_load_py():
     # v1.0.0
-    data_handler110 = DataHandler()
-    data_handler110.load_py(Path('resources/save_files/1.0.0/100.py'))
+    data_handler100 = DataHandler()
+    data_handler100.load_py(Path('resources/save_files/1.0.0/100.py'))
 
-    assert compare_data_handler(data_handler110, template())
+    assert compare_data_handler(data_handler100, template())
 
 
 def test_load_series():
