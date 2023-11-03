@@ -31,21 +31,18 @@ class FieldRecorder:
                  boundaries: np.ndarray,
                  samples: np.ndarray,
                  maxh: float,
-                 field: List[np.ndarray] = list(),
-                 x: np.ndarray = None,
-                 y: np.ndarray = None,
-                 z: np.ndarray = None,
-                 X: np.ndarray = None,
-                 Y: np.ndarray = None,
-                 Z: np.ndarray = None,
-                 h: np.ndarray = None) -> None:
+                 **kwargs) -> None:
         """Constructor method."""
 
         self.field_specifier = field_specifier
         self.boundaries = boundaries
         self.samples = samples
         self.maxh = maxh
-        self.field = field
+
+        if 'field' in kwargs:
+            self.field = kwargs['field']
+        else:
+            self.field = list()
 
         self.h = np.zeros(3)
 
@@ -135,7 +132,7 @@ class FieldRecorder:
     def reset(self):
         """Calls the init method with the actual class attributes."""
 
-        self.__init__(self.field_specifier, self.boundaries, self.samples, self.maxh, list())
+        self.__init__(self.field_specifier, self.boundaries, self.samples, self.maxh)
 
     def convert_to_si(self) -> None:
         """Calls the init method and converts the parameters from gui units to SI units."""

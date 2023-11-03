@@ -104,10 +104,7 @@ class GMRSensor(Sensor):
                  gmr_sampling: int,
                  sensor_sampling: int,
                  maxh: float,
-                 resistance: List[np.ndarray] = None,
-                 u_sin: List[float] = None,
-                 u_cos: List[float] = None,
-                 h_sensor: List[np.ndarray] = None) -> None:
+                 **kwargs) -> None:
         """Constructor method."""
 
         super().__init__(pos, maxh)
@@ -120,30 +117,26 @@ class GMRSensor(Sensor):
         self.gmr_length = gmr_length
         self.gmr_sampling = gmr_sampling
         self.sensor_sampling = sensor_sampling
-        self.resistance = resistance
-        self.u_sin = u_sin
-        self.u_cos = u_cos
-        self.resistance = resistance
-        self.u_sin = u_sin
-        self.u_cos = u_cos
-        self.h_sensor = h_sensor
 
-        if resistance is None:
+        if 'resistance' in kwargs:
+            self.resistance = kwargs['resistance']
+        else:
             self.resistance = list()
+
+        if 'u_sin' in kwargs:
+            self.u_sin = kwargs['u_sin']
         else:
-            self.resistance = resistance
-        if u_sin is None:
             self.u_sin = list()
+
+        if 'u_cos' in kwargs:
+            self.u_cos = kwargs['u_cos']
         else:
-            self.u_sin = u_sin
-        if u_cos is None:
             self.u_cos = list()
+
+        if 'h_sensor' in kwargs:
+            self.h_sensor = kwargs['h_sensor']
         else:
-            self.u_cos = u_cos
-        if h_sensor is None:
             self.h_sensor = list()
-        else:
-            self.h_sensor = h_sensor
 
         self.width = (self.gmr_offset[-1] - self.gmr_offset[0]) + self.gmr_length
         self.dim = np.array([self.width, self.depth, self.height])
@@ -251,7 +244,7 @@ class GMRSensor(Sensor):
         """Calls the init method with the actual class attributes."""
 
         self.__init__(self.pos, self.rot, self.depth, self.height, self.current, self.gmr_offset, self.gmr_length,
-                      self.gmr_sampling, self.sensor_sampling, self.maxh, list(), list(), list(), list())
+                      self.gmr_sampling, self.sensor_sampling, self.maxh)
 
     def convert_to_si(self) -> None:
         """Calls the init method and converts the parameters from gui units to SI units."""

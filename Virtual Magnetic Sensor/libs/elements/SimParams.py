@@ -41,8 +41,7 @@ class SimParams:
                  maxh_global: float,
                  tol: float,
                  maxit: int,
-                 t: np.ndarray = None,
-                 dt: float = None) -> None:
+                 **kwargs) -> None:
         """Constructor method."""
 
         self.boundaries = boundaries
@@ -53,15 +52,8 @@ class SimParams:
         self.tol = tol
         self.maxit = maxit
 
-        if t is None:
-            self.t = np.linspace(self.t0, self.t1, samples)
-        else:
-            self.t = t
-
-        if samples > 1:
-            self.dt = (t1 - t0) / (samples - 1)
-        else:
-            self.dt = 0.0
+        self.t = np.linspace(self.t0, self.t1, samples)
+        self.dt = (t1 - t0) / (samples - 1)
 
     @classmethod
     def template(cls):
