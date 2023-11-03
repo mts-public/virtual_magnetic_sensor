@@ -102,8 +102,6 @@ class SimParams:
         """
 
         dictionary: Dict[str, any] = vars(self).copy()
-        dictionary.pop('t')
-        dictionary.pop('dt')
 
         return dictionary
 
