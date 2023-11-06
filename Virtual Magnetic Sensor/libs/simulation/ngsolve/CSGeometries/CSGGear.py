@@ -112,7 +112,10 @@ class CSGGear:
                         [cos(phi - self.gear.chamfer_angle), sin(phi - self.gear.chamfer_angle), 0.0])))
                     right_chamfer = csg.Plane(right_chamfer_support, right_chamfer_normal)
 
-                    tooth = top * front * back * left_flank * right_flank * left_chamfer * right_chamfer * bottom
+                    if np.isclose(self.gear.chamfer_depth, 0.0):
+                        tooth = top * front * back * left_flank * right_flank * bottom
+                    else:
+                        tooth = top * front * back * left_flank * right_flank * left_chamfer * right_chamfer * bottom
 
                     body += tooth
 
