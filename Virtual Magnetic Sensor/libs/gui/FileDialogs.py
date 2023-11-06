@@ -48,7 +48,7 @@ class FileDialogs:
                 new_stack: List[DataHandler] = data_stack[idx].load_py(filepath)
                 gui_handler.close_tab(data_stack, idx)
                 for num, data_handler in enumerate(new_stack):
-                    gui_handler.add_tab(data_handler, data_stack, config_handler, filepath.stem+str(num))
+                    gui_handler.add_tab(data_handler, data_stack, config_handler, filepath.stem+str(num).zfill(2))
             else:
                 showerror(title="Error", message="Filetype not supported.")
 
