@@ -56,7 +56,7 @@ class SimulationHandler:
     def run_thread(multiprocessing_tasks, data_stack: List[DataHandler],
                    config_handler: ConfigHandler, gui_handler: GUIHandler, idx: Union[int, None] = None) -> None:
 
-        if idx:
+        if idx is not None:
             sim_stack = [data_stack[idx]]
             sim_tabs = [gui_handler.tabs[idx]]
         else:
