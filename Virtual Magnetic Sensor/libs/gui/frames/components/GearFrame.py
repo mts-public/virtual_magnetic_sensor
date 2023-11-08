@@ -25,7 +25,7 @@ class GearFrame(ObjectFrame):
                          gui_handler=gui_handler, remove=remove_gear)
 
         self.entries['pos'] = Gui.vector3_input(master=self, config=config_handler.config,
-                                                head_label="Center x", col=0,
+                                                head_label="Center x in mm", col=0,
                                                 row=0, column_span=3, entry_labels=["x: ", "y: ", "z: "])
 
         self.entries['axis_0'] = Gui.vector3_input(master=self, config=config_handler.config,
@@ -47,7 +47,7 @@ class GearFrame(ObjectFrame):
         self.entries['eccentricity'] = Gui.input_line(master=self.body_frame, config=config_handler.config, col=0, row=3,
                                                       label="Eccentricity e :", unit="µm", col_shift=1)
         self.entries['wobble_angle'] = Gui.input_line(master=self.body_frame, config=config_handler.config, col=0, row=4,
-                                                      label=u'Wobble Angle \u03D5:', unit="Deg", col_shift=1)
+                                                      label=u'Wobble Angle \u03D5:', unit="°", col_shift=1)
 
         self.teeth_frame = Gui.label_frame(master=self, config=config_handler.config, col=0, row=3,
                                            column_span=3, row_span=1, label="Gear Teeth")
@@ -59,13 +59,13 @@ class GearFrame(ObjectFrame):
                                                      col=0, row=2, label=u'Tooth Width s\u209A:', unit="mm")
         self.entries['tooth_flank_angle'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config, col=0,
                                                            row=3,
-                                                           label=u'Tooth Flank Angle α\u209A:', unit="Deg")
+                                                           label=u'Tooth Flank Angle α\u209A:', unit="°")
         self.entries['chamfer_depth'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config, col=0,
                                                        row=4,
                                                        label="Chamfer Depth t:", unit="µm")
         self.entries['chamfer_angle'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config, col=0,
                                                        row=5,
-                                                       label=u'Chamfer Angle \u0398:', unit="Deg")
+                                                       label=u'Chamfer Angle \u0398:', unit="°")
 
         self.sim_params_frame = Gui.label_frame(master=self, config=config_handler.config, col=0, row=4,
                                                 column_span=3, row_span=1, label="Simulation Parameters")
@@ -75,13 +75,13 @@ class GearFrame(ObjectFrame):
                                               label="Max Mesh Size:", unit="mm", col_shift=1)
         self.entries['display_teeth_angle'] = Gui.vector2_input(master=self.sim_params_frame,
                                                                 config=config_handler.config, col=0, row=2,
-                                                                width=10, label="Tooth Calculation Angle:", unit="Deg")
+                                                                width=10, label="Tooth Calculation Angle:", unit="°")
         self.entries['rotate_mesh'] = Gui.check_box(master=self.sim_params_frame, config=config_handler.config, col=0,
                                                     row=3,
                                                     label="Rotate Gear Mesh")
         self.entries['rotate_mesh_max_angle'] = Gui.input_line(master=self.sim_params_frame,
                                                                config=config_handler.config, col=0, row=4,
-                                                               unit="Deg", label="Max Mesh Rotation Angle:",
+                                                               unit="°", label="Max Mesh Rotation Angle:",
                                                                col_shift=1)
 
         self.tooth_button = ttk.Button(master=self.button_frame, text="Tooth Defects", width=15,

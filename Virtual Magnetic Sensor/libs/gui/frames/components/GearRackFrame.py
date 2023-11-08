@@ -24,10 +24,10 @@ class GearRackFrame(ObjectFrame):
                          gui_handler=gui_handler, remove=remove_gear_rack)
 
         self.entries['pos'] = Gui.vector3_input(master=self, config=config_handler.config,
-                                                head_label="Center x",
+                                                head_label="Center x in mm",
                                                 col=0, row=0, column_span=3, entry_labels=["x: ", "y: ", "z: "])
         self.entries['rot'] = Gui.vector3_input(master=self, config=config_handler.config,
-                                                head_label="Rotation θ (Deg)", col=0, row=1, column_span=3,
+                                                head_label="Rotation θ in °", col=0, row=1, column_span=3,
                                                 entry_labels=["x:", "y:", "z:"])
 
         self.body_frame = Gui.label_frame(master=self, config=config_handler.config, col=0, row=2,
@@ -35,7 +35,7 @@ class GearRackFrame(ObjectFrame):
                                           row_span=1, label="Gear Rack Body")
 
         self.entries['dim'] = Gui.vector3_input(master=self.body_frame, config=config_handler.config,
-                                                head_label="Size b", col=0, row=0, column_span=4,
+                                                head_label="Size b in mm", col=0, row=0, column_span=4,
                                                 entry_labels=["x: ", "y: ", "z: "])
         self.entries['mu_r'] = Gui.input_line(master=self.body_frame, config=config_handler.config, col=0, row=1,
                                               label=u'Relative Permeability µ\u1D63:', col_shift=0)
@@ -51,7 +51,7 @@ class GearRackFrame(ObjectFrame):
                                                      col=0, row=2, label=u'Pitch p:', unit="mm")
         self.entries['tooth_flank_angle'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config, col=0,
                                                            row=3,
-                                                           label=u'Tooth Flank Angle α\u209A:', unit="Deg")
+                                                           label=u'Tooth Flank Angle α\u209A:', unit="°")
         # Not fully implemented yet
         """self.entries['chamfer_depth'] = Gui.input_line(master=self.teeth_frame, config=data_handler.config,
                                                        col=0, row=4, label="Chamfer Depth t:", unit="µm")
@@ -67,7 +67,7 @@ class GearRackFrame(ObjectFrame):
                                                 column_span=3, row_span=1, label="Simulation Parameters")
 
         self.entries['velocity'] = Gui.vector3_input(master=self.sim_params_frame, config=config_handler.config,
-                                                     head_label="Velocity in mm/s", col=0, row=0, column_span=4,
+                                                     head_label="Velocity v in mm/s", col=0, row=0, column_span=4,
                                                      entry_labels=["x: ", "y: ", "z: "])
         self.entries['maxh'] = Gui.input_line(master=self.sim_params_frame, config=config_handler.config, col=0, row=1,
                                               label="Max Mesh Size:", unit="mm", col_shift=1)

@@ -28,11 +28,11 @@ class GMRSensorFrame(ObjectFrame):
                          gui_handler=gui_handler, remove=remove_sensor)
 
         self.entries['pos'] = Gui.vector3_input(master=self, config=config_handler.config,
-                                                head_label="Center x", col=0, row=0, column_span=3,
+                                                head_label="Center x in mm", col=0, row=0, column_span=3,
                                                 entry_labels=["x: ", "y: ", "z: "])
 
         self.entries['rot'] = Gui.vector3_input(master=self, config=config_handler.config,
-                                                head_label="Rotation θ (Deg)", col=0, row=1, column_span=3,
+                                                head_label="Rotation θ in °", col=0, row=1, column_span=3,
                                                 entry_labels=["x:", "y:", "z:"])
 
         self.menu_var = Gui.dropdown_menu(master=self, config=config_handler.config, col=0, row=2,

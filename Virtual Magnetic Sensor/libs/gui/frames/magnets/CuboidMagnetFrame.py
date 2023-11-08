@@ -22,13 +22,13 @@ class CuboidMagnetFrame(ObjectFrame):
                          gui_handler=gui_handler, remove=remove_magnet)
 
         self.entries['pos'] = Gui.vector3_input(master=self, config=config_handler.config,
-                                                head_label="Center x",
+                                                head_label="Center x in mm",
                                                 col=0, row=0, column_span=3, entry_labels=["x:", "y:", "z:"])
         self.entries['dim'] = Gui.vector3_input(master=self, config=config_handler.config,
-                                                head_label="Size b", col=0, row=1, column_span=3,
+                                                head_label="Size b in mm", col=0, row=1, column_span=3,
                                                 entry_labels=["x:", "y:", "z:"])
         self.entries['rot'] = Gui.vector3_input(master=self, config=config_handler.config,
-                                                head_label="Rotation θ (Deg)", col=0, row=2, column_span=3,
+                                                head_label="Rotation θ in °", col=0, row=2, column_span=3,
                                                 entry_labels=["x:", "y:", "z:"])
         self.entries['direction'] = Gui.vector3_input(master=self, config=config_handler.config,
                                                       head_label="Magnetisation Direction n\u2098", col=0, row=3,

@@ -22,7 +22,7 @@ class RodMagnetFrame(ObjectFrame):
                          config_handler=config_handler, remove=remove_magnet)
 
         self.entries['pos'] = Gui.vector3_input(master=self, config=config_handler.config,
-                                                head_label="Center x",
+                                                head_label="Center x in mm",
                                                 col=0, row=0, column_span=3, entry_labels=["x:", "y:", "z:"])
         self.entries['axis'] = Gui.vector3_input(master=self, config=config_handler.config,
                                                  head_label="Axis a",

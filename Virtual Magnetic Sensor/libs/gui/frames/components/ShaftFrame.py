@@ -22,7 +22,7 @@ class ShaftFrame(ObjectFrame):
                          gui_handler=gui_handler, remove=remove_shaft)
 
         self.entries['pos'] = Gui.vector3_input(master=self, config=config_handler.config,
-                                                head_label="Center x", col=0,
+                                                head_label="Center x in mm", col=0,
                                                 row=0, column_span=4, entry_labels=["x: ", "y: ", "z: "])
 
         self.entries['axis'] = Gui.vector3_input(master=self, config=config_handler.config,
