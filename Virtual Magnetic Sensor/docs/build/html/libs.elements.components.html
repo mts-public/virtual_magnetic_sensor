@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>libs.elements.components package &mdash; Virtual Magnetic Sensor 04.10.2023 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="libs.elements.magnets package" href="libs.elements.magnets.html" />
+    <link rel="prev" title="libs.elements package" href="libs.elements.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Virtual Magnetic Sensor
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">libs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="libs.html">libs package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="libs.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="libs.elements.html">libs.elements package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html">libs.gui package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.html">libs.simulation package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="libs.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="libs.html#module-libs.ConfigHandler">libs.ConfigHandler module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="libs.html#module-libs.DataHandler">libs.DataHandler module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="libs.html#module-libs">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Virtual Magnetic Sensor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">libs</a></li>
+          <li class="breadcrumb-item"><a href="libs.html">libs package</a></li>
+          <li class="breadcrumb-item"><a href="libs.elements.html">libs.elements package</a></li>
+      <li class="breadcrumb-item active">libs.elements.components package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/libs.elements.components.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="libs-elements-components-package">
+<h1>libs.elements.components package<a class="headerlink" href="#libs-elements-components-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-libs.elements.components.Gear">
+<span id="libs-elements-components-gear-module"></span><h2>libs.elements.components.Gear module<a class="headerlink" href="#module-libs.elements.components.Gear" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.components.Gear.</span></span><span class="sig-name descname"><span class="pre">Gear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tooth_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tooth_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_teeth_angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tooth_flank_angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu_r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eccentricity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wobble_angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chamfer_depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chamfer_angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dev_tooth_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tooth_deviations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate_mesh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate_mesh_max_angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.components.Gear.Gear" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="libs.elements.html#libs.elements.Component.Component" title="libs.elements.Component.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></p>
+<p>Contains all the parameters to describe the position, rotation, shape and movement of the gear in the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pos</strong> (<em>numpy.ndarray</em>) – Position of the gear in the 3D space.</p></li>
+<li><p><strong>axis_0</strong> (<em>numpy.ndarray</em>) – The direction of the rotation axis of the gear without wobbling.</p></li>
+<li><p><strong>omega</strong> (<em>float</em>) – Angular velocity of the gear.</p></li>
+<li><p><strong>diameter</strong> (<em>float</em>) – Inner and outer diameter of the gear.</p></li>
+<li><p><strong>length</strong> (<em>float</em>) – Length of the gear.</p></li>
+<li><p><strong>tooth_height</strong> (<em>float</em>) – Tooth height.</p></li>
+<li><p><strong>tooth_width</strong> (<em>float</em>) – Tooth width.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Total number of teeth.</p></li>
+<li><p><strong>display_teeth_angle</strong> (<em>np.ndarray</em>) – Opening angle related to the sensors position in which the gear teeth are drawn.</p></li>
+<li><p><strong>tooth_flank_angle</strong> (<em>float</em>) – Tooth flank angle in radians.</p></li>
+<li><p><strong>mu_r</strong> (<em>float</em>) – Permeability of the gear.</p></li>
+<li><p><strong>eccentricity</strong> (<em>float</em>) – Rotation eccentricity of the gear.</p></li>
+<li><p><strong>wobble_angle</strong> (<em>float</em>) – Wobble angle around the rotation axis in radians.</p></li>
+<li><p><strong>chamfer_depth</strong> (<em>float</em>) – Extension of the phase along the phases normal.</p></li>
+<li><p><strong>chamfer_angle</strong> (<em>float</em>) – Angle of the chamfer based on the flanks.</p></li>
+<li><p><strong>dev_tooth_num</strong> (<em>int</em>) – Number of the tooth with deviating geometry.</p></li>
+<li><p><strong>tooth_deviations</strong> (<em>numpy.ndarray</em>) – Array containing the tooth deviations specified by n_dev. The first entry describes the deviation of the
+left flank, the middle entry the top deviation and the last entry describes the deviation of the right flank.</p></li>
+<li><p><strong>maxh</strong> (<em>float</em>) – Mesh size of the gear.</p></li>
+<li><p><strong>rotate_mesh</strong> (<em>bool</em>) – Specifies wether to use the rotated mesh approach or to build up the mesh at every time step
+from scratch for the specific gear.</p></li>
+<li><p><strong>rotate_mesh_max_angle</strong> (<em>float</em>) – Maximum permissible angle of rotation of the gear before the mesh is rebuilt.</p></li>
+<li><p><strong>theta</strong> (<em>float</em>) – Current rotation angle of the gear.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.axis_0">
+<span class="sig-name descname"><span class="pre">axis_0</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.axis_0" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.chamfer_angle">
+<span class="sig-name descname"><span class="pre">chamfer_angle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.chamfer_angle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.chamfer_depth">
+<span class="sig-name descname"><span class="pre">chamfer_depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.chamfer_depth" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.convert_to_si">
+<span class="sig-name descname"><span class="pre">convert_to_si</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.components.Gear.Gear.convert_to_si" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the init method and converts the parameters from gui units to SI units.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.dev_tooth_num">
+<span class="sig-name descname"><span class="pre">dev_tooth_num</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.dev_tooth_num" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.diameter">
+<span class="sig-name descname"><span class="pre">diameter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.diameter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.display_teeth_angle">
+<span class="sig-name descname"><span class="pre">display_teeth_angle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.display_teeth_angle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.eccentricity">
+<span class="sig-name descname"><span class="pre">eccentricity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.eccentricity" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.eccentricity_vector">
+<span class="sig-name descname"><span class="pre">eccentricity_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.components.Gear.Gear.eccentricity_vector" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method for calculation the eccentricity vector containing the position shift along the three coordinate</dt><dd><p>system axes due eccentricity.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>angle</strong> (<em>float</em>) – Gear rotation angle.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Eccentricity vector.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.components.Gear.Gear" title="libs.elements.components.Gear.Gear"><span class="pre">Gear</span></a></span></span><a class="headerlink" href="#libs.elements.components.Gear.Gear.from_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method to init an instance of the Gear class by passing a dictionary with the corresponding</dt><dd><p>arguments. Arguments that are in the dictionary and not in the class are ignored while arguments missing in
+the dictionary get initialised with the standard values defined in the template class method.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Instance of the Gear class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#libs.elements.components.Gear.Gear" title="libs.elements.components.Gear.Gear">Gear</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.gui">
+<span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.components.Gear.Gear" title="libs.elements.components.Gear.Gear"><span class="pre">Gear</span></a></span></span><a class="headerlink" href="#libs.elements.components.Gear.Gear.gui" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a copy of the class with attributes converted to units used in the gui.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.gui_dict">
+<span class="sig-name descname"><span class="pre">gui_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.components.Gear.Gear.gui_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
+opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary of the classes members.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.ini_dict">
+<span class="sig-name descname"><span class="pre">ini_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.components.Gear.Gear.ini_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
+opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary of the classes members.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.length">
+<span class="sig-name descname"><span class="pre">length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.length" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.maxh">
+<span class="sig-name descname"><span class="pre">maxh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.maxh" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.mu_r">
+<span class="sig-name descname"><span class="pre">mu_r</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.mu_r" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.n">
+<span class="sig-name descname"><span class="pre">n</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.n" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.omega">
+<span class="sig-name descname"><span class="pre">omega</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.omega" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.pos" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.position">
+<span class="sig-name descname"><span class="pre">position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.components.Gear.Gear.position" title="Permalink to this definition"></a></dt>
+<dd><p>Method to calculate the angle based center of the gear with eccentricity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>angle</strong> (<em>float</em>) – Gear rotation angle.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Gear position with eccentricity.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.components.Gear.Gear.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the init method with the actual class attributes.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.rotate_mesh">
+<span class="sig-name descname"><span class="pre">rotate_mesh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.rotate_mesh" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.rotate_mesh_max_angle">
+<span class="sig-name descname"><span class="pre">rotate_mesh_max_angle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.rotate_mesh_max_angle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.rotation_axis">
+<span class="sig-name descname"><span class="pre">rotation_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.components.Gear.Gear.rotation_axis" title="Permalink to this definition"></a></dt>
+<dd><p>Method to calculate the final rotation axis considering the wobble angle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>angle</strong> (<em>float</em>) – Gear rotation angle.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Final rotation axis including the wobble angle.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.rotation_matrix">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rotation_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.components.Gear.Gear.rotation_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Method to calculate the rotation matrix of the gear.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>angle</strong> (<em>float</em>) – Gear rotation angle.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rotation matrix of the gear.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.template">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.components.Gear.Gear" title="libs.elements.components.Gear.Gear"><span class="pre">Gear</span></a></span></span><a class="headerlink" href="#libs.elements.components.Gear.Gear.template" title="Permalink to this definition"></a></dt>
+<dd><p>Class method to init the class with a set of standard values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Object of the Gear class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#libs.elements.components.Gear.Gear" title="libs.elements.components.Gear.Gear">Gear</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.theta">
+<span class="sig-name descname"><span class="pre">theta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.theta" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.components.Gear.Gear.to_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
+opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary of the classes members.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.tooth_deviations">
+<span class="sig-name descname"><span class="pre">tooth_deviations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.tooth_deviations" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.tooth_flank_angle">
+<span class="sig-name descname"><span class="pre">tooth_flank_angle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.tooth_flank_angle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.tooth_height">
+<span class="sig-name descname"><span class="pre">tooth_height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.tooth_height" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.tooth_width">
+<span class="sig-name descname"><span class="pre">tooth_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.tooth_width" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.transformation_matrix">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transformation_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.components.Gear.Gear.transformation_matrix" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method for calculating the transformation matrix to transform the global coordinate system into the</dt><dd><p>body-fixed coordinate system, where the z-axis points in the direction of the rotation axis.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>axis</strong> (<em>numpy.ndarray</em>) – The rotation axis of the gear.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The transformation matrix.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.components.Gear.Gear.update" title="Permalink to this definition"></a></dt>
+<dd><p>Method to update the gear rotation angle theta for the next simulation step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>float</em>) – Current time stamp.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.wobble_angle">
+<span class="sig-name descname"><span class="pre">wobble_angle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Gear.Gear.wobble_angle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-libs.elements.components.GearRack">
+<span id="libs-elements-components-gearrack-module"></span><h2>libs.elements.components.GearRack module<a class="headerlink" href="#module-libs.elements.components.GearRack" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.components.GearRack.</span></span><span class="sig-name descname"><span class="pre">GearRack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tooth_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tooth_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tooth_pitch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tooth_flank_angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu_r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chamfer_depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chamfer_angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.components.GearRack.GearRack" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="libs.elements.html#libs.elements.Component.Component" title="libs.elements.Component.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></p>
+<p>Contains all the parameters to describe the position, rotation, shape and movement of the gear in the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pos</strong> (<em>np.ndarray</em>) – Position of the gear in the 3D space.</p></li>
+<li><p><strong>dim</strong> (<em>numpy.ndarray</em>) – Dimension of the gear rack body along the body-fixed coordinate axes.</p></li>
+<li><p><strong>rot</strong> (<em>numpy.ndarray</em>) – Rotation of the gear rack in the 3D space in radians.</p></li>
+<li><p><strong>velocity</strong> (<em>np.ndarray</em>) – Velocity of the gear rack along the global coordinate axes.</p></li>
+<li><p><strong>tooth_height</strong> (<em>float</em>) – Tooth height.</p></li>
+<li><p><strong>tooth_width</strong> (<em>float</em>) – Tooth width.</p></li>
+<li><p><strong>tooth_pitch</strong> (<em>float</em>) – Distance between two adjacent teeth.</p></li>
+<li><p><strong>tooth_flank_angle</strong> (<em>float</em>) – Tooth flank angle in radians.</p></li>
+<li><p><strong>mu_r</strong> (<em>float</em>) – Permeability of the gear.</p></li>
+<li><p><strong>chamfer_depth</strong> (<em>float</em>) – Extension of the phase along the phases normal.</p></li>
+<li><p><strong>chamfer_angle</strong> (<em>float</em>) – Angle of the chamfer based on the flanks.</p></li>
+<li><p><strong>maxh</strong> (<em>float</em>) – Mesh size of the gear.</p></li>
+<li><p><strong>pos</strong> – Current position of the gear rack.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.chamfer_angle">
+<span class="sig-name descname"><span class="pre">chamfer_angle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.chamfer_angle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.chamfer_depth">
+<span class="sig-name descname"><span class="pre">chamfer_depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.chamfer_depth" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.convert_to_si">
+<span class="sig-name descname"><span class="pre">convert_to_si</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.convert_to_si" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the init method and converts the parameters from gui units to SI units.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.dim">
+<span class="sig-name descname"><span class="pre">dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.dim" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.components.GearRack.GearRack" title="libs.elements.components.GearRack.GearRack"><span class="pre">GearRack</span></a></span></span><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.from_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method to init an instance of the Gear class by passing a dictionary with the corresponding</dt><dd><p>arguments. Arguments that are in the dictionary and not in the class are ignored while arguments missing in
+the dictionary get initialised with the standard values defined in the template class method.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Instance of the GearRack class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#libs.elements.components.GearRack.GearRack" title="libs.elements.components.GearRack.GearRack">GearRack</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.gui">
+<span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.components.GearRack.GearRack" title="libs.elements.components.GearRack.GearRack"><span class="pre">GearRack</span></a></span></span><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.gui" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a copy of the class with attributes converted to units used in the gui.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.gui_dict">
+<span class="sig-name descname"><span class="pre">gui_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.gui_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
+opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary of the classes members.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.maxh">
+<span class="sig-name descname"><span class="pre">maxh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.maxh" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.mu_r">
+<span class="sig-name descname"><span class="pre">mu_r</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.mu_r" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.pos" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.position">
+<span class="sig-name descname"><span class="pre">position</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.position" title="Permalink to this definition"></a></dt>
+<dd><p>Method to calculate the angle based center of the gear with eccentricity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Gear Rack position with eccentricity.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the init method with the actual class attributes.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.rot">
+<span class="sig-name descname"><span class="pre">rot</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.rot" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.template">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.components.GearRack.GearRack" title="libs.elements.components.GearRack.GearRack"><span class="pre">GearRack</span></a></span></span><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.template" title="Permalink to this definition"></a></dt>
+<dd><p>Class method to init the class with a set of standard values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Object of the GearRack class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#libs.elements.components.GearRack.GearRack" title="libs.elements.components.GearRack.GearRack">GearRack</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.to_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
+opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary of the classes members.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.tooth_flank_angle">
+<span class="sig-name descname"><span class="pre">tooth_flank_angle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.tooth_flank_angle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.tooth_height">
+<span class="sig-name descname"><span class="pre">tooth_height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.tooth_height" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.tooth_pitch">
+<span class="sig-name descname"><span class="pre">tooth_pitch</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.tooth_pitch" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.tooth_width">
+<span class="sig-name descname"><span class="pre">tooth_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.tooth_width" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.transformation_matrix">
+<span class="sig-name descname"><span class="pre">transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.transformation_matrix" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method for calculating the transformation matrix to transform the global coordinate system into the</dt><dd><p>body-fixed coordinate system.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The transformation matrix.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.update" title="Permalink to this definition"></a></dt>
+<dd><p>Method to update the gear rotation angle theta for the next simulation step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>float</em>) – Current time stamp.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.GearRack.GearRack.velocity">
+<span class="sig-name descname"><span class="pre">velocity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.components.GearRack.GearRack.velocity" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-libs.elements.components.Shaft">
+<span id="libs-elements-components-shaft-module"></span><h2>libs.elements.components.Shaft module<a class="headerlink" href="#module-libs.elements.components.Shaft" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="libs.elements.components.Shaft.Shaft">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.components.Shaft.</span></span><span class="sig-name descname"><span class="pre">Shaft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu_r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.components.Shaft.Shaft" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="libs.elements.html#libs.elements.Component.Component" title="libs.elements.Component.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></p>
+<p>Contains all the parameters to describe the position, rotation and shape of a shaft.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pos</strong> (<em>numpy.ndarray</em>) – Position of the shaft in the 3D space.</p></li>
+<li><p><strong>axis</strong> (<em>numpy.ndarray</em>) – The direction of the rotation axis of the shaft without wobbling.</p></li>
+<li><p><strong>diameter</strong> (<em>float</em>) – Inner and outer diameter of the shaft.</p></li>
+<li><p><strong>length</strong> (<em>float</em>) – Length of the shaft.</p></li>
+<li><p><strong>mu_r</strong> (<em>float</em>) – Permeability of the shaft.</p></li>
+<li><p><strong>maxh</strong> (<em>float</em>) – Mesh size of the shaft.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Shaft.Shaft.axis">
+<span class="sig-name descname"><span class="pre">axis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.components.Shaft.Shaft.axis" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Shaft.Shaft.convert_to_si">
+<span class="sig-name descname"><span class="pre">convert_to_si</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.components.Shaft.Shaft.convert_to_si" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the init method and converts the parameters from gui units to SI units.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Shaft.Shaft.diameter">
+<span class="sig-name descname"><span class="pre">diameter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.components.Shaft.Shaft.diameter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Shaft.Shaft.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.components.Shaft.Shaft" title="libs.elements.components.Shaft.Shaft"><span class="pre">Shaft</span></a></span></span><a class="headerlink" href="#libs.elements.components.Shaft.Shaft.from_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method to init an instance of the Gear class by passing a dictionary with the corresponding</dt><dd><p>arguments. Arguments that are in the dictionary and not in the class are ignored while arguments missing in
+the dictionary get initialised with the standard values defined in the template class method.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Instance of the Shaft class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#libs.elements.components.Shaft.Shaft" title="libs.elements.components.Shaft.Shaft">Shaft</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Shaft.Shaft.gui">
+<span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.components.Shaft.Shaft" title="libs.elements.components.Shaft.Shaft"><span class="pre">Shaft</span></a></span></span><a class="headerlink" href="#libs.elements.components.Shaft.Shaft.gui" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a copy of the class with attributes converted to units used in the gui.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Shaft.Shaft.gui_dict">
+<span class="sig-name descname"><span class="pre">gui_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.components.Shaft.Shaft.gui_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
+opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary of the classes members.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Shaft.Shaft.length">
+<span class="sig-name descname"><span class="pre">length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Shaft.Shaft.length" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Shaft.Shaft.maxh">
+<span class="sig-name descname"><span class="pre">maxh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Shaft.Shaft.maxh" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Shaft.Shaft.mu_r">
+<span class="sig-name descname"><span class="pre">mu_r</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.Shaft.Shaft.mu_r" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.Shaft.Shaft.pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.components.Shaft.Shaft.pos" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Shaft.Shaft.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.components.Shaft.Shaft.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the init method with the actual class attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Shaft.Shaft.template">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.components.Shaft.Shaft" title="libs.elements.components.Shaft.Shaft"><span class="pre">Shaft</span></a></span></span><a class="headerlink" href="#libs.elements.components.Shaft.Shaft.template" title="Permalink to this definition"></a></dt>
+<dd><p>Class method to init the class with a set of standard values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Object of the Shaft class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#libs.elements.components.Shaft.Shaft" title="libs.elements.components.Shaft.Shaft">Shaft</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Shaft.Shaft.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.components.Shaft.Shaft.to_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
+opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary of the classes members.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.Shaft.Shaft.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.components.Shaft.Shaft.update" title="Permalink to this definition"></a></dt>
+<dd><p>Stub</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-libs.elements.components">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-libs.elements.components" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="libs.elements.html" class="btn btn-neutral float-left" title="libs.elements package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="libs.elements.magnets.html" class="btn btn-neutral float-right" title="libs.elements.magnets package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Institute for Measurement and Sensor Technology, RPTU.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

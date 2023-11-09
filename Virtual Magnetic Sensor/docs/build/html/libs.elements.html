@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>libs.elements package &mdash; Virtual Magnetic Sensor 04.10.2023 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="libs.elements.components package" href="libs.elements.components.html" />
+    <link rel="prev" title="libs package" href="libs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Virtual Magnetic Sensor
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">libs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="libs.html">libs package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="libs.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">libs.elements package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html">libs.gui package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.html">libs.simulation package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="libs.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="libs.html#module-libs.ConfigHandler">libs.ConfigHandler module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="libs.html#module-libs.DataHandler">libs.DataHandler module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="libs.html#module-libs">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Virtual Magnetic Sensor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">libs</a></li>
+          <li class="breadcrumb-item"><a href="libs.html">libs package</a></li>
+      <li class="breadcrumb-item active">libs.elements package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/libs.elements.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="libs-elements-package">
+<h1>libs.elements package<a class="headerlink" href="#libs-elements-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="libs.elements.components.html">libs.elements.components package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.components.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.components.html#module-libs.elements.components.Gear">libs.elements.components.Gear module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear"><code class="docutils literal notranslate"><span class="pre">Gear</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.axis_0"><code class="docutils literal notranslate"><span class="pre">Gear.axis_0</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.chamfer_angle"><code class="docutils literal notranslate"><span class="pre">Gear.chamfer_angle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.chamfer_depth"><code class="docutils literal notranslate"><span class="pre">Gear.chamfer_depth</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.convert_to_si"><code class="docutils literal notranslate"><span class="pre">Gear.convert_to_si()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.dev_tooth_num"><code class="docutils literal notranslate"><span class="pre">Gear.dev_tooth_num</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.diameter"><code class="docutils literal notranslate"><span class="pre">Gear.diameter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.display_teeth_angle"><code class="docutils literal notranslate"><span class="pre">Gear.display_teeth_angle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.eccentricity"><code class="docutils literal notranslate"><span class="pre">Gear.eccentricity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.eccentricity_vector"><code class="docutils literal notranslate"><span class="pre">Gear.eccentricity_vector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.from_dict"><code class="docutils literal notranslate"><span class="pre">Gear.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.gui"><code class="docutils literal notranslate"><span class="pre">Gear.gui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.gui_dict"><code class="docutils literal notranslate"><span class="pre">Gear.gui_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.ini_dict"><code class="docutils literal notranslate"><span class="pre">Gear.ini_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.length"><code class="docutils literal notranslate"><span class="pre">Gear.length</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.maxh"><code class="docutils literal notranslate"><span class="pre">Gear.maxh</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.mu_r"><code class="docutils literal notranslate"><span class="pre">Gear.mu_r</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.n"><code class="docutils literal notranslate"><span class="pre">Gear.n</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.omega"><code class="docutils literal notranslate"><span class="pre">Gear.omega</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.pos"><code class="docutils literal notranslate"><span class="pre">Gear.pos</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.position"><code class="docutils literal notranslate"><span class="pre">Gear.position()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.reset"><code class="docutils literal notranslate"><span class="pre">Gear.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.rotate_mesh"><code class="docutils literal notranslate"><span class="pre">Gear.rotate_mesh</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.rotate_mesh_max_angle"><code class="docutils literal notranslate"><span class="pre">Gear.rotate_mesh_max_angle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.rotation_axis"><code class="docutils literal notranslate"><span class="pre">Gear.rotation_axis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.rotation_matrix"><code class="docutils literal notranslate"><span class="pre">Gear.rotation_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.template"><code class="docutils literal notranslate"><span class="pre">Gear.template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.theta"><code class="docutils literal notranslate"><span class="pre">Gear.theta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.to_dict"><code class="docutils literal notranslate"><span class="pre">Gear.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.tooth_deviations"><code class="docutils literal notranslate"><span class="pre">Gear.tooth_deviations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.tooth_flank_angle"><code class="docutils literal notranslate"><span class="pre">Gear.tooth_flank_angle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.tooth_height"><code class="docutils literal notranslate"><span class="pre">Gear.tooth_height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.tooth_width"><code class="docutils literal notranslate"><span class="pre">Gear.tooth_width</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.transformation_matrix"><code class="docutils literal notranslate"><span class="pre">Gear.transformation_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.update"><code class="docutils literal notranslate"><span class="pre">Gear.update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Gear.Gear.wobble_angle"><code class="docutils literal notranslate"><span class="pre">Gear.wobble_angle</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.components.html#module-libs.elements.components.GearRack">libs.elements.components.GearRack module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack"><code class="docutils literal notranslate"><span class="pre">GearRack</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.chamfer_angle"><code class="docutils literal notranslate"><span class="pre">GearRack.chamfer_angle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.chamfer_depth"><code class="docutils literal notranslate"><span class="pre">GearRack.chamfer_depth</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.convert_to_si"><code class="docutils literal notranslate"><span class="pre">GearRack.convert_to_si()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.dim"><code class="docutils literal notranslate"><span class="pre">GearRack.dim</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.from_dict"><code class="docutils literal notranslate"><span class="pre">GearRack.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.gui"><code class="docutils literal notranslate"><span class="pre">GearRack.gui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.gui_dict"><code class="docutils literal notranslate"><span class="pre">GearRack.gui_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.maxh"><code class="docutils literal notranslate"><span class="pre">GearRack.maxh</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.mu_r"><code class="docutils literal notranslate"><span class="pre">GearRack.mu_r</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.pos"><code class="docutils literal notranslate"><span class="pre">GearRack.pos</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.position"><code class="docutils literal notranslate"><span class="pre">GearRack.position()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.reset"><code class="docutils literal notranslate"><span class="pre">GearRack.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.rot"><code class="docutils literal notranslate"><span class="pre">GearRack.rot</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.template"><code class="docutils literal notranslate"><span class="pre">GearRack.template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.to_dict"><code class="docutils literal notranslate"><span class="pre">GearRack.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.tooth_flank_angle"><code class="docutils literal notranslate"><span class="pre">GearRack.tooth_flank_angle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.tooth_height"><code class="docutils literal notranslate"><span class="pre">GearRack.tooth_height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.tooth_pitch"><code class="docutils literal notranslate"><span class="pre">GearRack.tooth_pitch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.tooth_width"><code class="docutils literal notranslate"><span class="pre">GearRack.tooth_width</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.transformation_matrix"><code class="docutils literal notranslate"><span class="pre">GearRack.transformation_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.update"><code class="docutils literal notranslate"><span class="pre">GearRack.update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.velocity"><code class="docutils literal notranslate"><span class="pre">GearRack.velocity</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.components.html#module-libs.elements.components.Shaft">libs.elements.components.Shaft module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Shaft.Shaft"><code class="docutils literal notranslate"><span class="pre">Shaft</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Shaft.Shaft.axis"><code class="docutils literal notranslate"><span class="pre">Shaft.axis</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Shaft.Shaft.convert_to_si"><code class="docutils literal notranslate"><span class="pre">Shaft.convert_to_si()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Shaft.Shaft.diameter"><code class="docutils literal notranslate"><span class="pre">Shaft.diameter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Shaft.Shaft.from_dict"><code class="docutils literal notranslate"><span class="pre">Shaft.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Shaft.Shaft.gui"><code class="docutils literal notranslate"><span class="pre">Shaft.gui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Shaft.Shaft.gui_dict"><code class="docutils literal notranslate"><span class="pre">Shaft.gui_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Shaft.Shaft.length"><code class="docutils literal notranslate"><span class="pre">Shaft.length</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Shaft.Shaft.maxh"><code class="docutils literal notranslate"><span class="pre">Shaft.maxh</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Shaft.Shaft.mu_r"><code class="docutils literal notranslate"><span class="pre">Shaft.mu_r</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Shaft.Shaft.pos"><code class="docutils literal notranslate"><span class="pre">Shaft.pos</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Shaft.Shaft.reset"><code class="docutils literal notranslate"><span class="pre">Shaft.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Shaft.Shaft.template"><code class="docutils literal notranslate"><span class="pre">Shaft.template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Shaft.Shaft.to_dict"><code class="docutils literal notranslate"><span class="pre">Shaft.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#libs.elements.components.Shaft.Shaft.update"><code class="docutils literal notranslate"><span class="pre">Shaft.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.components.html#module-libs.elements.components">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="libs.elements.magnets.html">libs.elements.magnets package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.magnets.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.magnets.html#module-libs.elements.magnets.CuboidMagnet">libs.elements.magnets.CuboidMagnet module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.CuboidMagnet.CuboidMagnet"><code class="docutils literal notranslate"><span class="pre">CuboidMagnet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.CuboidMagnet.CuboidMagnet.convert_to_si"><code class="docutils literal notranslate"><span class="pre">CuboidMagnet.convert_to_si()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.CuboidMagnet.CuboidMagnet.dim"><code class="docutils literal notranslate"><span class="pre">CuboidMagnet.dim</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.CuboidMagnet.CuboidMagnet.direction"><code class="docutils literal notranslate"><span class="pre">CuboidMagnet.direction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.CuboidMagnet.CuboidMagnet.from_dict"><code class="docutils literal notranslate"><span class="pre">CuboidMagnet.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.CuboidMagnet.CuboidMagnet.get_transformation_matrix"><code class="docutils literal notranslate"><span class="pre">CuboidMagnet.get_transformation_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.CuboidMagnet.CuboidMagnet.gui"><code class="docutils literal notranslate"><span class="pre">CuboidMagnet.gui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.CuboidMagnet.CuboidMagnet.gui_dict"><code class="docutils literal notranslate"><span class="pre">CuboidMagnet.gui_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.CuboidMagnet.CuboidMagnet.m_vec"><code class="docutils literal notranslate"><span class="pre">CuboidMagnet.m_vec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.CuboidMagnet.CuboidMagnet.reset"><code class="docutils literal notranslate"><span class="pre">CuboidMagnet.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.CuboidMagnet.CuboidMagnet.rot"><code class="docutils literal notranslate"><span class="pre">CuboidMagnet.rot</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.CuboidMagnet.CuboidMagnet.template"><code class="docutils literal notranslate"><span class="pre">CuboidMagnet.template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.CuboidMagnet.CuboidMagnet.to_dict"><code class="docutils literal notranslate"><span class="pre">CuboidMagnet.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.CuboidMagnet.CuboidMagnet.transformation_matrix"><code class="docutils literal notranslate"><span class="pre">CuboidMagnet.transformation_matrix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.magnets.html#module-libs.elements.magnets.RodMagnet">libs.elements.magnets.RodMagnet module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.RodMagnet.RodMagnet"><code class="docutils literal notranslate"><span class="pre">RodMagnet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.RodMagnet.RodMagnet.axis"><code class="docutils literal notranslate"><span class="pre">RodMagnet.axis</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.RodMagnet.RodMagnet.convert_to_si"><code class="docutils literal notranslate"><span class="pre">RodMagnet.convert_to_si()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.RodMagnet.RodMagnet.direction"><code class="docutils literal notranslate"><span class="pre">RodMagnet.direction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.RodMagnet.RodMagnet.from_dict"><code class="docutils literal notranslate"><span class="pre">RodMagnet.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.RodMagnet.RodMagnet.gui"><code class="docutils literal notranslate"><span class="pre">RodMagnet.gui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.RodMagnet.RodMagnet.gui_dict"><code class="docutils literal notranslate"><span class="pre">RodMagnet.gui_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.RodMagnet.RodMagnet.length"><code class="docutils literal notranslate"><span class="pre">RodMagnet.length</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.RodMagnet.RodMagnet.m"><code class="docutils literal notranslate"><span class="pre">RodMagnet.m</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.RodMagnet.RodMagnet.radius"><code class="docutils literal notranslate"><span class="pre">RodMagnet.radius</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.RodMagnet.RodMagnet.reset"><code class="docutils literal notranslate"><span class="pre">RodMagnet.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.RodMagnet.RodMagnet.template"><code class="docutils literal notranslate"><span class="pre">RodMagnet.template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.RodMagnet.RodMagnet.to_dict"><code class="docutils literal notranslate"><span class="pre">RodMagnet.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.magnets.html#module-libs.elements.magnets.UniField">libs.elements.magnets.UniField module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.UniField.UniField"><code class="docutils literal notranslate"><span class="pre">UniField</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.UniField.UniField.b_vec"><code class="docutils literal notranslate"><span class="pre">UniField.b_vec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.UniField.UniField.convert_to_si"><code class="docutils literal notranslate"><span class="pre">UniField.convert_to_si()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.UniField.UniField.direction"><code class="docutils literal notranslate"><span class="pre">UniField.direction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.UniField.UniField.from_dict"><code class="docutils literal notranslate"><span class="pre">UniField.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.UniField.UniField.gui"><code class="docutils literal notranslate"><span class="pre">UniField.gui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.UniField.UniField.gui_dict"><code class="docutils literal notranslate"><span class="pre">UniField.gui_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.UniField.UniField.h_vec"><code class="docutils literal notranslate"><span class="pre">UniField.h_vec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.UniField.UniField.mu0"><code class="docutils literal notranslate"><span class="pre">UniField.mu0</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.UniField.UniField.reset"><code class="docutils literal notranslate"><span class="pre">UniField.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.UniField.UniField.strength"><code class="docutils literal notranslate"><span class="pre">UniField.strength</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.UniField.UniField.template"><code class="docutils literal notranslate"><span class="pre">UniField.template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.UniField.UniField.to_dict"><code class="docutils literal notranslate"><span class="pre">UniField.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.magnets.html#module-libs.elements.magnets">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="libs.elements.sensors.html">libs.elements.sensors package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.sensors.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.sensors.html#module-libs.elements.sensors.FieldRecorder">libs.elements.sensors.FieldRecorder module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder"><code class="docutils literal notranslate"><span class="pre">FieldRecorder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.boundaries"><code class="docutils literal notranslate"><span class="pre">FieldRecorder.boundaries</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.convert_to_si"><code class="docutils literal notranslate"><span class="pre">FieldRecorder.convert_to_si()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.field"><code class="docutils literal notranslate"><span class="pre">FieldRecorder.field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.field_specifier"><code class="docutils literal notranslate"><span class="pre">FieldRecorder.field_specifier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.from_dict"><code class="docutils literal notranslate"><span class="pre">FieldRecorder.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.get_data"><code class="docutils literal notranslate"><span class="pre">FieldRecorder.get_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.gui"><code class="docutils literal notranslate"><span class="pre">FieldRecorder.gui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.gui_dict"><code class="docutils literal notranslate"><span class="pre">FieldRecorder.gui_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.maxh"><code class="docutils literal notranslate"><span class="pre">FieldRecorder.maxh</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.reset"><code class="docutils literal notranslate"><span class="pre">FieldRecorder.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.samples"><code class="docutils literal notranslate"><span class="pre">FieldRecorder.samples</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.set_data"><code class="docutils literal notranslate"><span class="pre">FieldRecorder.set_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.template"><code class="docutils literal notranslate"><span class="pre">FieldRecorder.template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.to_dict"><code class="docutils literal notranslate"><span class="pre">FieldRecorder.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.update"><code class="docutils literal notranslate"><span class="pre">FieldRecorder.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.sensors.html#module-libs.elements.sensors.GMRSensor">libs.elements.sensors.GMRSensor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor"><code class="docutils literal notranslate"><span class="pre">GMRSensor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.architectures"><code class="docutils literal notranslate"><span class="pre">GMRSensor.architectures</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.convert_to_si"><code class="docutils literal notranslate"><span class="pre">GMRSensor.convert_to_si()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.current"><code class="docutils literal notranslate"><span class="pre">GMRSensor.current</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.depth"><code class="docutils literal notranslate"><span class="pre">GMRSensor.depth</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.dim"><code class="docutils literal notranslate"><span class="pre">GMRSensor.dim</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.from_dict"><code class="docutils literal notranslate"><span class="pre">GMRSensor.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.get_data"><code class="docutils literal notranslate"><span class="pre">GMRSensor.get_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_h_values"><code class="docutils literal notranslate"><span class="pre">GMRSensor.get_gmr_h_values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_position_matrix"><code class="docutils literal notranslate"><span class="pre">GMRSensor.get_gmr_position_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_resistances"><code class="docutils literal notranslate"><span class="pre">GMRSensor.get_gmr_resistances()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_sampling_matrix"><code class="docutils literal notranslate"><span class="pre">GMRSensor.get_gmr_sampling_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.get_sensor_sampling_matrix"><code class="docutils literal notranslate"><span class="pre">GMRSensor.get_sensor_sampling_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.get_transformation_matrix"><code class="docutils literal notranslate"><span class="pre">GMRSensor.get_transformation_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.get_u_cos"><code class="docutils literal notranslate"><span class="pre">GMRSensor.get_u_cos()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.get_u_sin"><code class="docutils literal notranslate"><span class="pre">GMRSensor.get_u_sin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.gmr_length"><code class="docutils literal notranslate"><span class="pre">GMRSensor.gmr_length</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.gmr_offset"><code class="docutils literal notranslate"><span class="pre">GMRSensor.gmr_offset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.gmr_position_matrix"><code class="docutils literal notranslate"><span class="pre">GMRSensor.gmr_position_matrix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.gmr_sampling"><code class="docutils literal notranslate"><span class="pre">GMRSensor.gmr_sampling</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.gui"><code class="docutils literal notranslate"><span class="pre">GMRSensor.gui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.gui_dict"><code class="docutils literal notranslate"><span class="pre">GMRSensor.gui_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.h_sensor"><code class="docutils literal notranslate"><span class="pre">GMRSensor.h_sensor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.height"><code class="docutils literal notranslate"><span class="pre">GMRSensor.height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.maxh"><code class="docutils literal notranslate"><span class="pre">GMRSensor.maxh</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.pos"><code class="docutils literal notranslate"><span class="pre">GMRSensor.pos</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.reset"><code class="docutils literal notranslate"><span class="pre">GMRSensor.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.resistance"><code class="docutils literal notranslate"><span class="pre">GMRSensor.resistance</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.rot"><code class="docutils literal notranslate"><span class="pre">GMRSensor.rot</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.sensor_sampling"><code class="docutils literal notranslate"><span class="pre">GMRSensor.sensor_sampling</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.sensor_sampling_matrix"><code class="docutils literal notranslate"><span class="pre">GMRSensor.sensor_sampling_matrix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.set_data"><code class="docutils literal notranslate"><span class="pre">GMRSensor.set_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.template"><code class="docutils literal notranslate"><span class="pre">GMRSensor.template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.to_dict"><code class="docutils literal notranslate"><span class="pre">GMRSensor.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.transformation_matrix"><code class="docutils literal notranslate"><span class="pre">GMRSensor.transformation_matrix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.u_cos"><code class="docutils literal notranslate"><span class="pre">GMRSensor.u_cos</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.u_sin"><code class="docutils literal notranslate"><span class="pre">GMRSensor.u_sin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.update"><code class="docutils literal notranslate"><span class="pre">GMRSensor.update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.width"><code class="docutils literal notranslate"><span class="pre">GMRSensor.width</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensorProperties"><code class="docutils literal notranslate"><span class="pre">GMRSensorProperties</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensorProperties.GL711"><code class="docutils literal notranslate"><span class="pre">GMRSensorProperties.GL711</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensorProperties.GL712"><code class="docutils literal notranslate"><span class="pre">GMRSensorProperties.GL712</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensorProperties.GL713"><code class="docutils literal notranslate"><span class="pre">GMRSensorProperties.GL713</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensorProperties.GL714"><code class="docutils literal notranslate"><span class="pre">GMRSensorProperties.GL714</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensorProperties.GL715"><code class="docutils literal notranslate"><span class="pre">GMRSensorProperties.GL715</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.sensors.html#module-libs.elements.sensors">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-libs.elements.Component">
+<span id="libs-elements-component-module"></span><h2>libs.elements.Component module<a class="headerlink" href="#module-libs.elements.Component" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="libs.elements.Component.Component">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.Component.</span></span><span class="sig-name descname"><span class="pre">Component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu_r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.Component.Component" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Parent class contains the parameters to describe the position and magnetic properties of a component in the
+simulation. The shape and rotation is defined in one of the subclasses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pos</strong> (<em>numpy.ndarray</em>) – Position of the magnet in the 3D space.</p></li>
+<li><p><strong>mu_r</strong> (<em>float</em>) – Permeability of the magnet.</p></li>
+<li><p><strong>maxh</strong> (<em>float</em>) – Maximum mesh size of the component.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Component.Component.convert_to_si">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convert_to_si</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.Component.Component.convert_to_si" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the init method and converts the parameters from gui units to SI units.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Component.Component.from_dict">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.Component.Component" title="libs.elements.Component.Component"><span class="pre">Component</span></a></span></span><a class="headerlink" href="#libs.elements.Component.Component.from_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method to init an instance of the Component class by passing a dictionary with the corresponding</dt><dd><p>arguments.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Instance of the Component class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#libs.elements.Component.Component" title="libs.elements.Component.Component">Component</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Component.Component.gui">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.Component.Component" title="libs.elements.Component.Component"><span class="pre">Component</span></a></span></span><a class="headerlink" href="#libs.elements.Component.Component.gui" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a copy of the class with attributes converted to units used in the gui.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.Component.Component.maxh">
+<span class="sig-name descname"><span class="pre">maxh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.Component.Component.maxh" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.Component.Component.mu_r">
+<span class="sig-name descname"><span class="pre">mu_r</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.Component.Component.mu_r" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.Component.Component.pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.Component.Component.pos" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Component.Component.reset">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.Component.Component.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the init method with the actual class attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Component.Component.template">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.Component.Component" title="libs.elements.Component.Component"><span class="pre">Component</span></a></span></span><a class="headerlink" href="#libs.elements.Component.Component.template" title="Permalink to this definition"></a></dt>
+<dd><p>Class method to init the class with a set of standard values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Object of the Component class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#libs.elements.Component.Component" title="libs.elements.Component.Component">Component</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Component.Component.to_dict">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.Component.Component.to_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
+opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary of the classes members.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Component.Component.update">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.Component.Component.update" title="Permalink to this definition"></a></dt>
+<dd><p>Method to update the states of a time dependent component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>float</em>) – Current time stamp.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-libs.elements.Magnet">
+<span id="libs-elements-magnet-module"></span><h2>libs.elements.Magnet module<a class="headerlink" href="#module-libs.elements.Magnet" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="libs.elements.Magnet.Magnet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.Magnet.</span></span><span class="sig-name descname"><span class="pre">Magnet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu_r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tk</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.Magnet.Magnet" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Parent class contains the parameters to describe the position and magnetic properties of a magnet in the
+simulation. The shape and rotation is defined in one of the subclasses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pos</strong> (<em>numpy.ndarray</em>) – Position of the magnet in the 3D space.</p></li>
+<li><p><strong>m</strong> (<em>float</em>) – Magnetisation of the magnet at room temperature.</p></li>
+<li><p><strong>mu_r</strong> (<em>float</em>) – Permeability of the magnet.</p></li>
+<li><p><strong>temperature</strong> (<em>float</em>) – Temperature at which the magnet is operated.</p></li>
+<li><p><strong>tk</strong> (<em>float</em>) – Temperature coefficiency of the magnetisation in the area of 20-100°C.</p></li>
+<li><p><strong>maxh</strong> (<em>float</em>) – Maximum mesh size of the magnet.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Magnet.Magnet.convert_to_si">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convert_to_si</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.Magnet.Magnet.convert_to_si" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the init method and converts the parameters from gui units to SI units.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Magnet.Magnet.from_dict">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.Magnet.Magnet" title="libs.elements.Magnet.Magnet"><span class="pre">Magnet</span></a></span></span><a class="headerlink" href="#libs.elements.Magnet.Magnet.from_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method to init an instance of the Magnet class by passing a dictionary with the corresponding</dt><dd><p>arguments.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Instance of the Magnet class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#libs.elements.Magnet.Magnet" title="libs.elements.Magnet.Magnet">Magnet</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Magnet.Magnet.gui">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.Magnet.Magnet" title="libs.elements.Magnet.Magnet"><span class="pre">Magnet</span></a></span></span><a class="headerlink" href="#libs.elements.Magnet.Magnet.gui" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a copy of the class with attributes converted to units used in the gui.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.Magnet.Magnet.m">
+<span class="sig-name descname"><span class="pre">m</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.Magnet.Magnet.m" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.Magnet.Magnet.maxh">
+<span class="sig-name descname"><span class="pre">maxh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.Magnet.Magnet.maxh" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.Magnet.Magnet.mu_r">
+<span class="sig-name descname"><span class="pre">mu_r</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.Magnet.Magnet.mu_r" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.Magnet.Magnet.pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.Magnet.Magnet.pos" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Magnet.Magnet.reset">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.Magnet.Magnet.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the init method with the actual class attributes.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.Magnet.Magnet.temperature">
+<span class="sig-name descname"><span class="pre">temperature</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.Magnet.Magnet.temperature" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Magnet.Magnet.template">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.Magnet.Magnet" title="libs.elements.Magnet.Magnet"><span class="pre">Magnet</span></a></span></span><a class="headerlink" href="#libs.elements.Magnet.Magnet.template" title="Permalink to this definition"></a></dt>
+<dd><p>Class method to init the class with a set of standard values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Object of the Magnet class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#libs.elements.Magnet.Magnet" title="libs.elements.Magnet.Magnet">Magnet</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.Magnet.Magnet.tk">
+<span class="sig-name descname"><span class="pre">tk</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.Magnet.Magnet.tk" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Magnet.Magnet.to_dict">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.Magnet.Magnet.to_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
+opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary of the classes members.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-libs.elements.Sensor">
+<span id="libs-elements-sensor-module"></span><h2>libs.elements.Sensor module<a class="headerlink" href="#module-libs.elements.Sensor" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="libs.elements.Sensor.Sensor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.Sensor.</span></span><span class="sig-name descname"><span class="pre">Sensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.Sensor.Sensor" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Parent class contains the parameters to describe the position and max mesh size of a sensor in the
+simulation. The shape and rotation is defined in one of the subclasses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pos</strong> (<em>numpy.ndarray</em>) – Position of the sensor in the 3D space.</p></li>
+<li><p><strong>maxh</strong> (<em>float</em>) – Maximum mesh size of the sensor.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Sensor.Sensor.convert_to_si">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convert_to_si</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.Sensor.Sensor.convert_to_si" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the init method and converts the parameters from gui units to SI units.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Sensor.Sensor.from_dict">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.Sensor.Sensor" title="libs.elements.Sensor.Sensor"><span class="pre">Sensor</span></a></span></span><a class="headerlink" href="#libs.elements.Sensor.Sensor.from_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method to init an instance of the Sensor class by passing a dictionary with the corresponding</dt><dd><p>arguments.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Instance of the Sensor class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#libs.elements.Sensor.Sensor" title="libs.elements.Sensor.Sensor">Sensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Sensor.Sensor.gui">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.Sensor.Sensor" title="libs.elements.Sensor.Sensor"><span class="pre">Sensor</span></a></span></span><a class="headerlink" href="#libs.elements.Sensor.Sensor.gui" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a copy of the class with attributes converted to units used in the gui.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.Sensor.Sensor.maxh">
+<span class="sig-name descname"><span class="pre">maxh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.Sensor.Sensor.maxh" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.Sensor.Sensor.pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.Sensor.Sensor.pos" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Sensor.Sensor.reset">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.Sensor.Sensor.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the init method with the actual class attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Sensor.Sensor.template">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.Sensor.Sensor" title="libs.elements.Sensor.Sensor"><span class="pre">Sensor</span></a></span></span><a class="headerlink" href="#libs.elements.Sensor.Sensor.template" title="Permalink to this definition"></a></dt>
+<dd><p>Class method to init the class with a set of standard values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Object of the Sensor class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#libs.elements.Sensor.Sensor" title="libs.elements.Sensor.Sensor">Sensor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Sensor.Sensor.to_dict">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.Sensor.Sensor.to_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
+opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary of the classes members.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.Sensor.Sensor.update">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.Sensor.Sensor.update" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method to update the sensor measurement parameters for the current simulation step. Parameters to be updated</dt><dd><p>are the resistances array, the output voltages u_sin and u_cos and the H-field along the sensor axis
+h_sensor.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field</strong> (<a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><em>MagneticField</em></a>) – Instance of the MagneticField class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-libs.elements.SimParams">
+<span id="libs-elements-simparams-module"></span><h2>libs.elements.SimParams module<a class="headerlink" href="#module-libs.elements.SimParams" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="libs.elements.SimParams.SimParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.SimParams.</span></span><span class="sig-name descname"><span class="pre">SimParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boundaries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxh_global</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.SimParams.SimParams" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The parameters to specify the finite element space are summarized in this class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>boundaries</strong> (<em>numpy.ndarray</em>) – The dimensions in mm of the 3D space containing the scenery.</p></li>
+<li><p><strong>t0</strong> (<em>float</em>) – Start time of the simulation.</p></li>
+<li><p><strong>t1</strong> (<em>float</em>) – End time of the simulation.</p></li>
+<li><p><strong>samples</strong> (<em>int</em>) – Number of time samples.</p></li>
+<li><p><strong>maxh_global</strong> (<em>float</em>) – The maximum mesh size of all simulation elements including the air surrounding the elements.</p></li>
+<li><p><strong>tol</strong> (<em>float</em>) – The maximum tolerated iteration error of the finite element magnetic field calculation.</p></li>
+<li><p><strong>maxit</strong> (<em>int</em>) – The maximum number of allowed iterations to calculate the magnetic field.</p></li>
+<li><p><strong>t</strong> (<em>np.ndarray</em>) – Array containing the time stamps of the simulation.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.SimParams.SimParams.boundaries">
+<span class="sig-name descname"><span class="pre">boundaries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.SimParams.SimParams.boundaries" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.SimParams.SimParams.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.SimParams.SimParams" title="libs.elements.SimParams.SimParams"><span class="pre">SimParams</span></a></span></span><a class="headerlink" href="#libs.elements.SimParams.SimParams.from_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method to init an instance of the Gear class by passing a dictionary with the corresponding</dt><dd><p>arguments. Arguments that are in the dictionary and not in the class are ignored while arguments missing in
+the dictionary get initialised with the standard values defined in the template class method.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Instance of the SimParams class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#libs.elements.SimParams.SimParams" title="libs.elements.SimParams.SimParams">SimParams</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.SimParams.SimParams.gui_dict">
+<span class="sig-name descname"><span class="pre">gui_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.SimParams.SimParams.gui_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
+opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary of the classes members.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.SimParams.SimParams.maxh_global">
+<span class="sig-name descname"><span class="pre">maxh_global</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.SimParams.SimParams.maxh_global" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.SimParams.SimParams.maxit">
+<span class="sig-name descname"><span class="pre">maxit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#libs.elements.SimParams.SimParams.maxit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.SimParams.SimParams.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.SimParams.SimParams.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the init method with the actual class attributes.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.SimParams.SimParams.samples">
+<span class="sig-name descname"><span class="pre">samples</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#libs.elements.SimParams.SimParams.samples" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.SimParams.SimParams.t">
+<span class="sig-name descname"><span class="pre">t</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.SimParams.SimParams.t" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.SimParams.SimParams.t0">
+<span class="sig-name descname"><span class="pre">t0</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.SimParams.SimParams.t0" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.SimParams.SimParams.t1">
+<span class="sig-name descname"><span class="pre">t1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.SimParams.SimParams.t1" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.SimParams.SimParams.template">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.SimParams.SimParams.template" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.SimParams.SimParams.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.SimParams.SimParams.to_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
+opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary of the classes members.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]s</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.SimParams.SimParams.tol">
+<span class="sig-name descname"><span class="pre">tol</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.SimParams.SimParams.tol" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-libs.elements">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-libs.elements" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="libs.html" class="btn btn-neutral float-left" title="libs package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="libs.elements.components.html" class="btn btn-neutral float-right" title="libs.elements.components package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Institute for Measurement and Sensor Technology, RPTU.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

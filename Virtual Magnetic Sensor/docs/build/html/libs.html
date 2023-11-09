@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>libs package &mdash; Virtual Magnetic Sensor 04.10.2023 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="libs.elements package" href="libs.elements.html" />
+    <link rel="prev" title="libs" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Virtual Magnetic Sensor
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">libs</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">libs package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html">libs.elements package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html">libs.gui package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.html">libs.simulation package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-libs.ConfigHandler">libs.ConfigHandler module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#libs.ConfigHandler.ConfigHandler"><code class="docutils literal notranslate"><span class="pre">ConfigHandler</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-libs.DataHandler">libs.DataHandler module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#libs.DataHandler.DataHandler"><code class="docutils literal notranslate"><span class="pre">DataHandler</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-libs">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Virtual Magnetic Sensor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">libs</a></li>
+      <li class="breadcrumb-item active">libs package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/libs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="libs-package">
+<h1>libs package<a class="headerlink" href="#libs-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="libs.elements.html">libs.elements package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.components.html">libs.elements.components package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#module-libs.elements.components.Gear">libs.elements.components.Gear module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#module-libs.elements.components.GearRack">libs.elements.components.GearRack module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#module-libs.elements.components.Shaft">libs.elements.components.Shaft module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.components.html#module-libs.elements.components">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.magnets.html">libs.elements.magnets package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#module-libs.elements.magnets.CuboidMagnet">libs.elements.magnets.CuboidMagnet module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#module-libs.elements.magnets.RodMagnet">libs.elements.magnets.RodMagnet module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#module-libs.elements.magnets.UniField">libs.elements.magnets.UniField module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.magnets.html#module-libs.elements.magnets">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.sensors.html">libs.elements.sensors package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#module-libs.elements.sensors.FieldRecorder">libs.elements.sensors.FieldRecorder module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#module-libs.elements.sensors.GMRSensor">libs.elements.sensors.GMRSensor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.sensors.html#module-libs.elements.sensors">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.html#module-libs.elements.Component">libs.elements.Component module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.html#libs.elements.Component.Component"><code class="docutils literal notranslate"><span class="pre">Component</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Component.Component.convert_to_si"><code class="docutils literal notranslate"><span class="pre">Component.convert_to_si()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Component.Component.from_dict"><code class="docutils literal notranslate"><span class="pre">Component.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Component.Component.gui"><code class="docutils literal notranslate"><span class="pre">Component.gui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Component.Component.maxh"><code class="docutils literal notranslate"><span class="pre">Component.maxh</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Component.Component.mu_r"><code class="docutils literal notranslate"><span class="pre">Component.mu_r</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Component.Component.pos"><code class="docutils literal notranslate"><span class="pre">Component.pos</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Component.Component.reset"><code class="docutils literal notranslate"><span class="pre">Component.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Component.Component.template"><code class="docutils literal notranslate"><span class="pre">Component.template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Component.Component.to_dict"><code class="docutils literal notranslate"><span class="pre">Component.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Component.Component.update"><code class="docutils literal notranslate"><span class="pre">Component.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.html#module-libs.elements.Magnet">libs.elements.Magnet module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.html#libs.elements.Magnet.Magnet"><code class="docutils literal notranslate"><span class="pre">Magnet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Magnet.Magnet.convert_to_si"><code class="docutils literal notranslate"><span class="pre">Magnet.convert_to_si()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Magnet.Magnet.from_dict"><code class="docutils literal notranslate"><span class="pre">Magnet.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Magnet.Magnet.gui"><code class="docutils literal notranslate"><span class="pre">Magnet.gui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Magnet.Magnet.m"><code class="docutils literal notranslate"><span class="pre">Magnet.m</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Magnet.Magnet.maxh"><code class="docutils literal notranslate"><span class="pre">Magnet.maxh</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Magnet.Magnet.mu_r"><code class="docutils literal notranslate"><span class="pre">Magnet.mu_r</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Magnet.Magnet.pos"><code class="docutils literal notranslate"><span class="pre">Magnet.pos</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Magnet.Magnet.reset"><code class="docutils literal notranslate"><span class="pre">Magnet.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Magnet.Magnet.temperature"><code class="docutils literal notranslate"><span class="pre">Magnet.temperature</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Magnet.Magnet.template"><code class="docutils literal notranslate"><span class="pre">Magnet.template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Magnet.Magnet.tk"><code class="docutils literal notranslate"><span class="pre">Magnet.tk</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Magnet.Magnet.to_dict"><code class="docutils literal notranslate"><span class="pre">Magnet.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.html#module-libs.elements.Sensor">libs.elements.Sensor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.html#libs.elements.Sensor.Sensor"><code class="docutils literal notranslate"><span class="pre">Sensor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Sensor.Sensor.convert_to_si"><code class="docutils literal notranslate"><span class="pre">Sensor.convert_to_si()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Sensor.Sensor.from_dict"><code class="docutils literal notranslate"><span class="pre">Sensor.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Sensor.Sensor.gui"><code class="docutils literal notranslate"><span class="pre">Sensor.gui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Sensor.Sensor.maxh"><code class="docutils literal notranslate"><span class="pre">Sensor.maxh</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Sensor.Sensor.pos"><code class="docutils literal notranslate"><span class="pre">Sensor.pos</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Sensor.Sensor.reset"><code class="docutils literal notranslate"><span class="pre">Sensor.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Sensor.Sensor.template"><code class="docutils literal notranslate"><span class="pre">Sensor.template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Sensor.Sensor.to_dict"><code class="docutils literal notranslate"><span class="pre">Sensor.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.Sensor.Sensor.update"><code class="docutils literal notranslate"><span class="pre">Sensor.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.html#module-libs.elements.SimParams">libs.elements.SimParams module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.elements.html#libs.elements.SimParams.SimParams"><code class="docutils literal notranslate"><span class="pre">SimParams</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.SimParams.SimParams.boundaries"><code class="docutils literal notranslate"><span class="pre">SimParams.boundaries</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.SimParams.SimParams.from_dict"><code class="docutils literal notranslate"><span class="pre">SimParams.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.SimParams.SimParams.gui_dict"><code class="docutils literal notranslate"><span class="pre">SimParams.gui_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.SimParams.SimParams.maxh_global"><code class="docutils literal notranslate"><span class="pre">SimParams.maxh_global</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.SimParams.SimParams.maxit"><code class="docutils literal notranslate"><span class="pre">SimParams.maxit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.SimParams.SimParams.reset"><code class="docutils literal notranslate"><span class="pre">SimParams.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.SimParams.SimParams.samples"><code class="docutils literal notranslate"><span class="pre">SimParams.samples</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.SimParams.SimParams.t"><code class="docutils literal notranslate"><span class="pre">SimParams.t</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.SimParams.SimParams.t0"><code class="docutils literal notranslate"><span class="pre">SimParams.t0</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.SimParams.SimParams.t1"><code class="docutils literal notranslate"><span class="pre">SimParams.t1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.SimParams.SimParams.template"><code class="docutils literal notranslate"><span class="pre">SimParams.template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.SimParams.SimParams.to_dict"><code class="docutils literal notranslate"><span class="pre">SimParams.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.elements.html#libs.elements.SimParams.SimParams.tol"><code class="docutils literal notranslate"><span class="pre">SimParams.tol</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.elements.html#module-libs.elements">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="libs.gui.html">libs.gui package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="libs.gui.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.gui.bars.html">libs.gui.bars package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.bars.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.bars.html#module-libs.gui.bars.MenuBar">libs.gui.bars.MenuBar module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.bars.html#module-libs.gui.bars.StatusBar">libs.gui.bars.StatusBar module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.bars.html#module-libs.gui.bars">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="libs.gui.buttons.html">libs.gui.buttons package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.buttons.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.buttons.html#module-libs.gui.buttons.PlotButton">libs.gui.buttons.PlotButton module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.buttons.html#module-libs.gui.buttons.SubFrameButtons">libs.gui.buttons.SubFrameButtons module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.buttons.html#module-libs.gui.buttons">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="libs.gui.frames.html">libs.gui.frames package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.html#module-libs.gui.frames.AboutFrame">libs.gui.frames.AboutFrame module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.html#module-libs.gui.frames.ComponentsFrame">libs.gui.frames.ComponentsFrame module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.html#module-libs.gui.frames.MagnetsFrame">libs.gui.frames.MagnetsFrame module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.html#module-libs.gui.frames.MainFrame">libs.gui.frames.MainFrame module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.html#module-libs.gui.frames.ObjectFrame">libs.gui.frames.ObjectFrame module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.html#module-libs.gui.frames.ProgressFrame">libs.gui.frames.ProgressFrame module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.html#module-libs.gui.frames.SensorsFrame">libs.gui.frames.SensorsFrame module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.html#module-libs.gui.frames.SettingsFrame">libs.gui.frames.SettingsFrame module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.html#module-libs.gui.frames.SimParamsFrame">libs.gui.frames.SimParamsFrame module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.html#module-libs.gui.frames.TabFrame">libs.gui.frames.TabFrame module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.html#module-libs.gui.frames">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="libs.gui.plot.html">libs.gui.plot package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.plot.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.plot.html#module-libs.gui.plot.Figure1">libs.gui.plot.Figure1 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.plot.html#module-libs.gui.plot.Figure2">libs.gui.plot.Figure2 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.plot.html#module-libs.gui.plot.PlotHandler">libs.gui.plot.PlotHandler module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.plot.html#module-libs.gui.plot">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.gui.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.gui.html#module-libs.gui.FileDialogs">libs.gui.FileDialogs module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.gui.html#libs.gui.FileDialogs.FileDialogs"><code class="docutils literal notranslate"><span class="pre">FileDialogs</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.FileDialogs.FileDialogs.export_ini"><code class="docutils literal notranslate"><span class="pre">FileDialogs.export_ini()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.FileDialogs.FileDialogs.export_py"><code class="docutils literal notranslate"><span class="pre">FileDialogs.export_py()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.FileDialogs.FileDialogs.open"><code class="docutils literal notranslate"><span class="pre">FileDialogs.open()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.FileDialogs.FileDialogs.save"><code class="docutils literal notranslate"><span class="pre">FileDialogs.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.FileDialogs.FileDialogs.save_as"><code class="docutils literal notranslate"><span class="pre">FileDialogs.save_as()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.gui.html#module-libs.gui.GUIElements">libs.gui.GUIElements module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements"><code class="docutils literal notranslate"><span class="pre">GUIElements</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.auto_frame_size"><code class="docutils literal notranslate"><span class="pre">GUIElements.auto_frame_size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.button_frame"><code class="docutils literal notranslate"><span class="pre">GUIElements.button_frame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.check_box"><code class="docutils literal notranslate"><span class="pre">GUIElements.check_box()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.dropdown_menu"><code class="docutils literal notranslate"><span class="pre">GUIElements.dropdown_menu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.extract"><code class="docutils literal notranslate"><span class="pre">GUIElements.extract()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.info_label"><code class="docutils literal notranslate"><span class="pre">GUIElements.info_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.init_style"><code class="docutils literal notranslate"><span class="pre">GUIElements.init_style()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.input_line"><code class="docutils literal notranslate"><span class="pre">GUIElements.input_line()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.insert"><code class="docutils literal notranslate"><span class="pre">GUIElements.insert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.label_frame"><code class="docutils literal notranslate"><span class="pre">GUIElements.label_frame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.screen_size"><code class="docutils literal notranslate"><span class="pre">GUIElements.screen_size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.scrollable_frame"><code class="docutils literal notranslate"><span class="pre">GUIElements.scrollable_frame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.settings_line"><code class="docutils literal notranslate"><span class="pre">GUIElements.settings_line()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.vector2_input"><code class="docutils literal notranslate"><span class="pre">GUIElements.vector2_input()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.vector3_input"><code class="docutils literal notranslate"><span class="pre">GUIElements.vector3_input()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.vector6_input"><code class="docutils literal notranslate"><span class="pre">GUIElements.vector6_input()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIElements.GUIElements.vector8_input"><code class="docutils literal notranslate"><span class="pre">GUIElements.vector8_input()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.gui.html#module-libs.gui.GUIHandler">libs.gui.GUIHandler module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.gui.html#libs.gui.GUIHandler.GUIHandler"><code class="docutils literal notranslate"><span class="pre">GUIHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIHandler.GUIHandler.add_tab"><code class="docutils literal notranslate"><span class="pre">GUIHandler.add_tab()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIHandler.GUIHandler.close_all_tabs"><code class="docutils literal notranslate"><span class="pre">GUIHandler.close_all_tabs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIHandler.GUIHandler.close_tab"><code class="docutils literal notranslate"><span class="pre">GUIHandler.close_tab()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIHandler.GUIHandler.disable_gui_operation"><code class="docutils literal notranslate"><span class="pre">GUIHandler.disable_gui_operation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIHandler.GUIHandler.enable_gui_operation"><code class="docutils literal notranslate"><span class="pre">GUIHandler.enable_gui_operation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIHandler.GUIHandler.exit"><code class="docutils literal notranslate"><span class="pre">GUIHandler.exit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIHandler.GUIHandler.menu_bar"><code class="docutils literal notranslate"><span class="pre">GUIHandler.menu_bar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIHandler.GUIHandler.selected_tab"><code class="docutils literal notranslate"><span class="pre">GUIHandler.selected_tab()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIHandler.GUIHandler.sim_frame"><code class="docutils literal notranslate"><span class="pre">GUIHandler.sim_frame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.GUIHandler.GUIHandler.status_bar"><code class="docutils literal notranslate"><span class="pre">GUIHandler.status_bar()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.gui.html#module-libs.gui.ScrolledFrame">libs.gui.ScrolledFrame module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.gui.html#libs.gui.ScrolledFrame.ScrolledFrame"><code class="docutils literal notranslate"><span class="pre">ScrolledFrame</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.ScrolledFrame.ScrolledFrame.bind_arrow_keys"><code class="docutils literal notranslate"><span class="pre">ScrolledFrame.bind_arrow_keys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.ScrolledFrame.ScrolledFrame.bind_scroll_wheel"><code class="docutils literal notranslate"><span class="pre">ScrolledFrame.bind_scroll_wheel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.ScrolledFrame.ScrolledFrame.canvas"><code class="docutils literal notranslate"><span class="pre">ScrolledFrame.canvas</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.ScrolledFrame.ScrolledFrame.cget"><code class="docutils literal notranslate"><span class="pre">ScrolledFrame.cget()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.ScrolledFrame.ScrolledFrame.config"><code class="docutils literal notranslate"><span class="pre">ScrolledFrame.config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.ScrolledFrame.ScrolledFrame.configure"><code class="docutils literal notranslate"><span class="pre">ScrolledFrame.configure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.ScrolledFrame.ScrolledFrame.display_widget"><code class="docutils literal notranslate"><span class="pre">ScrolledFrame.display_widget()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.ScrolledFrame.ScrolledFrame.erase"><code class="docutils literal notranslate"><span class="pre">ScrolledFrame.erase()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.html#libs.gui.ScrolledFrame.ScrolledFrame.scroll_to_top"><code class="docutils literal notranslate"><span class="pre">ScrolledFrame.scroll_to_top()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.gui.html#module-libs.gui">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="libs.simulation.html">libs.simulation package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="libs.simulation.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.simulation.ngsolve.html">libs.simulation.ngsolve package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.ngsolve.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.ngsolve.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.ngsolve.html#module-libs.simulation.ngsolve.CSGeometry">libs.simulation.ngsolve.CSGeometry module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.ngsolve.html#module-libs.simulation.ngsolve.NGField">libs.simulation.ngsolve.NGField module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.ngsolve.html#module-libs.simulation.ngsolve.NGMesh">libs.simulation.ngsolve.NGMesh module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.ngsolve.html#module-libs.simulation.ngsolve">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.simulation.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libs.simulation.html#module-libs.simulation.MagneticField">libs.simulation.MagneticField module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField"><code class="docutils literal notranslate"><span class="pre">MagneticField</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField.create_field"><code class="docutils literal notranslate"><span class="pre">MagneticField.create_field()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField.draw"><code class="docutils literal notranslate"><span class="pre">MagneticField.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField.get_b_field"><code class="docutils literal notranslate"><span class="pre">MagneticField.get_b_field()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField.get_h_field"><code class="docutils literal notranslate"><span class="pre">MagneticField.get_h_field()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.simulation.html#module-libs.simulation.MagneticFieldFactory">libs.simulation.MagneticFieldFactory module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticFieldFactory.MagneticFieldFactory"><code class="docutils literal notranslate"><span class="pre">MagneticFieldFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticFieldFactory.MagneticFieldFactory.init_field"><code class="docutils literal notranslate"><span class="pre">MagneticFieldFactory.init_field()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.simulation.html#module-libs.simulation.SimulationHandler">libs.simulation.SimulationHandler module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.simulation.html#libs.simulation.SimulationHandler.SimulationHandler"><code class="docutils literal notranslate"><span class="pre">SimulationHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.html#libs.simulation.SimulationHandler.SimulationHandler.draw"><code class="docutils literal notranslate"><span class="pre">SimulationHandler.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.html#libs.simulation.SimulationHandler.SimulationHandler.draw_process"><code class="docutils literal notranslate"><span class="pre">SimulationHandler.draw_process()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.html#libs.simulation.SimulationHandler.SimulationHandler.draw_thread"><code class="docutils literal notranslate"><span class="pre">SimulationHandler.draw_thread()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.html#libs.simulation.SimulationHandler.SimulationHandler.run"><code class="docutils literal notranslate"><span class="pre">SimulationHandler.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.html#libs.simulation.SimulationHandler.SimulationHandler.run_process"><code class="docutils literal notranslate"><span class="pre">SimulationHandler.run_process()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="libs.simulation.html#libs.simulation.SimulationHandler.SimulationHandler.run_thread"><code class="docutils literal notranslate"><span class="pre">SimulationHandler.run_thread()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.simulation.html#module-libs.simulation">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-libs.ConfigHandler">
+<span id="libs-confighandler-module"></span><h2>libs.ConfigHandler module<a class="headerlink" href="#module-libs.ConfigHandler" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="libs.ConfigHandler.ConfigHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.ConfigHandler.</span></span><span class="sig-name descname"><span class="pre">ConfigHandler</span></span><a class="headerlink" href="#libs.ConfigHandler.ConfigHandler" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The class manages the loading, writing and managing of the configuration parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>any</em><em>]</em><em>]</em>) – Dictionary with the options and their respective values.</p></li>
+<li><p><strong>config_parser</strong> (<em>configparser.Configparser</em>) – Configparser object containing the settings from the config.ini file.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.ConfigHandler.ConfigHandler.config">
+<span class="sig-name descname"><span class="pre">config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#libs.ConfigHandler.ConfigHandler.config" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.ConfigHandler.ConfigHandler.config_parser">
+<span class="sig-name descname"><span class="pre">config_parser</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ConfigParser</span></em><a class="headerlink" href="#libs.ConfigHandler.ConfigHandler.config_parser" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.ConfigHandler.ConfigHandler.config_template">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">config_template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.ConfigHandler.ConfigHandler.config_template" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.ConfigHandler.ConfigHandler.isfloat">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isfloat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#libs.ConfigHandler.ConfigHandler.isfloat" title="Permalink to this definition"></a></dt>
+<dd><p>Method checks if a string is convertible to float.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<em>any</em>) – Possible float value.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True when element is convertible to float, false otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.ConfigHandler.ConfigHandler.load_configfile">
+<span class="sig-name descname"><span class="pre">load_configfile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.ConfigHandler.ConfigHandler.load_configfile" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.ConfigHandler.ConfigHandler.update_config">
+<span class="sig-name descname"><span class="pre">update_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.ConfigHandler.ConfigHandler.update_config" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.ConfigHandler.ConfigHandler.write_configfile">
+<span class="sig-name descname"><span class="pre">write_configfile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.ConfigHandler.ConfigHandler.write_configfile" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-libs.DataHandler">
+<span id="libs-datahandler-module"></span><h2>libs.DataHandler module<a class="headerlink" href="#module-libs.DataHandler" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.DataHandler.</span></span><span class="sig-name descname"><span class="pre">DataHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objects</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">WindowsPath('.')</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.DataHandler.DataHandler" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Objects of this class hold both the simulation parameters and the measurement 
+data generated by the simulation. The class also provides methods to save and
+load this data from/to file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>objects</strong> (<em>List</em><em>[</em><em>any</em><em>]</em>) – List containing all instances of classes in the simulation with parameters.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.check_series">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">series</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.DataHandler.DataHandler.check_series" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if the dimensions of the entries match.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1 if entries match, 0 otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.components">
+<span class="sig-name descname"><span class="pre">components</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.DataHandler.DataHandler.components" title="Permalink to this definition"></a></dt>
+<dd><p>Method returns the objects of type Component in a list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of objects of type Component.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="libs.elements.html#libs.elements.Component.Component" title="libs.elements.Component.Component">Component</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.convert_dict">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convert_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.DataHandler.DataHandler.convert_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Converts a dictionary with strings as values to the same dictionary with int, float, bool and</dt><dd><p>np.ndarray values.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dictionary</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>]</em>) – Dictionary with strings only.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with int, float, bool and np.ndarray values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, dict]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.deploy_dict">
+<span class="sig-name descname"><span class="pre">deploy_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.DataHandler.DataHandler.deploy_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Deploy the information stored in a dictionary to the objects list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dictionary</strong> – Dictionary storing the simulation objects.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.field_recorders">
+<span class="sig-name descname"><span class="pre">field_recorders</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.DataHandler.DataHandler.field_recorders" title="Permalink to this definition"></a></dt>
+<dd><p>Method returns the objects of type FieldRecorder in a list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of objects of type FieldRecorder.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder" title="libs.elements.sensors.FieldRecorder.FieldRecorder">FieldRecorder</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.filepath">
+<span class="sig-name descname"><span class="pre">filepath</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></em><a class="headerlink" href="#libs.DataHandler.DataHandler.filepath" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.gmr_sensors">
+<span class="sig-name descname"><span class="pre">gmr_sensors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.DataHandler.DataHandler.gmr_sensors" title="Permalink to this definition"></a></dt>
+<dd><p>Method returns the objects of type GMRSensor in a list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of objects of type GMRSensor.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor" title="libs.elements.sensors.GMRSensor.GMRSensor">GMRSensor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.gui_dict">
+<span class="sig-name descname"><span class="pre">gui_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.DataHandler.DataHandler.gui_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Method builds a dictionary of all meta and measurement data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with all data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.load_h5">
+<span class="sig-name descname"><span class="pre">load_h5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.DataHandler.DataHandler.load_h5" title="Permalink to this definition"></a></dt>
+<dd><p>Method changes the object list based on data from a HDF5 file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>Path</em>) – Path to the file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.load_ini">
+<span class="sig-name descname"><span class="pre">load_ini</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.DataHandler.DataHandler.load_ini" title="Permalink to this definition"></a></dt>
+<dd><p>Method changes the object list based on data from a <a href="#id1"><span class="problematic" id="id2">*</span></a>.ini file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>Path</em>) – Path to the <a href="#id3"><span class="problematic" id="id4">*</span></a>.ini file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.load_py">
+<span class="sig-name descname"><span class="pre">load_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#libs.DataHandler.DataHandler" title="libs.DataHandler.DataHandler"><span class="pre">DataHandler</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.DataHandler.DataHandler.load_py" title="Permalink to this definition"></a></dt>
+<dd><p>Method changes the object list based on data from a python file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>Path</em>) – Path to the python file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.magnets">
+<span class="sig-name descname"><span class="pre">magnets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.DataHandler.DataHandler.magnets" title="Permalink to this definition"></a></dt>
+<dd><p>Method returns the objects of type Magnet or UniField in a list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of objects of type Magnet or UniField.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[Union[<a class="reference internal" href="libs.elements.html#libs.elements.Magnet.Magnet" title="libs.elements.Magnet.Magnet">Magnet</a>, <a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.UniField.UniField" title="libs.elements.magnets.UniField.UniField">UniField</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#libs.DataHandler.DataHandler.objects" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.physical_magnets">
+<span class="sig-name descname"><span class="pre">physical_magnets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.DataHandler.DataHandler.physical_magnets" title="Permalink to this definition"></a></dt>
+<dd><p>Method returns the objects of type Magnet in a list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of objects of type Magnet.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="libs.elements.html#libs.elements.Magnet.Magnet" title="libs.elements.Magnet.Magnet">Magnet</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.physical_sensors">
+<span class="sig-name descname"><span class="pre">physical_sensors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.DataHandler.DataHandler.physical_sensors" title="Permalink to this definition"></a></dt>
+<dd><p>Method returns the objects of type Sensor in a list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of objects of type Sensor.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="libs.elements.html#libs.elements.Sensor.Sensor" title="libs.elements.Sensor.Sensor">Sensor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.save_h5">
+<span class="sig-name descname"><span class="pre">save_h5</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#libs.DataHandler.DataHandler.save_h5" title="Permalink to this definition"></a></dt>
+<dd><p>Outputs the parameters and measurement data held by the object to a specified file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True when the process is successful, false otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.save_ini">
+<span class="sig-name descname"><span class="pre">save_ini</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#libs.DataHandler.DataHandler.save_ini" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.save_py">
+<span class="sig-name descname"><span class="pre">save_py</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#libs.DataHandler.DataHandler.save_py" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.sensors">
+<span class="sig-name descname"><span class="pre">sensors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.DataHandler.DataHandler.sensors" title="Permalink to this definition"></a></dt>
+<dd><p>Method returns the objects of type Sensor or FieldRecorder in a list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of objects of type Sensor or FieldRecorder.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[Union[<a class="reference internal" href="libs.elements.html#libs.elements.Sensor.Sensor" title="libs.elements.Sensor.Sensor">Sensor</a>, <a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder" title="libs.elements.sensors.FieldRecorder.FieldRecorder">FieldRecorder</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.sim_params">
+<span class="sig-name descname"><span class="pre">sim_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.DataHandler.DataHandler.sim_params" title="Permalink to this definition"></a></dt>
+<dd><p>Method returns the objects of type SimParams in a list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Object in objects list of type SimParams.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="libs.elements.html#libs.elements.SimParams.SimParams" title="libs.elements.SimParams.SimParams">SimParams</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.template">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.DataHandler.DataHandler.template" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize the simulation and File parameters when no initial setup file is found.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.DataHandler.DataHandler.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Method builds a dictionary of all meta and measurement data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with all data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.uni_fields">
+<span class="sig-name descname"><span class="pre">uni_fields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.DataHandler.DataHandler.uni_fields" title="Permalink to this definition"></a></dt>
+<dd><p>Method returns the objects of type UniField in a list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of objects of type UniField.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="libs.elements.magnets.html#libs.elements.magnets.UniField.UniField" title="libs.elements.magnets.UniField.UniField">UniField</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.DataHandler.DataHandler.update_objects">
+<span class="sig-name descname"><span class="pre">update_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frames</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.DataHandler.DataHandler.update_objects" title="Permalink to this definition"></a></dt>
+<dd><p>The method updates the data contained in the object based on the current gui entries.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-libs">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-libs" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="libs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="libs.elements.html" class="btn btn-neutral float-right" title="libs.elements package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Institute for Measurement and Sensor Technology, RPTU.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

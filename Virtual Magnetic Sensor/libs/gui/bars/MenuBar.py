@@ -1,6 +1,7 @@
 import tkinter as tk
-from tkinter.messagebox import showinfo
 from typing import List
+import webbrowser
+from pathlib import Path
 
 from libs.simulation.SimulationHandler import SimulationHandler
 from libs.gui.frames.SettingsFrame import SettingsFrame
@@ -27,12 +28,12 @@ class MenuBar(tk.Menu):
         self.export_menu.add_command(label="Export as .INI",
                                      command=lambda: FileDialogs.export_ini(data_stack, gui_handler))
         self.file_menu.add_command(
-            label='New',
+            label='New...',
             command=lambda: gui_handler.add_tab(DataHandler().template(), data_stack, config_handler),
             accelerator="Alt+Insert"
         )
         self.file_menu.add_command(
-            label='Open',
+            label='Open...',
             command=lambda: FileDialogs.open(data_stack, config_handler, gui_handler)
         )
         self.file_menu.add_command(
@@ -41,7 +42,7 @@ class MenuBar(tk.Menu):
             accelerator="Ctrl+S"
         )
         self.file_menu.add_command(
-            label='Save as',
+            label='Save as...',
             command=lambda: FileDialogs.save_as(data_stack, gui_handler)
         )
         self.file_menu.add_cascade(
@@ -91,7 +92,7 @@ class MenuBar(tk.Menu):
         self.help_menu = tk.Menu(self, tearoff=False)
         self.help_menu.add_command(
             label='Documentation',
-            command=lambda: showinfo(title='Documentation', message='Coming soon.'),
+            command=lambda: webbrowser.open_new_tab("file://" + Path("docs/build/html/index.html").resolve().as_posix())
         )
         self.help_menu.add_command(
             label='Info',
@@ -115,10 +116,10 @@ class MenuBar(tk.Menu):
         )
 
     def enable(self) -> None:
-        self.file_menu.entryconfig("New", state=tk.NORMAL)
-        self.file_menu.entryconfig("Open", state=tk.NORMAL)
+        self.file_menu.entryconfig("New...", state=tk.NORMAL)
+        self.file_menu.entryconfig("Open...", state=tk.NORMAL)
         self.file_menu.entryconfig("Save", state=tk.NORMAL)
-        self.file_menu.entryconfig("Save as", state=tk.NORMAL)
+        self.file_menu.entryconfig("Save as...", state=tk.NORMAL)
         self.file_menu.entryconfig("Export", state=tk.NORMAL)
         self.file_menu.entryconfig("Close", state=tk.NORMAL)
         self.file_menu.entryconfig("Close All", state=tk.NORMAL)
@@ -130,10 +131,10 @@ class MenuBar(tk.Menu):
         self.help_menu.entryconfig("Info", state=tk.NORMAL)
 
     def disable(self):
-        self.file_menu.entryconfig("New", state=tk.DISABLED)
-        self.file_menu.entryconfig("Open", state=tk.DISABLED)
+        self.file_menu.entryconfig("New...", state=tk.DISABLED)
+        self.file_menu.entryconfig("Open...", state=tk.DISABLED)
         self.file_menu.entryconfig("Save", state=tk.DISABLED)
-        self.file_menu.entryconfig("Save as", state=tk.DISABLED)
+        self.file_menu.entryconfig("Save as...", state=tk.DISABLED)
         self.file_menu.entryconfig("Export", state=tk.DISABLED)
         self.file_menu.entryconfig("Settings", state=tk.DISABLED)
         self.file_menu.entryconfig("Close", state=tk.DISABLED)
