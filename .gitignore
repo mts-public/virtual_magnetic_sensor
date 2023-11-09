@@ -268,5 +268,11 @@ __pycache__/
 # Saved HDF5 files
 *.hdf5
 
+# Exclude doc files
+*.rst
+*.pickle
+*.rst.txt
+*.doctree
+
 # Measurement series modules
 /Virtual Magnetic Sensor/libs/series/
