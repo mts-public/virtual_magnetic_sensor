@@ -50,7 +50,6 @@ GMRSensor0 = {
     "rot": np.array([0.0, 0.0, 0.0]),
     "depth": 100.0,
     "height": 100.0,
-    "current": 1.0,
     "gmr_offset": np.array([-455.0, -295.0, -205.0, -45.0, 45.0, 205.0, 295.0, 455.0]),
     "gmr_length": 85.0,
     "gmr_sampling": 100,
