@@ -23,8 +23,6 @@ class GMRSensor(Sensor):
     :type depth: float
     :param height: Size of the sensor along the body-fixed z-axis.
     :type height: float
-    :param current: Operating current of the measurement bridges.
-    :type current: float
     :param gmr_offset: Positions of the GMR elements along the body-fixed x-axis.
     :type gmr_offset: numpy.ndarray
     :param gmr_length: Length of the GMR elements along the body-fixed x-axis.
@@ -68,7 +66,6 @@ class GMRSensor(Sensor):
     rot: np.ndarray
     depth: float
     height: float
-    current: float
     gmr_offset: np.ndarray
     gmr_length: float
     gmr_sampling: int
@@ -98,7 +95,6 @@ class GMRSensor(Sensor):
                  rot: np.ndarray,
                  depth: float,
                  height: float,
-                 current: float,
                  gmr_offset: np.ndarray,
                  gmr_length: float,
                  gmr_sampling: int,
@@ -112,7 +108,6 @@ class GMRSensor(Sensor):
         self.rot = rot
         self.depth = depth
         self.height = height
-        self.current = current
         self.gmr_offset = gmr_offset
         self.gmr_length = gmr_length
         self.gmr_sampling = gmr_sampling
@@ -243,7 +238,7 @@ class GMRSensor(Sensor):
     def reset(self) -> None:
         """Calls the init method with the actual class attributes."""
 
-        self.__init__(self.pos, self.rot, self.depth, self.height, self.current, self.gmr_offset, self.gmr_length,
+        self.__init__(self.pos, self.rot, self.depth, self.height, self.gmr_offset, self.gmr_length,
                       self.gmr_sampling, self.sensor_sampling, self.maxh)
 
     def convert_to_si(self) -> None:
@@ -253,7 +248,6 @@ class GMRSensor(Sensor):
                       np.radians(self.rot),
                       self.depth * 1e-3,
                       self.height * 1e-3,
-                      self.current,
                       self.gmr_offset * 1e-3,
                       self.gmr_length * 1e-3,
                       self.gmr_sampling,
@@ -267,7 +261,6 @@ class GMRSensor(Sensor):
                          np.degrees(self.rot),
                          self.depth * 1e3,
                          self.height * 1e3,
-                         self.current,
                          self.gmr_offset * 1e3,
                          self.gmr_length * 1e3,
                          self.gmr_sampling,
@@ -407,7 +400,7 @@ class GMRSensor(Sensor):
         """
 
         return ((r[4] + r[5]) / (r[0] + r[1] + r[4] + r[5])
-                - (r[0] + r[1]) / (r[0] + r[1] + r[4] + r[5])) * self.current
+                - (r[0] + r[1]) / (r[0] + r[1] + r[4] + r[5]))
 
     def get_u_cos(self, r: np.ndarray) -> float:
         """Method for calculating the cosinus sensor signal with the resistance values on each gmr element.
@@ -417,7 +410,7 @@ class GMRSensor(Sensor):
         """
 
         return ((r[2] + r[3]) / (r[2] + r[3] + r[6] + r[7])
-                - (r[6] + r[7]) / (r[2] + r[3] + r[6] + r[7])) * self.current
+                - (r[6] + r[7]) / (r[2] + r[3] + r[6] + r[7]))
 
 
 class GMRSensorProperties(Enum):

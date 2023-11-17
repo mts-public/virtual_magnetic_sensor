@@ -38,9 +38,9 @@ class Figure2:
                                  1e-3*np.asarray(self.sensor.h_sensor)[0, :, 0])
         self.fig.subplots_adjust(hspace=0.262)
 
-        ax[0].set_xlabel("Time in s"), ax[0].set_ylabel("Usin in mV")
+        ax[0].set_xlabel("Time in s"), ax[0].set_ylabel("Usin in mV/V")
         ax[0].grid(color='k', linestyle=':', linewidth=0.5)
-        ax[1].set_xlabel("Time in s"), ax[1].set_ylabel("Ucos in mV")
+        ax[1].set_xlabel("Time in s"), ax[1].set_ylabel("Ucos in mV/V")
         ax[1].grid(color='k', linestyle=':', linewidth=0.5)
         ax[2].set_xlabel("p"), ax[2].set_ylabel("H_x in kA/m"), ax[2].grid(color='k', linestyle=':', linewidth=0.5)
 

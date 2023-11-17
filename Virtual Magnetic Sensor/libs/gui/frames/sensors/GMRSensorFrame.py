@@ -51,10 +51,7 @@ class GMRSensorFrame(ObjectFrame):
         self.entries['gmr_length'] = Gui.input_line(master=self, config=config_handler.config, col=0, row=4,
                                                     label="GMR Length:", unit="µm")
 
-        self.entries['current'] = Gui.input_line(master=self, config=config_handler.config, col=0, row=5,
-                                                 label="Current I:", unit="A")
-
-        self.sim_params_frame = Gui.label_frame(master=self, config=config_handler.config, col=0, row=6,
+        self.sim_params_frame = Gui.label_frame(master=self, config=config_handler.config, col=0, row=5,
                                                 column_span=3, row_span=1, label="Simulation Parameters")
         self.entries['gmr_sampling'] = Gui.input_line(master=self.sim_params_frame, config=config_handler.config,
                                                       col=0, row=0, label="GMR Sampling:")
