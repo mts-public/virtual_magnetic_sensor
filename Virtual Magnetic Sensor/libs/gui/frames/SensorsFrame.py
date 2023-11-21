@@ -38,8 +38,9 @@ class SensorsFrame(ttk.LabelFrame):
                                     command=lambda: self.add_gmr(data_handler, config_handler, gui_handler))
         self.rec_field_button = AddButton(master=self.button_frame, label="+ Record Field", gui_handler=gui_handler,
                                           command=lambda: self.add_rec_field(data_handler, config_handler, gui_handler))
-        """self.dummy1_button = AddButton(master=self.button_frame, label="+ Dummy", gui_handler=gui_handler,
-                                       command=self.add_dummy1)"""
+        """self.template_button = AddButton(master=self.button_frame, label="+ Template", gui_handler=gui_handler,
+                                         command=lambda: self.add_template(data_handler, config_handler, gui_handler))
+                                         """
         self.update_sub_frames(data_handler, config_handler, gui_handler)
 
     def add_gmr(self, data_handler: DataHandler, config_handler: ConfigHandler, gui_handler: GUIHandler):
@@ -54,8 +55,13 @@ class SensorsFrame(ttk.LabelFrame):
                                                   remove_sensor=self.remove_sensor))
         self.sub_frames[-1].refresh(FieldRecorder.template(gui_handler.sim_frame().get_parameters()))
 
-    """def add_dummy1(self):
-        pass"""
+    """def add_template(self, data_handler: DataHandler, config_handler: ConfigHandler, gui_handler: GUIHandler):
+        from libs.elements.sensors.SensorTemplate import SensorTemplate
+        from libs.gui.frames.sensors.SensorTemplateFrame import SensorTemplateFrame
+        self.sub_frames.append(SensorTemplateFrame(master=self.scrollable_frame, data_handler=data_handler,
+                                                   config_handler=config_handler, gui_handler=gui_handler,
+                                                   remove_sensor=self.remove_sensor))
+        self.sub_frames[-1].refresh(SensorTemplate.template())"""
 
     def erase_sub_frames(self, gui_handler: GUIHandler):
         for frame in reversed(self.sub_frames):
@@ -71,6 +77,12 @@ class SensorsFrame(ttk.LabelFrame):
                 self.sub_frames.append(FieldRecorderFrame(master=self.scrollable_frame, data_handler=data_handler,
                                                           config_handler=config_handler, gui_handler=gui_handler,
                                                           remove_sensor=self.remove_sensor))
+            """from libs.elements.sensors.SensorTemplate import SensorTemplate
+            if isinstance(sensor, SensorTemplate):
+                from libs.gui.frames.sensors.SensorTemplateFrame import SensorTemplateFrame
+                self.sub_frames.append(SensorTemplateFrame(master=self.scrollable_frame, data_handler=data_handler,
+                                                           config_handler=config_handler, gui_handler=gui_handler,
+                                                           remove_sensor=self.remove_sensor))"""
 
     def remove_sensor(self, obj: GMRSensorFrame):
         self.sub_frames.remove(obj)

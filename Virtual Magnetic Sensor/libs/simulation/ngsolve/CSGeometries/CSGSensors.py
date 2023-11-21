@@ -43,4 +43,9 @@ class CSGSensors:
         if isinstance(sensor, GMRSensor):
             sensor_geometry = CSGGMRSensor(sensor)
 
+        """from libs.elements.sensors.SensorTemplate import SensorTemplate
+        from libs.simulation.ngsolve.CSGeometries.CSGSensorTemplate import CSGSensorTemplate
+        if isinstance(sensor, SensorTemplate):
+            sensor_geometry = CSGSensorTemplate(sensor)"""
+
         return sensor_geometry.body
