@@ -95,6 +95,132 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
+<section id="module-libs.elements.components.ComponentTemplate">
+<span id="libs-elements-components-componenttemplate-module"></span><h2>libs.elements.components.ComponentTemplate module<a class="headerlink" href="#module-libs.elements.components.ComponentTemplate" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="libs.elements.components.ComponentTemplate.ComponentTemplate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.components.ComponentTemplate.</span></span><span class="sig-name descname"><span class="pre">ComponentTemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.components.ComponentTemplate.ComponentTemplate" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="libs.elements.html#libs.elements.Component.Component" title="libs.elements.Component.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.ComponentTemplate.ComponentTemplate.convert_to_si">
+<span class="sig-name descname"><span class="pre">convert_to_si</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.components.ComponentTemplate.ComponentTemplate.convert_to_si" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the init method and converts the parameters from gui units to SI units.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.ComponentTemplate.ComponentTemplate.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.components.ComponentTemplate.ComponentTemplate" title="libs.elements.components.ComponentTemplate.ComponentTemplate"><span class="pre">ComponentTemplate</span></a></span></span><a class="headerlink" href="#libs.elements.components.ComponentTemplate.ComponentTemplate.from_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method to init an instance of the SensorTemplate class by passing a dictionary with the corresponding</dt><dd><p>arguments.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Instance of the ComponentTemplate class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#libs.elements.components.ComponentTemplate.ComponentTemplate" title="libs.elements.components.ComponentTemplate.ComponentTemplate">ComponentTemplate</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.ComponentTemplate.ComponentTemplate.gui">
+<span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.components.ComponentTemplate.ComponentTemplate" title="libs.elements.components.ComponentTemplate.ComponentTemplate"><span class="pre">ComponentTemplate</span></a></span></span><a class="headerlink" href="#libs.elements.components.ComponentTemplate.ComponentTemplate.gui" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a copy of the class with attributes converted to units used in the gui.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Object of the ComponentTemplate class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#libs.elements.components.ComponentTemplate.ComponentTemplate" title="libs.elements.components.ComponentTemplate.ComponentTemplate">ComponentTemplate</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.ComponentTemplate.ComponentTemplate.gui_dict">
+<span class="sig-name descname"><span class="pre">gui_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.components.ComponentTemplate.ComponentTemplate.gui_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Method creates a dictionary of the class members that will be stored in the ini file. Variables not passed
+to the init method are excluded from the dictionary. This creates the opportunity to initiate an instance of
+the class by parsing the dictionary as argument.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary of the classes members.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.ComponentTemplate.ComponentTemplate.maxh">
+<span class="sig-name descname"><span class="pre">maxh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.ComponentTemplate.ComponentTemplate.maxh" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.ComponentTemplate.ComponentTemplate.mu_r">
+<span class="sig-name descname"><span class="pre">mu_r</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.components.ComponentTemplate.ComponentTemplate.mu_r" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="libs.elements.components.ComponentTemplate.ComponentTemplate.pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">np.ndarray</span></em><a class="headerlink" href="#libs.elements.components.ComponentTemplate.ComponentTemplate.pos" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.ComponentTemplate.ComponentTemplate.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.components.ComponentTemplate.ComponentTemplate.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the init method with the actual class attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.ComponentTemplate.ComponentTemplate.template">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.components.ComponentTemplate.ComponentTemplate" title="libs.elements.components.ComponentTemplate.ComponentTemplate"><span class="pre">ComponentTemplate</span></a></span></span><a class="headerlink" href="#libs.elements.components.ComponentTemplate.ComponentTemplate.template" title="Permalink to this definition"></a></dt>
+<dd><p>Class method to init the class with a set of default values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Object of the SensorTemplate class.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="libs.elements.sensors.html#libs.elements.sensors.SensorTemplate.SensorTemplate" title="libs.elements.sensors.SensorTemplate.SensorTemplate">SensorTemplate</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.ComponentTemplate.ComponentTemplate.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.components.ComponentTemplate.ComponentTemplate.to_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
+opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary of the classes members.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.elements.components.ComponentTemplate.ComponentTemplate.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.components.ComponentTemplate.ComponentTemplate.update" title="Permalink to this definition"></a></dt>
+<dd><p>Method to update the states of a time dependent component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>float</em>) – Current time stamp.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-libs.elements.components.Gear">
 <span id="libs-elements-components-gear-module"></span><h2>libs.elements.components.Gear module<a class="headerlink" href="#module-libs.elements.components.Gear" title="Permalink to this heading"></a></h2>
 <dl class="py class">
@@ -219,24 +345,6 @@ the dictionary get initialised with the standard values defined in the template 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.gui_dict">
 <span class="sig-name descname"><span class="pre">gui_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.components.Gear.Gear.gui_dict" title="Permalink to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
-opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The dictionary of the classes members.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Dict[str, any]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="libs.elements.components.Gear.Gear.ini_dict">
-<span class="sig-name descname"><span class="pre">ini_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.components.Gear.Gear.ini_dict" title="Permalink to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
 opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>

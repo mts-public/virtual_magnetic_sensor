@@ -128,9 +128,17 @@
 <li class="toctree-l2"><a class="reference internal" href="libs.gui.frames.magnets.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="libs.gui.frames.magnets.html#module-libs.gui.frames.magnets.CuboidMagnetFrame">libs.gui.frames.magnets.CuboidMagnetFrame module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="libs.gui.frames.magnets.html#libs.gui.frames.magnets.CuboidMagnetFrame.CuboidMagnetFrame"><code class="docutils literal notranslate"><span class="pre">CuboidMagnetFrame</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="libs.gui.frames.magnets.html#libs.gui.frames.magnets.CuboidMagnetFrame.InfoFrame"><code class="docutils literal notranslate"><span class="pre">InfoFrame</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.magnets.html#libs.gui.frames.magnets.CuboidMagnetFrame.InfoFrame.destroy"><code class="docutils literal notranslate"><span class="pre">InfoFrame.destroy()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="libs.gui.frames.magnets.html#module-libs.gui.frames.magnets.RodMagnetFrame">libs.gui.frames.magnets.RodMagnetFrame module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.gui.frames.magnets.html#libs.gui.frames.magnets.RodMagnetFrame.InfoFrame"><code class="docutils literal notranslate"><span class="pre">InfoFrame</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.magnets.html#libs.gui.frames.magnets.RodMagnetFrame.InfoFrame.destroy"><code class="docutils literal notranslate"><span class="pre">InfoFrame.destroy()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="libs.gui.frames.magnets.html#libs.gui.frames.magnets.RodMagnetFrame.RodMagnetFrame"><code class="docutils literal notranslate"><span class="pre">RodMagnetFrame</span></code></a></li>
 </ul>
 </li>
@@ -153,6 +161,25 @@
 <li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.sensors.html#libs.gui.frames.sensors.GMRSensorFrame.GMRSensorFrame.update_buttons"><code class="docutils literal notranslate"><span class="pre">GMRSensorFrame.update_buttons()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="libs.gui.frames.sensors.html#libs.gui.frames.sensors.GMRSensorFrame.InfoFrame"><code class="docutils literal notranslate"><span class="pre">InfoFrame</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.sensors.html#libs.gui.frames.sensors.GMRSensorFrame.InfoFrame.destroy"><code class="docutils literal notranslate"><span class="pre">InfoFrame.destroy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.gui.frames.sensors.html#module-libs.gui.frames.sensors.HallSensorFrame">libs.gui.frames.sensors.HallSensorFrame module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.gui.frames.sensors.html#libs.gui.frames.sensors.HallSensorFrame.HallSensorFrame"><code class="docutils literal notranslate"><span class="pre">HallSensorFrame</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.sensors.html#libs.gui.frames.sensors.HallSensorFrame.HallSensorFrame.update_buttons"><code class="docutils literal notranslate"><span class="pre">HallSensorFrame.update_buttons()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="libs.gui.frames.sensors.html#libs.gui.frames.sensors.HallSensorFrame.PlotButton"><code class="docutils literal notranslate"><span class="pre">PlotButton</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="libs.gui.frames.sensors.html#libs.gui.frames.sensors.HallSensorFrame.PlotButton.click"><code class="docutils literal notranslate"><span class="pre">PlotButton.click()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="libs.gui.frames.sensors.html#module-libs.gui.frames.sensors.SensorTemplateFrame">libs.gui.frames.sensors.SensorTemplateFrame module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="libs.gui.frames.sensors.html#libs.gui.frames.sensors.SensorTemplateFrame.SensorTemplateFrame"><code class="docutils literal notranslate"><span class="pre">SensorTemplateFrame</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="libs.gui.frames.sensors.html#module-libs.gui.frames.sensors">Module contents</a></li>
@@ -362,6 +389,11 @@
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="libs.gui.frames.SensorsFrame.SensorsFrame.add_hall">
+<span class="sig-name descname"><span class="pre">add_hall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.html#libs.DataHandler.DataHandler" title="libs.DataHandler.DataHandler"><span class="pre">DataHandler</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.html#libs.ConfigHandler.ConfigHandler" title="libs.ConfigHandler.ConfigHandler"><span class="pre">ConfigHandler</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">gui_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.gui.html#libs.gui.GUIHandler.GUIHandler" title="libs.gui.GUIHandler.GUIHandler"><span class="pre">GUIHandler</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.gui.frames.SensorsFrame.SensorsFrame.add_hall" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="libs.gui.frames.SensorsFrame.SensorsFrame.add_rec_field">
 <span class="sig-name descname"><span class="pre">add_rec_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.html#libs.DataHandler.DataHandler" title="libs.DataHandler.DataHandler"><span class="pre">DataHandler</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.html#libs.ConfigHandler.ConfigHandler" title="libs.ConfigHandler.ConfigHandler"><span class="pre">ConfigHandler</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">gui_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.gui.html#libs.gui.GUIHandler.GUIHandler" title="libs.gui.GUIHandler.GUIHandler"><span class="pre">GUIHandler</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.gui.frames.SensorsFrame.SensorsFrame.add_rec_field" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -372,10 +404,10 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="libs.gui.frames.SensorsFrame.SensorsFrame.rec_field_button">
-<span class="sig-name descname"><span class="pre">rec_field_button</span></span><a class="headerlink" href="#libs.gui.frames.SensorsFrame.SensorsFrame.rec_field_button" title="Permalink to this definition"></a></dt>
-<dd><p>self.dummy1_button = AddButton(master=self.button_frame, label=”+ Dummy”, gui_handler=gui_handler,
-command=self.add_dummy1)</p>
+<dt class="sig sig-object py" id="libs.gui.frames.SensorsFrame.SensorsFrame.hall_button">
+<span class="sig-name descname"><span class="pre">hall_button</span></span><a class="headerlink" href="#libs.gui.frames.SensorsFrame.SensorsFrame.hall_button" title="Permalink to this definition"></a></dt>
+<dd><p>self.template_button = AddButton(master=self.button_frame, label=”+ Template”, gui_handler=gui_handler,
+command=lambda: self.add_template(data_handler, config_handler, gui_handler))</p>
 </dd></dl>
 
 <dl class="py method">
