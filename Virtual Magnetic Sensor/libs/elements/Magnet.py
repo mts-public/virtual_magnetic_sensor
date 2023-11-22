@@ -75,6 +75,16 @@ class Magnet:
         """
 
     @abc.abstractmethod
+    def gui_dict(self) -> Dict[str, any]:
+        """Method creates a dictionary of the class members that will be stored in the ini file. Variables not passed
+        to the init method are excluded from the dictionary. This creates the opportunity to initiate an instance of
+        the class by parsing the dictionary as argument.
+
+        :return: The dictionary of the classes members.
+        :rtype: Dict[str, any]
+        """
+
+    @abc.abstractmethod
     def reset(self) -> None:
         """Calls the init method with the actual class attributes."""
 
