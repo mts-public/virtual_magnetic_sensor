@@ -10,7 +10,6 @@ def test_from_dict_and_to_dict():
                            rot=np.radians(np.array([10.0, 20.0, 30.0])),
                            depth=200.0 * 1e-3,
                            height=300.0 * 1e-3,
-                           current=2.0,
                            gmr_offset=np.array([-910.0, -590.0, -410.0, -90.0, 90.0, 410.0, 590.0, 910.0]) * 1e-3,
                            gmr_length=160.0 * 1e-3,
                            gmr_sampling=200,
