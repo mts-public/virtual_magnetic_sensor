@@ -197,20 +197,6 @@ class Gear(Component):
 
         return dictionary
 
-    def ini_dict(self) -> Dict[str, any]:
-        """Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created
-            automatically when instantiating an object of the class are excluded from the dictionary. This creates the
-            opportunity to initiate an instance of the class by parsing the dictionary as argument.
-
-        :return: The dictionary of the classes members.
-        :rtype: Dict[str, any]
-        """
-
-        dictionary: dict = vars(self.gui()).copy()
-        dictionary.pop('theta', None)
-
-        return dictionary
-
     def reset(self):
         """Calls the init method with the actual class attributes."""
         self.__init__(self.pos, self.axis_0, self.omega, self.diameter, self.length,
