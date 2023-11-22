@@ -4,7 +4,7 @@ from libs.elements.sensors.SensorTemplate import SensorTemplate
 
 
 class CSGSensorTemplate:
-    """Generates the geometry for a shaft in the simulation with netgen.csg.CSGeometry elements.
+    """Generates the geometry for of the template element in the simulation with netgen.csg.CSGeometry elements.
 
     :param template: Object of the SensorTemplate class.
     :type template: SensorTemplate

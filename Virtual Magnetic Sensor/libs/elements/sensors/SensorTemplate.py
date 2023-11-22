@@ -1,13 +1,18 @@
 from __future__ import annotations
 from libs.elements.Sensor import Sensor
 from libs.simulation.MagneticField import MagneticField
-from typing import Dict
+from typing import Dict, List
 
 
 class SensorTemplate(Sensor):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+        if 'measurement_data' in kwargs:
+            self.measurement_data = kwargs['measurement_data']
+        else:
+            self.measurement_data = list()
 
     @ classmethod
     def template(cls) -> SensorTemplate:
@@ -83,13 +88,28 @@ class SensorTemplate(Sensor):
 
         return SensorTemplate()
 
-    def update(self, field: MagneticField) -> None:
-        """Method to update the sensor measurement parameters for the current simulation step. Parameters to be updated
-            are the resistances array, the output voltages u_sin and u_cos and the H-field along the sensor axis
-            h_sensor.
+    def get_data(self, measurement_data) -> None:
+        """Method to pass the measurement data saved in a dictionary to the sensor object."""
 
+        self.measurement_data += measurement_data  # Expand with further measurement parameters if necessary
+
+    def set_data(self, data_dict: Dict[str, List], field: MagneticField) -> Dict[str, List]:
+        """Method to update the sensor measurement parameters for the current simulation step.
+
+        :param data_dict: Dictionary with the measurement data, shared between processes.
+        :type data_dict: Dict[str, List]
         :param field: Instance of the MagneticField class.
         :type field: MagneticField
         """
 
-        # Implement sensor logic and save measured values in a list which is initialised in the init method
+        # Implement sensor logic here
+        # Save the measured variables in the measurement_data attribute or create own attributes according to the
+        # example of measurement_data (modify get_data method as well)
+
+        measured_value_at_current_time_step: float = 0.0
+
+        if "measurement_data" not in data_dict:
+            data_dict['measurement_data'] = list()
+        data_dict['measurement_data'].append(measured_value_at_current_time_step)
+
+        return data_dict
