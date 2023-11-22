@@ -1,4 +1,6 @@
+import tkinter as tk
 from tkinter import ttk
+from PIL import ImageTk, Image
 from typing import Callable
 
 from libs.gui.frames.ObjectFrame import ObjectFrame
@@ -68,6 +70,12 @@ class GMRSensorFrame(ObjectFrame):
         self.plot_button = PlotButton(master=self.button_frame, data_handler=data_handler,
                                       config_handler=config_handler, gui_handler=gui_handler)
         self.buttons.append(self.plot_button.button)
+
+        self.info_button = ttk.Button(master=self.button_frame, text="?", width=3, command=InfoFrame)
+        self.info_button.pack(side="right", anchor="ne", padx=(1, config_handler.config['GUI']['padding']),
+                              pady=config_handler.config['GUI']['h_spacing'])
+        gui_handler.buttons.append(self.info_button)
+
         self.button_frame.grid(column=0, row=7, columnspan=3, rowspan=1, sticky='s,w,e')
 
     def menu_callback(self, *args) -> None:
@@ -81,3 +89,23 @@ class GMRSensorFrame(ObjectFrame):
 
     def update_buttons(self, sensor: GMRSensor):
         self.plot_button.sensor = sensor
+
+
+class InfoFrame:
+
+    def __init__(self) -> None:
+        self.frame = tk.Toplevel()
+        self.frame.title("Info")
+        self.frame.protocol("WM_DELETE_WINDOW", self.destroy)
+
+        img = (Image.open(r"resources/images/GMRSensor.png"))
+        image_width = int(1.0 * img.width)
+        image_height = int(1.0 * img.height)
+        self.resized_img = ImageTk.PhotoImage(img.resize((image_width, image_height), Image.ANTIALIAS))
+        self.frame.geometry(f"{image_width}x{image_height}+{100}+{100}")
+
+        image_frame = ttk.Label(master=self.frame, image=self.resized_img)
+        image_frame.pack(expand=True, fill="both", side="top", anchor="center")
+
+    def destroy(self):
+        self.frame.destroy()
