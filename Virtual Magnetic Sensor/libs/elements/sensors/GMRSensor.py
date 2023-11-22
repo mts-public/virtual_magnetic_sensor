@@ -284,13 +284,35 @@ class GMRSensor(Sensor):
                                                self.sensor_sampling_matrix[:, 2]))
 
     def get_data(self, resistance: List[np.ndarray], u_sin: List[float], u_cos: List[float],
-                 h_sensor: List[np.ndarray]):
+                 h_sensor: List[np.ndarray]) -> None:
+        """Method to pass the measurement data saved in a dictionary to the sensor object.
+
+        :param resistance: List of arrays with the resistance of each GMR element at each time step.
+        :type resistance: List[numpy.ndarray]
+        :param u_sin: List of the sensor voltage output U_sin at each time step.
+        :type u_sin: List[float]
+        :param u_cos: List of the sensor voltage output U_cos at each time step.
+        :type u_cos: List[float]
+        :param h_sensor: Magnetic field components along the sensor during the current simulation step.
+        :type h_sensor: List[numpy.ndarray]
+        """
+
         self.resistance += resistance
         self.u_sin += u_sin
         self.u_cos += u_cos
         self.h_sensor += h_sensor
 
-    def set_data(self, data_dict: Dict[str, List], magnetic_field: MagneticField):
+    def set_data(self, data_dict: Dict[str, List], field: MagneticField) -> Dict[str, list]:
+        """Method to update the sensor measurement parameters for the current simulation step. Parameters to be updated
+            are the resistances array, the output voltages u_sin and u_cos and the H-field along the sensor axis
+            h_sensor.
+
+        :param data_dict: Dictionary with the measurement data, shared between processes.
+        :type data_dict: Dict[str, List]
+        :param field: Instance of the MagneticField class.
+        :type field: MagneticField
+        """
+
         if "resistance" not in data_dict:
             data_dict['resistance'] = list()
         if "u_sin" not in data_dict:
@@ -299,12 +321,12 @@ class GMRSensor(Sensor):
             data_dict['u_cos'] = list()
         if "h_sensor" not in data_dict:
             data_dict['h_sensor'] = list()
-        data_dict['resistance'].append(self.get_gmr_resistances(self.get_gmr_h_values(magnetic_field)))
+        data_dict['resistance'].append(self.get_gmr_resistances(self.get_gmr_h_values(field)))
         data_dict['u_sin'].append(self.get_u_sin(data_dict['resistance'][-1]))
         data_dict['u_cos'].append(self.get_u_cos(data_dict['resistance'][-1]))
-        data_dict['h_sensor'].append(magnetic_field.get_h_field(self.sensor_sampling_matrix[:, 0],
-                                                                self.sensor_sampling_matrix[:, 1],
-                                                                self.sensor_sampling_matrix[:, 2]))
+        data_dict['h_sensor'].append(field.get_h_field(self.sensor_sampling_matrix[:, 0],
+                                                       self.sensor_sampling_matrix[:, 1],
+                                                       self.sensor_sampling_matrix[:, 2]))
         return data_dict
 
     def get_transformation_matrix(self) -> np.ndarray:
@@ -392,7 +414,8 @@ class GMRSensor(Sensor):
         return self.coeffs[4] * np.power(h_x, 4) + self.coeffs[3] * np.power(h_x, 3) + \
                self.coeffs[2] * np.power(h_x, 2) + self.coeffs[1] * h_x + self.coeffs[0]
 
-    def get_u_sin(self, r: np.ndarray) -> float:
+    @staticmethod
+    def get_u_sin(r: np.ndarray) -> float:
         """Method for calculating the sinus sensor signal with the resistance values on each gmr element.
 
         :return: Sinus sensor signal.
@@ -402,7 +425,8 @@ class GMRSensor(Sensor):
         return ((r[4] + r[5]) / (r[0] + r[1] + r[4] + r[5])
                 - (r[0] + r[1]) / (r[0] + r[1] + r[4] + r[5]))
 
-    def get_u_cos(self, r: np.ndarray) -> float:
+    @staticmethod
+    def get_u_cos(r: np.ndarray) -> float:
         """Method for calculating the cosinus sensor signal with the resistance values on each gmr element.
 
         :return: Cosinus sensor signal.

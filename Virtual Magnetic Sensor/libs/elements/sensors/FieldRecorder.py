@@ -150,24 +150,24 @@ class FieldRecorder:
                              self.samples,
                              self.maxh)
 
-    def update(self, current_field: MagneticField) -> None:
-        """Method to update the sensor measurement parameters for the current simulation step. Parameters to be updated
-            are the B- or H-field.
+    def get_data(self, field: List[np.ndarray]) -> None:
+        """Method to pass the measurement data saved in a dictionary to the sensor object.
 
-        :param current_field: Current instance of the MagneticField class.
-        :type current_field: MagneticField
-
+        :param field: Measured h- oder b-field components from a completed process.
+        :type field: List[np.ndarray]
         """
 
-        if self.field_specifier == 1:
-            self.field.append(current_field.get_b_field(self.X, self.Y, self.Z))
-        elif self.field_specifier == 2:
-            self.field.append(current_field.get_h_field(self.X, self.Y, self.Z))
-
-    def get_data(self, field: List[np.ndarray]):
         self.field += field
 
-    def set_data(self, data_dict: Dict[str, List], magnetic_field: MagneticField):
+    def set_data(self, data_dict: Dict[str, List], magnetic_field: MagneticField) -> Dict[str, List]:
+        """Method to update the sensor measurement parameters for the current simulation step.
+
+        :param data_dict: Dictionary with the measurement data, shared between processes.
+        :type data_dict: Dict[str, List]
+        :param magnetic_field: Instance of the MagneticField class.
+        :type magnetic_field: MagneticField
+        """
+
         if "field" not in data_dict:
             data_dict['field'] = list()
         if self.field_specifier == 1:

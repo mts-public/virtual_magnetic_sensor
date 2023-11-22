@@ -1,6 +1,6 @@
 from __future__ import annotations
 import numpy as np
-from typing import Dict
+from typing import Dict, List
 import abc
 
 from libs.simulation.MagneticField import MagneticField
@@ -70,11 +70,15 @@ class Sensor:
         """Returns a copy of the class with attributes converted to units used in the gui."""
 
     @abc.abstractmethod
-    def update(self, field: MagneticField) -> None:
-        """Method to update the sensor measurement parameters for the current simulation step. Parameters to be updated
-            are the resistances array, the output voltages u_sin and u_cos and the H-field along the sensor axis
-            h_sensor.
+    def get_data(self, *args) -> None:
+        """Method to pass the measurement data saved in a dictionary to the sensor object."""
 
+    @abc.abstractmethod
+    def set_data(self, data_dict: Dict[str, List], field: MagneticField) -> Dict[str, List]:
+        """Method to update the sensor measurement parameters for the current simulation step.
+
+        :param data_dict: Dictionary with the measurement data, shared between processes.
+        :type data_dict: Dict[str, List]
         :param field: Instance of the MagneticField class.
         :type field: MagneticField
         """
