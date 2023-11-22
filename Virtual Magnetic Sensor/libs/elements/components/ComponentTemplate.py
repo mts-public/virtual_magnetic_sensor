@@ -55,6 +55,22 @@ class ComponentTemplate(Component):
 
         return dictionary
 
+    def gui_dict(self) -> Dict[str, any]:
+        """Method creates a dictionary of the class members that will be stored in the ini file. Variables not passed
+        to the init method are excluded from the dictionary. This creates the opportunity to initiate an instance of
+        the class by parsing the dictionary as argument.
+
+        :return: The dictionary of the classes members.
+        :rtype: Dict[str, any]
+        """
+
+        dictionary: Dict[str, any] = vars(self.gui()).copy()
+
+        # Remove attributes from the dictionary that should not be part of the metadata
+        # dictionary.pop('attribute', None)
+
+        return dictionary
+
     def reset(self) -> None:
         """Calls the init method with the actual class attributes."""
 
