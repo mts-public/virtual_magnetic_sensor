@@ -7,11 +7,13 @@ from libs.ConfigHandler import ConfigHandler
 
 from libs.elements.sensors.GMRSensor import GMRSensor
 from libs.elements.sensors.FieldRecorder import FieldRecorder
+from libs.elements.sensors.HallSensor import HallSensor
 
 from libs.gui.GUIHandler import GUIHandler
 from libs.gui.buttons.SubFrameButtons import AddButton
 from libs.gui.frames.sensors.GMRSensorFrame import GMRSensorFrame
 from libs.gui.frames.sensors.FieldRecorderFrame import FieldRecorderFrame
+from libs.gui.frames.sensors.HallSensorFrame import HallSensorFrame
 from libs.gui.GUIElements import GUIElements as Gui
 
 
@@ -38,6 +40,8 @@ class SensorsFrame(ttk.LabelFrame):
                                     command=lambda: self.add_gmr(data_handler, config_handler, gui_handler))
         self.rec_field_button = AddButton(master=self.button_frame, label="+ Record Field", gui_handler=gui_handler,
                                           command=lambda: self.add_rec_field(data_handler, config_handler, gui_handler))
+        self.hall_button = AddButton(master=self.button_frame, label="+ Hall Sensor", gui_handler=gui_handler,
+                                     command=lambda: self.add_hall(data_handler, config_handler, gui_handler))
         """self.template_button = AddButton(master=self.button_frame, label="+ Template", gui_handler=gui_handler,
                                          command=lambda: self.add_template(data_handler, config_handler, gui_handler))
                                          """
@@ -54,6 +58,12 @@ class SensorsFrame(ttk.LabelFrame):
                                                   config_handler=config_handler, gui_handler=gui_handler,
                                                   remove_sensor=self.remove_sensor))
         self.sub_frames[-1].refresh(FieldRecorder.template(gui_handler.sim_frame().get_parameters()))
+
+    def add_hall(self, data_handler: DataHandler, config_handler: ConfigHandler, gui_handler: GUIHandler):
+        self.sub_frames.append(HallSensorFrame(master=self.scrollable_frame, data_handler=data_handler,
+                                               config_handler=config_handler, gui_handler=gui_handler,
+                                               remove_sensor=self.remove_sensor))
+        self.sub_frames[-1].refresh(HallSensor.template())
 
     """def add_template(self, data_handler: DataHandler, config_handler: ConfigHandler, gui_handler: GUIHandler):
         from libs.elements.sensors.SensorTemplate import SensorTemplate
@@ -77,6 +87,10 @@ class SensorsFrame(ttk.LabelFrame):
                 self.sub_frames.append(FieldRecorderFrame(master=self.scrollable_frame, data_handler=data_handler,
                                                           config_handler=config_handler, gui_handler=gui_handler,
                                                           remove_sensor=self.remove_sensor))
+            if isinstance(sensor, HallSensor):
+                self.sub_frames.append(HallSensorFrame(master=self.scrollable_frame, data_handler=data_handler,
+                                                       config_handler=config_handler, gui_handler=gui_handler,
+                                                       remove_sensor=self.remove_sensor))
             """from libs.elements.sensors.SensorTemplate import SensorTemplate
             if isinstance(sensor, SensorTemplate):
                 from libs.gui.frames.sensors.SensorTemplateFrame import SensorTemplateFrame

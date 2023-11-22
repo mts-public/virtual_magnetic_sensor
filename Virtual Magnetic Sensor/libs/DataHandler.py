@@ -21,6 +21,7 @@ from libs.elements.magnets.RodMagnet import RodMagnet
 from libs.elements.magnets.UniField import UniField
 from libs.elements.sensors.GMRSensor import GMRSensor
 from libs.elements.sensors.FieldRecorder import FieldRecorder
+from libs.elements.sensors.HallSensor import HallSensor
 
 
 class DataHandler:

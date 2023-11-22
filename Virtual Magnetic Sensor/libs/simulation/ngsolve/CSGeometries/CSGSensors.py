@@ -4,8 +4,10 @@ from typing import List
 from libs.elements.Sensor import Sensor
 
 from libs.elements.sensors.GMRSensor import GMRSensor
+from libs.elements.sensors.HallSensor import HallSensor
 
 from libs.simulation.ngsolve.CSGeometries.CSGGMRSensor import CSGGMRSensor
+from libs.simulation.ngsolve.CSGeometries.CSGHallSensor import CSGHallSensor
 
 
 class CSGSensors:
@@ -42,7 +44,8 @@ class CSGSensors:
         sensor_geometry = csg.Solid
         if isinstance(sensor, GMRSensor):
             sensor_geometry = CSGGMRSensor(sensor)
-
+        elif isinstance(sensor, HallSensor):
+            sensor_geometry = CSGHallSensor(sensor)
         """from libs.elements.sensors.SensorTemplate import SensorTemplate
         from libs.simulation.ngsolve.CSGeometries.CSGSensorTemplate import CSGSensorTemplate
         if isinstance(sensor, SensorTemplate):
