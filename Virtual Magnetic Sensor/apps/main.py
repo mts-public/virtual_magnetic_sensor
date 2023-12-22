@@ -2,8 +2,8 @@
 
 """main.py: Run the application."""
 import faulthandler
-from pyngcore import SetNumThreads
-from multiprocessing import cpu_count
+#from pyngcore import SetNumThreads
+#from multiprocessing import cpu_count
 
 from libs.gui.frames.MainFrame import MainFrame
 from libs.simulation.SimulationHandler import SimulationHandler
@@ -23,5 +23,5 @@ class MultiprocessingTasks:
 
 if __name__ == '__main__':
     faulthandler.enable()
-    SetNumThreads(cpu_count())
+    #SetNumThreads(cpu_count())
     MainFrame(MultiprocessingTasks())
