@@ -75,6 +75,7 @@ class GMRSensorFrame(ObjectFrame):
         self.info_button.pack(side="right", anchor="ne", padx=(1, config_handler.config['GUI']['padding']),
                               pady=config_handler.config['GUI']['h_spacing'])
         gui_handler.buttons.append(self.info_button)
+        self.buttons.append(self.info_button)
 
         self.button_frame.grid(column=0, row=7, columnspan=3, rowspan=1, sticky='s,w,e')
 

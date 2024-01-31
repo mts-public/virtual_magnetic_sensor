@@ -52,6 +52,7 @@ class RodMagnetFrame(ObjectFrame):
         self.info_button = ttk.Button(master=self.button_frame, text="?", width=3, command=InfoFrame)
         self.info_button.pack(side="right", anchor="ne", padx=(1, config_handler.config['GUI']['padding']),
                               pady=config_handler.config['GUI']['h_spacing'])
+        self.buttons.append(self.info_button)
         gui_handler.buttons.append(self.info_button)
 
         self.button_frame.grid(column=0, row=10, columnspan=3, rowspan=1, sticky='s,w,e')
