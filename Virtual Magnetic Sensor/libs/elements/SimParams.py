@@ -53,7 +53,10 @@ class SimParams:
         self.maxit = maxit
 
         self.t = np.linspace(self.t0, self.t1, samples)
-        self.dt = (t1 - t0) / (samples - 1)
+        if samples > 1:
+            self.dt = (t1 - t0) / (samples - 1)
+        else:
+            self.dt = 0.0
 
     @classmethod
     def template(cls):
