@@ -4,10 +4,12 @@ from typing import List
 from libs.elements.Component import Component
 
 from libs.elements.components.Gear import Gear
+from libs.elements.components.EvoGear import EvoGear
 from libs.elements.components.Shaft import Shaft
 from libs.elements.components.GearRack import GearRack
 
 from libs.simulation.ngsolve.CSGeometries.CSGGear import CSGGear
+from libs.simulation.ngsolve.CSGeometries.CSGEvoGear import CSGEvoGear
 from libs.simulation.ngsolve.CSGeometries.CSGShaft import CSGShaft
 from libs.simulation.ngsolve.CSGeometries.CSGGearRack import CSGGearRack
 
@@ -46,6 +48,8 @@ class CSGComponents:
         component_geometry = csg.Solid
         if isinstance(component, Gear):
             component_geometry = CSGGear(component)
+        elif isinstance(component, EvoGear):
+            component_geometry = CSGEvoGear(component)
         elif isinstance(component, Shaft):
             component_geometry = CSGShaft(component)
         elif isinstance(component, GearRack):

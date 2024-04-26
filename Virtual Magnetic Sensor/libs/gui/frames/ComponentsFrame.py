@@ -7,6 +7,7 @@ from libs.DataHandler import DataHandler
 from libs.ConfigHandler import ConfigHandler
 
 from libs.elements.components.Gear import Gear
+from libs.elements.components.EvoGear import EvoGear
 from libs.elements.components.Shaft import Shaft
 from libs.elements.components.GearRack import GearRack
 
@@ -14,6 +15,7 @@ from libs.gui.GUIHandler import GUIHandler
 from libs.gui.GUIElements import GUIElements as Gui
 from libs.gui.buttons.SubFrameButtons import AddButton
 from libs.gui.frames.components.GearFrame import GearFrame
+from libs.gui.frames.components.EvoGearFrame import EvoGearFrame
 from libs.gui.frames.components.ShaftFrame import ShaftFrame
 from libs.gui.frames.components.GearRackFrame import GearRackFrame
 
@@ -38,6 +40,8 @@ class ComponentsFrame(ttk.LabelFrame):
 
         self.gear_button = AddButton(master=self.button_frame, label="+ Gear", gui_handler=gui_handler,
                                      command=lambda: self.add_gear(data_handler, config_handler, gui_handler))
+        """self.evo_gear_button = AddButton(master=self.button_frame, label="+ EvoGear", gui_handler=gui_handler,
+                                         command=lambda: self.add_evo_gear(data_handler, config_handler, gui_handler))"""
         self.gear_rack_button = AddButton(master=self.button_frame, label="+ Gear Rack", gui_handler=gui_handler,
                                           command=lambda: self.add_gear_rack(data_handler, config_handler, gui_handler))
         self.shaft_button = AddButton(master=self.button_frame, label="+ Shaft", gui_handler=gui_handler,
@@ -49,6 +53,13 @@ class ComponentsFrame(ttk.LabelFrame):
                                          config_handler=config_handler, gui_handler=gui_handler,
                                          remove_gear=self.remove_component))
         self.sub_frames[-1].refresh(Gear.template())
+        return self.sub_frames
+
+    def add_evo_gear(self, data_handler: DataHandler, config_handler: ConfigHandler, gui_handler: GUIHandler):
+        self.sub_frames.append(EvoGearFrame(master=self.scrollable_frame, data_handler=data_handler,
+                                            config_handler=config_handler, gui_handler=gui_handler,
+                                            remove_gear=self.remove_component))
+        self.sub_frames[-1].refresh(EvoGear.template())
         return self.sub_frames
 
     def add_gear_rack(self, data_handler: DataHandler, config_handler: ConfigHandler, gui_handler: GUIHandler):
@@ -75,6 +86,10 @@ class ComponentsFrame(ttk.LabelFrame):
                 self.sub_frames.append(GearFrame(master=self.scrollable_frame, data_handler=data_handler,
                                                  config_handler=config_handler, gui_handler=gui_handler,
                                                  remove_gear=self.remove_component))
+            elif isinstance(component, EvoGear):
+                self.sub_frames.append(EvoGearFrame(master=self.scrollable_frame, data_handler=data_handler,
+                                                    config_handler=config_handler, gui_handler=gui_handler,
+                                                    remove_gear=self.remove_component))
             elif isinstance(component, GearRack):
                 self.sub_frames.append(GearRackFrame(master=self.scrollable_frame, data_handler=data_handler,
                                                      config_handler=config_handler, gui_handler=gui_handler,

@@ -14,6 +14,7 @@ from libs.elements.Component import Component
 from libs.elements.Magnet import Magnet
 from libs.elements.Sensor import Sensor
 from libs.elements.components.Gear import Gear
+from libs.elements.components.EvoGear import EvoGear
 from libs.elements.components.GearRack import GearRack
 from libs.elements.components.Shaft import Shaft
 from libs.elements.magnets.CuboidMagnet import CuboidMagnet
