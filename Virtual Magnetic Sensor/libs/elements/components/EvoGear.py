@@ -19,36 +19,12 @@ class EvoGear(Component):
     :type diameter: float
     :param length: Length of the gear.
     :type length: float
-    :param tooth_height: EvoGear height calculated from tip diameter.
-    :type tooth_height: float
-    :param tooth_width: Tooth width at pitch diameter.
-    :type tooth_width: float
     :param n: Total number of teeth.
     :type n: int
     :param display_teeth_angle: Opening angle related to the sensors position in which the gear teeth are drawn.
     :type display_teeth_angle: np.ndarray
-    :param tooth_flank_angle: Tooth flank angle in radians.
-    :type tooth_flank_angle: float
     :param alpha: normal pressure angle in radians.
     :type alpha: float
-    :param x: profile modification factor unitless.
-    :type x: float
-    :param d: Pitch diamter of the gear.
-    :type d: float
-    :param m: The gear modul.
-    :type m: float
-    :param n_ger: Minimum number of teeth for a given Gear.
-    :type n_ger: float
-    :param d_a: Outside diameter of the gear.
-    :type d_a: float
-    :param d_b: Base circle diameter of the gear.
-    :type d_b: float
-    :param d_f: Foot circle diameter of the gear.
-    :type d_f: float
-    :param inv_alpha: Involute function in radians.
-    :type inv_alpha: float
-    :param s: EvoGear width at the pitch diameter.
-    :type s: float
     :param mu_r: Permeability of the gear.
     :type mu_r: float
     :param eccentricity: Rotation eccentricity of the gear.
@@ -78,13 +54,9 @@ class EvoGear(Component):
     omega: float
     diameter: np.ndarray
     length: float
-    tooth_height: float
-    tooth_width: float
     n: float
     display_teeth_angle: np.ndarray
-    tooth_flank_angle: float
     alpha:  float
-    x: float
     d:  float
     m:  float
     n_gr: float
@@ -109,13 +81,9 @@ class EvoGear(Component):
                  omega: float,
                  diameter: np.ndarray,
                  length: float,
-                 tooth_height: float,
-                 tooth_width: float,
                  n: float,
                  display_teeth_angle: np.ndarray,
-                 tooth_flank_angle: float,
                  alpha: float,
-                 x: float,
                  mu_r: float,
                  eccentricity: float,
                  wobble_angle: float,
@@ -134,22 +102,19 @@ class EvoGear(Component):
         self.omega = omega
         self.diameter = diameter
         self.length = length
-        self.tooth_height = tooth_height
-        self.tooth_width = tooth_width
         self.n = n
         self.display_teeth_angle = display_teeth_angle
-        self.tooth_flank_angle = tooth_flank_angle
         self.alpha = alpha
-        self.x = x
-        self.d = diameter[1]/(1-(2/self.n)*((5/4)-self.x))
-        self.m = self.d/n
-        self.n_gr = (2*(1-x))/pow(sin(self.alpha), 2)
-        
-        self.d_a = self.d+2*self.m+2*self.x*self.m
-        self.d_b = self.d*np.cos(self.alpha)
+
+        self.x = 0
+        self.d = diameter[1] / (1 - (2 / self.n) * ((5 / 4) - self.x))
+        self.m = self.d / n
+        self.n_gr = (2 * (1 - self.x)) / pow(sin(self.alpha), 2)
+        self.d_a = self.d + 2 * self.m + 2 * self.x * self.m
+        self.d_b = self.d * np.cos(self.alpha)
         self.d_f = self.diameter[1]
-        self.inv_alpha = np.tan(self.alpha)-self.alpha
-        self.s = self.m*np.pi/2
+        self.inv_alpha = np.tan(self.alpha) - self.alpha
+        self.s = self.m * np.pi / 2
         
         self.eccentricity = eccentricity
         self.wobble_angle = wobble_angle
@@ -173,13 +138,9 @@ class EvoGear(Component):
                    omega=radians(11.25),
                    diameter=np.array([1.0, 10.0]),
                    length=1.0,
-                   tooth_height=1.0,
-                   tooth_width=0.333,
                    n=32,
                    display_teeth_angle=np.radians(np.array([0.0, 360.0])),
-                   tooth_flank_angle=radians(10.0),
                    alpha=radians(20),
-                   x=0,
                    mu_r=4000.0,
                    eccentricity=0.0 * 1e-3,
                    wobble_angle=radians(0.0),
@@ -218,7 +179,15 @@ class EvoGear(Component):
         """
         
         dictionary: dict = vars(self).copy()
-        dictionary.pop('theta', None)
+        dictionary.pop('x', None)
+        dictionary.pop('d', None)
+        dictionary.pop('m', None)
+        dictionary.pop('n_gr', None)
+        dictionary.pop('d_a', None)
+        dictionary.pop('d_b', None)
+        dictionary.pop('d_f', None)
+        dictionary.pop('inv_alpha', None)
+        dictionary.pop('s', None)
 
         return dictionary
 
@@ -232,17 +201,25 @@ class EvoGear(Component):
         """
         
         dictionary: dict = vars(self.gui()).copy()
-        dictionary.pop('theta', None)
+        dictionary.pop('x', None)
+        dictionary.pop('d', None)
+        dictionary.pop('m', None)
+        dictionary.pop('n_gr', None)
+        dictionary.pop('d_a', None)
+        dictionary.pop('d_b', None)
+        dictionary.pop('d_f', None)
+        dictionary.pop('inv_alpha', None)
+        dictionary.pop('s', None)
 
         return dictionary
 
     def reset(self):
         """Calls the init method with the actual class attributes."""
         
-        self.__init__(self.pos, self.axis_0, self.omega, self.diameter, self.length, self.tooth_height,
-                      self.tooth_width, self.n, self.display_teeth_angle, self.tooth_flank_angle, self.alpha, self.x,
-                      self.mu_r, self.eccentricity, self.wobble_angle, self.dev_tooth_num, self.tooth_deviations,
-                      self.maxh, self.rotate_mesh, self.rotate_mesh_max_angle, self.involute_points)
+        self.__init__(self.pos, self.axis_0, self.omega, self.diameter, self.length, self.n, self.display_teeth_angle,
+                      self.alpha, self.mu_r, self.eccentricity, self.wobble_angle, self.dev_tooth_num,
+                      self.tooth_deviations, self.maxh, self.rotate_mesh, self.rotate_mesh_max_angle,
+                      self.involute_points)
 
     def convert_to_si(self) -> None:
         """Calls the init method and converts the parameters from gui units to SI units."""
@@ -252,13 +229,9 @@ class EvoGear(Component):
                       radians(self.omega),
                       self.diameter,
                       self.length,
-                      self.tooth_height,
-                      self.tooth_width,
                       self.n,
                       np.radians(self.display_teeth_angle),
-                      radians(self.tooth_flank_angle),
                       radians(self.alpha),
-                      self.x,
                       self.mu_r,
                       self.eccentricity * 1e-3,
                       radians(self.wobble_angle),
@@ -277,13 +250,9 @@ class EvoGear(Component):
                        degrees(self.omega),
                        self.diameter,
                        self.length,
-                       self.tooth_height,
-                       self.tooth_width,
                        self.n,
                        np.degrees(self.display_teeth_angle),
-                       degrees(self.tooth_flank_angle),
                        degrees(self.alpha),
-                       self.x,
                        self.mu_r,
                        self.eccentricity * 1e3,
                        degrees(self.wobble_angle),

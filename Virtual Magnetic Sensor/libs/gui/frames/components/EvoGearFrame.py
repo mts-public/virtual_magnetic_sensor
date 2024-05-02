@@ -55,17 +55,8 @@ class EvoGearFrame(ObjectFrame):
                                            column_span=3, row_span=1, label="Gear Teeth")
         self.entries['n'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config, col=0, row=0,
                                            label="Tooth Count n:")
-        self.entries['tooth_height'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config,
-                                                      col=0, row=1, label=u'Tooth Height h\u209A:', unit="mm")
-        self.entries['tooth_width'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config,
-                                                     col=0, row=2, label=u'Tooth Width s\u209A:', unit="mm")
-        self.entries['tooth_flank_angle'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config, col=0,
-                                                           row=3,
-                                                           label=u'Tooth Flank Angle α\u209A:', unit="°")
-        self.entries['alpha'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config, col=0, row=4,
+        self.entries['alpha'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config, col=0, row=1,
                                                label="alpha:")
-        self.entries['x'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config, col=0, row=5,
-                                           label="x:")
 
         self.sim_params_frame = Gui.label_frame(master=self, config=config_handler.config, col=0, row=4,
                                                 column_span=3, row_span=1, label="Simulation Parameters")
