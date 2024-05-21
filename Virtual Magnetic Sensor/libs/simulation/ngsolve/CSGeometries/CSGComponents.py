@@ -13,6 +13,13 @@ from libs.simulation.ngsolve.CSGeometries.CSGEvoGear import CSGEvoGear
 from libs.simulation.ngsolve.CSGeometries.CSGShaft import CSGShaft
 from libs.simulation.ngsolve.CSGeometries.CSGGearRack import CSGGearRack
 
+from libs.simulation.ngsolve.CSGeometries.CSGEvoGearDamages.CSGEvoKF import CSGEvoKF
+from libs.simulation.ngsolve.CSGeometries.CSGEvoGearDamages.CSGEvoPeeling import CSGEvoPeeling
+from libs.simulation.ngsolve.CSGeometries.CSGEvoGearDamages.CSGEvoPitting import CSGEvoPitting
+from libs.simulation.ngsolve.CSGeometries.CSGEvoGearDamages.CSGEvoSD import CSGEvoSD
+from libs.simulation.ngsolve.CSGeometries.CSGEvoGearDamages.CSGEvoVDE import CSGEvoVDE
+from libs.simulation.ngsolve.CSGeometries.CSGEvoGearDamages.CSGEvoWF import CSGEvoWF
+
 
 class CSGComponents:
     """Wrapper class to determine the type of the component and initiate an object of the specific class to build the
@@ -49,7 +56,21 @@ class CSGComponents:
         if isinstance(component, Gear):
             component_geometry = CSGGear(component)
         elif isinstance(component, EvoGear):
-            component_geometry = CSGEvoGear(component)
+            match component.damage_index:
+                case 0:
+                    component_geometry = CSGEvoGear(component)
+                case 1:
+                    component_geometry = CSGEvoKF(component)
+                case 2:
+                    component_geometry = CSGEvoPeeling(component)
+                case 3:
+                    component_geometry = CSGEvoPitting(component)
+                case 4:
+                    component_geometry = CSGEvoSD(component)
+                case 5:
+                    component_geometry = CSGEvoVDE(component)
+                case 6:
+                    component_geometry = CSGEvoWF(component)
         elif isinstance(component, Shaft):
             component_geometry = CSGShaft(component)
         elif isinstance(component, GearRack):

@@ -57,6 +57,8 @@ class EvoGearFrame(ObjectFrame):
                                            label="Tooth Count n:")
         self.entries['alpha'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config, col=0, row=1,
                                                label="alpha:")
+        self.entries['x'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config, col=0, row=2,
+                                               label="Profil Shift:")
 
         self.sim_params_frame = Gui.label_frame(master=self, config=config_handler.config, col=0, row=4,
                                                 column_span=3, row_span=1, label="Simulation Parameters")

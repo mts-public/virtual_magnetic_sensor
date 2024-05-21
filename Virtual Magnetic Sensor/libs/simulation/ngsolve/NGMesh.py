@@ -72,8 +72,9 @@ class NGMesh:
         """
 
         ng_geometry: CSGeometry = CSGeometry(data_handler)
-        with TaskManager():
-            net_mesh = ng_geometry.geometry.GenerateMesh(mp)
+        net_mesh = ng_geometry.geometry.GenerateMesh(mp)
+        """ with TaskManager():
+            net_mesh = ng_geometry.geometry.GenerateMesh(mp) """
         init_badness = net_mesh.CalcTotalBadness(mp)
 
         return [net_mesh, init_badness]

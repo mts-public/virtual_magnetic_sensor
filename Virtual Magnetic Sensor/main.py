@@ -8,7 +8,6 @@ import faulthandler
 from libs.gui.frames.MainFrame import MainFrame
 from libs.simulation.SimulationHandler import SimulationHandler
 
-
 # Define the multiprocessing tasks in the top-level module
 class MultiprocessingTasks:
 

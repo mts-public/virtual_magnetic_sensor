@@ -40,8 +40,8 @@ class ComponentsFrame(ttk.LabelFrame):
 
         self.gear_button = AddButton(master=self.button_frame, label="+ Gear", gui_handler=gui_handler,
                                      command=lambda: self.add_gear(data_handler, config_handler, gui_handler))
-        """self.evo_gear_button = AddButton(master=self.button_frame, label="+ EvoGear", gui_handler=gui_handler,
-                                         command=lambda: self.add_evo_gear(data_handler, config_handler, gui_handler))"""
+        self.evo_gear_button = AddButton(master=self.button_frame, label="+ EvoGear", gui_handler=gui_handler,
+                                         command=lambda: self.add_evo_gear(data_handler, config_handler, gui_handler))
         self.gear_rack_button = AddButton(master=self.button_frame, label="+ Gear Rack", gui_handler=gui_handler,
                                           command=lambda: self.add_gear_rack(data_handler, config_handler, gui_handler))
         self.shaft_button = AddButton(master=self.button_frame, label="+ Shaft", gui_handler=gui_handler,

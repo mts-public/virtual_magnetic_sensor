@@ -45,6 +45,12 @@ class EvoGear(Component):
     :type rotate_mesh_max_angle: float
     :param involute_points: Number of knots of the spline interpolation of the Involute.
     :type involute_points: int
+    
+    :param damage_index:
+    :type damage_index: int
+    :param damage_parameter_dict:
+    :type damage_parameter_dict: dict
+    
     :param theta: Current rotation angle of the gear.
     :type theta: float
     """
@@ -57,6 +63,7 @@ class EvoGear(Component):
     n: float
     display_teeth_angle: np.ndarray
     alpha:  float
+    x: float
     d:  float
     m:  float
     n_gr: float
@@ -74,6 +81,8 @@ class EvoGear(Component):
     rotate_mesh_max_angle: float
     involute_points: int
     theta: float
+    damage_index: int
+    damage_parameter_dict: dict
 
     def __init__(self,
                  pos: np.ndarray,
@@ -84,6 +93,7 @@ class EvoGear(Component):
                  n: float,
                  display_teeth_angle: np.ndarray,
                  alpha: float,
+                 x:float,
                  mu_r: float,
                  eccentricity: float,
                  wobble_angle: float,
@@ -93,6 +103,8 @@ class EvoGear(Component):
                  rotate_mesh: bool,
                  rotate_mesh_max_angle: float,
                  involute_points: int,
+                 damage_index: int,
+                 damage_parameter_dict: dict,
                  theta: float = None) -> None:
         
         """Constructor method."""
@@ -105,8 +117,8 @@ class EvoGear(Component):
         self.n = n
         self.display_teeth_angle = display_teeth_angle
         self.alpha = alpha
-
-        self.x = 0
+        
+        self.x = x
         self.d = diameter[1] / (1 - (2 / self.n) * ((5 / 4) - self.x))
         self.m = self.d / n
         self.n_gr = (2 * (1 - self.x)) / pow(sin(self.alpha), 2)
@@ -116,6 +128,12 @@ class EvoGear(Component):
         self.inv_alpha = np.tan(self.alpha) - self.alpha
         self.s = self.m * np.pi / 2
         
+        """ print("p: ",self.m/np.pi)
+        print("d: ",self.d)
+        print("m: ",self.m)
+        print("d_a: ",self.d_a)
+        print("s: ",self.s) """
+        
         self.eccentricity = eccentricity
         self.wobble_angle = wobble_angle
         self.dev_tooth_num = dev_tooth_num
@@ -123,6 +141,10 @@ class EvoGear(Component):
         self.rotate_mesh = rotate_mesh
         self.rotate_mesh_max_angle = rotate_mesh_max_angle
         self.involute_points = involute_points
+        
+        self.damage_index = damage_index
+        self.damage_parameter_dict=damage_parameter_dict
+        
         self.theta = 0.0
     
     @classmethod
@@ -141,6 +163,7 @@ class EvoGear(Component):
                    n=32,
                    display_teeth_angle=np.radians(np.array([0.0, 360.0])),
                    alpha=radians(20),
+                   x=0.0,
                    mu_r=4000.0,
                    eccentricity=0.0 * 1e-3,
                    wobble_angle=radians(0.0),
@@ -149,7 +172,9 @@ class EvoGear(Component):
                    maxh=2.0,
                    rotate_mesh=True,
                    rotate_mesh_max_angle=radians(3.0),
-                   involute_points=7)
+                   involute_points=7,
+                   damage_index=0,
+                   damage_parameter_dict={})
 
     @classmethod
     def from_dict(cls, dictionary: Dict[any]) -> EvoGear:
@@ -179,7 +204,10 @@ class EvoGear(Component):
         """
         
         dictionary: dict = vars(self).copy()
-        dictionary.pop('x', None)
+        
+        #dictionary.pop('damage_index',None)
+        #dictionary.pop('x', None)
+        
         dictionary.pop('d', None)
         dictionary.pop('m', None)
         dictionary.pop('n_gr', None)
@@ -201,6 +229,7 @@ class EvoGear(Component):
         """
         
         dictionary: dict = vars(self.gui()).copy()
+        
         dictionary.pop('x', None)
         dictionary.pop('d', None)
         dictionary.pop('m', None)
@@ -210,16 +239,16 @@ class EvoGear(Component):
         dictionary.pop('d_f', None)
         dictionary.pop('inv_alpha', None)
         dictionary.pop('s', None)
-
+        print(dictionary)
         return dictionary
 
     def reset(self):
         """Calls the init method with the actual class attributes."""
         
         self.__init__(self.pos, self.axis_0, self.omega, self.diameter, self.length, self.n, self.display_teeth_angle,
-                      self.alpha, self.mu_r, self.eccentricity, self.wobble_angle, self.dev_tooth_num,
+                      self.alpha,self.x,self.mu_r, self.eccentricity, self.wobble_angle, self.dev_tooth_num,
                       self.tooth_deviations, self.maxh, self.rotate_mesh, self.rotate_mesh_max_angle,
-                      self.involute_points)
+                      self.involute_points,self.damage_index,self.damage_parameter_dict)
 
     def convert_to_si(self) -> None:
         """Calls the init method and converts the parameters from gui units to SI units."""
@@ -232,6 +261,7 @@ class EvoGear(Component):
                       self.n,
                       np.radians(self.display_teeth_angle),
                       radians(self.alpha),
+                      self.x,
                       self.mu_r,
                       self.eccentricity * 1e-3,
                       radians(self.wobble_angle),
@@ -240,7 +270,9 @@ class EvoGear(Component):
                       self.maxh,
                       self.rotate_mesh,
                       radians(self.rotate_mesh_max_angle),
-                      self.involute_points)
+                      self.involute_points,
+                      self.damage_index,
+                      self.damage_parameter_dict)
 
     def gui(self) -> EvoGear:
         """Returns a copy of the class with attributes converted to units used in the gui."""
@@ -253,6 +285,7 @@ class EvoGear(Component):
                        self.n,
                        np.degrees(self.display_teeth_angle),
                        degrees(self.alpha),
+                       self.x,
                        self.mu_r,
                        self.eccentricity * 1e3,
                        degrees(self.wobble_angle),
@@ -261,7 +294,9 @@ class EvoGear(Component):
                        self.maxh,
                        self.rotate_mesh,
                        degrees(self.rotate_mesh_max_angle),
-                       self.involute_points)
+                       self.involute_points,
+                       self.damage_index,
+                       self.damage_parameter_dict)
 
     def update(self, t: float) -> None:
         """Method to update the gear rotation angle theta for the next simulation step.
@@ -352,19 +387,20 @@ class EvoGear(Component):
             self.rotation_axis(angle)).dot(np.array([cos(angle), sin(angle), 0.0]))
         
     def coordinates(self, points: int) -> np.array:
-        """Method to calculate coordinates vector for the initial EvoGear.
-        
+        """Method to calculate coordinates of the involute function.
+
         :param points: How many points are being used to calculate the involute >=5
-        :return: Coordinates Vector
+        :return: Coordinates Array
         :rtype: numpy.array
         """
-        
-        r_x = np.linspace(self.d_b/2, self.d_a/2, num=points, endpoint=True, retstep=False, dtype=None, axis=0)
+
+        r_x = np.linspace(self.d_b/2, self.d_a/2, num=points,
+                          endpoint=True, retstep=False, dtype=None, axis=0)
         alpha_x = np.arccos(self.d_b/(2*r_x))
         inv_alpha_x = np.tan(alpha_x)-alpha_x
-        s_x = r_x*((self.s/self.d)+self.inv_alpha-inv_alpha_x)
-
+        s_x = r_x * ((np.pi+4*self.x*np.tan(self.alpha))/(2*self.n)+self.inv_alpha-inv_alpha_x)
         coordinates: np.array = np.column_stack((s_x, -s_x, r_x))
-
+        
         return coordinates
+
     

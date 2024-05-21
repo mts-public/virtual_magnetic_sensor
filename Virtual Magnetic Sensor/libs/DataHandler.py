@@ -316,7 +316,6 @@ class DataHandler:
 
     def save_ini(self) -> bool:
         config = configparser.ConfigParser()
-
         config.read_dict(self.gui_dict())
 
         try:
