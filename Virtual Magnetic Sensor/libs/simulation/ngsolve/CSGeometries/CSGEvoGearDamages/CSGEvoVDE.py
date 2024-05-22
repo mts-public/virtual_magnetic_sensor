@@ -154,13 +154,13 @@ class CSGEvoVDE:
         Returns:
             list: Returns a list of all teeth 
         """
-        tooth_angle = 2*self.CSGEvoGear_cls.EvoTooth_ini.m*np.pi * \
+        """ tooth_angle = 2*self.CSGEvoGear_cls.EvoTooth_ini.m*np.pi * \
             np.cos(self.CSGEvoGear_cls.EvoTooth_ini.alpha) / \
             self.CSGEvoGear_cls.EvoTooth_ini.d_b
         if (self.CSGEvoGear_cls.EvoTooth_ini.display_teeth_angle[0] <= tooth_number*tooth_angle <= self.CSGEvoGear_cls.EvoTooth_ini.display_teeth_angle[1]) == False:
             print('Tooth nr.', tooth_number, ', is not being rendered. Choose an other tooth \n or change the display tooth angle which is between ', np.round(np.degrees(self.CSGEvoGear_cls.EvoTooth_ini.display_teeth_angle[0]), 1), '° and ', np.round(
                 np.degrees(self.CSGEvoGear_cls.EvoTooth_ini.display_teeth_angle[1]), 1), '°,\n the specific display tooth angle for the given tooth number is ', np.round(np.degrees(tooth_number*tooth_angle), 1), '°')
-            raise ValueError("Change Tooth Number or the display tooth angle ")
+            raise ValueError("Change Tooth Number or the display tooth angle ") """
 
         # Retrieve extrude_list
         extrude_list = self.CSGEvoGear_cls.evotooth_extrude_list(

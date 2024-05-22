@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
     config_handler = ConfigHandler()
     
-    setups = ["./virtual_magnetic_sensor/Virtual Magnetic Sensor/setups/EvoGearDamages/EvoStandardWF.py"]
+    setups = ["/virtual_magnetic_sensor/Virtual Magnetic Sensor/setups/EvoGearDamages/EvoStandardWF.py"]
 
     for setup in setups:
         data_stack = DataHandler().load_py(Path(setup))
