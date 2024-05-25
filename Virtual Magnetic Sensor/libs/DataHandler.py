@@ -68,7 +68,8 @@ class DataHandler:
                 num = ''
             if key in globals():
                 if hasattr(globals()[key], 'from_dict'):
-                    self.objects.append(globals()[key].from_dict(dictionary[key+num]))
+                    self.objects.append(
+                        globals()[key].from_dict(dictionary[key+num]))
 
     def load_h5(self, path: Path) -> None:
         """Method changes the object list based on data from a HDF5 file.
@@ -143,7 +144,19 @@ class DataHandler:
         for key, value in setup.__dict__.items():
             if key.lower() == "series":
                 series = value
-                size = len(list(list(series.values())[0].values())[0])
+                #size = len(list(list(series.values())[0].values())[0])
+                temp_dictionary = series
+                while isinstance(temp_dictionary, dict):
+                    iter_keys = iter(temp_dictionary)
+                    first_key = next(iter_keys)
+                    first_value = temp_dictionary[first_key]
+                    if isinstance(first_value, dict):
+                        temp_dictionary = first_value
+                    else:
+                        size = len(list(first_value))
+                        break
+                
+                
 
         if self.sim_params() is None:
             self.objects.append(SimParams.template())
@@ -166,10 +179,17 @@ class DataHandler:
                             if obj.__class__.__name__ == s_key:
                                 if data_num == key_num:
                                     for attr, value in values.items():
-                                        if hasattr(obj, attr):
-                                            setattr(obj, attr, value[idx])
+                                        if isinstance(obj,EvoGear) and isinstance(value, dict):
+                                            if next(iter(value)) in value:
+                                                value_dict = value[next(iter(value))][idx]
+                                                obj.damage_parameter_dict.update({next(iter(value)):value_dict})
+                                        else:
+                                            value_dict = value[idx]
+                                            if hasattr(obj, attr):
+                                                    setattr(obj, attr, value_dict)
                                 else:
                                     data_num += 1
+                        
 
         return data_stack
 
@@ -185,7 +205,8 @@ class DataHandler:
         file = configparser.ConfigParser()
         file.read(path.as_posix())
 
-        str_dict = {section: dict(file.items(section)) for section in file.sections()}
+        str_dict = {section: dict(file.items(section))
+                    for section in file.sections()}
         data_dict = DataHandler.convert_dict(str_dict)
 
         self.deploy_dict(data_dict)
@@ -285,8 +306,10 @@ class DataHandler:
                     else:
                         string_arrays = value.split('][')
                     for array in string_arrays:
-                        numpy_arrays.append(np.fromstring(array.strip().strip('[]'), sep=' '))
-                    converted_dict[key] = np.squeeze([array for array in numpy_arrays])
+                        numpy_arrays.append(np.fromstring(
+                            array.strip().strip('[]'), sep=' '))
+                    converted_dict[key] = np.squeeze(
+                        [array for array in numpy_arrays])
                 else:
                     converted_dict[key] = value
 
@@ -387,7 +410,8 @@ class DataHandler:
             elif hasattr(frame, "sub_frames"):
                 for sub_frame in frame.sub_frames:
                     if hasattr(sub_frame, "get_parameters"):
-                        cls = globals()[sub_frame.__class__.__name__.replace('Frame', '')]
+                        cls = globals()[
+                            sub_frame.__class__.__name__.replace('Frame', '')]
                         self.objects.append(cls(**sub_frame.get_parameters()))
                         if hasattr(self.objects[-1], 'convert_to_si'):
                             self.objects[-1].convert_to_si()

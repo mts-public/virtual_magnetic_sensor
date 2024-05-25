@@ -276,4 +276,5 @@ __pycache__/
 
 # Measurement series modules
 /Virtual Magnetic Sensor/libs/series/
-#/Virtual Magnetic Sensor/setups/
+/Virtual Magnetic Sensor/setups/
+/Virtual Magnetic Sensor/main_nogui.py/
