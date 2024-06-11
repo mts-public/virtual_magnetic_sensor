@@ -89,7 +89,7 @@ if __name__ == '__main__':
     data_handler = DataHandler()
     config_handler = ConfigHandler()
     
-    files = MultiprocessingTasks.get_hdf5_files()
+    files = MultiprocessingTasks.get_hdf5_files("")
 
     for (i, file) in enumerate(files, start=1):
         print("Index: ",i-1, "| File: ",file)

@@ -59,8 +59,16 @@ class DataHandler:
         :param dictionary: Dictionary storing the simulation objects.
         :type: Dict[str, any]
         """
-
         self.objects.clear()
+        
+        bool=False
+        for tkey in enumerate(list(dictionary.keys())):
+            print(tkey)
+            if "SimParams" in tkey[1]:
+                print("ok")
+                if "t" in dictionary[tkey[1]]:
+                    bool=True
+                    
         for key in dictionary:
             if key[-1].isnumeric():
                 num = key.lstrip(string.ascii_letters+string.punctuation)
@@ -71,11 +79,11 @@ class DataHandler:
                 if hasattr(globals()[key], 'from_dict'):
                     self.objects.append(
                         globals()[key].from_dict(dictionary[key+num]))
-                    if isinstance(self.objects[-1], EvoGear):
-                        if hasattr(self.objects[-1], "damage_parameter_dict") and "tooth_side" in self.objects[-1].damage_parameter_dict:
-                            encoding = 'utf-8'
-                            self.objects[-1].damage_parameter_dict["tooth_side"] = str(
-                                self.objects[-1].damage_parameter_dict["tooth_side"], encoding)
+                    if bool==True:
+                        if isinstance(self.objects[-1], EvoGear):
+                            if hasattr(self.objects[-1], "damage_parameter_dict") and "tooth_side" in self.objects[-1].damage_parameter_dict:
+                                encoding = 'utf-8'
+                                self.objects[-1].damage_parameter_dict["tooth_side"] = str(self.objects[-1].damage_parameter_dict["tooth_side"], encoding)
 
     def load_h5(self, path: Path) -> None:
         """Method changes the object list based on data from a HDF5 file.

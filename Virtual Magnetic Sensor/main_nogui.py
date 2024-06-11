@@ -42,7 +42,7 @@ if __name__ == '__main__':
             print(data_handler.filepath)
 
             #!!DONT FORGET TO COMMENT OUT!!
-            #MultiprocessingTasks.draw_work(data_handler)
+            MultiprocessingTasks.draw_work(data_handler)
             #!!DONT FORGET TO COMMENT OUT!!
             
             for obj in data_handler.objects:
