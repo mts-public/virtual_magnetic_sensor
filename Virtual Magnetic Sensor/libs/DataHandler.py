@@ -8,6 +8,7 @@ import importlib.util
 import os
 from pathlib import Path
 import string
+from time import ctime
 
 from libs.elements.SimParams import SimParams
 from libs.elements.Component import Component
@@ -70,6 +71,11 @@ class DataHandler:
                 if hasattr(globals()[key], 'from_dict'):
                     self.objects.append(
                         globals()[key].from_dict(dictionary[key+num]))
+                    if isinstance(self.objects[-1], EvoGear):
+                        if hasattr(self.objects[-1], "damage_parameter_dict") and "tooth_side" in self.objects[-1].damage_parameter_dict:
+                            encoding = 'utf-8'
+                            self.objects[-1].damage_parameter_dict["tooth_side"] = str(
+                                self.objects[-1].damage_parameter_dict["tooth_side"], encoding)
 
     def load_h5(self, path: Path) -> None:
         """Method changes the object list based on data from a HDF5 file.
@@ -144,7 +150,7 @@ class DataHandler:
         for key, value in setup.__dict__.items():
             if key.lower() == "series":
                 series = value
-                #size = len(list(list(series.values())[0].values())[0])
+                # size = len(list(list(series.values())[0].values())[0])
                 temp_dictionary = series
                 while isinstance(temp_dictionary, dict):
                     iter_keys = iter(temp_dictionary)
@@ -155,8 +161,6 @@ class DataHandler:
                     else:
                         size = len(list(first_value))
                         break
-                
-                
 
         if self.sim_params() is None:
             self.objects.append(SimParams.template())
@@ -164,7 +168,8 @@ class DataHandler:
         data_stack.append(self)
         if series:
             if self.check_series(series):
-                data_stack = [copy.deepcopy(element) for element in data_stack for _ in range(size)]
+                data_stack = [copy.deepcopy(
+                    element) for element in data_stack for _ in range(size)]
 
                 for idx in range(size):
                     for s_key, values in series.items():
@@ -179,17 +184,18 @@ class DataHandler:
                             if obj.__class__.__name__ == s_key:
                                 if data_num == key_num:
                                     for attr, value in values.items():
-                                        if isinstance(obj,EvoGear) and isinstance(value, dict):
+                                        if isinstance(obj, EvoGear) and isinstance(value, dict):
                                             if next(iter(value)) in value:
-                                                value_dict = value[next(iter(value))][idx]
-                                                obj.damage_parameter_dict.update({next(iter(value)):value_dict})
+                                                value_dict = value[next(
+                                                    iter(value))][idx]
+                                                obj.damage_parameter_dict.update(
+                                                    {next(iter(value)): value_dict})
                                         else:
                                             value_dict = value[idx]
                                             if hasattr(obj, attr):
-                                                    setattr(obj, attr, value_dict)
+                                                setattr(obj, attr, value_dict)
                                 else:
                                     data_num += 1
-                        
 
         return data_stack
 
@@ -388,6 +394,7 @@ class DataHandler:
                 os.makedirs(self.filepath.parent)
 
             with h5.File(self.filepath.with_suffix(".hdf5"), mode='w') as file:
+                print("Saved at", ctime())
                 rec_save_dict(file, '/', self.to_dict())
 
             file.close()

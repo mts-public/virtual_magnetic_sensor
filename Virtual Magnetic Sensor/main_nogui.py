@@ -2,7 +2,7 @@ import faulthandler
 # from pyngcore import SetNumThreads
 from multiprocessing import cpu_count
 from pathlib import Path
-from tkinter.messagebox import showerror
+from tkinter.messagebox import showerror 
 from multiprocessing import Process, Queue, Manager
 
 from libs.DataHandler import DataHandler
@@ -21,22 +21,24 @@ class MultiprocessingTasks:
     def draw_work(*args) -> None:
         SimulationHandler.draw_process(*args)
 
-
 if __name__ == '__main__':
     faulthandler.enable()
     # SetNumThreads(cpu_count())
 
     config_handler = ConfigHandler()
     
-    setups = ["/virtual_magnetic_sensor/Virtual Magnetic Sensor/setups/EvoGearDamages/EvoStandardWF.py"]
+    setups = [""]
 
     for setup in setups:
         data_stack = DataHandler().load_py(Path(setup))
-        
+        print(data_stack)
         for num, data_handler in enumerate(data_stack):
-
+            #print(num)
+            #print(data_handler)
+            
             data_handler.filepath = Path(
                 data_handler.filepath.parent, data_handler.filepath.stem + str(num).zfill(2))
+            
             print(data_handler.filepath)
 
             #!!DONT FORGET TO COMMENT OUT!!
