@@ -37,7 +37,7 @@ class CSGEvoSD:
 
         Args:
             involute_points (int): The points which are being used to calculate the involute-function.
-            angle (float): Angle by which the tooth is being rotated.
+            angle (float): Angle (in degrees) by which the tooth is being rotated.
             tooth_number (int): On which tooth the damage is being placed, begining with the horizonal tooth zero at the right side and counting in a counterclockwise direction. 
 
         Returns:
@@ -68,6 +68,7 @@ class CSGEvoSD:
                                                                                      csg.Pnt(
                                                                                          0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
                                                                                      self.CSGEvoGear_cls.EvoTooth_ini.diameter[0])
+                                
         return (csg_evotooth+gearbody)*front*back
 
     def evosd_2dpoint_array(self, involute_points: int, angle: float) -> np.array:
@@ -81,11 +82,9 @@ class CSGEvoSD:
             np.array: Array of 2d points. 
         """
         # Retrieve CSGEvoGear 2D Points
-        tooth_side_coord = self.CSGEvoGear_cls.evotooth_2dpoint_array(involute_points)[
-            0].T
+        tooth_side_coord = self.CSGEvoGear_cls.evotooth_2dpoint_array(involute_points)[0].T
         # Rotation Matrix
-        rot_mat = self.CSGEvoGear_cls.EvoTooth_ini.rotation_matrix(np.radians(angle))[
-            0:2, 0:2]
+        rot_mat = self.CSGEvoGear_cls.EvoTooth_ini.rotation_matrix(np.radians(angle))[0:2, 0:2]
         zp = tooth_side_coord-np.array([self.get_cog(involute_points=7)]).T
         zp = np.dot(rot_mat, zp)
         zp = zp+np.array([self.get_cog(involute_points=7)]).T
@@ -129,8 +128,7 @@ class CSGEvoSD:
                                0,
                                tooth_side_coord[-2, 2]-tooth_side_coord[-1, 2],
                                2*tooth_side_coord[-1, 1]*(tooth_side_coord[-2, 2]-tooth_side_coord[-1, 2]),
-                               0.5*(tooth_side_coord[-2, 2] -
-                                    tooth_side_coord[-1, 2]),
+                               0.5*(tooth_side_coord[-2, 2] -tooth_side_coord[-1, 2]),
                                0])
 
         parameter_array = np.array(parameter_list)
@@ -154,7 +152,7 @@ class CSGEvoSD:
 
         Args:
             involute_points (int): _description_
-            angle (float): _description_
+            angle (float): Angle (in degrees) by which the tooth is being rotated.
             tooth_number (int): _description_
 
         Raises:
@@ -163,13 +161,6 @@ class CSGEvoSD:
         Returns:
             list: Returns all teeth 
         """
-        """ tooth_angle = 2*self.CSGEvoGear_cls.EvoTooth_ini.m*np.pi * \
-            np.cos(self.CSGEvoGear_cls.EvoTooth_ini.alpha) / \
-            self.CSGEvoGear_cls.EvoTooth_ini.d_b
-        if (self.CSGEvoGear_cls.EvoTooth_ini.display_teeth_angle[0] <= tooth_number*tooth_angle <= self.CSGEvoGear_cls.EvoTooth_ini.display_teeth_angle[1]) == False:
-            print('Tooth nr.', tooth_number, ', is not being rendered. Choose an other tooth \n or change the display tooth angle which is between ', np.round(np.degrees(self.CSGEvoGear_cls.EvoTooth_ini.display_teeth_angle[0]), 1), '° and ', np.round(
-                np.degrees(self.CSGEvoGear_cls.EvoTooth_ini.display_teeth_angle[1]), 1), '°,\n the specific display tooth angle for the given tooth number is ', np.round(np.degrees(tooth_number*tooth_angle), 1), '°')
-            raise ValueError("Change Tooth Number or the display tooth angle ") """
 
         # Retrieve extrude_list
         extrude_list = self.CSGEvoGear_cls.evotooth_extrude_list(

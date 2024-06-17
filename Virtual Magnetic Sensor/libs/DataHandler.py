@@ -3,7 +3,7 @@ import copy
 import numpy as np
 import h5py as h5
 import configparser
-from typing import List, Dict
+from typing import List, Dict, Any
 import importlib.util
 import os
 from pathlib import Path
@@ -63,9 +63,7 @@ class DataHandler:
         
         bool=False
         for tkey in enumerate(list(dictionary.keys())):
-            print(tkey)
             if "SimParams" in tkey[1]:
-                print("ok")
                 if "t" in dictionary[tkey[1]]:
                     bool=True
                     
@@ -193,11 +191,12 @@ class DataHandler:
                                 if data_num == key_num:
                                     for attr, value in values.items():
                                         if isinstance(obj, EvoGear) and isinstance(value, dict):
-                                            if next(iter(value)) in value:
-                                                value_dict = value[next(
-                                                    iter(value))][idx]
-                                                obj.damage_parameter_dict.update(
-                                                    {next(iter(value)): value_dict})
+                                            """ if next(iter(value)) in value:
+                                                value_dict = value[next(iter(value))][idx]
+                                                obj.damage_parameter_dict.update({next(iter(value)): value_dict}) """
+                                            if first_key in value:
+                                                value_dict = value[first_key][idx]
+                                                obj.damage_parameter_dict.update({first_key: value_dict})
                                         else:
                                             value_dict = value[idx]
                                             if hasattr(obj, attr):
@@ -343,7 +342,6 @@ class DataHandler:
                             data_dict[obj][key] = val.tolist()
 
             import json
-            print(data_dict)
             with open(self.filepath.with_suffix(".py"), 'w') as file:
                 json.dump(data_dict, file, indent=4)
 
@@ -433,14 +431,8 @@ class DataHandler:
                         if hasattr(sub_frame, 'update_buttons'):
                             sub_frame.update_buttons(self.objects[-1])
 
-    @staticmethod
-    def check_series(series: Dict[str, Dict[str, List[float]]]):
-        """Checks if the dimensions of the entries match.
-
-         :return: 1 if entries match, 0 otherwise.
-         :rtype: int
-         """
-
+    
+    """ def check_series(series: Dict[str, Dict[str, List[float]]]):
         # Check for matching dimensions
         size = len(list(list(series.values())[0].values())[0])
         for value in list(series.values()):
@@ -449,8 +441,36 @@ class DataHandler:
                     if len(attr) != size:
                         return 0
 
-        return 1
+        return 1 """
+    
+    @staticmethod
+    def check_series(series: Dict[str, Any]) -> bool:
+        """
+        Checks if the dimensions of the entries match.
 
+         :return: 1 if entries match, 0 otherwise.
+         :rtype: int
+        """
+        def get_list_lengths(d: Dict[str, Any], lengths: List[int]) -> None:
+            """
+            Helper function to recursively collect the lengths of lists in the nested dictionary.
+            
+            :param d: Current dictionary to inspect.
+            :param lengths: List to collect the lengths of found lists.
+            """
+            for value in d.values():
+                if isinstance(value, dict):
+                    get_list_lengths(value, lengths)
+                elif isinstance(value, list) and all(isinstance(i, float) for i in value):
+                    lengths.append(len(value))
+
+        # Collect all list lengths
+        list_lengths = []
+        get_list_lengths(series, list_lengths)
+
+        # Check if all collected list lengths are the same
+        return len(set(list_lengths)) == 1 if list_lengths else True
+    
     def components(self):
         """Method returns the objects of type Component in a list.
 
