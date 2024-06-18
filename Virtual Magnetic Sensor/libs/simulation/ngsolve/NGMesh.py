@@ -72,12 +72,27 @@ class NGMesh:
         """
 
         ng_geometry: CSGeometry = CSGeometry(data_handler)
-        net_mesh = ng_geometry.geometry.GenerateMesh(mp)
-        """ with TaskManager():
-            net_mesh = ng_geometry.geometry.GenerateMesh(mp) """
-        init_badness = net_mesh.CalcTotalBadness(mp)
-
-        return [net_mesh, init_badness]
+        
+        try:
+            print("Initializing mesh...")
+            with TaskManager():
+                net_mesh = ng_geometry.geometry.GenerateMesh(mp)
+            
+            init_badness = net_mesh.CalcTotalBadness(mp)
+            print("Mesh generation successful.")
+            
+            return [net_mesh, init_badness]
+        except:
+            print("Initializing mesh...")
+            print(f"Mesh parameters: {mp}")
+            # Log details about the geometry
+            print(f"Geometry details: {ng_geometry.geometry}")
+            
+            net_mesh = ng_geometry.geometry.GenerateMesh(mp)
+            init_badness = net_mesh.CalcTotalBadness(mp)
+            print("Mesh generation ,Case 2, successful.")
+            return [net_mesh, init_badness]
+            
 
     def update(self, data_handler: DataHandler, t: float) -> None:
         """The method updates the mesh based on the current rotation angle of the gear theta. When possible, the gears
