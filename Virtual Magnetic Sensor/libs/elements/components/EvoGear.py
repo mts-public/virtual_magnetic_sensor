@@ -119,7 +119,7 @@ class EvoGear(Component):
         self.alpha = alpha
         self.x = x
         self.d = diameter[1] / (1 - (2 / self.n) * ((5 / 4) - self.x))
-        self.m = self.d / n
+        self.m = self.d / self.n
         self.n_gr = (2 * (1 - self.x)) / pow(sin(self.alpha), 2)
         self.d_a = self.d + 2 * self.m + 2 * self.x * self.m
         self.d_b = self.d * np.cos(self.alpha)
@@ -135,9 +135,8 @@ class EvoGear(Component):
         self.involute_points = involute_points
         self.damage_index = damage_index
         self.damage_parameter_dict=damage_parameter_dict
-        
         self.theta = theta
-    
+        
     @classmethod
     def template(cls) -> EvoGear:
         """Class method to init the class with a set of standard values.
@@ -145,7 +144,7 @@ class EvoGear(Component):
         :return: Object of the EvoGear class.
         :rtype: Evogear
         """
-
+                    
         return cls(pos=np.array([0.0, 0.0, 0.0]),
                    axis_0=np.array([0.0, 0.0, 1.0]),
                    omega=radians(11.25),
@@ -183,7 +182,7 @@ class EvoGear(Component):
         for key, value in dictionary.items():
             if hasattr(template, key):
                 setattr(template, key, value)
-
+                
         return cls(**template.to_dict())
     
     def to_dict(self) -> Dict[str, any]:
@@ -197,8 +196,6 @@ class EvoGear(Component):
         
         dictionary: dict = vars(self).copy()
         
-        #dictionary.pop('damage_index',None)
-        #dictionary.pop('x', None)
         dictionary.pop('d', None)
         dictionary.pop('m', None)
         dictionary.pop('n_gr', None)
@@ -207,7 +204,7 @@ class EvoGear(Component):
         dictionary.pop('d_f', None)
         dictionary.pop('inv_alpha', None)
         dictionary.pop('s', None)
-
+        
         return dictionary
 
     def gui_dict(self) -> Dict[str, any]:
@@ -393,5 +390,3 @@ class EvoGear(Component):
         coordinates: np.array = np.column_stack((s_x, -s_x, r_x))
         
         return coordinates
-
-    

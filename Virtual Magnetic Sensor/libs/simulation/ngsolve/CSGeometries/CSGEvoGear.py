@@ -120,21 +120,32 @@ class CSGEvoGear:
             np.cos(self.EvoTooth_ini.alpha)/self.EvoTooth_ini.d_b
         rotation_angle = np.radians(0)
         dirvec_list = []
+        rendered_teeth=[]
 
-        for i in range(self.EvoTooth_ini.n):  # self.EvoTooth_ini.n-1
+        for i in range(self.EvoTooth_ini.n):
+            
             if i > 0:
                 rotation_angle += delta_alpha
-            if self.EvoTooth_ini.display_teeth_angle[0] <= rotation_angle <= self.EvoTooth_ini.display_teeth_angle[1]:
+                
+            total_angle=rotation_angle+self.EvoTooth_ini.theta   
+            
+            if total_angle > np.pi*2:
+                total_angle = total_angle % (2 * np.pi)
+                
+            if self.EvoTooth_ini.display_teeth_angle[0] <= total_angle <= self.EvoTooth_ini.display_teeth_angle[1]:
                 dirvec_list.append(((self.EvoTooth_ini.d_b/2)*np.cos(rotation_angle+self.EvoTooth_ini.theta),
                                     (self.EvoTooth_ini.d_b/2)*np.sin(rotation_angle+self.EvoTooth_ini.theta), 0))
-                print("Tooth Nr.", i+1, " Total Angle:",
-                      np.degrees(rotation_angle+self.EvoTooth_ini.theta))
-                print("x:", (self.EvoTooth_ini.d_b/2) *
-                      np.cos(rotation_angle+self.EvoTooth_ini.theta))
-                print("y:", (self.EvoTooth_ini.d_b/2) *
-                      np.sin(rotation_angle+self.EvoTooth_ini.theta))
+                rendered_teeth.append(i+1)
+                
+                print("Original Tooth, Nr.", i+1, " Angle:",np.degrees(total_angle-self.EvoTooth_ini.theta))
+                print("x:", (self.EvoTooth_ini.d_b/2) *np.cos(rotation_angle))
+                print("y:", (self.EvoTooth_ini.d_b/2) *np.sin(rotation_angle))
+                print("Updated Tooth, Nr.", i+1, " Angle:",np.degrees(total_angle)) 
+                print("x:", (self.EvoTooth_ini.d_b/2) *np.cos(rotation_angle+self.EvoTooth_ini.theta))
+                print("y:", (self.EvoTooth_ini.d_b/2) *np.sin(rotation_angle+self.EvoTooth_ini.theta))
+                print("----------------------------------------------------")
 
-        return np.array(dirvec_list)
+        return np.array(dirvec_list),rendered_teeth
 
     def path_list(self) -> tuple:
         """The path along which the spline geometry is being extruded
@@ -189,9 +200,11 @@ class CSGEvoGear:
             tooth_path.AddSegment(*seg)
 
         # Adding entries to extrude list, dont forget to add a Front and Back Plane
-        dir_vec_arr = self.dirvec_array()
+        dir_vec_arr = self.dirvec_array()[0]
+        rendered_teeth = self.dirvec_array()[1]
+        
         for i in range(dir_vec_arr.shape[0]):
-            extrude_list.append(["evotooth "+str(i+1), tooth_path, tooth_spline,
+            extrude_list.append(["evotooth "+str(rendered_teeth[i]), tooth_path, tooth_spline,
                                 (dir_vec_arr[i, 0], dir_vec_arr[i, 1], dir_vec_arr[i, 2])])
 
         return extrude_list
