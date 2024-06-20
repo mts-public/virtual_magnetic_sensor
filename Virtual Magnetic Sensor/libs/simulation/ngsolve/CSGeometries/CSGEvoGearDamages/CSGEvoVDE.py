@@ -105,7 +105,7 @@ class CSGEvoVDE:
 
         theta_start = (np.pi/2)-np.arcsin((a[1]-b[1])/ab_lenght)
         theta_end = np.radians(90)
-        num_points = involute_points
+        num_points = int(involute_points // 2)
 
         theta = np.linspace(theta_end, theta_start, num_points)
         x = r * np.cos(theta) + (b[0]-ab_lenght)
