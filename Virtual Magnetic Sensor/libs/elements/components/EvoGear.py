@@ -83,6 +83,7 @@ class EvoGear(Component):
     theta: float
     damage_index: int
     damage_parameter_dict: dict
+    tooth_height: float
 
     def __init__(self,
                  pos: np.ndarray,
@@ -105,7 +106,8 @@ class EvoGear(Component):
                  involute_points: int,
                  damage_index: int,
                  damage_parameter_dict: dict,
-                 theta: float) -> None:
+                 theta: float,
+                 tooth_height: None) -> None:
         
         """Constructor method."""
 
@@ -136,6 +138,7 @@ class EvoGear(Component):
         self.damage_index = damage_index
         self.damage_parameter_dict=damage_parameter_dict
         self.theta = theta
+        self.tooth_height=self.d_a - self.d_f
         
     @classmethod
     def template(cls) -> EvoGear:
@@ -165,7 +168,8 @@ class EvoGear(Component):
                    involute_points=7,
                    damage_index=0,
                    damage_parameter_dict={},
-                   theta=0.0)
+                   theta=0.0,
+                   tooth_height=None)
 
     @classmethod
     def from_dict(cls, dictionary: Dict[any]) -> EvoGear:
@@ -235,7 +239,7 @@ class EvoGear(Component):
         self.__init__(self.pos, self.axis_0, self.omega, self.diameter, self.length, self.n, self.display_teeth_angle,
                       self.alpha,self.x,self.mu_r, self.eccentricity, self.wobble_angle, self.dev_tooth_num,
                       self.tooth_deviations, self.maxh, self.rotate_mesh, self.rotate_mesh_max_angle,
-                      self.involute_points,self.damage_index,self.damage_parameter_dict,self.theta)
+                      self.involute_points,self.damage_index,self.damage_parameter_dict,self.theta,self.tooth_height)
 
     def convert_to_si(self) -> None:
         """Calls the init method and converts the parameters from gui units to SI units."""
@@ -260,7 +264,8 @@ class EvoGear(Component):
                       self.involute_points,
                       self.damage_index,
                       self.damage_parameter_dict,
-                      self.theta)
+                      self.theta,
+                      self.tooth_height)
 
     def gui(self) -> EvoGear:
         """Returns a copy of the class with attributes converted to units used in the gui."""

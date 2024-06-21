@@ -73,25 +73,12 @@ class NGMesh:
 
         ng_geometry: CSGeometry = CSGeometry(data_handler)
         
-        try:
-            print("Initializing mesh...")
-            with TaskManager():
-                net_mesh = ng_geometry.geometry.GenerateMesh(mp)
-            
-            init_badness = net_mesh.CalcTotalBadness(mp)
-            print("Mesh generation successful.")
-            
-            return [net_mesh, init_badness]
-        except:
-            print("Initializing mesh...")
-            print(f"Mesh parameters: {mp}")
-            # Log details about the geometry
-            print(f"Geometry details: {ng_geometry.geometry}")
-            
-            net_mesh = ng_geometry.geometry.GenerateMesh(mp)
-            init_badness = net_mesh.CalcTotalBadness(mp)
-            print("Mesh generation ,Case 2, successful.")
-            return [net_mesh, init_badness]
+        print("Initializing mesh...")  
+        net_mesh = ng_geometry.geometry.GenerateMesh(mp)
+        init_badness = net_mesh.CalcTotalBadness(mp)
+        print("Mesh generation successful.")
+        
+        return [net_mesh, init_badness]
             
 
     def update(self, data_handler: DataHandler, t: float) -> None:
@@ -104,7 +91,7 @@ class NGMesh:
         rebuild_mesh = True
 
         for num, obj in enumerate(data_handler.objects):
-            if type(obj).__name__ == "Gear":
+            if type(obj).__name__ == "Gear" or type(obj).__name__ == "EvoGear":
                 if obj.rotate_mesh and temp_mesh.Points():
                     [temp_mesh, rotated_badness] = self.rotate_gear_mesh(temp_mesh, self.mp, data_handler, num)
                     print("Initial Badness: " + str(self.mesh_badness))
