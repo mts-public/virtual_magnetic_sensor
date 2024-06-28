@@ -138,11 +138,11 @@ class CSGEvoGear:
                 rendered_teeth.append(i+1)
                 
                 print("Original Tooth, Nr.", i+1, " Angle:",np.degrees(total_angle-self.EvoTooth_ini.theta))
-                print("x:", (self.EvoTooth_ini.d_b/2) *np.cos(rotation_angle))
-                print("y:", (self.EvoTooth_ini.d_b/2) *np.sin(rotation_angle))
+                #print("x:", (self.EvoTooth_ini.d_b/2) *np.cos(rotation_angle))
+                #print("y:", (self.EvoTooth_ini.d_b/2) *np.sin(rotation_angle))
                 print("Updated Tooth, Nr.", i+1, " Angle:",np.degrees(total_angle)) 
-                print("x:", (self.EvoTooth_ini.d_b/2) *np.cos(rotation_angle+self.EvoTooth_ini.theta))
-                print("y:", (self.EvoTooth_ini.d_b/2) *np.sin(rotation_angle+self.EvoTooth_ini.theta))
+                #print("x:", (self.EvoTooth_ini.d_b/2) *np.cos(rotation_angle+self.EvoTooth_ini.theta))
+                #print("y:", (self.EvoTooth_ini.d_b/2) *np.sin(rotation_angle+self.EvoTooth_ini.theta))
                 print("----------------------------------------------------")
 
         return np.array(dirvec_list),rendered_teeth

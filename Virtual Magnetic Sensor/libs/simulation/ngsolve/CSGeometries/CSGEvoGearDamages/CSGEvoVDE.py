@@ -66,13 +66,26 @@ class CSGEvoVDE:
                                               extrude_list[i][2],
                                               csg.Vec(extrude_list[i][3]))
         # Building GearBody
-        gearbody = csg.Cylinder(csg.Pnt(0, 0, 0),
+        """ gearbody = csg.Cylinder(csg.Pnt(0, 0, 0),
                                 csg.Pnt(
                                     0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
                                 self.CSGEvoGear_cls.EvoTooth_ini.d_f/2)-csg.Cylinder(csg.Pnt(0, 0, 0),
                                                                                      csg.Pnt(
                                                                                          0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
-                                                                                     self.CSGEvoGear_cls.EvoTooth_ini.diameter[0])
+                                                                                     self.CSGEvoGear_cls.EvoTooth_ini.diameter[0]) """
+        if self.CSGEvoGear_cls.EvoTooth_ini.diameter[0] != 0:
+            gearbody = csg.Cylinder(csg.Pnt(0, 0, 0),
+                                    csg.Pnt(
+                                        0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
+                                    self.CSGEvoGear_cls.EvoTooth_ini.d_f/2) \
+                - csg.Cylinder(csg.Pnt(0, 0, 0),
+                               csg.Pnt(0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
+                               self.CSGEvoGear_cls.EvoTooth_ini.diameter[0])
+        else:
+            gearbody = csg.Cylinder(csg.Pnt(0, 0, 0),
+                                    csg.Pnt(
+                                        0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
+                                    self.CSGEvoGear_cls.EvoTooth_ini.d_f/2)
         return (csg_evotooth+gearbody)*front*back
 
     def evovde_2d_point_array(self, r: float, tooth_side: str, involute_points: int) -> np.array:

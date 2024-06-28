@@ -30,7 +30,7 @@ class CSGEvoSD:
         self.CSGEvoGear_cls = CSGEvoGear(EvoTooth_ini)
         self.body = self.build_evosd(EvoTooth_ini.involute_points,
                                      EvoTooth_ini.damage_parameter_dict["angle"],
-                                     EvoTooth_ini.damage_parameter_dict["tooth_number"],)
+                                     EvoTooth_ini.damage_parameter_dict["tooth_number"])
 
     def build_evosd(self, involute_points: int, angle: float, tooth_number: int) -> csg.Solid:
         """Method to generate the Netgen.csg.CSGeometry for switching damage.
@@ -61,13 +61,25 @@ class CSGEvoSD:
                                               extrude_list[i][2],
                                               csg.Vec(extrude_list[i][3]))
         # Building GearBody
-        gearbody = csg.Cylinder(csg.Pnt(0, 0, 0),
-                                csg.Pnt(
-                                    0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
+        """ gearbody = csg.Cylinder(csg.Pnt(0, 0, 0),
+                                csg.Pnt(0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
                                 self.CSGEvoGear_cls.EvoTooth_ini.d_f/2)-csg.Cylinder(csg.Pnt(0, 0, 0),
                                                                                      csg.Pnt(
                                                                                          0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
-                                                                                     self.CSGEvoGear_cls.EvoTooth_ini.diameter[0])
+                                                                                     self.CSGEvoGear_cls.EvoTooth_ini.diameter[0]) """
+        if self.CSGEvoGear_cls.EvoTooth_ini.diameter[0] != 0:
+            gearbody = csg.Cylinder(csg.Pnt(0, 0, 0),
+                                    csg.Pnt(
+                                        0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
+                                    self.CSGEvoGear_cls.EvoTooth_ini.d_f/2) \
+                - csg.Cylinder(csg.Pnt(0, 0, 0),
+                               csg.Pnt(0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
+                               self.CSGEvoGear_cls.EvoTooth_ini.diameter[0])
+        else:
+            gearbody = csg.Cylinder(csg.Pnt(0, 0, 0),
+                                    csg.Pnt(
+                                        0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
+                                    self.CSGEvoGear_cls.EvoTooth_ini.d_f/2)
                                 
         return (csg_evotooth+gearbody)*front*back
 

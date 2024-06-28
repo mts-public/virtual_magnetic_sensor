@@ -183,7 +183,7 @@ class CSGEvoKF:
                 tooth_side_coord = np.vstack((tooth_side_coord, [
                                              tooth_side_coord[-1, 0], self.CSGEvoGear_cls.EvoTooth_ini.d_f/2*0.99]))
 
-                return tooth_side_coord
+                return tooth_side_coord         
 
     def evokf_extrude_list(self, involute_points: int, tooth_number: int, c: float, tooth_side: str) -> list:
         """Method to put the cold flow damage in the list which indicates what every tooth is and clearly defines it's position.
