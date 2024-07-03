@@ -51,8 +51,8 @@ class CSGEvoGear:
         extrude_list = self.evotooth_extrude_list(involute_points)
         # Front & Back Plane
         back = csg.Plane(
-            csg.Pnt(0, 0, (-1)*self.EvoTooth_ini.length), csg.Vec(0, 0, -1))
-        front = csg.Plane(csg.Pnt(0, 0, 0), csg.Vec(0, 0, 1))
+            csg.Pnt(self.EvoTooth_ini.pos[0], self.EvoTooth_ini.pos[1],self.EvoTooth_ini.pos[2]+(-1)*self.EvoTooth_ini.length), csg.Vec(0, 0, -1))
+        front = csg.Plane(csg.Pnt(self.EvoTooth_ini.pos[0], self.EvoTooth_ini.pos[1],self.EvoTooth_ini.pos[2]), csg.Vec(0, 0, 1))
         # Building teeth
         for i in range(len(extrude_list)):
             if i == 0:
@@ -65,17 +65,15 @@ class CSGEvoGear:
                                               csg.Vec(extrude_list[i][3]))
         # Building GearBody
         if self.EvoTooth_ini.diameter[0] != 0:
-            gearbody = csg.Cylinder(csg.Pnt(0, 0, 0),
-                                    csg.Pnt(
-                                        0, 0, (-1)*self.EvoTooth_ini.length),
+            gearbody = csg.Cylinder(csg.Pnt(self.EvoTooth_ini.pos[0], self.EvoTooth_ini.pos[1],self.EvoTooth_ini.pos[2]),
+                                    csg.Pnt(self.EvoTooth_ini.pos[0], self.EvoTooth_ini.pos[1],self.EvoTooth_ini.pos[2]+(-1)*self.EvoTooth_ini.length),
                                     self.EvoTooth_ini.d_f/2) \
-                - csg.Cylinder(csg.Pnt(0, 0, 0),
-                               csg.Pnt(0, 0, (-1)*self.EvoTooth_ini.length),
+                - csg.Cylinder(csg.Pnt(self.EvoTooth_ini.pos[0], self.EvoTooth_ini.pos[1],self.EvoTooth_ini.pos[2]),
+                               csg.Pnt(self.EvoTooth_ini.pos[0], self.EvoTooth_ini.pos[1],self.EvoTooth_ini.pos[2]+(-1)*self.EvoTooth_ini.length),
                                self.EvoTooth_ini.diameter[0])
         else:
-            gearbody = csg.Cylinder(csg.Pnt(0, 0, 0),
-                                    csg.Pnt(
-                                        0, 0, (-1)*self.EvoTooth_ini.length),
+            gearbody = csg.Cylinder(csg.Pnt(self.EvoTooth_ini.pos[0], self.EvoTooth_ini.pos[1],self.EvoTooth_ini.pos[2]),
+                                    csg.Pnt(self.EvoTooth_ini.pos[0], self.EvoTooth_ini.pos[1],self.EvoTooth_ini.pos[2]+(-1)*self.EvoTooth_ini.length),
                                     self.EvoTooth_ini.d_f/2)
 
         print("Theta: ", np.degrees(self.EvoTooth_ini.theta))
@@ -154,8 +152,8 @@ class CSGEvoGear:
         :rtype: tuple
         """
 
-        pnts_3d = [(0, 0, 0),
-                   (0, 0, (-1)*self.EvoTooth_ini.length)]
+        pnts_3d = [(self.EvoTooth_ini.pos[0], self.EvoTooth_ini.pos[1],self.EvoTooth_ini.pos[2]),
+                   (self.EvoTooth_ini.pos[0], self.EvoTooth_ini.pos[1],self.EvoTooth_ini.pos[2]+(-1)*self.EvoTooth_ini.length)]
         segs_3d = [(0, 1)]
 
         return pnts_3d, segs_3d

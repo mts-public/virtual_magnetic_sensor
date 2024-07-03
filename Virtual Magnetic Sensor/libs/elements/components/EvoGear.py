@@ -289,7 +289,9 @@ class EvoGear(Component):
                        degrees(self.rotate_mesh_max_angle),
                        self.involute_points,
                        self.damage_index,
-                       self.damage_parameter_dict)
+                       self.damage_parameter_dict,
+                       self.theta,
+                       self.tooth_height)
 
     def update(self, t: float) -> None:
         """Method to update the gear rotation angle theta for the next simulation step.

@@ -49,8 +49,8 @@ class CSGEvoWF:
             involute_points, tooth_number, s)
         # Front & Back Plane
         back = csg.Plane(
-            csg.Pnt(0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length), csg.Vec(0, 0, -1))
-        front = csg.Plane(csg.Pnt(0, 0, 0), csg.Vec(0, 0, 1))
+            csg.Pnt(self.CSGEvoGear_cls.EvoTooth_ini.pos[0], self.CSGEvoGear_cls.EvoTooth_ini.pos[1],self.CSGEvoGear_cls.EvoTooth_ini.pos[2]+(-1)*self.CSGEvoGear_cls.EvoTooth_ini.length), csg.Vec(0, 0, -1))
+        front = csg.Plane(csg.Pnt(self.CSGEvoGear_cls.EvoTooth_ini.pos[0], self.CSGEvoGear_cls.EvoTooth_ini.pos[1],self.CSGEvoGear_cls.EvoTooth_ini.pos[2]), csg.Vec(0, 0, 1))
         # Buidling teeth
         for i in range(len(extrude_list)):
             if i == 0:
@@ -62,25 +62,18 @@ class CSGEvoWF:
                                               extrude_list[i][2],
                                               csg.Vec(extrude_list[i][3]))
         # Building GearBody
-        """ gearbody = csg.Cylinder(csg.Pnt(0, 0, 0),
-                                csg.Pnt(
-                                    0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
-                                self.CSGEvoGear_cls.EvoTooth_ini.d_f/2)-csg.Cylinder(csg.Pnt(0, 0, 0),
-                                                                                     csg.Pnt(
-                                                                                         0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
-                                                                                     self.CSGEvoGear_cls.EvoTooth_ini.diameter[0]) """
         if self.CSGEvoGear_cls.EvoTooth_ini.diameter[0] != 0:
-            gearbody = csg.Cylinder(csg.Pnt(0, 0, 0),
+            gearbody = csg.Cylinder(csg.Pnt(self.CSGEvoGear_cls.EvoTooth_ini.pos[0], self.CSGEvoGear_cls.EvoTooth_ini.pos[1],self.CSGEvoGear_cls.EvoTooth_ini.pos[2]),
                                     csg.Pnt(
-                                        0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
+                                        self.CSGEvoGear_cls.EvoTooth_ini.pos[0], self.CSGEvoGear_cls.EvoTooth_ini.pos[1],self.CSGEvoGear_cls.EvoTooth_ini.pos[2]+(-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
                                     self.CSGEvoGear_cls.EvoTooth_ini.d_f/2) \
-                - csg.Cylinder(csg.Pnt(0, 0, 0),
-                               csg.Pnt(0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
+                - csg.Cylinder(csg.Pnt(self.CSGEvoGear_cls.EvoTooth_ini.pos[0], self.CSGEvoGear_cls.EvoTooth_ini.pos[1],self.CSGEvoGear_cls.EvoTooth_ini.pos[2]),
+                               csg.Pnt(self.CSGEvoGear_cls.EvoTooth_ini.pos[0], self.CSGEvoGear_cls.EvoTooth_ini.pos[1],self.CSGEvoGear_cls.EvoTooth_ini.pos[2]+(-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
                                self.CSGEvoGear_cls.EvoTooth_ini.diameter[0])
         else:
-            gearbody = csg.Cylinder(csg.Pnt(0, 0, 0),
+            gearbody = csg.Cylinder(csg.Pnt(self.CSGEvoGear_cls.EvoTooth_ini.pos[0], self.CSGEvoGear_cls.EvoTooth_ini.pos[1],self.CSGEvoGear_cls.EvoTooth_ini.pos[2]),
                                     csg.Pnt(
-                                        0, 0, (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
+                                        self.CSGEvoGear_cls.EvoTooth_ini.pos[0], self.CSGEvoGear_cls.EvoTooth_ini.pos[1],self.CSGEvoGear_cls.EvoTooth_ini.pos[2]+(-1)*self.CSGEvoGear_cls.EvoTooth_ini.length),
                                     self.CSGEvoGear_cls.EvoTooth_ini.d_f/2)
         return (csg_evotooth+gearbody)*front*back
 
