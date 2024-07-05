@@ -61,26 +61,18 @@ class CSGEvoPitting:
         coord = self.find_coordinates_of_diameter(tooth_number,
                                                   tooth_side,
                                                   self.CSGEvoGear_cls.EvoTooth_ini.d)
-
-        for i in range(pitting_count+1):
+        
+        for i in range(pitting_count):
             generator_seed = np.random.Generator(np.random.PCG64(seed))
-
-            rnd_x = np.random.Generator.normal(
-                generator_seed, loc=coord[0], scale=0.05, size=None)
-            rnd_z = np.random.Generator.uniform(
-                generator_seed, -self.CSGEvoGear_cls.EvoTooth_ini.length, 0)
-            rnd_radius = np.random.Generator.normal(
-                generator_seed, loc=pitting_radius, scale=standart_deviation, size=None)
+            rnd_x = np.random.Generator.normal(generator_seed, loc=coord[0], scale=0.05, size=None)
+            rnd_z = np.random.Generator.uniform(generator_seed, -self.CSGEvoGear_cls.EvoTooth_ini.length, 0)
+            rnd_radius = np.random.Generator.normal(generator_seed, loc=pitting_radius, scale=standart_deviation, size=None)
             rnd_radius = np.absolute(rnd_radius)
 
-            if (-1)*(rnd_z+rnd_radius) < (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length:
-                rnd_z = (-1)*self.CSGEvoGear_cls.EvoTooth_ini.length + rnd_radius
             if i == 0:
-                csg_pitting = csg.Sphere(
-                    csg.Pnt(rnd_x, coord[1], rnd_z), rnd_radius)
+                csg_pitting = csg.Sphere(csg.Pnt(rnd_x+self.CSGEvoGear_cls.EvoTooth_ini.pos[0], coord[1]+self.CSGEvoGear_cls.EvoTooth_ini.pos[1], rnd_z+self.CSGEvoGear_cls.EvoTooth_ini.pos[2]), rnd_radius)
             else:
-                csg_pitting += csg.Sphere(csg.Pnt(rnd_x,
-                                          coord[1], rnd_z), rnd_radius)
+                csg_pitting += csg.Sphere(csg.Pnt(rnd_x+self.CSGEvoGear_cls.EvoTooth_ini.pos[0],coord[1]+self.CSGEvoGear_cls.EvoTooth_ini.pos[1], rnd_z+self.CSGEvoGear_cls.EvoTooth_ini.pos[2]), rnd_radius)
 
             seed += 1
 
@@ -154,7 +146,14 @@ class CSGEvoPitting:
             raise Exception('Diameter must be inbetween ['+str(surface_coordinates[2, 0])+','+str(
                 surface_coordinates[2, surface_coordinates.shape[1]-1]*2)+']')
         else:
-            if (diameter/2) in surface_coordinates[2, :]:
+            i=0
+            while (surface_coordinates[2, i] < (diameter/2)):
+                i += 1
+            else:
+                x = np.array([(surface_coordinates[0, i-1], surface_coordinates[1, i-1]),
+                                  (surface_coordinates[0, i], surface_coordinates[1, i])]).T
+            
+            """ if (diameter/2) in surface_coordinates[2, :]:
                 # Hier könnte deine Werbung stehen
                 pass
             else:
@@ -163,7 +162,7 @@ class CSGEvoPitting:
                     i += 1
                 else:
                     x = np.array([(surface_coordinates[0, i-1], surface_coordinates[1, i-1]),
-                                  (surface_coordinates[0, i], surface_coordinates[1, i])]).T
+                                  (surface_coordinates[0, i], surface_coordinates[1, i])]).T """
 
         m = (x[1, 1]-x[1, 0])/(x[0, 1]-x[0, 0])
         a = 1+m
