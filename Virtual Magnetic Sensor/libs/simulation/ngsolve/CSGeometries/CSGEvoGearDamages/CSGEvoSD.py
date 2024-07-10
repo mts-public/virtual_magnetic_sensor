@@ -96,7 +96,7 @@ class CSGEvoSD:
         zp = zp+np.array([self.get_cog(involute_points=7)]).T
         return zp.T
 
-    def get_cog(self, involute_points: int) -> tuple:
+    def get_cog_OLD(self, involute_points: int) -> tuple:
         """Method to calculate the center of gravity.
 
         Args:
@@ -106,17 +106,18 @@ class CSGEvoSD:
             tuple: tuple consisting of the cog coordinates
         """
         # Sorting coord array
-        left = self.CSGEvoGear_cls.evotooth_2dpoint_array(involute_points)[
-            1][::-1, :]
-        right = self.CSGEvoGear_cls.evotooth_2dpoint_array(involute_points)[
-            2][::-1, :]
+        left = self.CSGEvoGear_cls.evotooth_2dpoint_array(involute_points)[1][::-1, :]
+        right = self.CSGEvoGear_cls.evotooth_2dpoint_array(involute_points)[2][::-1, :]
 
         tooth_side_coord = np.hstack((left, right))
         tooth_side_coord = tooth_side_coord[:, [0, 2, 3]]
+        
         last = np.array([[self.CSGEvoGear_cls.evotooth_2dpoint_array(involute_points)[0][-1, 0]],
-                        [self.CSGEvoGear_cls.evotooth_2dpoint_array(involute_points)[
-                            0][-2, 0]],
-                         [self.CSGEvoGear_cls.evotooth_2dpoint_array(involute_points)[0][-2, 1]]]).T
+                        [self.CSGEvoGear_cls.evotooth_2dpoint_array(involute_points)[0][-2, 0]],
+                        [self.CSGEvoGear_cls.evotooth_2dpoint_array(involute_points)[0][-2, 1]]]).T
+        
+        #print("last",last)
+        
         tooth_side_coord = np.vstack((tooth_side_coord, last))
 
         # Return a list containing [a,b,h,A,ys,xs] from top of the tooth to the bottem of the edge
@@ -149,9 +150,48 @@ class CSGEvoSD:
 
         cog_xs /= cog_area
         cog_ys /= cog_area
+        
+        return (cog_xs, (cog_ys+tooth_side_coord[-1, 2]))
+    
+    
+    def get_cog(self, involute_points: int) -> tuple:
+        """Method to calculate the center of gravity.
 
-        # COG  Coordinates return tuple
-        return (cog_xs, cog_ys+tooth_side_coord[-1, 2])
+        Args:
+            involute_points (int): The points which are being used to calculate the involute-function.
+
+        Returns:
+            tuple: tuple consisting of the cog coordinates
+        """
+        # Sorting coord array
+        left = self.CSGEvoGear_cls.evotooth_2dpoint_array(involute_points)[1][::-1, :]
+        right = self.CSGEvoGear_cls.evotooth_2dpoint_array(involute_points)[2][::-1, :]
+        
+        tooth_side_coord = np.hstack((left, right))
+        tooth_side_coord = tooth_side_coord[:, [0, 2, 3]]
+        
+        #print(tooth_side_coord)
+        
+        # Return a list containing [a,b,h,A,ys,xs] from top of the tooth to the bottom of the edge
+        parameter_list = []
+        for i in range(tooth_side_coord.shape[0] - 1):
+            a = tooth_side_coord[i+1, 1] - tooth_side_coord[i+1, 0]
+            b = tooth_side_coord[i, 1] - tooth_side_coord[i, 0]
+            h = tooth_side_coord[i, 2] - tooth_side_coord[i+1, 2]
+            A = h * 0.5 * (a + b)
+            ys = (h / 3) * ((a + 2*b) / (a + b))
+            xs = 0.5 * (tooth_side_coord[i+1, 0] + tooth_side_coord[i, 0])  # Corrected xs calculation
+            parameter_list.append([a, b, h, A, ys, xs])
+
+        parameter_array = np.array(parameter_list)
+        cog_area = np.sum(parameter_array[:, 3])
+
+        cog_x = np.sum(parameter_array[:, 5] * parameter_array[:, 3]) / cog_area
+        cog_y = np.sum(parameter_array[:, 4] * parameter_array[:, 3]) / cog_area + (0.99*self.CSGEvoGear_cls.EvoTooth_ini.d_f/2)
+
+        #print(cog_y)
+        # COG Coordinates return tuple
+        return (cog_x, cog_y)
 
     def evosd_extrude_list(self, involute_points: int, angle: float, tooth_number: int) -> list:
         """Method to put the switching damage in the list which indicates what every tooth is and clearly defines it's position.
