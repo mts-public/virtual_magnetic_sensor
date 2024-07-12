@@ -4,6 +4,7 @@ from math import sqrt
 import numpy as np
 from typing import Union, List, Tuple, Dict
 from pyngcore import TaskManager
+from time import ctime
 
 from libs.DataHandler import DataHandler
 
@@ -98,6 +99,7 @@ class NGMesh:
                     print("Badness after Rotation: " + str(rotated_badness))
                     print("Init Mesh T: " + str(self.init_mesh_t))
                     print("T: " + str(t))
+                    print('Rotated at:',ctime())
 
                     if rotated_badness < self.mesh_badness * 1.1 and \
                             obj.omega * t < obj.omega * self.init_mesh_t + obj.rotate_mesh_max_angle:
@@ -111,6 +113,7 @@ class NGMesh:
             [temp_mesh, self.mesh_badness] = self.init_mesh(data_handler, self.mp)
             print("New Badness: " + str(self.mesh_badness))
             self.init_mesh_t = t
+            print('Meshed at:',ctime())
 
         self.netgen_mesh = temp_mesh.Copy()
         self.mesh = ng.Mesh(temp_mesh)
