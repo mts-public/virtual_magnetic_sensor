@@ -32,10 +32,11 @@ class CSGEvoPeeling:
 
         """
         self.CSGEvoGear_cls = CSGEvoGear(EvoTooth_ini)
+        arrtolst=EvoTooth_ini.damage_parameter_dict["diameter"].tolist()
         self.body = self.build_evopeeling(EvoTooth_ini.involute_points,
                                           EvoTooth_ini.damage_parameter_dict["tooth_number"],
                                           EvoTooth_ini.damage_parameter_dict["tooth_side"],
-                                          EvoTooth_ini.damage_parameter_dict["diameter"],
+                                          arrtolst,
                                           EvoTooth_ini.damage_parameter_dict["c"])
 
     def build_evopeeling(self, involute_points: int, tooth_number: int, tooth_side: str, diameter: list, c: float) -> csg.Solid:

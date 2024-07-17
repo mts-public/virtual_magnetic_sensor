@@ -117,7 +117,6 @@ class CSGEvoVDE:
         x = r * np.cos(theta) + (b[0]-ab_lenght)
         y = r * np.sin(theta) + b[1]
 
-        # Hei nach drun schaffen
         tooth_side_coord = np.delete(tooth_side_coord, 0, axis=0)
         tooth_side_coord = np.vstack((np.vstack((x, y)).T, tooth_side_coord))
 

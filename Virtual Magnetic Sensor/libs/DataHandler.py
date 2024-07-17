@@ -130,13 +130,9 @@ class DataHandler:
         :param path: Path to the python file.
         :type path: Path
         """
-
         self.filepath = Path(path.parent.as_posix(), path.stem)
-
         module: str = path.name
-
         spec = importlib.util.spec_from_file_location(module, path.as_posix())
-
         setup = importlib.util.module_from_spec(spec)
 
         try:
@@ -146,7 +142,7 @@ class DataHandler:
 
         data_stack: List[DataHandler] = list()
         series = None
-        size = None
+        sizes = {}
 
         self.deploy_dict(setup.__dict__)
         for obj in self.objects:
@@ -156,17 +152,15 @@ class DataHandler:
         for key, value in setup.__dict__.items():
             if key.lower() == "series":
                 series = value
-                # size = len(list(list(series.values())[0].values())[0])
-                temp_dictionary = series
-                while isinstance(temp_dictionary, dict):
-                    iter_keys = iter(temp_dictionary)
-                    first_key = next(iter_keys)
-                    first_value = temp_dictionary[first_key]
-                    if isinstance(first_value, dict):
-                        temp_dictionary = first_value
-                    else:
-                        size = len(list(first_value))
-                        break
+                for s_key, s_value in series.items():
+                    temp_dictionary = s_value
+                    while isinstance(temp_dictionary, dict):
+                        iter_keys = list(temp_dictionary.keys())
+                        if all(isinstance(temp_dictionary[k], dict) for k in iter_keys):
+                            temp_dictionary = temp_dictionary[iter_keys[0]]
+                        else:
+                            sizes[s_key] = max(len(list(temp_dictionary[k])) for k in iter_keys)
+                            break
 
         if self.sim_params() is None:
             self.objects.append(SimParams.template())
@@ -174,10 +168,10 @@ class DataHandler:
         data_stack.append(self)
         if series:
             if self.check_series(series):
-                data_stack = [copy.deepcopy(
-                    element) for element in data_stack for _ in range(size)]
+                max_size = max(sizes.values())
+                data_stack = [copy.deepcopy(element) for element in data_stack for _ in range(max_size)]
 
-                for idx in range(size):
+                for idx in range(max_size):
                     for s_key, values in series.items():
                         if s_key[-1].isnumeric():
                             key_num = int(s_key[-1])
@@ -191,20 +185,18 @@ class DataHandler:
                                 if data_num == key_num:
                                     for attr, value in values.items():
                                         if isinstance(obj, EvoGear) and isinstance(value, dict):
-                                            """ if next(iter(value)) in value:
-                                                value_dict = value[next(iter(value))][idx]
-                                                obj.damage_parameter_dict.update({next(iter(value)): value_dict}) """
-                                            if first_key in value:
-                                                value_dict = value[first_key][idx]
-                                                obj.damage_parameter_dict.update({first_key: value_dict})
+                                            for inner_key, inner_value in value.items():
+                                                value_dict = inner_value[idx] if idx < len(inner_value) else inner_value[-1]
+                                                obj.damage_parameter_dict.update({inner_key: value_dict})
                                         else:
-                                            value_dict = value[idx]
+                                            value_dict = value[idx] if idx < len(value) else value[-1]
                                             if hasattr(obj, attr):
                                                 setattr(obj, attr, value_dict)
                                 else:
                                     data_num += 1
 
         return data_stack
+
 
     def load_ini(self, path: Path) -> None:
         """Method changes the object list based on data from a *.ini file.
