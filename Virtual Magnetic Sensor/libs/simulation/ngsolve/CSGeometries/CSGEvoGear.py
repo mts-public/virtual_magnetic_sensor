@@ -101,9 +101,9 @@ class CSGEvoGear:
 
         coordinate_2d = np.vstack((coordinate_2d, temp))
         coordinate_2d = np.vstack(
-            (coordinate_2d, [temp[-1, 0], self.EvoTooth_ini.d_f/2*0.8]))
+            (coordinate_2d, [temp[-1, 0], self.EvoTooth_ini.d_f/2*0.95]))
         coordinate_2d = np.vstack(
-            (coordinate_2d, [(-1)*temp[-1, 0], self.EvoTooth_ini.d_f/2*0.8]))
+            (coordinate_2d, [(-1)*temp[-1, 0], self.EvoTooth_ini.d_f/2*0.95]))
 
         return coordinate_2d, left, right
 
@@ -128,15 +128,17 @@ class CSGEvoGear:
             if i > 0:
                 rotation_angle += delta_alpha
             
-            theta_2=np.round(self.EvoTooth_ini.theta,5)
+            #theta_2=np.round(self.EvoTooth_ini.theta,4)
+            theta_2=self.EvoTooth_ini.theta
             total_angle=rotation_angle+theta_2
+            total_angle=np.round(total_angle,5)
             
             if total_angle > np.pi*2:
                 total_angle = total_angle % (2 * np.pi)
                 
             if self.EvoTooth_ini.display_teeth_angle[0] <= total_angle <= self.EvoTooth_ini.display_teeth_angle[1]:
-                dirvec_list.append(((self.EvoTooth_ini.d_b/2)*np.cos(rotation_angle+theta_2),
-                                    (self.EvoTooth_ini.d_b/2)*np.sin(rotation_angle+theta_2), 0))
+                dirvec_list.append(((self.EvoTooth_ini.d_b/2)*np.cos(total_angle),
+                                    (self.EvoTooth_ini.d_b/2)*np.sin(total_angle), 0))
                 rendered_teeth.append(i+1)
                 
                 print("Original Tooth, Nr.", i+1, " Angle:",np.degrees(total_angle-theta_2))

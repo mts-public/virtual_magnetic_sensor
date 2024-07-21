@@ -41,14 +41,14 @@ class NGMesh:
         """Constructor method."""
 
         self.mp = msh.MeshingParameters(
-            curvaturesafety=2,
+            curvaturesafety=3.0, #Hier 2
             segmentsperedge=1,
-            grading=0.3,
+            grading=0.3, #0.3
             chartdistfac=1.5,
             linelengthfac=0.5,
             closeedgefac=2,
             minedgelen=0.2,
-            surfmeshcurvfac=2.0,
+            surfmeshcurvfac=2.0, #Hier 2.0
             optsteps3d=1,
             optimize3d="m"
         )
@@ -74,8 +74,18 @@ class NGMesh:
 
         ng_geometry: CSGeometry = CSGeometry(data_handler)
         
-        print("Initializing mesh...")  
-        net_mesh = ng_geometry.geometry.GenerateMesh(mp)
+        print("Initializing mesh at: ",ctime())
+        
+        try:
+            print('Case 1')
+            with TaskManager():
+                net_mesh = ng_geometry.geometry.GenerateMesh(mp)
+        except:
+            print('Case 2')
+            net_mesh = ng_geometry.geometry.GenerateMesh(mp)
+        
+        #net_mesh = ng_geometry.geometry.GenerateMesh(mp)
+        
         init_badness = net_mesh.CalcTotalBadness(mp)
         print("Mesh generation successful.")
         
@@ -99,7 +109,7 @@ class NGMesh:
                     print("Badness after Rotation: " + str(rotated_badness))
                     print("Init Mesh T: " + str(self.init_mesh_t))
                     print("T: " + str(t))
-                    print('Rotated at:',ctime())
+                    print('Rotate Mesh at :',ctime())
 
                     if rotated_badness < self.mesh_badness * 1.1 and \
                             obj.omega * t < obj.omega * self.init_mesh_t + obj.rotate_mesh_max_angle:

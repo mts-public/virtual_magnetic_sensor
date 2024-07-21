@@ -22,7 +22,7 @@ class SimulationHandler:
 
         pass
 
-    @staticmethod
+    @staticmethod 
     def run_process(data_handler: DataHandler, max_memory: float, shared_list: Manager, queue: Queue) -> None:
 
         n = queue.get()
