@@ -128,10 +128,9 @@ class CSGEvoGear:
             if i > 0:
                 rotation_angle += delta_alpha
             
-            #theta_2=np.round(self.EvoTooth_ini.theta,4)
             theta_2=self.EvoTooth_ini.theta
             total_angle=rotation_angle+theta_2
-            total_angle=np.round(total_angle,5)
+            #total_angle=np.round(total_angle,3)
             
             if total_angle > np.pi*2:
                 total_angle = total_angle % (2 * np.pi)
@@ -142,11 +141,7 @@ class CSGEvoGear:
                 rendered_teeth.append(i+1)
                 
                 print("Original Tooth, Nr.", i+1, " Angle:",np.degrees(total_angle-theta_2))
-                #print("x:", (self.EvoTooth_ini.d_b/2) *np.cos(rotation_angle))
-                #print("y:", (self.EvoTooth_ini.d_b/2) *np.sin(rotation_angle))
                 print("Updated Tooth, Nr.", i+1, " Angle:",np.degrees(total_angle)) 
-                #print("x:", (self.EvoTooth_ini.d_b/2) *np.cos(rotation_angle+self.EvoTooth_ini.theta))
-                #print("y:", (self.EvoTooth_ini.d_b/2) *np.sin(rotation_angle+self.EvoTooth_ini.theta))
                 print("----------------------------------------------------")
 
         return np.array(dirvec_list),rendered_teeth

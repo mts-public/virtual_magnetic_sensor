@@ -4,6 +4,7 @@ from concurrent import futures
 from typing import List, Union
 import os
 import psutil
+import time
 
 from libs.simulation.MagneticFieldFactory import MagneticFieldFactory
 
@@ -11,6 +12,8 @@ from libs.DataHandler import DataHandler
 from libs.ConfigHandler import ConfigHandler
 
 from libs.gui.GUIHandler import GUIHandler
+
+from libs.elements.components.EvoGear import EvoGear
 
 thread_pool_executor = futures.ThreadPoolExecutor(max_workers=3)
 
@@ -24,6 +27,9 @@ class SimulationHandler:
 
     @staticmethod 
     def run_process(data_handler: DataHandler, max_memory: float, shared_list: Manager, queue: Queue) -> None:
+        MAX_RETRIES = 50
+        RETRY_DELAY = 0.1  # seconds
+        TINY_INCREMENT = 10e-10  # Tiny value to add to t
 
         n = queue.get()
 
@@ -41,7 +47,60 @@ class SimulationHandler:
                 if hasattr(component, "update"):
                     component.update(t)
 
-            field.create_field(data_handler, t)
+            retries = 0
+            success = False
+            while not success and retries < MAX_RETRIES:
+                try:
+                    field.create_field(data_handler, t)
+                    success = True
+                except Exception as e:
+                    retries += 1
+                    print(f"Error in mesh generation (attempt {retries}/{MAX_RETRIES}): {str(e)}")
+                    t+=TINY_INCREMENT
+                    if retries < MAX_RETRIES:
+                        time.sleep(RETRY_DELAY)
+                        TINY_INCREMENT*=1.5
+
+            if not success:
+                print(f"Failed to create field after {MAX_RETRIES} attempts. Moving to next time step.")
+
+            for num, obj in enumerate(data_handler.objects):
+                if hasattr(obj, "set_data"):
+                    temp_list[num] = obj.set_data(temp_list[num].copy(), field)
+
+            n += 1
+
+        shared_list.extend(temp_list)
+        
+        try:
+            queue.put(n)
+        except Exception as e:
+            print(f"Error sending progress update: {str(e)}")
+    
+    @staticmethod       
+    def run_process_old(data_handler: DataHandler, max_memory: float, shared_list: Manager, queue: Queue) -> None:
+
+        n = queue.get()
+
+        field_factory = MagneticFieldFactory()
+        field = field_factory.init_field('ngsolve', data_handler)
+
+        temp_list = list([dict()] * len(data_handler.objects))
+
+        while n < data_handler.sim_params().samples and psutil.Process(
+                os.getpid()).memory_info().rss / 1024 ** 2 < max_memory:
+
+            t = data_handler.sim_params().t0 + n * data_handler.sim_params().dt
+
+            for component in data_handler.components():
+                if hasattr(component, "update"):
+                    component.update(t)
+
+            #Crashed hier ab
+            try:
+                field.create_field(data_handler, t)
+            except():
+                pass
 
             for num, obj in enumerate(data_handler.objects):
                 if hasattr(obj, "set_data"):
@@ -122,12 +181,44 @@ class SimulationHandler:
 
     @staticmethod
     def draw_process(data_handler: DataHandler):
+        MAX_RETRIES = 2
+        TINY_INCREMENT = 1e-10  # Tiny value to add to t
+        
+        import netgen.gui
+
+        # Improved error handling for field creation
+        retries = 0
+        success = False
+        while not success and retries < MAX_RETRIES:
+            try:
+                field_factory = MagneticFieldFactory()
+                field = field_factory.init_field('ngsolve', data_handler)
+                field.create_field(data_handler, data_handler.sim_params().t0) # Crashed
+                field.draw()
+                success = True
+            except Exception as e:
+                retries += 1
+                print(f"Error in mesh generation (attempt {retries}/{MAX_RETRIES}): {str(e)}")
+                
+                for entry in data_handler.components():
+                    if isinstance(entry,EvoGear):
+                        entry.theta+=TINY_INCREMENT
+                        
+                TINY_INCREMENT*=4 
+                    
+        if not success:
+            print(f"Failed to create field after {MAX_RETRIES} attempts. Moving to next time step.")
+
+        netgen.gui.win.mainloop()
+
+    @staticmethod
+    def draw_process_old(data_handler: DataHandler):
 
         import netgen.gui
 
         field_factory = MagneticFieldFactory()
         field = field_factory.init_field('ngsolve', data_handler)
-        field.create_field(data_handler, data_handler.sim_params().t0)
+        field.create_field(data_handler, data_handler.sim_params().t0) # Crashed
         field.draw()
 
         netgen.gui.win.mainloop()
