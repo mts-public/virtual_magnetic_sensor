@@ -39,9 +39,10 @@ class CSGEvoPitting:
                                           EvoTooth_ini.damage_parameter_dict["tooth_number"],
                                           EvoTooth_ini.damage_parameter_dict["tooth_side"],
                                           EvoTooth_ini.damage_parameter_dict["seed"],
-                                          EvoTooth_ini.damage_parameter_dict["standart_deviation"])
+                                          EvoTooth_ini.damage_parameter_dict["sd_r"],
+                                          EvoTooth_ini.damage_parameter_dict["sd_d"])
 
-    def build_evopitting(self, pitting_count: int, pitting_radius: float, tooth_number: int, tooth_side: str, seed: int, standart_deviation: float) -> csg.Solid:
+    def build_evopitting_old(self, pitting_count: int, pitting_radius: float, tooth_number: int, tooth_side: str, seed: int, standart_deviation: float) -> csg.Solid:
         """Method to generate the Netgen.csg.CSGeometry for pitting damage.
 
         Args:
@@ -58,13 +59,19 @@ class CSGEvoPitting:
 
         csg_pitting: csg.Solid
 
-        coord = self.find_coordinates_of_diameter(tooth_number,
-                                                  tooth_side,
-                                                  self.CSGEvoGear_cls.EvoTooth_ini.d)
-        
+        print('d',self.CSGEvoGear_cls.EvoTooth_ini.d)
         for i in range(pitting_count):
             generator_seed = np.random.Generator(np.random.PCG64(seed))
+            
+            rnd_d=np.random.Generator.normal(generator_seed, loc=self.CSGEvoGear_cls.EvoTooth_ini.d, scale=0.05, size=None)
+            print('rnd_d',rnd_d)
+            
+            coord = self.find_coordinates_of_diameter(tooth_number,tooth_side,rnd_d)
+            #coord = self.find_coordinates_of_diameter(tooth_number,tooth_side,self.CSGEvoGear_cls.EvoTooth_ini.d)
+            
             rnd_x = np.random.Generator.normal(generator_seed, loc=coord[0], scale=0.05, size=None)
+            print('x',rnd_x)
+            
             rnd_z = np.random.Generator.uniform(generator_seed, -self.CSGEvoGear_cls.EvoTooth_ini.length, 0)
             rnd_radius = np.random.Generator.normal(generator_seed, loc=pitting_radius, scale=standart_deviation, size=None)
             rnd_radius = np.absolute(rnd_radius)
@@ -77,6 +84,72 @@ class CSGEvoPitting:
             seed += 1
 
         return (self.CSGEvoGear_cls.body-csg_pitting)
+    
+    def build_evopitting(self, pitting_count: int, pitting_radius: float, tooth_number: int, tooth_side: str, seed: int, sd_r: float, sd_d:float) -> csg.Solid:
+        """Method to generate the Netgen.csg.CSGeometry for pitting damage.
+
+        Args:
+            pitting_count (int): Amount of pitting spheres that are being placed and calculated in the simulation.
+            pitting_radius (float): Mean pitting sphere radius.
+            tooth_number (int): On which tooth the damage is being placed, beginning with the horizontal tooth zero at the right side and counting in a counterclockwise direction. 
+            tooth_side (str): On which tooth side the damage is being placed the available options are: left or right.
+            seed (int): The seed is being used to reproduce the same sequence of geometry results.
+            standart_deviation (float): Standard Deviation is being used to get random pitting radius. Default 0.05.
+
+        Returns:
+            csg.Solid: The EvoGear with pitting damage.
+        """
+
+        csg_pitting: csg.Solid = None
+        generator_seed = np.random.Generator(np.random.PCG64(seed))
+        pitting_spheres = []
+
+        for i in range(pitting_count):
+            overlap = True
+            attempts = 0
+            max_attempts = 100
+
+            while overlap and attempts < max_attempts:
+                rnd_d = generator_seed.normal(loc=self.CSGEvoGear_cls.EvoTooth_ini.d, scale=sd_d)
+                coord = self.find_coordinates_of_diameter(tooth_number, tooth_side, rnd_d)
+                #rnd_x = generator_seed.normal(loc=coord[0], scale=0.05)
+                rnd_x = coord[0]
+                
+                rnd_z = generator_seed.uniform(-self.CSGEvoGear_cls.EvoTooth_ini.length, 0)
+                rnd_radius = abs(generator_seed.normal(loc=pitting_radius, scale=sd_r))
+
+                overlap = False
+                for sphere in pitting_spheres:
+                    distance = np.sqrt((rnd_x - sphere[0])**2 + (coord[1] - sphere[1])**2 + (rnd_z - sphere[2])**2)
+                    if distance < (rnd_radius + sphere[3]):
+                        overlap = True
+                        break
+
+                attempts += 1
+
+            if attempts == max_attempts:
+                print(f"Warning: Could not place non-overlapping sphere after {max_attempts} attempts.")
+                continue
+
+            # Add the new sphere to the list
+            pitting_spheres.append((rnd_x, coord[1], rnd_z, rnd_radius))
+            #print(pitting_spheres[-1])
+
+            # Create or update the CSG object
+            new_sphere = csg.Sphere(csg.Pnt(rnd_x + self.CSGEvoGear_cls.EvoTooth_ini.pos[0],
+                                            coord[1] + self.CSGEvoGear_cls.EvoTooth_ini.pos[1],
+                                            rnd_z + self.CSGEvoGear_cls.EvoTooth_ini.pos[2]),
+                                    rnd_radius)
+            
+            if csg_pitting is None:
+                csg_pitting = new_sphere
+            else:
+                csg_pitting += new_sphere
+
+        if csg_pitting is None:
+            return self.CSGEvoGear_cls.body
+        else:
+            return (self.CSGEvoGear_cls.body - csg_pitting)
 
     def tooth_surface_coordinate(self, tooth_number: int) -> list:
         """Returns a list containing two arrays which contain the (x, y) coordinates of the EvoTooth flanks.
@@ -96,9 +169,8 @@ class CSGEvoPitting:
         points_2d = np.array(self.CSGEvoGear_cls.pnts_2d).T
         points_2d = np.vstack([points_2d, np.zeros((1, points_2d.shape[1]))])
 
-        # Rotation matrix
-        rot_mat = self.CSGEvoGear_cls.EvoTooth_ini.rotation_matrix(
-            (tooth_number * delta_alpha + self.CSGEvoGear_cls.EvoTooth_ini.theta) - np.radians(90))
+        # Rotation matrix<
+        rot_mat = self.CSGEvoGear_cls.EvoTooth_ini.rotation_matrix(((tooth_number-1) * delta_alpha + self.CSGEvoGear_cls.EvoTooth_ini.theta) - np.radians(90))
 
         # Transform points_2d /w rot_mat
         transformed_points_2d = np.dot(rot_mat, points_2d)
@@ -152,18 +224,7 @@ class CSGEvoPitting:
             else:
                 x = np.array([(surface_coordinates[0, i-1], surface_coordinates[1, i-1]),
                                   (surface_coordinates[0, i], surface_coordinates[1, i])]).T
-            
-            """ if (diameter/2) in surface_coordinates[2, :]:
-                # Hier könnte deine Werbung stehen
-                pass
-            else:
-                i = 0
-                while (surface_coordinates[2, i] < (diameter/2)):
-                    i += 1
-                else:
-                    x = np.array([(surface_coordinates[0, i-1], surface_coordinates[1, i-1]),
-                                  (surface_coordinates[0, i], surface_coordinates[1, i])]).T """
-
+                
         m = (x[1, 1]-x[1, 0])/(x[0, 1]-x[0, 0])
         a = 1+m
         b = 2*m*(x[1, 0]-x[0, 0])
