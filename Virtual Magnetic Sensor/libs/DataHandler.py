@@ -60,13 +60,13 @@ class DataHandler:
         :type: Dict[str, any]
         """
         self.objects.clear()
-        
-        bool=False
+
+        bool = False
         for tkey in enumerate(list(dictionary.keys())):
             if "SimParams" in tkey[1]:
                 if "t" in dictionary[tkey[1]]:
-                    bool=True
-                    
+                    bool = True
+
         for key in dictionary:
             if key[-1].isnumeric():
                 num = key.lstrip(string.ascii_letters+string.punctuation)
@@ -77,11 +77,12 @@ class DataHandler:
                 if hasattr(globals()[key], 'from_dict'):
                     self.objects.append(
                         globals()[key].from_dict(dictionary[key+num]))
-                    if bool==True:
+                    if bool == True:
                         if isinstance(self.objects[-1], EvoGear):
                             if hasattr(self.objects[-1], "damage_parameter_dict") and "tooth_side" in self.objects[-1].damage_parameter_dict:
                                 encoding = 'utf-8'
-                                self.objects[-1].damage_parameter_dict["tooth_side"] = str(self.objects[-1].damage_parameter_dict["tooth_side"], encoding)
+                                self.objects[-1].damage_parameter_dict["tooth_side"] = str(
+                                    self.objects[-1].damage_parameter_dict["tooth_side"], encoding)
 
     def load_h5(self, path: Path) -> None:
         """Method changes the object list based on data from a HDF5 file.
@@ -159,7 +160,8 @@ class DataHandler:
                         if all(isinstance(temp_dictionary[k], dict) for k in iter_keys):
                             temp_dictionary = temp_dictionary[iter_keys[0]]
                         else:
-                            sizes[s_key] = max(len(list(temp_dictionary[k])) for k in iter_keys)
+                            sizes[s_key] = max(
+                                len(list(temp_dictionary[k])) for k in iter_keys)
                             break
 
         if self.sim_params() is None:
@@ -169,7 +171,8 @@ class DataHandler:
         if series:
             if self.check_series(series):
                 max_size = max(sizes.values())
-                data_stack = [copy.deepcopy(element) for element in data_stack for _ in range(max_size)]
+                data_stack = [copy.deepcopy(
+                    element) for element in data_stack for _ in range(max_size)]
 
                 for idx in range(max_size):
                     for s_key, values in series.items():
@@ -186,17 +189,19 @@ class DataHandler:
                                     for attr, value in values.items():
                                         if isinstance(obj, EvoGear) and isinstance(value, dict):
                                             for inner_key, inner_value in value.items():
-                                                value_dict = inner_value[idx] if idx < len(inner_value) else inner_value[-1]
-                                                obj.damage_parameter_dict.update({inner_key: value_dict})
+                                                value_dict = inner_value[idx] if idx < len(
+                                                    inner_value) else inner_value[-1]
+                                                obj.damage_parameter_dict.update(
+                                                    {inner_key: value_dict})
                                         else:
-                                            value_dict = value[idx] if idx < len(value) else value[-1]
+                                            value_dict = value[idx] if idx < len(
+                                                value) else value[-1]
                                             if hasattr(obj, attr):
                                                 setattr(obj, attr, value_dict)
                                 else:
                                     data_num += 1
 
         return data_stack
-
 
     def load_ini(self, path: Path) -> None:
         """Method changes the object list based on data from a *.ini file.
@@ -377,7 +382,7 @@ class DataHandler:
             """
 
             for key, item in dictionary.items():
-                if isinstance(item, (np.ndarray, int, float, str, bytes, list, np.int32, np.float32, np.bool_)):
+                if isinstance(item, (np.ndarray, int, float, str, bytes, list, np.int32, np.int64, np.float32, np.float64, np.bool_)):
                     h5file[filename + key] = item
                 elif isinstance(item, Path):
                     h5file[filename + key] = item.as_posix()
@@ -423,18 +428,6 @@ class DataHandler:
                         if hasattr(sub_frame, 'update_buttons'):
                             sub_frame.update_buttons(self.objects[-1])
 
-    
-    """ def check_series(series: Dict[str, Dict[str, List[float]]]):
-        # Check for matching dimensions
-        size = len(list(list(series.values())[0].values())[0])
-        for value in list(series.values()):
-            if type(value) == dict:
-                for attr in list(value.values()):
-                    if len(attr) != size:
-                        return 0
-
-        return 1 """
-    
     @staticmethod
     def check_series(series: Dict[str, Any]) -> bool:
         """
@@ -446,7 +439,7 @@ class DataHandler:
         def get_list_lengths(d: Dict[str, Any], lengths: List[int]) -> None:
             """
             Helper function to recursively collect the lengths of lists in the nested dictionary.
-            
+
             :param d: Current dictionary to inspect.
             :param lengths: List to collect the lengths of found lists.
             """
@@ -456,13 +449,11 @@ class DataHandler:
                 elif isinstance(value, list) and all(isinstance(i, float) for i in value):
                     lengths.append(len(value))
 
-        # Collect all list lengths
         list_lengths = []
         get_list_lengths(series, list_lengths)
 
-        # Check if all collected list lengths are the same
         return len(set(list_lengths)) == 1 if list_lengths else True
-    
+
     def components(self):
         """Method returns the objects of type Component in a list.
 

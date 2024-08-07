@@ -41,49 +41,6 @@ class CSGEvoPitting:
                                           EvoTooth_ini.damage_parameter_dict["seed"],
                                           EvoTooth_ini.damage_parameter_dict["sd_r"],
                                           EvoTooth_ini.damage_parameter_dict["sd_d"])
-
-    def build_evopitting_old(self, pitting_count: int, pitting_radius: float, tooth_number: int, tooth_side: str, seed: int, standart_deviation: float) -> csg.Solid:
-        """Method to generate the Netgen.csg.CSGeometry for pitting damage.
-
-        Args:
-            pitting_count (int): Amount of pitting spheres that are being placed and calculated in the simualtion.
-            pitting_radius (float): Mean pitting sphere radius.
-            tooth_number (int): On which tooth the damage is being placed, begining with the horizonal tooth zero at the right side and counting in a counterclockwise direction. 
-            tooth_side (str): On whiche tooth side the damage is being placed the avaialable options are: left or right.
-            seed (int): The seed is being used to reproduce the same sequence of geometry results.
-            standart_deviation (float): Standart Deviation is being used to get random pitting radius. Default 0.05.
-
-        Returns:
-            csg.Solid: The EvoGear with pitting damage.
-        """
-
-        csg_pitting: csg.Solid
-
-        print('d',self.CSGEvoGear_cls.EvoTooth_ini.d)
-        for i in range(pitting_count):
-            generator_seed = np.random.Generator(np.random.PCG64(seed))
-            
-            rnd_d=np.random.Generator.normal(generator_seed, loc=self.CSGEvoGear_cls.EvoTooth_ini.d, scale=0.05, size=None)
-            print('rnd_d',rnd_d)
-            
-            coord = self.find_coordinates_of_diameter(tooth_number,tooth_side,rnd_d)
-            #coord = self.find_coordinates_of_diameter(tooth_number,tooth_side,self.CSGEvoGear_cls.EvoTooth_ini.d)
-            
-            rnd_x = np.random.Generator.normal(generator_seed, loc=coord[0], scale=0.05, size=None)
-            print('x',rnd_x)
-            
-            rnd_z = np.random.Generator.uniform(generator_seed, -self.CSGEvoGear_cls.EvoTooth_ini.length, 0)
-            rnd_radius = np.random.Generator.normal(generator_seed, loc=pitting_radius, scale=standart_deviation, size=None)
-            rnd_radius = np.absolute(rnd_radius)
-
-            if i == 0:
-                csg_pitting = csg.Sphere(csg.Pnt(rnd_x+self.CSGEvoGear_cls.EvoTooth_ini.pos[0], coord[1]+self.CSGEvoGear_cls.EvoTooth_ini.pos[1], rnd_z+self.CSGEvoGear_cls.EvoTooth_ini.pos[2]), rnd_radius)
-            else:
-                csg_pitting += csg.Sphere(csg.Pnt(rnd_x+self.CSGEvoGear_cls.EvoTooth_ini.pos[0],coord[1]+self.CSGEvoGear_cls.EvoTooth_ini.pos[1], rnd_z+self.CSGEvoGear_cls.EvoTooth_ini.pos[2]), rnd_radius)
-
-            seed += 1
-
-        return (self.CSGEvoGear_cls.body-csg_pitting)
     
     def build_evopitting(self, pitting_count: int, pitting_radius: float, tooth_number: int, tooth_side: str, seed: int, sd_r: float, sd_d:float) -> csg.Solid:
         """Method to generate the Netgen.csg.CSGeometry for pitting damage.
@@ -118,6 +75,9 @@ class CSGEvoPitting:
                 rnd_z = generator_seed.uniform(-self.CSGEvoGear_cls.EvoTooth_ini.length, 0)
                 rnd_radius = abs(generator_seed.normal(loc=pitting_radius, scale=sd_r))
 
+                if np.isnan(rnd_x) or np.isnan(coord[1]) or np.isnan(rnd_z) or np.isnan(rnd_radius):
+                    raise ValueError(f"NaN detected in generated values: rnd_x={rnd_x}, coord[1]={coord[1]}, rnd_z={rnd_z}, rnd_radius={rnd_radius}")
+
                 overlap = False
                 for sphere in pitting_spheres:
                     distance = np.sqrt((rnd_x - sphere[0])**2 + (coord[1] - sphere[1])**2 + (rnd_z - sphere[2])**2)
@@ -141,6 +101,8 @@ class CSGEvoPitting:
                                             rnd_z + self.CSGEvoGear_cls.EvoTooth_ini.pos[2]),
                                     rnd_radius)
             
+            #print(f'new_sphere:{new_sphere}')
+            
             if csg_pitting is None:
                 csg_pitting = new_sphere
             else:
@@ -150,7 +112,7 @@ class CSGEvoPitting:
             return self.CSGEvoGear_cls.body
         else:
             return (self.CSGEvoGear_cls.body - csg_pitting)
-
+        
     def tooth_surface_coordinate(self, tooth_number: int) -> list:
         """Returns a list containing two arrays which contain the (x, y) coordinates of the EvoTooth flanks.
         The array list[0] contains the coordinates of the left flank. 
@@ -163,79 +125,67 @@ class CSGEvoPitting:
         Returns:
             list: _description_
         """
-        delta_alpha = 2*self.CSGEvoGear_cls.EvoTooth_ini.m*np.pi * \
-            np.cos(self.CSGEvoGear_cls.EvoTooth_ini.alpha) / \
-            self.CSGEvoGear_cls.EvoTooth_ini.d_b
-        points_2d = np.array(self.CSGEvoGear_cls.pnts_2d).T
-        points_2d = np.vstack([points_2d, np.zeros((1, points_2d.shape[1]))])
-
-        # Rotation matrix<
-        rot_mat = self.CSGEvoGear_cls.EvoTooth_ini.rotation_matrix(((tooth_number-1) * delta_alpha + self.CSGEvoGear_cls.EvoTooth_ini.theta) - np.radians(90))
-
-        # Transform points_2d /w rot_mat
-        transformed_points_2d = np.dot(rot_mat, points_2d)
-        transformed_points_2d[2] = np.sqrt(np.power(
-            transformed_points_2d[0, ::], 2)+np.power(transformed_points_2d[1, ::], 2))
-
-        # Separate left and right flanks
-        num_points = transformed_points_2d.shape[1]-2
-        mid = num_points // 2
-        left = transformed_points_2d[:, :mid]
-        right = transformed_points_2d[:, mid:transformed_points_2d.shape[1]-2]
-
-        # Reverse the order of the right flank
-        right = right[:, ::-1]
-
-        # Append the last point of the original tooth to both left and right flanks
-        left = np.insert(
-            left, 0, transformed_points_2d[:, transformed_points_2d.shape[1]-1], axis=1)
-        right = np.insert(
-            right, 0, transformed_points_2d[:, transformed_points_2d.shape[1]-2], axis=1)
-
-        return [left, right]
-
-    def find_coordinates_of_diameter(self, tooth_number: int, tooth_side: str, diameter: float) -> np.array:
-        """Find the interval coordinates [x2, x1] of a (to be found) diameter on a given tooth number.
+        delta_alpha=2*(np.pi/self.CSGEvoGear_cls.EvoTooth_ini.n)
+        
+        rot_mat = self.CSGEvoGear_cls.EvoTooth_ini.rotation_matrix(((tooth_number-1) * delta_alpha + self.CSGEvoGear_cls.EvoTooth_ini.theta) - np.radians(90))[0:2,0:2]
+        
+        left=self.CSGEvoGear_cls.evotooth_2dpoint_array(self.CSGEvoGear_cls.EvoTooth_ini.involute_points)[1]
+        right=self.CSGEvoGear_cls.evotooth_2dpoint_array(self.CSGEvoGear_cls.EvoTooth_ini.involute_points)[2][::-1]
+        
+        lft_trafo=np.dot(left,rot_mat)
+        lft_rdus=np.sqrt(np.power(lft_trafo[::,0], 2)+np.power(lft_trafo[::,1], 2))
+        lft_rdus=np.reshape(lft_rdus,(self.CSGEvoGear_cls.EvoTooth_ini.involute_points,1))
+        lft_trafo=np.hstack((lft_trafo,lft_rdus))
+        
+        rgt_trafo=np.dot(right,rot_mat)
+        rgt_rdus=np.sqrt(np.power(rgt_trafo[::,0], 2)+np.power(rgt_trafo[::,1], 2))
+        rgt_rdus=np.reshape(rgt_rdus,(self.CSGEvoGear_cls.EvoTooth_ini.involute_points,1))
+        rgt_trafo=np.hstack((rgt_trafo,rgt_rdus))
+        
+        if np.any(np.isnan(lft_trafo)) or np.any(np.isnan(rgt_trafo)):
+            raise ValueError(f"NaN detected in result: {lft_trafo} or {rgt_trafo}")
+        
+        return [np.transpose(lft_trafo),np.transpose(rgt_trafo)]
+    
+    def find_coordinates_of_diameter(self, tooth_number: int, tooth_side: str, diameter: float) -> np.ndarray:
+        """Find the coordinates [x, y, r] of a diameter on a given tooth number.
 
         Args:
-            tooth_number (int): On which tooth the damage is being placed, begining with the horizonal tooth zero at the right side and counting in a counterclockwise direction.
-            tooth_side (str): On which tooth side the damage is being placed the avaialable options are: left or right.
-            diameter (float): Find the diameter on the tooth flank.
+            tooth_number (int): The tooth number, starting with 0 on the right and counting counterclockwise.
+            tooth_side (str): The tooth side ('left' or 'right').
+            diameter (float): The diameter to find on the tooth flank.
 
         Raises:
-            Exception: The correct tooth side must be indicated "left" or "right".
-            Exception: The correct diamter must be indicated. 
+            ValueError: If tooth_side is invalid or diameter is out of range.
 
         Returns:
-            tuple: Intervall represented as a list where the first entry is the second coordinate and the second entry is the first coordinate
+            np.ndarray: A 3x1 array of [x, y, r] coordinates.
         """
+        try:
+            surface_coordinates = self.tooth_surface_coordinate(tooth_number)[0 if tooth_side == "left" else 1]
+        except IndexError:
+            raise ValueError(f"Invalid tooth_side: {tooth_side}. Must be 'left' or 'right'.")
 
-        match tooth_side:
-            case "left": surface_coordinates = self.tooth_surface_coordinate(tooth_number)[0]
-            case "right": surface_coordinates = self.tooth_surface_coordinate(tooth_number)[1]
-            case _: raise Exception('Input for toot0,1h_side must be "left" or "right"')
-        if ((diameter/2) > surface_coordinates[2, surface_coordinates.shape[1]-1]) or (diameter/2) < surface_coordinates[2, 0]:
-            raise Exception('Diameter must be inbetween ['+str(surface_coordinates[2, 0])+','+str(
-                surface_coordinates[2, surface_coordinates.shape[1]-1]*2)+']')
-        else:
-            i=0
-            while (surface_coordinates[2, i] < (diameter/2)):
-                i += 1
-            else:
-                x = np.array([(surface_coordinates[0, i-1], surface_coordinates[1, i-1]),
-                                  (surface_coordinates[0, i], surface_coordinates[1, i])]).T
-                
-        m = (x[1, 1]-x[1, 0])/(x[0, 1]-x[0, 0])
-        a = 1+m
-        b = 2*m*(x[1, 0]-x[0, 0])
-        c = -2*x[1, 0]*x[0, 0]*m + \
-            np.power(x[0, 0], 2)*m+np.power(x[1, 0], 2)-np.power(diameter/2, 2)
-        s = ((-b+np.sqrt(np.power(b, 2)-4*a*c))/(2*a),
-             (-b-np.sqrt(np.power(b, 2)-4*a*c))/(2*a))
-        if x[0, 0] < s[0] < x[0, 1] or x[0, 1] > s[0] > x[0, 0]:
-            s = s[0]
-        else:
-            s = s[1]
-        y = m*(s-x[0, 0])+x[1, 0]
+        radius = diameter / 2
+        z_coords = surface_coordinates[2]
+        if radius < z_coords[0] or radius > z_coords[-1]:
+            raise ValueError(f"Diameter must be between {z_coords[0]*2} and {z_coords[-1]*2}")
 
-        return np.array([[s], [y], [diameter/2]])
+        i = np.searchsorted(z_coords, radius)
+        
+        if i == 0 or i == len(z_coords):
+            raise ValueError(f"Radius {radius} not found within the tooth surface coordinates")
+
+        x = surface_coordinates[0, i-1:i+1]
+        y = surface_coordinates[1, i-1:i+1]
+
+        t = (radius - z_coords[i-1]) / (z_coords[i] - z_coords[i-1])
+        interpolated_x = x[0] + t * (x[1] - x[0])
+        interpolated_y = y[0] + t * (y[1] - y[0])
+
+        result = np.array([[interpolated_x], [interpolated_y], [radius]])
+
+        if np.any(np.isnan(result)):
+            raise ValueError(f"NaN detected in result: {result}")
+
+        return result
