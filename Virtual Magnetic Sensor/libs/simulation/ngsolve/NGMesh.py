@@ -143,9 +143,9 @@ class NGMesh:
 
         for p in mesh.Points():
             p_canonical: np.ndarray = np.linalg.inv(trans_matrix[0]).dot(np.array([p[0], p[1], p[2]]) - position[0])
-            if abs(p_canonical[2]) <= data_handler.objects[idx].length/2 * (1 + 2e-1) and sqrt(
+            if abs(p_canonical[2]) <= data_handler.objects[idx].length/2 + 3e-2 and sqrt(
                     pow(p_canonical[0], 2) + pow(p_canonical[1], 2)) <= (
-                    data_handler.objects[idx].diameter[1] + data_handler.objects[idx].tooth_height)/2 * (1 + 2e-1):
+                    data_handler.objects[idx].diameter[1] + data_handler.objects[idx].tooth_height)/2 + 3e-2:
                 p_rotated: np.ndarray = data_handler.objects[idx].rotation_matrix(
                     data_handler.objects[idx].omega*data_handler.sim_params().dt).dot(p_canonical)
                 p_new: np.ndarray = trans_matrix[1].dot(p_rotated)
