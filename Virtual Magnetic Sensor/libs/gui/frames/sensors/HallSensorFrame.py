@@ -37,9 +37,9 @@ class HallSensorFrame(ObjectFrame):
         self.entries['hall_coefficient'] = Gui.input_line(master=self, config=config_handler.config, col=0, row=3,
                                                           label="Hall Coefficient A_h", unit="mm^3/kC")
         self.entries['conductor_thickness'] = Gui.input_line(master=self, config=config_handler.config, col=0, row=4,
-                                                             label="Conductor thickness t", unit="µm")
+                                                             label="Conductor Thickness t", unit="µm")
         self.entries['current'] = Gui.input_line(master=self, config=config_handler.config, col=0, row=5,
-                                                 label="Current I", unit="mm")
+                                                 label="Current I", unit="A")
         self.entries['maxh'] = Gui.input_line(master=self, config=config_handler.config, col=0, row=6,
                                               label="Max Mesh Size", unit="mm")
 

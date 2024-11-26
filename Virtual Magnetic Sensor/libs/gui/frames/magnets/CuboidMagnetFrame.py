@@ -66,7 +66,7 @@ class InfoFrame:
         img = (Image.open(r"resources/images/CuboidMagnet.png"))
         image_width = int(1.0 * img.width)
         image_height = int(1.0 * img.height)
-        self.resized_img = ImageTk.PhotoImage(img.resize((image_width, image_height), Image.ANTIALIAS))
+        self.resized_img = ImageTk.PhotoImage(img.resize((image_width, image_height), Image.Resampling.LANCZOS))
         self.frame.geometry(f"{image_width}x{image_height}+{100}+{100}")
 
         image_frame = ttk.Label(master=self.frame, image=self.resized_img)
