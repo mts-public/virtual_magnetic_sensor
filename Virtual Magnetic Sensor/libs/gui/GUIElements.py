@@ -342,7 +342,10 @@ class GUIElements:
     def screen_size() -> Tuple[int, int]:
         window = tk.Tk()
         window.attributes("-alpha", 0)
-        window.state('zoomed')
+        try:
+            window.state("zoomed")
+        except tk.TclError:
+            window.state("normal")
         window.update()
         usable_width = window.winfo_width()
         usable_height = window.winfo_height()
@@ -363,4 +366,7 @@ class GUIElements:
         if screen_width >= window_w and screen_height >= window_h:
             root.geometry(f"{window_w}x{window_h}+0+0")
         else:
-            root.state("zoomed")
+            try:
+                root.state("zoomed")
+            except tk.TclError:
+                root.state("normal")
