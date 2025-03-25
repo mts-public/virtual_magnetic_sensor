@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 import numpy as np
-from PIL import ImageTk, Image
 from typing import Callable
 
 from libs.gui.frames.ObjectFrame import ObjectFrame
@@ -150,10 +149,10 @@ class InfoFrame:
         self.frame.title("Info")
         self.frame.protocol("WM_DELETE_WINDOW", self.destroy)
 
-        img = (Image.open(r"resources/images/Gear.png"))
-        image_width = int(1.0 * img.width)
-        image_height = int(1.0 * img.height)
-        self.resized_img = ImageTk.PhotoImage(img.resize((image_width, image_height), Image.Resampling.LANCZOS))
+        img = (tk.PhotoImage(file=r"resources/images/Gear.png"))
+        image_width = int(1.0 * img.width())
+        image_height = int(1.0 * img.height())
+        self.resized_img = img.subsample(1, 1)
         self.frame.geometry(f"{image_width}x{image_height}+{100}+{100}")
 
         image_frame = ttk.Label(master=self.frame, image=self.resized_img)
