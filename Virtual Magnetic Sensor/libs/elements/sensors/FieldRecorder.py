@@ -173,6 +173,6 @@ class FieldRecorder:
         if self.field_specifier == 1:
             data_dict['field'].append(magnetic_field.get_b_field(self.X, self.Y, self.Z))
         elif self.field_specifier == 2:
-            data_dict['field'].append(magnetic_field.get_b_field(self.X, self.Y, self.Z))
+            data_dict['field'].append(magnetic_field.get_h_field(self.X, self.Y, self.Z))
 
         return data_dict
