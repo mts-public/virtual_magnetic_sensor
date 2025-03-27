@@ -1,21 +1,20 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Index &mdash; Virtual Magnetic Sensor 04.10.2023 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2ca62c5e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -103,6 +102,8 @@
 </li>
       <li><a href="libs.gui.frames.html#libs.gui.frames.MagnetsFrame.MagnetsFrame.add_cylinder_magnet">add_cylinder_magnet() (libs.gui.frames.MagnetsFrame.MagnetsFrame method)</a>
 </li>
+      <li><a href="libs.gui.frames.html#libs.gui.frames.ComponentsFrame.ComponentsFrame.add_evo_gear">add_evo_gear() (libs.gui.frames.ComponentsFrame.ComponentsFrame method)</a>
+</li>
       <li><a href="libs.simulation.ngsolve.html#libs.simulation.ngsolve.NGMesh.NGMesh.add_fd">add_fd() (libs.simulation.ngsolve.NGMesh.NGMesh method)</a>
 </li>
       <li><a href="libs.gui.frames.html#libs.gui.frames.ComponentsFrame.ComponentsFrame.add_gear">add_gear() (libs.gui.frames.ComponentsFrame.ComponentsFrame method)</a>
@@ -115,10 +116,10 @@
 </li>
       <li><a href="libs.gui.frames.html#libs.gui.frames.SensorsFrame.SensorsFrame.add_rec_field">add_rec_field() (libs.gui.frames.SensorsFrame.SensorsFrame method)</a>
 </li>
-      <li><a href="libs.gui.frames.html#libs.gui.frames.ComponentsFrame.ComponentsFrame.add_shaft">add_shaft() (libs.gui.frames.ComponentsFrame.ComponentsFrame method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="libs.gui.frames.html#libs.gui.frames.ComponentsFrame.ComponentsFrame.add_shaft">add_shaft() (libs.gui.frames.ComponentsFrame.ComponentsFrame method)</a>
+</li>
       <li><a href="libs.gui.html#libs.gui.GUIHandler.GUIHandler.add_tab">add_tab() (libs.gui.GUIHandler.GUIHandler method)</a>
 </li>
       <li><a href="libs.gui.frames.html#libs.gui.frames.MagnetsFrame.MagnetsFrame.add_uniform_field">add_uniform_field() (libs.gui.frames.MagnetsFrame.MagnetsFrame method)</a>
@@ -570,6 +571,8 @@
       <li><a href="libs.elements.components.html#libs.elements.components.Gear.Gear">Gear (class in libs.elements.components.Gear)</a>
 </li>
       <li><a href="libs.simulation.ngsolve.CSGeometries.html#libs.simulation.ngsolve.CSGeometries.CSGGear.CSGGear.gear">gear (libs.simulation.ngsolve.CSGeometries.CSGGear.CSGGear attribute)</a>
+</li>
+      <li><a href="libs.gui.frames.html#libs.gui.frames.ComponentsFrame.ComponentsFrame.gear_button">gear_button (libs.gui.frames.ComponentsFrame.ComponentsFrame attribute)</a>
 </li>
       <li><a href="libs.simulation.ngsolve.CSGeometries.html#libs.simulation.ngsolve.CSGeometries.CSGGearRack.CSGGearRack.gear_rack">gear_rack (libs.simulation.ngsolve.CSGeometries.CSGGearRack.CSGGearRack attribute)</a>
 </li>
@@ -1428,8 +1431,6 @@
       <li><a href="libs.elements.html#libs.elements.Magnet.Magnet.m">m (libs.elements.Magnet.Magnet attribute)</a>
 
       <ul>
-        <li><a href="libs.elements.magnets.html#libs.elements.magnets.MagnetTemplate.MagnetTemplate.m">(libs.elements.magnets.MagnetTemplate.MagnetTemplate attribute)</a>
-</li>
         <li><a href="libs.elements.magnets.html#libs.elements.magnets.RodMagnet.RodMagnet.m">(libs.elements.magnets.RodMagnet.RodMagnet attribute)</a>
 </li>
       </ul></li>
@@ -1460,8 +1461,6 @@
       <li><a href="libs.elements.html#libs.elements.Component.Component.maxh">maxh (libs.elements.Component.Component attribute)</a>
 
       <ul>
-        <li><a href="libs.elements.components.html#libs.elements.components.ComponentTemplate.ComponentTemplate.maxh">(libs.elements.components.ComponentTemplate.ComponentTemplate attribute)</a>
-</li>
         <li><a href="libs.elements.components.html#libs.elements.components.Gear.Gear.maxh">(libs.elements.components.Gear.Gear attribute)</a>
 </li>
         <li><a href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.maxh">(libs.elements.components.GearRack.GearRack attribute)</a>
@@ -1470,17 +1469,11 @@
 </li>
         <li><a href="libs.elements.html#libs.elements.Magnet.Magnet.maxh">(libs.elements.Magnet.Magnet attribute)</a>
 </li>
-        <li><a href="libs.elements.magnets.html#libs.elements.magnets.MagnetTemplate.MagnetTemplate.maxh">(libs.elements.magnets.MagnetTemplate.MagnetTemplate attribute)</a>
-</li>
         <li><a href="libs.elements.html#libs.elements.Sensor.Sensor.maxh">(libs.elements.Sensor.Sensor attribute)</a>
 </li>
         <li><a href="libs.elements.sensors.html#libs.elements.sensors.FieldRecorder.FieldRecorder.maxh">(libs.elements.sensors.FieldRecorder.FieldRecorder attribute)</a>
 </li>
         <li><a href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.maxh">(libs.elements.sensors.GMRSensor.GMRSensor attribute)</a>
-</li>
-        <li><a href="libs.elements.sensors.html#libs.elements.sensors.HallSensor.HallSensor.maxh">(libs.elements.sensors.HallSensor.HallSensor attribute)</a>
-</li>
-        <li><a href="libs.elements.sensors.html#libs.elements.sensors.SensorTemplate.SensorTemplate.maxh">(libs.elements.sensors.SensorTemplate.SensorTemplate attribute)</a>
 </li>
       </ul></li>
       <li><a href="libs.elements.html#libs.elements.SimParams.SimParams.maxh_global">maxh_global (libs.elements.SimParams.SimParams attribute)</a>
@@ -1685,8 +1678,6 @@
       <li><a href="libs.elements.html#libs.elements.Component.Component.mu_r">mu_r (libs.elements.Component.Component attribute)</a>
 
       <ul>
-        <li><a href="libs.elements.components.html#libs.elements.components.ComponentTemplate.ComponentTemplate.mu_r">(libs.elements.components.ComponentTemplate.ComponentTemplate attribute)</a>
-</li>
         <li><a href="libs.elements.components.html#libs.elements.components.Gear.Gear.mu_r">(libs.elements.components.Gear.Gear attribute)</a>
 </li>
         <li><a href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.mu_r">(libs.elements.components.GearRack.GearRack attribute)</a>
@@ -1694,8 +1685,6 @@
         <li><a href="libs.elements.components.html#libs.elements.components.Shaft.Shaft.mu_r">(libs.elements.components.Shaft.Shaft attribute)</a>
 </li>
         <li><a href="libs.elements.html#libs.elements.Magnet.Magnet.mu_r">(libs.elements.Magnet.Magnet attribute)</a>
-</li>
-        <li><a href="libs.elements.magnets.html#libs.elements.magnets.MagnetTemplate.MagnetTemplate.mu_r">(libs.elements.magnets.MagnetTemplate.MagnetTemplate attribute)</a>
 </li>
       </ul></li>
       <li><a href="libs.simulation.ngsolve.html#libs.simulation.ngsolve.NGField.NGField.mur">mur (libs.simulation.ngsolve.NGField.NGField attribute)</a>
@@ -1740,6 +1729,12 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="libs.elements.components.html#libs.elements.components.Gear.Gear.omega">omega (libs.elements.components.Gear.Gear attribute)</a>
 </li>
+      <li><a href="libs.gui.plot.html#libs.gui.plot.Figure1.Figure1.on_resize">on_resize() (libs.gui.plot.Figure1.Figure1 method)</a>
+
+      <ul>
+        <li><a href="libs.gui.plot.html#libs.gui.plot.Figure2.Figure2.on_resize">(libs.gui.plot.Figure2.Figure2 method)</a>
+</li>
+      </ul></li>
       <li><a href="libs.gui.html#libs.gui.FileDialogs.FileDialogs.open">open() (libs.gui.FileDialogs.FileDialogs static method)</a>
 </li>
       <li><a href="libs.gui.plot.html#libs.gui.plot.HallSensorPlot.HallSensorPlot.open_figure">open_figure() (libs.gui.plot.HallSensorPlot.HallSensorPlot method)</a>
@@ -1769,8 +1764,6 @@
       <li><a href="libs.elements.html#libs.elements.Component.Component.pos">pos (libs.elements.Component.Component attribute)</a>
 
       <ul>
-        <li><a href="libs.elements.components.html#libs.elements.components.ComponentTemplate.ComponentTemplate.pos">(libs.elements.components.ComponentTemplate.ComponentTemplate attribute)</a>
-</li>
         <li><a href="libs.elements.components.html#libs.elements.components.Gear.Gear.pos">(libs.elements.components.Gear.Gear attribute)</a>
 </li>
         <li><a href="libs.elements.components.html#libs.elements.components.GearRack.GearRack.pos">(libs.elements.components.GearRack.GearRack attribute)</a>
@@ -1779,15 +1772,9 @@
 </li>
         <li><a href="libs.elements.html#libs.elements.Magnet.Magnet.pos">(libs.elements.Magnet.Magnet attribute)</a>
 </li>
-        <li><a href="libs.elements.magnets.html#libs.elements.magnets.MagnetTemplate.MagnetTemplate.pos">(libs.elements.magnets.MagnetTemplate.MagnetTemplate attribute)</a>
-</li>
         <li><a href="libs.elements.html#libs.elements.Sensor.Sensor.pos">(libs.elements.Sensor.Sensor attribute)</a>
 </li>
         <li><a href="libs.elements.sensors.html#libs.elements.sensors.GMRSensor.GMRSensor.pos">(libs.elements.sensors.GMRSensor.GMRSensor attribute)</a>
-</li>
-        <li><a href="libs.elements.sensors.html#libs.elements.sensors.HallSensor.HallSensor.pos">(libs.elements.sensors.HallSensor.HallSensor attribute)</a>
-</li>
-        <li><a href="libs.elements.sensors.html#libs.elements.sensors.SensorTemplate.SensorTemplate.pos">(libs.elements.sensors.SensorTemplate.SensorTemplate attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -2019,11 +2006,7 @@
       <li><a href="libs.gui.frames.html#libs.gui.frames.TabFrame.TabFrame">TabFrame (class in libs.gui.frames.TabFrame)</a>
 </li>
       <li><a href="libs.elements.html#libs.elements.Magnet.Magnet.temperature">temperature (libs.elements.Magnet.Magnet attribute)</a>
-
-      <ul>
-        <li><a href="libs.elements.magnets.html#libs.elements.magnets.MagnetTemplate.MagnetTemplate.temperature">(libs.elements.magnets.MagnetTemplate.MagnetTemplate attribute)</a>
 </li>
-      </ul></li>
       <li><a href="libs.simulation.ngsolve.CSGeometries.html#libs.simulation.ngsolve.CSGeometries.CSGSensorTemplate.CSGSensorTemplate.template">template (libs.simulation.ngsolve.CSGeometries.CSGSensorTemplate.CSGSensorTemplate attribute)</a>
 </li>
       <li><a href="libs.html#libs.DataHandler.DataHandler.template">template() (libs.DataHandler.DataHandler class method)</a>
@@ -2065,11 +2048,7 @@
       <li><a href="libs.elements.components.html#libs.elements.components.Gear.Gear.theta">theta (libs.elements.components.Gear.Gear attribute)</a>
 </li>
       <li><a href="libs.elements.html#libs.elements.Magnet.Magnet.tk">tk (libs.elements.Magnet.Magnet attribute)</a>
-
-      <ul>
-        <li><a href="libs.elements.magnets.html#libs.elements.magnets.MagnetTemplate.MagnetTemplate.tk">(libs.elements.magnets.MagnetTemplate.MagnetTemplate attribute)</a>
 </li>
-      </ul></li>
       <li><a href="libs.html#libs.DataHandler.DataHandler.to_dict">to_dict() (libs.DataHandler.DataHandler method)</a>
 
       <ul>

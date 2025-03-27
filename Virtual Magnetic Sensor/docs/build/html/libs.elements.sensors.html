@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>libs.elements.sensors package &mdash; Virtual Magnetic Sensor 04.10.2023 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2ca62c5e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -91,15 +90,15 @@
            <div itemprop="articleBody">
              
   <section id="libs-elements-sensors-package">
-<h1>libs.elements.sensors package<a class="headerlink" href="#libs-elements-sensors-package" title="Permalink to this heading"></a></h1>
+<h1>libs.elements.sensors package<a class="headerlink" href="#libs-elements-sensors-package" title="Link to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
 <section id="module-libs.elements.sensors.FieldRecorder">
-<span id="libs-elements-sensors-fieldrecorder-module"></span><h2>libs.elements.sensors.FieldRecorder module<a class="headerlink" href="#module-libs.elements.sensors.FieldRecorder" title="Permalink to this heading"></a></h2>
+<span id="libs-elements-sensors-fieldrecorder-module"></span><h2>libs.elements.sensors.FieldRecorder module<a class="headerlink" href="#module-libs.elements.sensors.FieldRecorder" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="libs.elements.sensors.FieldRecorder.FieldRecorder">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.sensors.FieldRecorder.</span></span><span class="sig-name descname"><span class="pre">FieldRecorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_specifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundaries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.sensors.FieldRecorder.</span></span><span class="sig-name descname"><span class="pre">FieldRecorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_specifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundaries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>The values necessary to describe an area for recording the magnetic field are determined in this class.</p>
 <dl class="field-list simple">
@@ -115,28 +114,28 @@
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.FieldRecorder.FieldRecorder.boundaries">
-<span class="sig-name descname"><span class="pre">boundaries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.boundaries" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">boundaries</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.boundaries" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.FieldRecorder.FieldRecorder.convert_to_si">
-<span class="sig-name descname"><span class="pre">convert_to_si</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.convert_to_si" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">convert_to_si</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.convert_to_si" title="Link to this definition"></a></dt>
 <dd><p>Calls the init method and converts the parameters from gui units to SI units.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.FieldRecorder.FieldRecorder.field">
-<span class="sig-name descname"><span class="pre">field</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.field" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">field</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.field" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.FieldRecorder.FieldRecorder.field_specifier">
-<span class="sig-name descname"><span class="pre">field_specifier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.field_specifier" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">field_specifier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.field_specifier" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.FieldRecorder.FieldRecorder.from_dict">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.FieldRecorder.FieldRecorder" title="libs.elements.sensors.FieldRecorder.FieldRecorder"><span class="pre">FieldRecorder</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.from_dict" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.FieldRecorder.FieldRecorder" title="libs.elements.sensors.FieldRecorder.FieldRecorder"><span class="pre">FieldRecorder</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.from_dict" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method to init an instance of the Gear class by passing a dictionary with the corresponding</dt><dd><p>arguments. Arguments that are in the dictionary and not in the class are ignored while arguments missing in
 the dictionary get initialised with the standard values defined in the template class method.</p>
@@ -154,7 +153,7 @@ the dictionary get initialised with the standard values defined in the template 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.FieldRecorder.FieldRecorder.get_data">
-<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.get_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.get_data" title="Link to this definition"></a></dt>
 <dd><p>Method to pass the measurement data saved in a dictionary to the sensor object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -165,13 +164,13 @@ the dictionary get initialised with the standard values defined in the template 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.FieldRecorder.FieldRecorder.gui">
-<span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.FieldRecorder.FieldRecorder" title="libs.elements.sensors.FieldRecorder.FieldRecorder"><span class="pre">FieldRecorder</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.gui" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.FieldRecorder.FieldRecorder" title="libs.elements.sensors.FieldRecorder.FieldRecorder"><span class="pre">FieldRecorder</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.gui" title="Link to this definition"></a></dt>
 <dd><p>Returns a copy of the class with attributes converted to units used in the gui.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.FieldRecorder.FieldRecorder.gui_dict">
-<span class="sig-name descname"><span class="pre">gui_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.gui_dict" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">gui_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.gui_dict" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
 opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
@@ -189,23 +188,23 @@ opportunity to initiate an instance of the class by parsing the dictionary as ar
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.FieldRecorder.FieldRecorder.maxh">
-<span class="sig-name descname"><span class="pre">maxh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.maxh" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">maxh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.maxh" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.FieldRecorder.FieldRecorder.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.reset" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.reset" title="Link to this definition"></a></dt>
 <dd><p>Calls the init method with the actual class attributes.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.FieldRecorder.FieldRecorder.samples">
-<span class="sig-name descname"><span class="pre">samples</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.samples" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">samples</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.samples" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.FieldRecorder.FieldRecorder.set_data">
-<span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">magnetic_field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.set_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">magnetic_field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.set_data" title="Link to this definition"></a></dt>
 <dd><p>Method to update the sensor measurement parameters for the current simulation step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -219,12 +218,12 @@ opportunity to initiate an instance of the class by parsing the dictionary as ar
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.FieldRecorder.FieldRecorder.template">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.template" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.template" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.FieldRecorder.FieldRecorder.to_dict">
-<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.to_dict" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.FieldRecorder.FieldRecorder.to_dict" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
 opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
@@ -244,10 +243,10 @@ opportunity to initiate an instance of the class by parsing the dictionary as ar
 
 </section>
 <section id="module-libs.elements.sensors.GMRSensor">
-<span id="libs-elements-sensors-gmrsensor-module"></span><h2>libs.elements.sensors.GMRSensor module<a class="headerlink" href="#module-libs.elements.sensors.GMRSensor" title="Permalink to this heading"></a></h2>
+<span id="libs-elements-sensors-gmrsensor-module"></span><h2>libs.elements.sensors.GMRSensor module<a class="headerlink" href="#module-libs.elements.sensors.GMRSensor" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.sensors.GMRSensor.</span></span><span class="sig-name descname"><span class="pre">GMRSensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gmr_offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gmr_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gmr_sampling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensor_sampling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.sensors.GMRSensor.</span></span><span class="sig-name descname"><span class="pre">GMRSensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gmr_offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gmr_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gmr_sampling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensor_sampling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="libs.elements.html#libs.elements.Sensor.Sensor" title="libs.elements.Sensor.Sensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sensor</span></code></a></p>
 <p>Represents the sensor properties and includes the methods to calculate the output voltages of the sensor.</p>
 <dl class="field-list simple">
@@ -284,28 +283,28 @@ along the sensor length.</p></li>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.architectures">
-<span class="sig-name descname"><span class="pre">architectures</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['select',</span> <span class="pre">'GL711',</span> <span class="pre">'GL712',</span> <span class="pre">'GL713',</span> <span class="pre">'GL714',</span> <span class="pre">'GL715']</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.architectures" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">architectures</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['select',</span> <span class="pre">'GL711',</span> <span class="pre">'GL712',</span> <span class="pre">'GL713',</span> <span class="pre">'GL714',</span> <span class="pre">'GL715']</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.architectures" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.convert_to_si">
-<span class="sig-name descname"><span class="pre">convert_to_si</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.convert_to_si" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">convert_to_si</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.convert_to_si" title="Link to this definition"></a></dt>
 <dd><p>Calls the init method and converts the parameters from gui units to SI units.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.depth">
-<span class="sig-name descname"><span class="pre">depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.depth" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.depth" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.dim">
-<span class="sig-name descname"><span class="pre">dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.dim" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.dim" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.from_dict">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.GMRSensor.GMRSensor" title="libs.elements.sensors.GMRSensor.GMRSensor"><span class="pre">GMRSensor</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.from_dict" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.GMRSensor.GMRSensor" title="libs.elements.sensors.GMRSensor.GMRSensor"><span class="pre">GMRSensor</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.from_dict" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method to init an instance of the Gear class by passing a dictionary with the corresponding</dt><dd><p>arguments. Arguments that are in the dictionary and not in the class are ignored while arguments missing in
 the dictionary get initialised with the standard values defined in the template class method.</p>
@@ -323,7 +322,7 @@ the dictionary get initialised with the standard values defined in the template 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.get_data">
-<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resistance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_sin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_cos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_sensor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resistance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_sin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_cos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_sensor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_data" title="Link to this definition"></a></dt>
 <dd><p>Method to pass the measurement data saved in a dictionary to the sensor object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -339,7 +338,7 @@ the dictionary get initialised with the standard values defined in the template 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_h_values">
-<span class="sig-name descname"><span class="pre">get_gmr_h_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_h_values" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_gmr_h_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_h_values" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method to calculate the magnetic field strength sampled over the length of a GMR element for all GMR elements</dt><dd><p>of the sensor.</p>
 </dd>
@@ -359,7 +358,7 @@ the dictionary get initialised with the standard values defined in the template 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_position_matrix">
-<span class="sig-name descname"><span class="pre">get_gmr_position_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_position_matrix" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_gmr_position_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_position_matrix" title="Link to this definition"></a></dt>
 <dd><p>Method of calculating the coordinates in 3D space with the positions of the centers of the GMR elements.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -373,7 +372,7 @@ the dictionary get initialised with the standard values defined in the template 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_resistances">
-<span class="sig-name descname"><span class="pre">get_gmr_resistances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h_field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_resistances" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_gmr_resistances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h_field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_resistances" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method to calculate the GMR elements resistances in respect to a given magnetic field strength H.</dt><dd><p>The characteristic curve which indicates the relationship between field strength and resistance is deposited
 here.</p>
@@ -394,7 +393,7 @@ here.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_sampling_matrix">
-<span class="sig-name descname"><span class="pre">get_gmr_sampling_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_sampling_matrix" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_gmr_sampling_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_gmr_sampling_matrix" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method of calculating the coordinates in 3D space at which the magnetic field for a specific GMR</dt><dd><p>element is sampled. Sample points are calculated by the midpoint rule.</p>
 </dd>
@@ -411,7 +410,7 @@ here.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.get_sensor_sampling_matrix">
-<span class="sig-name descname"><span class="pre">get_sensor_sampling_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_sensor_sampling_matrix" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_sensor_sampling_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_sensor_sampling_matrix" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method for calculating the coordinates in 3D space at which the magnetic field is sampled over the entire</dt><dd><p>sensor.</p>
 </dd>
@@ -428,7 +427,7 @@ here.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.get_transformation_matrix">
-<span class="sig-name descname"><span class="pre">get_transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_transformation_matrix" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_transformation_matrix" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method for calculating the transformation matrix to transform the global coordinate system into the</dt><dd><p>body-fixed coordinate system, where the x-axis points along the arrangement of the GMR elements.</p>
 </dd>
@@ -445,7 +444,7 @@ here.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.get_u_cos">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_u_cos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_u_cos" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_u_cos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_u_cos" title="Link to this definition"></a></dt>
 <dd><p>Method for calculating the cosinus sensor signal with the resistance values on each gmr element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -459,7 +458,7 @@ here.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.get_u_sin">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_u_sin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_u_sin" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_u_sin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.get_u_sin" title="Link to this definition"></a></dt>
 <dd><p>Method for calculating the sinus sensor signal with the resistance values on each gmr element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -473,33 +472,33 @@ here.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.gmr_length">
-<span class="sig-name descname"><span class="pre">gmr_length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.gmr_length" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">gmr_length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.gmr_length" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.gmr_offset">
-<span class="sig-name descname"><span class="pre">gmr_offset</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.gmr_offset" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">gmr_offset</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.gmr_offset" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.gmr_position_matrix">
-<span class="sig-name descname"><span class="pre">gmr_position_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.gmr_position_matrix" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">gmr_position_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.gmr_position_matrix" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.gmr_sampling">
-<span class="sig-name descname"><span class="pre">gmr_sampling</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.gmr_sampling" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">gmr_sampling</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.gmr_sampling" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.gui">
-<span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.GMRSensor.GMRSensor" title="libs.elements.sensors.GMRSensor.GMRSensor"><span class="pre">GMRSensor</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.gui" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.GMRSensor.GMRSensor" title="libs.elements.sensors.GMRSensor.GMRSensor"><span class="pre">GMRSensor</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.gui" title="Link to this definition"></a></dt>
 <dd><p>Returns a copy of the class with attributes converted to units used in the gui.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.gui_dict">
-<span class="sig-name descname"><span class="pre">gui_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.gui_dict" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">gui_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.gui_dict" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
 opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
@@ -517,53 +516,53 @@ opportunity to initiate an instance of the class by parsing the dictionary as ar
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.h_sensor">
-<span class="sig-name descname"><span class="pre">h_sensor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.h_sensor" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">h_sensor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.h_sensor" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.height">
-<span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.height" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.height" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.maxh">
-<span class="sig-name descname"><span class="pre">maxh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.maxh" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">maxh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.maxh" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.pos">
-<span class="sig-name descname"><span class="pre">pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.pos" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.pos" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.reset" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.reset" title="Link to this definition"></a></dt>
 <dd><p>Calls the init method with the actual class attributes.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.resistance">
-<span class="sig-name descname"><span class="pre">resistance</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.resistance" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">resistance</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.resistance" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.rot">
-<span class="sig-name descname"><span class="pre">rot</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.rot" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">rot</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.rot" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.sensor_sampling">
-<span class="sig-name descname"><span class="pre">sensor_sampling</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.sensor_sampling" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">sensor_sampling</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.sensor_sampling" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.sensor_sampling_matrix">
-<span class="sig-name descname"><span class="pre">sensor_sampling_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.sensor_sampling_matrix" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">sensor_sampling_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.sensor_sampling_matrix" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.set_data">
-<span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.set_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.set_data" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method to update the sensor measurement parameters for the current simulation step. Parameters to be updated</dt><dd><p>are the resistances array, the output voltages u_sin and u_cos and the H-field along the sensor axis
 h_sensor.</p>
@@ -581,7 +580,7 @@ h_sensor.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.template">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.GMRSensor.GMRSensor" title="libs.elements.sensors.GMRSensor.GMRSensor"><span class="pre">GMRSensor</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.template" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.GMRSensor.GMRSensor" title="libs.elements.sensors.GMRSensor.GMRSensor"><span class="pre">GMRSensor</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.template" title="Link to this definition"></a></dt>
 <dd><p>Class method to init the class with a set of standard values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -595,7 +594,7 @@ h_sensor.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.to_dict">
-<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.to_dict" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.to_dict" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
 opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
@@ -613,22 +612,22 @@ opportunity to initiate an instance of the class by parsing the dictionary as ar
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.transformation_matrix">
-<span class="sig-name descname"><span class="pre">transformation_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.transformation_matrix" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">transformation_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.transformation_matrix" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.u_cos">
-<span class="sig-name descname"><span class="pre">u_cos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.u_cos" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">u_cos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.u_cos" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.u_sin">
-<span class="sig-name descname"><span class="pre">u_sin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.u_sin" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">u_sin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.u_sin" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.update" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.update" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method to update the sensor measurement parameters for the current simulation step. Parameters to be updated</dt><dd><p>are the resistances array, the output voltages u_sin and u_cos and the H-field along the sensor axis
 h_sensor.</p>
@@ -643,59 +642,59 @@ h_sensor.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensor.width">
-<span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.width" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensor.width" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensorProperties">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.sensors.GMRSensor.</span></span><span class="sig-name descname"><span class="pre">GMRSensorProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensorProperties" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.sensors.GMRSensor.</span></span><span class="sig-name descname"><span class="pre">GMRSensorProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensorProperties" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
 <p>Enumeration class which assigns the properties of the stored sensors to their respective name.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensorProperties.GL711">
-<span class="sig-name descname"><span class="pre">GL711</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[[-455.0,</span> <span class="pre">-295.0,</span> <span class="pre">-205.0,</span> <span class="pre">-45.0,</span> <span class="pre">45.0,</span> <span class="pre">205.0,</span> <span class="pre">295.0,</span> <span class="pre">455.0],</span> <span class="pre">85.0]</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensorProperties.GL711" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GL711</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[[-455.0,</span> <span class="pre">-295.0,</span> <span class="pre">-205.0,</span> <span class="pre">-45.0,</span> <span class="pre">45.0,</span> <span class="pre">205.0,</span> <span class="pre">295.0,</span> <span class="pre">455.0],</span> <span class="pre">85.0]</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensorProperties.GL711" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensorProperties.GL712">
-<span class="sig-name descname"><span class="pre">GL712</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[[-910.0,</span> <span class="pre">-590.0,</span> <span class="pre">-410.0,</span> <span class="pre">-90.0,</span> <span class="pre">90.0,</span> <span class="pre">410.0,</span> <span class="pre">590.0,</span> <span class="pre">910.0],</span> <span class="pre">160.0]</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensorProperties.GL712" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GL712</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[[-910.0,</span> <span class="pre">-590.0,</span> <span class="pre">-410.0,</span> <span class="pre">-90.0,</span> <span class="pre">90.0,</span> <span class="pre">410.0,</span> <span class="pre">590.0,</span> <span class="pre">910.0],</span> <span class="pre">160.0]</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensorProperties.GL712" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensorProperties.GL713">
-<span class="sig-name descname"><span class="pre">GL713</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[[-1365.0,</span> <span class="pre">-885.0,</span> <span class="pre">-615.0,</span> <span class="pre">-135.0,</span> <span class="pre">135.0,</span> <span class="pre">615.0,</span> <span class="pre">885.0,</span> <span class="pre">1365.0],</span> <span class="pre">245.0]</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensorProperties.GL713" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GL713</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[[-1365.0,</span> <span class="pre">-885.0,</span> <span class="pre">-615.0,</span> <span class="pre">-135.0,</span> <span class="pre">135.0,</span> <span class="pre">615.0,</span> <span class="pre">885.0,</span> <span class="pre">1365.0],</span> <span class="pre">245.0]</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensorProperties.GL713" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensorProperties.GL714">
-<span class="sig-name descname"><span class="pre">GL714</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[[-427.7,</span> <span class="pre">-277.3,</span> <span class="pre">-192.7,</span> <span class="pre">-42.3,</span> <span class="pre">42.3,</span> <span class="pre">192.7,</span> <span class="pre">277.3,</span> <span class="pre">427.7],</span> <span class="pre">75.0]</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensorProperties.GL714" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GL714</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[[-427.7,</span> <span class="pre">-277.3,</span> <span class="pre">-192.7,</span> <span class="pre">-42.3,</span> <span class="pre">42.3,</span> <span class="pre">192.7,</span> <span class="pre">277.3,</span> <span class="pre">427.7],</span> <span class="pre">75.0]</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensorProperties.GL714" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="libs.elements.sensors.GMRSensor.GMRSensorProperties.GL715">
-<span class="sig-name descname"><span class="pre">GL715</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[[-714.35,</span> <span class="pre">-463.15,</span> <span class="pre">-321.85,</span> <span class="pre">-70.65,</span> <span class="pre">70.65,</span> <span class="pre">321.85,</span> <span class="pre">463.15,</span> <span class="pre">714.35],</span> <span class="pre">125.0]</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensorProperties.GL715" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GL715</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[[-714.35,</span> <span class="pre">-463.15,</span> <span class="pre">-321.85,</span> <span class="pre">-70.65,</span> <span class="pre">70.65,</span> <span class="pre">321.85,</span> <span class="pre">463.15,</span> <span class="pre">714.35],</span> <span class="pre">125.0]</span></em><a class="headerlink" href="#libs.elements.sensors.GMRSensor.GMRSensorProperties.GL715" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-libs.elements.sensors.HallSensor">
-<span id="libs-elements-sensors-hallsensor-module"></span><h2>libs.elements.sensors.HallSensor module<a class="headerlink" href="#module-libs.elements.sensors.HallSensor" title="Permalink to this heading"></a></h2>
+<span id="libs-elements-sensors-hallsensor-module"></span><h2>libs.elements.sensors.HallSensor module<a class="headerlink" href="#module-libs.elements.sensors.HallSensor" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.sensors.HallSensor.</span></span><span class="sig-name descname"><span class="pre">HallSensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hall_coefficient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conductor_thickness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.sensors.HallSensor.</span></span><span class="sig-name descname"><span class="pre">HallSensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hall_coefficient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conductor_thickness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="libs.elements.html#libs.elements.Sensor.Sensor" title="libs.elements.Sensor.Sensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sensor</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.convert_to_si">
-<span class="sig-name descname"><span class="pre">convert_to_si</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.convert_to_si" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">convert_to_si</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.convert_to_si" title="Link to this definition"></a></dt>
 <dd><p>Calls the init method and converts the parameters from gui units to SI units.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.from_dict">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.HallSensor.HallSensor" title="libs.elements.sensors.HallSensor.HallSensor"><span class="pre">HallSensor</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.from_dict" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.HallSensor.HallSensor" title="libs.elements.sensors.HallSensor.HallSensor"><span class="pre">HallSensor</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.from_dict" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method to init an instance of the HallSensor class by passing a dictionary with the corresponding</dt><dd><p>arguments.</p>
 </dd>
@@ -712,7 +711,7 @@ h_sensor.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.get_data">
-<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hall_voltage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.get_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hall_voltage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.get_data" title="Link to this definition"></a></dt>
 <dd><p>Method to pass the measurement data saved in a dictionary to the sensor object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -723,12 +722,12 @@ h_sensor.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.get_hall_voltage">
-<span class="sig-name descname"><span class="pre">get_hall_voltage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.get_hall_voltage" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_hall_voltage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.get_hall_voltage" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.get_transformation_matrix">
-<span class="sig-name descname"><span class="pre">get_transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.get_transformation_matrix" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.get_transformation_matrix" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method for calculating the transformation matrix to transform the global coordinate system into the</dt><dd><p>body-fixed coordinate system.</p>
 </dd>
@@ -745,7 +744,7 @@ h_sensor.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.gui">
-<span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.HallSensor.HallSensor" title="libs.elements.sensors.HallSensor.HallSensor"><span class="pre">HallSensor</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.gui" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.HallSensor.HallSensor" title="libs.elements.sensors.HallSensor.HallSensor"><span class="pre">HallSensor</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.gui" title="Link to this definition"></a></dt>
 <dd><p>Returns a copy of the class with attributes converted to units used in the gui.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -759,7 +758,7 @@ h_sensor.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.gui_dict">
-<span class="sig-name descname"><span class="pre">gui_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.gui_dict" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">gui_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.gui_dict" title="Link to this definition"></a></dt>
 <dd><p>Method creates a dictionary of the class members that will be stored in the ini file. Variables not passed
 to the init method are excluded from the dictionary. This creates the opportunity to initiate an instance of
 the class by parsing the dictionary as argument.</p>
@@ -773,25 +772,15 @@ the class by parsing the dictionary as argument.</p>
 </dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.maxh">
-<span class="sig-name descname"><span class="pre">maxh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.maxh" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.pos">
-<span class="sig-name descname"><span class="pre">pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.pos" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.reset" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.reset" title="Link to this definition"></a></dt>
 <dd><p>Calls the init method with the actual class attributes.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.set_data">
-<span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.set_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.set_data" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method to update the sensor measurement parameters for the current simulation step. Parameter to be updated</dt><dd><p>is the hall_voltage.</p>
 </dd>
@@ -808,7 +797,7 @@ the class by parsing the dictionary as argument.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.template">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.HallSensor.HallSensor" title="libs.elements.sensors.HallSensor.HallSensor"><span class="pre">HallSensor</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.template" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.HallSensor.HallSensor" title="libs.elements.sensors.HallSensor.HallSensor"><span class="pre">HallSensor</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.template" title="Link to this definition"></a></dt>
 <dd><p>Class method to init the class with a set of default values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -822,7 +811,7 @@ the class by parsing the dictionary as argument.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.to_dict">
-<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.to_dict" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.to_dict" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
 opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
@@ -842,20 +831,20 @@ opportunity to initiate an instance of the class by parsing the dictionary as ar
 
 </section>
 <section id="module-libs.elements.sensors.SensorTemplate">
-<span id="libs-elements-sensors-sensortemplate-module"></span><h2>libs.elements.sensors.SensorTemplate module<a class="headerlink" href="#module-libs.elements.sensors.SensorTemplate" title="Permalink to this heading"></a></h2>
+<span id="libs-elements-sensors-sensortemplate-module"></span><h2>libs.elements.sensors.SensorTemplate module<a class="headerlink" href="#module-libs.elements.sensors.SensorTemplate" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="libs.elements.sensors.SensorTemplate.SensorTemplate">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.sensors.SensorTemplate.</span></span><span class="sig-name descname"><span class="pre">SensorTemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">libs.elements.sensors.SensorTemplate.</span></span><span class="sig-name descname"><span class="pre">SensorTemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="libs.elements.html#libs.elements.Sensor.Sensor" title="libs.elements.Sensor.Sensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sensor</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.SensorTemplate.SensorTemplate.convert_to_si">
-<span class="sig-name descname"><span class="pre">convert_to_si</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.convert_to_si" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">convert_to_si</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.convert_to_si" title="Link to this definition"></a></dt>
 <dd><p>Calls the init method and converts the parameters from gui units to SI units.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.SensorTemplate.SensorTemplate.from_dict">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.SensorTemplate.SensorTemplate" title="libs.elements.sensors.SensorTemplate.SensorTemplate"><span class="pre">SensorTemplate</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.from_dict" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.SensorTemplate.SensorTemplate" title="libs.elements.sensors.SensorTemplate.SensorTemplate"><span class="pre">SensorTemplate</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.from_dict" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method to init an instance of the SensorTemplate class by passing a dictionary with the corresponding</dt><dd><p>arguments.</p>
 </dd>
@@ -872,13 +861,13 @@ opportunity to initiate an instance of the class by parsing the dictionary as ar
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.SensorTemplate.SensorTemplate.get_data">
-<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measurement_data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.get_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measurement_data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.get_data" title="Link to this definition"></a></dt>
 <dd><p>Method to pass the measurement data saved in a dictionary to the sensor object.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.SensorTemplate.SensorTemplate.gui">
-<span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.SensorTemplate.SensorTemplate" title="libs.elements.sensors.SensorTemplate.SensorTemplate"><span class="pre">SensorTemplate</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.gui" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.SensorTemplate.SensorTemplate" title="libs.elements.sensors.SensorTemplate.SensorTemplate"><span class="pre">SensorTemplate</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.gui" title="Link to this definition"></a></dt>
 <dd><p>Returns a copy of the class with attributes converted to units used in the gui.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -892,7 +881,7 @@ opportunity to initiate an instance of the class by parsing the dictionary as ar
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.SensorTemplate.SensorTemplate.gui_dict">
-<span class="sig-name descname"><span class="pre">gui_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.gui_dict" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">gui_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.gui_dict" title="Link to this definition"></a></dt>
 <dd><p>Method creates a dictionary of the class members that will be stored in the ini file. Variables not passed
 to the init method are excluded from the dictionary. This creates the opportunity to initiate an instance of
 the class by parsing the dictionary as argument.</p>
@@ -906,25 +895,15 @@ the class by parsing the dictionary as argument.</p>
 </dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="libs.elements.sensors.SensorTemplate.SensorTemplate.maxh">
-<span class="sig-name descname"><span class="pre">maxh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.maxh" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="libs.elements.sensors.SensorTemplate.SensorTemplate.pos">
-<span class="sig-name descname"><span class="pre">pos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">np.ndarray</span></em><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.pos" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.SensorTemplate.SensorTemplate.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.reset" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.reset" title="Link to this definition"></a></dt>
 <dd><p>Calls the init method with the actual class attributes.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.SensorTemplate.SensorTemplate.set_data">
-<span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.set_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.set_data" title="Link to this definition"></a></dt>
 <dd><p>Method to update the sensor measurement parameters for the current simulation step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -938,7 +917,7 @@ the class by parsing the dictionary as argument.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.SensorTemplate.SensorTemplate.template">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.SensorTemplate.SensorTemplate" title="libs.elements.sensors.SensorTemplate.SensorTemplate"><span class="pre">SensorTemplate</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.template" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#libs.elements.sensors.SensorTemplate.SensorTemplate" title="libs.elements.sensors.SensorTemplate.SensorTemplate"><span class="pre">SensorTemplate</span></a></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.template" title="Link to this definition"></a></dt>
 <dd><p>Class method to init the class with a set of default values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -952,7 +931,7 @@ the class by parsing the dictionary as argument.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.SensorTemplate.SensorTemplate.to_dict">
-<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.to_dict" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#libs.elements.sensors.SensorTemplate.SensorTemplate.to_dict" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Method creates a dictionary of the class members that will be stored in the HDF5 file. Variables created</dt><dd><p>automatically when instantiating an object of the class are excluded from the dictionary. This creates the
 opportunity to initiate an instance of the class by parsing the dictionary as argument.</p>
@@ -972,7 +951,7 @@ opportunity to initiate an instance of the class by parsing the dictionary as ar
 
 </section>
 <section id="module-libs.elements.sensors">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-libs.elements.sensors" title="Permalink to this heading"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-libs.elements.sensors" title="Link to this heading"></a></h2>
 </section>
 </section>
 
