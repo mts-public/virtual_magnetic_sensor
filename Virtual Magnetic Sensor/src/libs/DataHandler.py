@@ -9,6 +9,8 @@ import os
 from pathlib import Path
 import string
 
+from libs.ConfigHandler import ConfigHandler
+
 from libs.elements.SimParams import SimParams
 from libs.elements.Component import Component
 from libs.elements.Magnet import Magnet
@@ -332,7 +334,7 @@ class DataHandler:
         except IOError:
             return False
 
-    def save_h5(self) -> bool:
+    def save_h5(self, measurement_path: Path) -> bool:
         """Outputs the parameters and measurement data held by the object to a specified file.
 
         :return: True when the process is successful, false otherwise.
@@ -361,6 +363,7 @@ class DataHandler:
                     print(key)
                     raise ValueError('Cannot save %s type' % type(item))
 
+        self.filepath = Path(measurement_path, self.filepath.stem)
         try:
             if not os.path.exists(self.filepath.parent):
                 os.makedirs(self.filepath.parent)
@@ -369,6 +372,8 @@ class DataHandler:
                 rec_save_dict(file, '/', self.to_dict())
 
             file.close()
+
+            print(f"File saved to: {self.filepath.parent}")
 
             return True
         except IOError:

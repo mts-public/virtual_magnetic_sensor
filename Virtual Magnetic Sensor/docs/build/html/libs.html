@@ -401,6 +401,16 @@
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="libs.ConfigHandler.ConfigHandler.get_config_path">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_config_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'config.ini'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#libs.ConfigHandler.ConfigHandler.get_config_path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="libs.ConfigHandler.ConfigHandler.get_save_files_path">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_save_files_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libs.ConfigHandler.ConfigHandler.get_save_files_path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="libs.ConfigHandler.ConfigHandler.isfloat">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isfloat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#libs.ConfigHandler.ConfigHandler.isfloat" title="Link to this definition"></a></dt>
 <dd><p>Method checks if a string is convertible to float.</p>
@@ -640,7 +650,7 @@ load this data from/to file.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.DataHandler.DataHandler.save_h5">
-<span class="sig-name descname"><span class="pre">save_h5</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#libs.DataHandler.DataHandler.save_h5" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">save_h5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">measurement_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#libs.DataHandler.DataHandler.save_h5" title="Link to this definition"></a></dt>
 <dd><p>Outputs the parameters and measurement data held by the object to a specified file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>

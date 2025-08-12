@@ -5,6 +5,7 @@ from enum import Enum
 from typing import Dict, List
 import configparser
 from pathlib import Path
+import os
 
 from libs.elements.Sensor import Sensor
 
@@ -141,7 +142,8 @@ class GMRSensor(Sensor):
         self.sensor_sampling_matrix = self.get_sensor_sampling_matrix()
 
         gmr_config: configparser.ConfigParser = configparser.ConfigParser()
-        gmr_config.read(Path('cfg/gmr_characteristics.ini'))
+        gmr_config.read(Path(os.environ.get("USERPROFILE", Path.home())) / "Documents" / "Virtual Magnetic Sensor"
+                        / "cfg" / "gmr_characteristics.ini")
         self.coeffs: list = [1.442, -1.26e-6, 0.0, 0.0, 0.0]
         if gmr_config.has_section('COEFFICIENTS'):
             self.coeffs = [
@@ -151,6 +153,8 @@ class GMRSensor(Sensor):
                 float(gmr_config['COEFFICIENTS'].get('q3', '0.0')),
                 float(gmr_config['COEFFICIENTS'].get('q4', '0.0'))
             ]
+            print("GMR Coefficients loaded")
+
 
     @classmethod
     def template(cls) -> GMRSensor:

@@ -32,7 +32,7 @@ def test_run():
     main_frame = MainFrame(MultiprocessingTasks(), 1)
     main_frame.gui_handler.close_all_tabs(main_frame.data_stack)
     FileDialogs.open(main_frame.data_stack, main_frame.config_handler, main_frame.gui_handler,
-                     filename=Path('resources\\save_files\\test_configuration.ini').as_posix())
+                     filename=Path('src\\libs\\resources\\save_files\\test_configuration.ini').as_posix())
     main_frame.config_handler.config['GENERAL']['auto_save'] = 0
     thread = threading.Thread(target=run_simulation)
     main_frame.after(1000, lambda: thread.start())
@@ -55,7 +55,7 @@ def test_run():
         while os.path.exists(data_handler.filepath.with_suffix('.hdf5')):
             filename = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
             data_handler.filepath = Path(main_frame.config_handler.config['GENERAL']['measurement_path'], filename)
-        if not data_handler.save_h5():
+        if not data_handler.save_h5(data_handler.filepath.parent):
             assert False
         else:
             os.remove(data_handler.filepath.with_suffix('.hdf5'))

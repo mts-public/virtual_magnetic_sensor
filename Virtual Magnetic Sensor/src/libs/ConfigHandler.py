@@ -2,6 +2,10 @@ from __future__ import annotations
 import configparser
 from pathlib import Path
 from typing import Dict
+import os
+import platform
+
+from importlib.resources import files
 
 
 class ConfigHandler:
@@ -19,18 +23,56 @@ class ConfigHandler:
     def __init__(self) -> None:
         """Constructor method."""
 
-        self.config_path: Path = Path('cfg/config.ini')
+        self.config_path: Path = self.get_config_path()
         self.config_parser: configparser = configparser.ConfigParser()
 
         self.config = self.config_template()
         self.load_configfile()
 
     @staticmethod
+    def get_config_path(filename="config.ini"):
+        system = platform.system()
+
+        if system == "Windows":
+            # C:\Users\<username>\Documents
+            documents_path = Path(os.environ.get("USERPROFILE",
+                                                 Path.home())) / "Documents" / "Virtual Magnetic Sensor" / "cfg"
+        elif system in ("Linux", "Darwin"):  # Darwin = macOS
+            # ~/Documents
+            documents_path = Path.home() / "Documents" / "Virtual Magnetic Sensor" / "cfg"
+        else:
+            raise OSError(f"Unsupported OS: {system}")
+
+        # Ensure the folder exists
+        documents_path.mkdir(parents=True, exist_ok=True)
+
+        return documents_path / filename
+
+    @staticmethod
+    def get_save_files_path():
+        system = platform.system()
+
+        if system == "Windows":
+            # C:\Users\<username>\Documents
+            documents_path = Path(os.environ.get("USERPROFILE",
+                                                 Path.home())) / "Documents" / "Virtual Magnetic Sensor" / "save_files"
+        elif system in ("Linux", "Darwin"):  # Darwin = macOS
+            # ~/Documents
+            documents_path = Path.home() / "Documents" / "Virtual Magnetic Sensor" / "save_files"
+        else:
+            raise OSError(f"Unsupported OS: {system}")
+
+        # Ensure the folder exists
+        documents_path.mkdir(parents=True, exist_ok=True)
+
+        return documents_path
+
+    @staticmethod
     def config_template() -> Dict[str, Dict[str, any]]:
         return {
             'GENERAL': {
-                'setup': Path('libs/setups/standard.ini'),
-                'measurement_path': Path('save_files/'),
+                'setup': files("libs") / "resources" / "save_files" / "1.0.0" / "standard.ini",
+                'measurement_path': ConfigHandler.get_save_files_path(),
                 'auto_save': 1,
                 'max_process_memory': 2048.0
             },
@@ -71,6 +113,9 @@ class ConfigHandler:
 
     def write_configfile(self):
         self.config_parser.read_dict(self.config)
+
+        Path(self.config_path).parent.mkdir(parents=True, exist_ok=True)
+
         with open(self.config_path, 'w') as f:
             self.config_parser.write(f)
 

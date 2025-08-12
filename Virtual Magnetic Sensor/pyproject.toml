@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=62.3.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "virtual_magnetic_sensor"
+version = "1.0.2"
+description = "Virtual Magnetic Sensor is a simulation software for the simulation of magnetic problems in regard to magnetic sensor technology."
+license = "LGPL-2.1"
+license-files = ["LICENSE*"]
+keywords = ["Simulation", "FEM", "Magnetic Sensor", "Digital Twin", "Virtual Measurement"]
+authors = [
+  {name = "Tim Becker", email = "t.becker@rptu.de"},
+  {name = "Jörg Seewig", email = "j.seewig@mv.rptu.de"},
+]
+maintainers = [
+  {name = "Tim Becker", email = "t.becker@rptu.de"}
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Researchers",
+  "Programming Language :: Python :: 3.10",
+]
+requires-python = "== 3.10"
+readme = "README.md"
+dependencies = [
+    "numpy>=1.26.4",
+    "matplotlib>=3.8.4",
+    "h5py>=3.11.0",
+    "psutil>=5.9.8",
+    "ngsolve>=6.2.2402",
+]
+
+[project.scripts]
+libs = "libs.cli:main"
+
+[project.urls]
+Homepage = "https://mv.rptu.de/fgs/mts"
+Repository = "https://github.com/mts-public/virtual_magnetic_sensor.git"
+Issues = "https://github.com/mts-public/virtual_magnetic_sensor/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+libs = ["resources/**"]

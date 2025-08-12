@@ -5,6 +5,8 @@ from typing import Dict, Union, List, Tuple
 
 from libs.gui.ScrolledFrame import ScrolledFrame
 
+from importlib.resources import files, as_file
+
 
 class GUIElements:
     """description of class"""
@@ -279,19 +281,21 @@ class GUIElements:
 
     @staticmethod
     def init_style(master: tk.Tk, config: Dict[str, Dict[str, any]]) -> None:
-        master.tk.eval("""
-            set base_theme_dir resources/themes/awthemes-10.4.0/
-
-            package ifneeded awthemes 10.4.0 \
-                [list source [file join $base_theme_dir awthemes.tcl]]
-            package ifneeded awlight 7.10 \
-                [list source [file join $base_theme_dir awlight.tcl]]
-            package ifneeded awdark 7.12 \
-                [list source [file join $base_theme_dir awdark.tcl]]
-            """)
-        master.tk.call('package', 'require', 'awdark')
-        master.tk.call('package', 'require', 'awlight')
-        style = ttk.Style(master)
+        base_res = files("libs") / "resources" / "themes" / "awthemes-10.4.0"
+        with as_file(base_res) as base_dir:
+            master.tk.call("set", "base_theme_dir", str(base_dir))
+            master.tk.eval(r"""
+                        set base_theme_dir [file normalize $base_theme_dir]
+                        package ifneeded awthemes 10.4.0 \
+                            [list source [file join $base_theme_dir awthemes.tcl]]
+                        package ifneeded awlight 7.10 \
+                            [list source [file join $base_theme_dir awlight.tcl]]
+                        package ifneeded awdark 7.12 \
+                            [list source [file join $base_theme_dir awdark.tcl]]
+                    """)
+            master.tk.call('package', 'require', 'awdark')
+            master.tk.call('package', 'require', 'awlight')
+            style = ttk.Style(master)
 
         if config['GUI']['theme'] in style.theme_names():
             style.theme_use(config['GUI']['theme'])

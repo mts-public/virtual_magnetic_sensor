@@ -145,7 +145,7 @@ def compare_data_handler(data_handler_1: DataHandler, data_handler_2: DataHandle
 def test_load_h5():
     # v1.0.0
     data_handler100 = DataHandler()
-    data_handler100.load_h5(Path('resources/save_files/1.0.0/100.hdf5'))
+    data_handler100.load_h5(Path('src/libs/resources/save_files/1.0.0/100.hdf5'))
 
     assert compare_data_handler(data_handler100, template())
 
@@ -153,7 +153,7 @@ def test_load_h5():
 def test_load_ini():
     # v1.0.0
     data_handler100 = DataHandler()
-    data_handler100.load_ini(Path('resources/save_files/1.0.0/100.ini'))
+    data_handler100.load_ini(Path('src/libs/resources/save_files/1.0.0/100.ini'))
 
     assert compare_data_handler(data_handler100, template())
 
@@ -161,14 +161,14 @@ def test_load_ini():
 def test_load_py():
     # v1.0.0
     data_handler100 = DataHandler()
-    data_handler100.load_py(Path('resources/save_files/1.0.0/100.py'))
+    data_handler100.load_py(Path('src/libs/resources/save_files/1.0.0/100.py'))
 
     assert compare_data_handler(data_handler100, template())
 
 
 def test_load_series():
     data_handler = DataHandler()
-    data_stack = data_handler.load_py(Path('resources/save_files/1.0.0/series_100.py'))
+    data_stack = data_handler.load_py(Path('src/libs/resources/save_files/1.0.0/series_100.py'))
 
     assert len(data_stack) == 3
 
@@ -176,13 +176,13 @@ def test_load_series():
 def test_save_h5():
     data_handler = DataHandler()
     config_handler = ConfigHandler()
-    data_handler.load_h5(Path('resources/save_files/1.0.0/100.hdf5'))
+    data_handler.load_h5(Path('src/libs/resources/save_files/1.0.0/100.hdf5'))
     filename = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
     data_handler.filepath = Path(config_handler.config['GENERAL']['measurement_path'], filename)
     while os.path.exists(data_handler.filepath.with_suffix('.hdf5')):
         filename = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
         data_handler.filepath = Path(config_handler.config['GENERAL']['measurement_path'], filename)
-    if not data_handler.save_h5():
+    if not data_handler.save_h5(data_handler.filepath.parent):
         assert False
     else:
         os.remove(data_handler.filepath.with_suffix('.hdf5'))
@@ -193,7 +193,7 @@ def test_save_h5():
 def test_save_ini():
     data_handler = DataHandler()
     config_handler = ConfigHandler()
-    data_handler.load_h5(Path('resources/save_files/1.0.0/100.hdf5'))
+    data_handler.load_h5(Path('src/libs/resources/save_files/1.0.0/100.hdf5'))
     filename = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
     data_handler.filepath = Path(config_handler.config['GENERAL']['measurement_path'], filename)
     while os.path.exists(data_handler.filepath.with_suffix('.ini')):

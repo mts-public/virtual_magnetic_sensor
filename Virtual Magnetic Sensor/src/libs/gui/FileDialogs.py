@@ -70,7 +70,7 @@ class FileDialogs:
                 data_stack[idx].filepath = Path(filepath.parent.as_posix(), filepath.stem)
                 data_stack[idx].update_objects(gui_handler.tabs[idx].frames)
 
-                success = data_stack[idx].save_h5()
+                success = data_stack[idx].save_h5(data_stack[idx].filepath.parent)
 
                 if success:
                     showinfo(title="Info", message="File successfully saved.")
@@ -144,7 +144,7 @@ class FileDialogs:
 
                 data_stack[idx].update_objects(gui_handler.tabs[idx].frames)
 
-                success = data_stack[idx].save_h5()
+                success = data_stack[idx].save_h5(data_stack[idx].filepath.parent)
 
                 if success:
                     showinfo(title="Info", message="File successfully saved.")
