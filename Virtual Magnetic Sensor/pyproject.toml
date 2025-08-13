@@ -37,6 +37,7 @@ libs = "libs.cli:main"
 [project.urls]
 Homepage = "https://mv.rptu.de/fgs/mts"
 Repository = "https://github.com/mts-public/virtual_magnetic_sensor.git"
+Documentation = "https://virtual-magnetic-sensor.readthedocs.io/index.html"
 Issues = "https://github.com/mts-public/virtual_magnetic_sensor/issues"
 
 [tool.setuptools]
