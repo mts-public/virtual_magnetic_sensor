@@ -34,8 +34,7 @@
             
   <section id="welcome-to-virtual-magnetic-sensor-s-documentation">
 <h1>Welcome to Virtual Magnetic Sensor’s documentation!<a class="headerlink" href="#welcome-to-virtual-magnetic-sensor-s-documentation" title="Link to this heading">¶</a></h1>
-<p>Virtual Magnetic Sensor is a simulation software for the simulation of magnetic problems in regard to magnetic sensor
-technology.</p>
+<p>Virtual Magnetic Sensor is a simulation software designed to model and simulate magnetic phenomena, specifically focused on magnetic sensor technology.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This project is under active development.</p>
@@ -49,50 +48,92 @@ technology.</p>
 </li>
 </ul>
 </div>
-</section>
 <section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h1>
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
 </section>
-<section id="support">
-<h1>Support<a class="headerlink" href="#support" title="Link to this heading">¶</a></h1>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Support is provided via email and github issues</p></li>
-<li><p>Documentation is available at <a class="reference external" href="https://virtual-magnetic-sensor.readthedocs.io/index.html">https://virtual-magnetic-sensor.readthedocs.io/index.html</a></p></li>
-<li><p>Informations regarding the Netgen user interface is available at <a class="reference external" href="https://docu.ngsolve.org/latest/">https://docu.ngsolve.org/latest/</a></p></li>
+<li><p>Simulates magnetic fields and sensor behavior</p></li>
+<li><p>Supports dynamic, time-dependent simulation of moving components</p></li>
+<li><p>Extensible with new components, sensors, and magnets</p></li>
+</ul>
+</section>
+<section id="support">
+<h2>Support<a class="headerlink" href="#support" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Email Support:</strong> <a class="reference external" href="mailto:t&#46;becker&#37;&#52;&#48;rptu&#46;de">t<span>&#46;</span>becker<span>&#64;</span>rptu<span>&#46;</span>de</a></p></li>
+<li><p><strong>GitHub Issues:</strong> <a class="reference external" href="https://github.com/mts-public/virtual_magnetic_sensor/issues">GitHub Issues</a></p></li>
+<li><p><strong>Documentation:</strong> <a class="reference external" href="https://virtual-magnetic-sensor.readthedocs.io/index.html">Virtual Magnetic Sensor Documentation</a></p></li>
+<li><p><strong>Netgen UI Documentation:</strong> <a class="reference external" href="https://docu.ngsolve.org/latest/">Netgen UI Documentation</a></p></li>
 </ul>
 </section>
 <section id="installation-instructions">
-<h1>Installation Instructions<a class="headerlink" href="#installation-instructions" title="Link to this heading">¶</a></h1>
+<h2>Installation Instructions<a class="headerlink" href="#installation-instructions" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
-<li><p>Install Python 3.10 and update pip</p></li>
-<li><p>Open any console and navigate to the project folder containing the “pyproject.toml” file</p></li>
+<li><dl class="simple">
+<dt>Install <strong>Python 3.10</strong> and update <strong>pip</strong>:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pip</span></code></p>
+</dd>
+</dl>
+</li>
+<li><p>Clone this repository and navigate to the project folder containing the <cite>pyproject.toml</cite> file.</p></li>
+<li><dl class="simple">
+<dt>Install the package in editable mode:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Run the software:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">main</span></code></p>
+</dd>
+</dl>
+</li>
 </ol>
-<p>3. Install the package by “pip install -e .”
-3. Run the software by “python -m main”</p>
 </section>
-<section id="add-new-elements-to-the-simulation-software">
-<h1>Add New Elements to the Simulation Software<a class="headerlink" href="#add-new-elements-to-the-simulation-software" title="Link to this heading">¶</a></h1>
-<ol class="arabic simple">
-<li><p>Use the template files ComponentTemplate.py, SensorTemplate.py or MagnetTemplate.py and edit them according to the comments.</p></li>
-</ol>
+<section id="adding-new-elements-to-the-simulation">
+<h2>Adding New Elements to the Simulation<a class="headerlink" href="#adding-new-elements-to-the-simulation" title="Link to this heading">¶</a></h2>
+<p>To extend the simulation with new components, sensors, or magnets, follow these steps:</p>
+<section id="create-a-new-element">
+<h3>1. Create a New Element<a class="headerlink" href="#create-a-new-element" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Sensor:</strong> Use <cite>SensorTemplate.py</cite>. Follow the comments and implement the conversion of magnetic field components to sensor output in the <cite>set_data()</cite> method.</p></li>
+<li><p><strong>Component:</strong> Use <cite>ComponentTemplate.py</cite>. Follow the comments and define the time-dependent behavior of moving components in the <cite>update()</cite> method.</p></li>
+<li><p><strong>Magnet:</strong> Use <cite>MagnetTemplate.py</cite>. Follow the comments.</p></li>
+</ul>
+</section>
+<section id="update-the-frames">
+<h3>2. Update the Frames<a class="headerlink" href="#update-the-frames" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Edit <cite>SensorTemplateFrame.py</cite>, <cite>ComponentTemplateFrame.py</cite>, or <cite>MagnetTemplateFrame.py</cite> to include your new element in the GUI, following the comments inside the files.</p></li>
+<li><p>Add the new element to the appropriate parent frames:
+- <cite>ComponentsFrame</cite> for components
+- <cite>SensorsFrame</cite> for sensors
+- <cite>MagnetsFrame</cite> for magnets</p>
 <blockquote>
-<div><ol class="arabic simple">
-<li><p>In the case of a sensor implementation: Add the conversion of the magnetic field components to sensor output signals to the set_data() method.</p></li>
-<li><p>In case of a component implementation: Add the time-dependent behaviour of moving components to the update() method.</p></li>
-</ol>
+<div><p>Implement an <cite>add_template()</cite> method and update the <cite>init()</cite> and <cite>update_sub_frames()</cite> methods accordingly. Refer to the example in the <cite>SensorsFrame</cite> class.</p>
 </div></blockquote>
-<ol class="arabic simple" start="2">
-<li><p>Use the SensorTemplateFrame.py template file and edit it according to the comments.</p></li>
-<li><p>Add the element to the ComponentsFrame, SensorsFrame or MagnetsFrame classes by implementing an add_template() method and extending the init() and update_sub_frames() methods. For an example, see the comment in the SensorsFrame class.</p></li>
-<li><p>Use the template file CSGSensorTemplate.py and implement and edit it according to the comment.</p></li>
-<li><p>Add the new element to the CSGComponents, CSGSensors or CSGMagnets classes. For an example, see the comment in the CSGSensors class.</p></li>
-<li><p>Add the new element to the DataHandler class by adding the import statement (Import ComponentTemplate.py, SensorTemplate.py or MagnetTemplate.py).</p></li>
-</ol>
+</li>
+</ul>
+</section>
+<section id="update-the-csg-files">
+<h3>3. Update the CSG Files<a class="headerlink" href="#update-the-csg-files" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Modify <cite>CSGSensorTemplate.py</cite> to create the corresponding CSG element.</p></li>
+<li><p>Add the new element to <cite>CSGComponents</cite>, <cite>CSGSensors</cite> or <cite>CSGMagnets</cite>.</p></li>
+<li><p>For an example, see the comment in the <cite>CSGSensors</cite> class.</p></li>
+</ul>
+</section>
+<section id="update-data-handling">
+<h3>4. Update Data Handling<a class="headerlink" href="#update-data-handling" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>In the <cite>DataHandler</cite> class, import the necessary template files (e.g., <cite>ComponentTemplate.py</cite>, <cite>SensorTemplate.py</cite>, or <cite>MagnetTemplate.py</cite>) to handle the new element.</p></li>
+</ul>
+</section>
+</section>
 </section>
 
 
