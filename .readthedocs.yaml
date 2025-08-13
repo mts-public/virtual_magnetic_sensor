@@ -9,6 +9,7 @@ build:
   os: "Windows"
   tools:
     python: "3.10"
+  branch: main
 
 # Build documentation in the "docs/" directory with Sphinx
 sphinx:
