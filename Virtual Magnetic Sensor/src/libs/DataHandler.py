@@ -176,9 +176,9 @@ class DataHandler:
         return data_stack
 
     def load_ini(self, path: Path) -> None:
-        """Method changes the object list based on data from a *.ini file.
+        """Method changes the object list based on data from a ini file.
 
-        :param path: Path to the *.ini file.
+        :param path: Path to the ini file.
         :type path: Path
         """
 
