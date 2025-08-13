@@ -3,11 +3,16 @@
 # virtual_magnetic_sensor
 Virtual Magnetic Sensor is a simulation software for the simulation of magnetic problems in regard to magnetic sensor technology.
 
+# Support
+- Support is provided via email and by github issues
+- Documentation is available at https://virtual-magnetic-sensor.readthedocs.io/index.html
+- Informations regarding the Netgen user interface is available at https://docu.ngsolve.org/latest/
+
 # Installation Instructions
 1. Install Python 3.10 and update pip
-2. Install packages in the requirements.txt file
-3. Add the working directory "Virtual Magnetic Sensor" to PYTHONPATH
-4. Run apps/main.py
+2. Open any console and navigate to the project folder containing the "pyproject.toml" file
+3. Install the package by "pip install -e ."
+3. Run the software by "python -m main"
 
 # Add New Elements to the Simulation Software
 1.	Use the template files ComponentTemplate.py, SensorTemplate.py or MagnetTemplate.py and edit them according to the comments.
