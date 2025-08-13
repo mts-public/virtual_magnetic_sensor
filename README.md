@@ -1,25 +1,61 @@
-[![DOI](https://zenodo.org/badge/700318323.svg)](https://zenodo.org/badge/latestdoi/700318323)
 
-# virtual_magnetic_sensor
-Virtual Magnetic Sensor is a simulation software for the simulation of magnetic problems in regard to magnetic sensor technology.
+# Virtual Magnetic Sensor
 
-# Support
-- Support is provided via email and by github issues
-- Documentation is available at https://virtual-magnetic-sensor.readthedocs.io/index.html
-- Informations regarding the Netgen user interface is available at https://docu.ngsolve.org/latest/
+Virtual Magnetic Sensor is a simulation software designed to model and simulate magnetic phenomena, specifically focused on magnetic sensor technology.
 
-# Installation Instructions
-1. Install Python 3.10 and update pip
-2. Open any console and navigate to the project folder containing the "pyproject.toml" file
-3. Install the package by "pip install -e ."
-3. Run the software by "python -m main"
+## Features
+- Simulates magnetic fields and sensor behavior
+- Supports dynamic, time-dependent simulation of moving components
+- Extensible with new components, sensors, and magnets
 
-# Add New Elements to the Simulation Software
-1.	Use the template files ComponentTemplate.py, SensorTemplate.py or MagnetTemplate.py and edit them according to the comments.
-    1. In the case of a sensor implementation: Add the conversion of the magnetic field components to sensor output signals to the set_data() method.
-    2. In case of a component implementation: Add the time-dependent behaviour of moving components to the update() method.
-2.	Use the SensorTemplateFrame.py template file and edit it according to the comments.
-3.	Add the element to the ComponentsFrame, SensorsFrame or MagnetsFrame classes by implementing an add_template() method and extending the init() and update_sub_frames() methods. For an example, see the comment in the SensorsFrame class.
-4.	Use the template file CSGSensorTemplate.py and implement and edit it according to the comment.
-5.	Add the new element to the CSGComponents, CSGSensors or CSGMagnets classes. For an example, see the comment in the CSGSensors class.
-6.	Add the new element to the DataHandler class by adding the import statement (Import ComponentTemplate.py, SensorTemplate.py or MagnetTemplate.py).
+## Support
+
+- **Email Support:** t.becker@rptu.de
+- **GitHub Issues:** [GitHub Issues](https://github.com/mts-public/virtual_magnetic_sensor/issues)
+- **Documentation:** [Virtual Magnetic Sensor Documentation](https://virtual-magnetic-sensor.readthedocs.io/index.html)
+- **Netgen UI Documentation:** [Netgen UI Documentation](https://docu.ngsolve.org/latest/)
+
+## Installation Instructions
+
+1. Install **Python 3.10** and update **pip**:
+    ```bash
+    python -m pip install --upgrade pip
+    ```
+
+2. Clone this repository and navigate to the project folder containing the `pyproject.toml` file.
+
+3. Install the package in editable mode:
+    ```bash
+    pip install -e .
+    ```
+
+4. Run the software:
+    ```bash
+    python -m main
+    ```
+
+## Adding New Elements to the Simulation
+
+To extend the simulation with new components, sensors, or magnets, follow these steps:
+
+### 1. Create a New Element
+- **Sensor:** Use `SensorTemplate.py`. Follow the comments and implement the conversion of magnetic field components to sensor output in the `set_data()` method.
+- **Component:** Use `ComponentTemplate.py`. Follow the comments and define the time-dependent behavior of moving components in the `update()` method.
+- **Magnet:** Use `MagnetTemplate.py`. Follow the comments.
+
+### 2. Update the Frames
+- Edit `SensorTemplateFrame.py`, `ComponentTemplateFrame.py`, or `MagnetTemplateFrame.py` to include your new element in the GUI, following the comments inside the files.
+- Add the new element to the appropriate parent frames:
+  - `ComponentsFrame` for components
+  - `SensorsFrame` for sensors
+  - `MagnetsFrame` for magnets
+
+   Implement an `add_template()` method and update the `init()` and `update_sub_frames()` methods accordingly. Refer to the example in the `SensorsFrame` class.
+
+### 3. Update the CSG Files
+- Modify `CSGSensorTemplate.py` to create the corresponding CSG element.
+- Add the new element to `CSGComponents`, `CSGSensors` or `CSGMagnets`.
+- For an example, see the comment in the `CSGSensors` class.
+
+### 4. Update Data Handling
+- In the `DataHandler` class, import the necessary template files (e.g., `ComponentTemplate.py`, `SensorTemplate.py`, or `MagnetTemplate.py`) to handle the new element.
