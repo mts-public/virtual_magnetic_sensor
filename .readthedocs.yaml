@@ -13,3 +13,7 @@ build:
 # Build documentation in the "docs/" directory with Sphinx
 sphinx:
    configuration: "Virtual Magnetic Sensor/docs/source/conf.py"
+
+python:
+  install:
+    - requirements: "Virtual Magnetic Sensor/requirements.txt"
