@@ -13,7 +13,7 @@ Virtual Magnetic Sensor is a simulation software designed to model and simulate 
 - **Email Support:** t.becker@rptu.de
 - **GitHub Issues:** [GitHub Issues](https://github.com/mts-public/virtual_magnetic_sensor/issues)
 - **Documentation:** [Virtual Magnetic Sensor Documentation](https://virtual-magnetic-sensor.readthedocs.io/index.html)
-- **Netgen UI Documentation:** [Netgen UI Documentation](https://docu.ngsolve.org/latest/)
+- **NGSolve and Netgen Documentation:** [Netgen UI Documentation](https://docu.ngsolve.org/latest/)
 
 ## Installation Instructions
 
