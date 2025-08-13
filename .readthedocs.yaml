@@ -6,10 +6,9 @@ version: 2
 
 # Set the OS, Python version, and other tools you might need
 build:
-  os: "Windows"
+  os: ubuntu-22.04
   tools:
     python: "3.10"
-  branch: main
 
 # Build documentation in the "docs/" directory with Sphinx
 sphinx:
