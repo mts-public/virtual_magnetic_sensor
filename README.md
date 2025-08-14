@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/700318323.svg)](https://zenodo.org/badge/latestdoi/700318323)
 
 # Virtual Magnetic Sensor
 
