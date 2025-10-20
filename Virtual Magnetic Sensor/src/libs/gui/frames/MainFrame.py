@@ -39,7 +39,7 @@ class MainFrame(tk.Tk):
 
         self.data_stack: List[DataHandler] = list()
         FileDialogs.open(self.data_stack, self.config_handler, self.gui_handler,
-                         filename=self.config_handler.config['GENERAL']['setup'].as_posix())
+                         filename=self.config_handler.config['GENERAL']['setup'].as_posix(), init_flag=1)
 
         self.gui_handler.bars.append(MenuBar(self, self.data_stack, self.config_handler, self.gui_handler,
                                              self.multiprocessing_tasks))

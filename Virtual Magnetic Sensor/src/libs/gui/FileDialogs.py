@@ -13,7 +13,7 @@ class FileDialogs:
 
     @staticmethod
     def open(data_stack: List[DataHandler], config_handler: ConfigHandler, gui_handler: GUIHandler,
-             filename: str = "") -> None:
+             filename: str = "", init_flag: int = 0) -> None:
 
         filetypes = [('HDF5 Files', '*.hdf5 *.hdf *.h4 *.hdf4 *.he2 *.h5 *.he'),
                      ('INI Files', '*.ini *.INI'),
@@ -51,6 +51,9 @@ class FileDialogs:
                     gui_handler.add_tab(data_handler, data_stack, config_handler, filepath.stem+str(num).zfill(2))
             else:
                 showerror(title="Error", message="Filetype not supported.")
+
+            if init_flag:
+                data_stack[idx].filepath = Path(config_handler.get_save_files_path().as_posix(), Path(filename).stem)
 
     @staticmethod
     def save_as(data_stack: List[DataHandler], gui_handler: GUIHandler) -> None:

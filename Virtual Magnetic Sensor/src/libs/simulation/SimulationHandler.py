@@ -98,7 +98,7 @@ class SimulationHandler:
                         obj.get_data(**data[i])
 
             if config_handler.config['GENERAL']['auto_save']:
-                if not data_handler.save_h5(Path(config_handler.config['GENERAL']['measurement_path'])):
+                if not data_handler.save_h5(data_handler.filepath.parent):
                     showerror(title="Error", message="File could not be saved.")
                     gui_handler.enable_gui_operation()
                     gui_handler.status_bar().set("Error. File could not be saved.")
