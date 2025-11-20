@@ -129,11 +129,11 @@ class HallSensor(Sensor):
                           self.current,
                           self.maxh)
 
-    def get_data(self, hall_voltage: List[np.ndarray]) -> None:
+    def get_data(self, hall_voltage: List[float]) -> None:
         """Method to pass the measurement data saved in a dictionary to the sensor object.
 
         :param hall_voltage: Hall Voltage
-        :type hall_voltage: List[np.ndarray]
+        :type hall_voltage: List[float]
         """
 
         self.hall_voltage += hall_voltage
@@ -171,7 +171,7 @@ class HallSensor(Sensor):
                           cos(self.rot[0]) * cos(self.rot[1])]
                          ])
 
-    def get_hall_voltage(self, field: MagneticField) -> np.ndarray:
+    def get_hall_voltage(self, field: MagneticField) -> float:
         b_field = self.transformation_matrix.dot(field.get_b_field(self.pos[0], self.pos[1], self.pos[2]))
-        u_h = self.current*b_field*self.hall_coefficient/(self.conductor_thickness/1e3)  # conductor_thickness mm->m
+        u_h = self.current*b_field[1]*self.hall_coefficient/(self.conductor_thickness/1e3)  # conductor_thickness mm->m
         return u_h
