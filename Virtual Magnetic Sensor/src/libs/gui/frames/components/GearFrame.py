@@ -149,7 +149,7 @@ class InfoFrame:
         self.frame.title("Info")
         self.frame.protocol("WM_DELETE_WINDOW", self.destroy)
 
-        img = (tk.PhotoImage(file=r"resources/images/Gear.png"))
+        img = (tk.PhotoImage(file=r"libs/resources/images/Gear.png"))
         image_width = int(1.0 * img.width())
         image_height = int(1.0 * img.height())
         self.resized_img = img.subsample(1, 1)
