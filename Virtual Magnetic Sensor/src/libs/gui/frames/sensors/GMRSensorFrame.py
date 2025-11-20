@@ -60,9 +60,9 @@ class GMRSensorFrame(ObjectFrame):
         self.entries['sensor_sampling'] = Gui.input_line(master=self.sim_params_frame, config=config_handler.config,
                                                          col=0, row=1, label="Sensor H-Field Sampling:")
         self.entries['depth'] = Gui.input_line(master=self.sim_params_frame, config=config_handler.config, col=0, row=2,
-                                               label="Depth b:", unit="µm")
+                                               label="Depth b_z:", unit="µm")
         self.entries['height'] = Gui.input_line(master=self.sim_params_frame, config=config_handler.config,
-                                                col=0, row=3, label="Height h:", unit="µm")
+                                                col=0, row=3, label="Height b_y:", unit="µm")
         self.entries['maxh'] = Gui.input_line(master=self.sim_params_frame, config=config_handler.config, col=0, row=4,
                                               label="Max Mesh Size:", unit="mm")
 

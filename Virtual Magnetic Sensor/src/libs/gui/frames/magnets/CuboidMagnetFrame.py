@@ -42,7 +42,7 @@ class CuboidMagnetFrame(ObjectFrame):
         self.entries['temperature'] = Gui.input_line(master=self, config=config_handler.config, col=0, row=6,
                                                      label=u'Operating Temperature T\u2080:', unit="°C")
         self.entries['tk'] = Gui.input_line(master=self, config=config_handler.config, col=0, row=7,
-                                            label="Rev. Temp. -Coeff TK:", unit="%/K")
+                                            label=u'Rev. Temp. -Coeff T\u2096:', unit="%/K")
         self.entries['maxh'] = Gui.input_line(master=self, config=config_handler.config, col=0, row=8,
                                               label="Max Mesh Size:", unit="mm")
 

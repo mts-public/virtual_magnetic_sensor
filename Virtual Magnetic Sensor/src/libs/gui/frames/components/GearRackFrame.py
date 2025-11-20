@@ -43,7 +43,7 @@ class GearRackFrame(ObjectFrame):
                                            column_span=3, row_span=1, label="Gear Rack Teeth")
 
         self.entries['tooth_height'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config,
-                                                      col=0, row=0, label=u'Tooth Height h\u209A:', unit="mm")
+                                                      col=0, row=0, label=u'Tooth Height h_z:', unit="mm")
         self.entries['tooth_width'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config,
                                                      col=0, row=1, label=u'Tooth Width s\u209A:', unit="mm")
         self.entries['tooth_pitch'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config,

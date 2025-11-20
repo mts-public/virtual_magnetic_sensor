@@ -51,9 +51,9 @@ class GearFrame(ObjectFrame):
         self.teeth_frame = Gui.label_frame(master=self, config=config_handler.config, col=0, row=3,
                                            column_span=3, row_span=1, label="Gear Teeth")
         self.entries['n'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config, col=0, row=0,
-                                           label="Tooth Count n:")
+                                           label="Tooth Count z:")
         self.entries['tooth_height'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config,
-                                                      col=0, row=1, label=u'Tooth Height h\u209A:', unit="mm")
+                                                      col=0, row=1, label=u'Tooth Height h_z:', unit="mm")
         self.entries['tooth_width'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config,
                                                      col=0, row=2, label=u'Tooth Width s\u209A:', unit="mm")
         self.entries['tooth_flank_angle'] = Gui.input_line(master=self.teeth_frame, config=config_handler.config, col=0,
@@ -74,7 +74,7 @@ class GearFrame(ObjectFrame):
                                               label="Max Mesh Size:", unit="mm", col_shift=1)
         self.entries['display_teeth_angle'] = Gui.vector2_input(master=self.sim_params_frame,
                                                                 config=config_handler.config, col=0, row=2,
-                                                                width=10, label="Tooth Calculation Angle:", unit="°")
+                                                                width=10, label=u'Tooth Calculation Angle \u03B2:', unit="°")
         self.entries['rotate_mesh'] = Gui.check_box(master=self.sim_params_frame, config=config_handler.config, col=0,
                                                     row=3,
                                                     label="Rotate Gear Mesh")

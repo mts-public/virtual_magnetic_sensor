@@ -44,7 +44,7 @@ class RodMagnetFrame(ObjectFrame):
                                                      label=u'Operating Temperature T\u2080:', unit="°C")
         self.entries['tk'] = Gui.input_line(master=self, config=config_handler.config, col=0, row=8,
                                             unit="%/K",
-                                            label="Rev. Temp. -Coeff TK:")
+                                            label=u'Rev. Temp. -Coeff T\u2096:')
         self.entries['maxh'] = Gui.input_line(master=self, config=config_handler.config, col=0, row=9,
                                               label="Max Mesh Size:", unit="mm")
 
