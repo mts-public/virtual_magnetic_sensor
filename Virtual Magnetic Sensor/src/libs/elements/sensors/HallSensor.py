@@ -172,6 +172,14 @@ class HallSensor(Sensor):
                          ])
 
     def get_hall_voltage(self, field: MagneticField) -> float:
+        """Method for calculating the hall voltage along the body-fixed x-axis of the sensor.
+
+                :param field: Instance of the MagneticField class.
+                :type field: MagneticField
+                :return: The transformation matrix.
+                :rtype: numpy.ndarray
+                """
+
         b_field = self.transformation_matrix.dot(field.get_b_field(self.pos[0], self.pos[1], self.pos[2]))
         u_h = self.current*b_field[1]*self.hall_coefficient/(self.conductor_thickness/1e3)  # conductor_thickness mm->m
         return u_h
