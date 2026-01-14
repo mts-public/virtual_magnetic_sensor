@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "virtual_magnetic_sensor"
-version = "1.0.3"
+version = "1.0.4"
 description = "Virtual Magnetic Sensor is a simulation software for the simulation of magnetic problems in regard to magnetic sensor technology."
 license = "LGPL-2.1"
 license-files = ["LICENSE*"]
