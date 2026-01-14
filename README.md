@@ -9,6 +9,14 @@ Virtual Magnetic Sensor is a simulation software designed to model and simulate 
 - Supports dynamic, time-dependent simulation of moving components
 - Extensible with new components, sensors, and magnets
 
+## Associated Article
+Becker, T., Glenske, C., Rauber, L., Seewig, J.: *Simulation Software for the Virtual Design and Analysis of Magnetic Sensor Systems*. Journal of open research software (2025).
+DOI: https://doi.org/10.5334/jors.498
+
+## Citation
+
+If you use this software in academic work, please cite the article above.
+
 ## Support
 
 - **Email Support:** t.becker@rptu.de
