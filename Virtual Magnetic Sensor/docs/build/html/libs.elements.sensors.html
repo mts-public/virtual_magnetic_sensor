@@ -655,19 +655,31 @@ h_sensor.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.get_data">
-<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hall_voltage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.get_data" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hall_voltage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.get_data" title="Link to this definition">¶</a></dt>
 <dd><p>Method to pass the measurement data saved in a dictionary to the sensor object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>hall_voltage</strong> (<em>List</em><em>[</em><em>np.ndarray</em><em>]</em>) – Hall Voltage</p>
+<dd class="field-odd"><p><strong>hall_voltage</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Hall Voltage</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.get_hall_voltage">
-<span class="sig-name descname"><span class="pre">get_hall_voltage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.get_hall_voltage" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">get_hall_voltage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><span class="pre">MagneticField</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#libs.elements.sensors.HallSensor.HallSensor.get_hall_voltage" title="Link to this definition">¶</a></dt>
+<dd><p>Method for calculating the hall voltage along the body-fixed x-axis of the sensor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field</strong> (<a class="reference internal" href="libs.simulation.html#libs.simulation.MagneticField.MagneticField" title="libs.simulation.MagneticField.MagneticField"><em>MagneticField</em></a>) – Instance of the MagneticField class.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The transformation matrix.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="libs.elements.sensors.HallSensor.HallSensor.get_transformation_matrix">
