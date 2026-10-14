@@ -1,10 +1,9 @@
 from tkinter.messagebox import showinfo, showerror
 from multiprocessing import Process, Queue, Manager, Value
 from concurrent import futures
-from typing import List, Union
+from typing import Any, List, Union
 import os
 import psutil
-from pathlib import Path
 
 from libs.simulation.MagneticFieldFactory import MagneticFieldFactory
 
@@ -25,7 +24,7 @@ class SimulationHandler:
 
     @staticmethod
     def run_process(data_handler: DataHandler, max_memory: float, shared_list: Manager, queue: Queue,
-                    progress: Union[Value, None] = None) -> None:
+                    progress: Any = None) -> None:
 
         n = queue.get()
 
