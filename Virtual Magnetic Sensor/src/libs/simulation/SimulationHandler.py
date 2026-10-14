@@ -1,5 +1,5 @@
 from tkinter.messagebox import showinfo, showerror
-from multiprocessing import Process, Queue, Manager
+from multiprocessing import Process, Queue, Manager, Value
 from concurrent import futures
 from typing import List, Union
 import os
@@ -24,7 +24,8 @@ class SimulationHandler:
         pass
 
     @staticmethod
-    def run_process(data_handler: DataHandler, max_memory: float, shared_list: Manager, queue: Queue) -> None:
+    def run_process(data_handler: DataHandler, max_memory: float, shared_list: Manager, queue: Queue,
+                    progress: Union[Value, None] = None) -> None:
 
         n = queue.get()
 
@@ -49,6 +50,8 @@ class SimulationHandler:
                     temp_list[num] = obj.set_data(temp_list[num].copy(), field)
 
             n += 1
+            if progress is not None:
+                progress.value = n
 
         shared_list.extend(temp_list)
         queue.put(n)
@@ -77,6 +80,7 @@ class SimulationHandler:
 
             n = 0
             measurement_data = list()
+            progress = Value('i', 0)
             while n < data_handler.sim_params().samples:
                 with Manager() as manager:
                     queue = Queue()
@@ -84,9 +88,15 @@ class SimulationHandler:
                     shared_list = manager.list()
                     process = Process(target=multiprocessing_tasks.run_process,
                                       args=(data_handler, config_handler.config['GENERAL']['max_process_memory'],
-                                            shared_list, queue))
+                                            shared_list, queue, progress))
                     process.start()
-                    process.join()
+                    # poll the shared counter while the process is running to refresh the progress every step
+                    last_n = n
+                    while process.is_alive():
+                        process.join(timeout=0.1)
+                        if progress.value != last_n:
+                            last_n = progress.value
+                            sim_tabs[num].progress_frame().refresh(data_handler, config_handler, gui_handler, last_n)
                     n = queue.get()
                     measurement_data.append(list(shared_list))
 
