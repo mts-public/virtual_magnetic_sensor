@@ -1,7 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import filedialog as fd
+from pathlib import Path
 import numpy as np
-from typing import Dict, Union, List, Tuple
+from typing import Any, Dict, Union, List, Tuple, Literal
 
 from libs.gui.ScrolledFrame import ScrolledFrame
 
@@ -12,7 +14,7 @@ class GUIElements:
     """description of class"""
 
     @staticmethod
-    def label_frame(master: Union[tk.Tk, tk.Frame, ttk.Labelframe, tk.Toplevel], config: Dict[str, Dict[str, any]],
+    def label_frame(master: Union[tk.Tk, tk.Frame, ttk.Labelframe, tk.Toplevel], config: Dict[str, Dict[str, Any]],
                     col: int, row: int, column_span: int, row_span: int, label: str) -> ttk.LabelFrame:
         frame = ttk.LabelFrame(master, text=label)
         frame.grid(column=col, row=row, columnspan=column_span, rowspan=row_span, sticky='n,w,e,s',
@@ -23,7 +25,7 @@ class GUIElements:
         return frame
 
     @staticmethod
-    def info_label(master: ttk.LabelFrame, config: Dict[str, Dict[str, any]], col: int, row: int,
+    def info_label(master: ttk.LabelFrame, config: Dict[str, Dict[str, Any]], col: int, row: int,
                    info: str) -> ttk.Label:
         info_label = ttk.Label(master, text=info, relief="raised")
         info_label.grid(column=col, row=row, sticky='n,s,w,e', padx=config['GUI']['v_spacing'],
@@ -34,9 +36,9 @@ class GUIElements:
         return info_label
 
     @staticmethod
-    def input_line(master: ttk.LabelFrame, config: Dict[str, Dict[str, any]], col: int, row: int, label: str,
+    def input_line(master: ttk.LabelFrame, config: Dict[str, Dict[str, Any]], col: int, row: int, label: str,
                    unit: str = "", col_shift: int = 0,
-                   justify: str = 'right') -> ttk.Entry:
+                   justify: Literal["left", "center", "right"] = "right") -> ttk.Entry:
         label = ttk.Label(master, text=label)
         label.grid(column=col, row=row, sticky=tk.W, padx=config['GUI']['v_spacing'])
         entry = ttk.Entry(master, width=config['GUI']['entry_width'], justify=justify)
@@ -49,7 +51,7 @@ class GUIElements:
         return entry
 
     @staticmethod
-    def settings_line(master: ttk.LabelFrame, config: Dict[str, Dict[str, any]], row: int, label: str,
+    def settings_line(master: ttk.Frame, config: Dict[str, Dict[str, Any]], row: int, label: str,
                       value: str) -> ttk.Entry:
         label = ttk.Label(master, text=label)
         label.grid(column=0, row=row, sticky=tk.W, padx=config['GUI']['v_spacing'])
@@ -63,7 +65,101 @@ class GUIElements:
         return entry
 
     @staticmethod
-    def vector2_input(master: ttk.LabelFrame, config: Dict[str, Dict[str, any]], col: int, row: int, width: int,
+    def settings_path_line(master: ttk.Frame, config: Dict[str, Dict[str, Any]], row: int, label: str,
+                           value: str, directory: bool = False,
+                           filetypes: Union[List[Tuple[str, str]], None] = None) -> tk.StringVar:
+        """Settings line with an entry and a button opening a file or directory dialog."""
+
+        var = tk.StringVar(master, value=str(value))
+        label = ttk.Label(master, text=label)
+        label.grid(column=0, row=row, sticky=tk.W, padx=config['GUI']['v_spacing'])
+        entry = ttk.Entry(master, textvariable=var, width=40, justify='left')
+        entry.grid(column=1, row=row, sticky='n,s,w,e', pady=config['GUI']['h_spacing'])
+
+        def browse() -> None:
+            current = Path(var.get())
+            initial_dir = current if current.is_dir() else current.parent
+            if directory:
+                path = fd.askdirectory(parent=master, title='Select a Directory', initialdir=initial_dir)
+            else:
+                path = fd.askopenfilename(parent=master, title='Select a File', initialdir=initial_dir,
+                                          filetypes=filetypes or [('All Files', '*.*')])
+            if path:
+                var.set(path)
+
+        button = ttk.Button(master, text="...", width=3, command=browse)
+        button.grid(column=2, row=row, sticky='w', padx=(2, config['GUI']['v_spacing']))
+
+        master.rowconfigure(row, weight=1)
+        master.columnconfigure(1, weight=1)
+
+        return var
+
+    @staticmethod
+    def settings_switch_line(master: ttk.Frame, config: Dict[str, Dict[str, Any]], row: int, label: str,
+                             value: int) -> tk.IntVar:
+        """Settings line with a switch returning 1 (on) or 0 (off)."""
+
+        var = tk.IntVar(master, value=1 if int(value) else 0)
+        label = ttk.Label(master, text=label)
+        label.grid(column=0, row=row, sticky=tk.W, padx=config['GUI']['v_spacing'])
+        state_label = ttk.Label(master, text="")
+        switch = ttk.Checkbutton(master, variable=var, onvalue=1, offvalue=0,
+                                 command=lambda: state_label.config(text="On" if var.get() else "Off"))
+        switch.grid(column=1, row=row, sticky='w', pady=config['GUI']['h_spacing'])
+        state_label.config(text="On" if var.get() else "Off")
+        state_label.grid(column=2, row=row, sticky='w', padx=(2, config['GUI']['v_spacing']))
+
+        master.rowconfigure(row, weight=1)
+
+        return var
+
+    @staticmethod
+    def settings_slider_line(master: ttk.Frame, config: Dict[str, Dict[str, Any]], row: int, label: str,
+                             value: float, from_: float, to: float, resolution: float = 1,
+                             unit: str = "") -> tk.DoubleVar:
+        """Settings line with a slider snapping to the given resolution."""
+
+        var = tk.DoubleVar(master, value=min(max(float(value), from_), to))
+        label = ttk.Label(master, text=label)
+        label.grid(column=0, row=row, sticky=tk.W, padx=config['GUI']['v_spacing'])
+
+        def text() -> str:
+            val = var.get()
+            return (str(int(val)) if float(resolution).is_integer() else str(round(val, 2))) + " " + unit
+
+        value_label = ttk.Label(master, text=text(), width=10)
+
+        def snap(val: str) -> None:
+            var.set(from_ + round((float(val) - from_) / resolution) * resolution)
+            value_label.config(text=text())
+
+        scale = ttk.Scale(master, from_=from_, to=to, orient=tk.HORIZONTAL, variable=var, command=snap)
+        scale.grid(column=1, row=row, sticky='n,s,w,e', pady=config['GUI']['h_spacing'])
+        value_label.grid(column=2, row=row, sticky='w', padx=(2, config['GUI']['v_spacing']))
+
+        master.rowconfigure(row, weight=1)
+        master.columnconfigure(1, weight=1)
+
+        return var
+
+    @staticmethod
+    def settings_combobox_line(master: ttk.Frame, config: Dict[str, Dict[str, Any]], row: int, label: str,
+                               value: str, values: List[str]) -> tk.StringVar:
+        """Settings line with a read-only dropdown."""
+
+        var = tk.StringVar(master, value=value if value in values else values[0])
+        label = ttk.Label(master, text=label)
+        label.grid(column=0, row=row, sticky=tk.W, padx=config['GUI']['v_spacing'])
+        combobox = ttk.Combobox(master, textvariable=var, values=values, state='readonly')
+        combobox.grid(column=1, row=row, sticky='n,s,w,e', pady=config['GUI']['h_spacing'])
+
+        master.rowconfigure(row, weight=1)
+
+        return var
+
+    @staticmethod
+    def vector2_input(master: ttk.LabelFrame, config: Dict[str, Dict[str, Any]], col: int, row: int, width: int,
                       label: str, unit: str = "") -> list:
         label = ttk.Label(master, text=label)
         label.grid(column=col, row=row, sticky='w', padx=config['GUI']['v_spacing'])
@@ -77,7 +173,7 @@ class GUIElements:
         return [x_entry, y_entry]
 
     @staticmethod
-    def vector3_input(master: ttk.LabelFrame, config: Dict[str, Dict[str, any]], col: int, column_span: int, row: int,
+    def vector3_input(master: ttk.LabelFrame, config: Dict[str, Dict[str, Any]], col: int, column_span: int, row: int,
                       head_label: str, entry_labels: list) -> list:
         frame = GUIElements.label_frame(master, config, col, row, column_span, 1, head_label)
         frame.grid(column=col, columnspan=column_span, row=row, sticky='n,w,s,e')
@@ -101,7 +197,7 @@ class GUIElements:
         return [x_entry, y_entry, z_entry]
 
     @staticmethod
-    def vector6_input(master: ttk.LabelFrame, config: Dict[str, Dict[str, any]], col: int, column_span: int, row: int,
+    def vector6_input(master: ttk.LabelFrame, config: Dict[str, Dict[str, Any]], col: int, column_span: int, row: int,
                       head_label: str) -> list:
         frame = GUIElements.label_frame(master, config, col, row, column_span, 1, head_label)
         frame.grid(column=col, columnspan=column_span, row=row, sticky='n,w,s,e')
@@ -144,7 +240,7 @@ class GUIElements:
         return [[x0_entry, y0_entry, z0_entry], [x1_entry, y1_entry, z1_entry]]
 
     @staticmethod
-    def vector8_input(master: ttk.LabelFrame, config: Dict[str, Dict[str, any]], col: int, column_span: int, row: int,
+    def vector8_input(master: ttk.LabelFrame, config: Dict[str, Dict[str, Any]], col: int, column_span: int, row: int,
                       head_label: str, entry_labels: list) -> list:
         frame = GUIElements.label_frame(master, config, col, row, column_span, 1, head_label)
         frame.grid(column=col, columnspan=column_span, row=row, sticky='n,w,s,e')
@@ -205,7 +301,7 @@ class GUIElements:
         return [x1_entry, x2_entry, x3_entry, x4_entry, x5_entry, x6_entry, x7_entry, x8_entry]
 
     @staticmethod
-    def dropdown_menu(master: ttk.LabelFrame, config: Dict[str, Dict[str, any]], col: int, row: int,
+    def dropdown_menu(master: ttk.LabelFrame, config: Dict[str, Dict[str, Any]], col: int, row: int,
                       architecture_list: list) -> tk.StringVar:
         variable = tk.StringVar(master)
         variable.set(architecture_list[0])
@@ -217,7 +313,7 @@ class GUIElements:
         return variable
 
     @staticmethod
-    def check_box(master: Union[ttk.LabelFrame, ttk.Frame], config: Dict[str, Dict[str, any]], col: int, row: int,
+    def check_box(master: Union[ttk.LabelFrame, ttk.Frame], config: Dict[str, Dict[str, Any]], col: int, row: int,
                   label: str) -> tk.BooleanVar:
         var = tk.BooleanVar()
         checkbutton = ttk.Checkbutton(master=master, text=label, variable=var, onvalue=1, offvalue=0)
@@ -227,7 +323,7 @@ class GUIElements:
         return var
 
     @staticmethod
-    def extract(entries: Dict[str, Union[ttk.Entry, List[ttk.Entry], tk.IntVar, tk.BooleanVar]]) -> Dict[str, any]:
+    def extract(entries: Dict[str, Union[ttk.Entry, List[ttk.Entry], tk.IntVar, tk.BooleanVar]]) -> Dict[str, Any]:
         entries_dict: Dict[str, Union[float, np.ndarray]] = dict()
         for key, value in entries.items():
             if isinstance(value, list):
@@ -239,31 +335,31 @@ class GUIElements:
             elif isinstance(value, tk.IntVar) or isinstance(value, tk.BooleanVar):
                 entries_dict[key] = value.get()
             else:
-                val: any = value.get()
+                val: Any = value.get()
                 if isinstance(val, str):
                     if val.isdigit():
-                        entries_dict[key] = int(value.get())
+                        entries_dict[key] = int(val)
                     else:
-                        entries_dict[key] = float(value.get())
+                        entries_dict[key] = float(val)
                 else:
-                    entries_dict[key] = value.get()
+                    entries_dict[key] = val
 
         return entries_dict
 
     @staticmethod
-    def insert(entries: Dict[str, Union[ttk.Entry, List[ttk.Entry]]], sim_object: any) -> None:
+    def insert(entries: Dict[str, Union[ttk.Entry, List[Union[ttk.Entry, List[ttk.Entry]]], tk.IntVar,
+                                        tk.BooleanVar]], sim_object: Any) -> None:
         for key, entry in entries.items():
             value = getattr(sim_object, key)
             if isinstance(entry, list):
-                if isinstance(entry[0], list):
-                    for i, _ in enumerate(entry):
-                        for j, _ in enumerate(entry[i]):
-                            entry[i][j].delete(0, 'end')
-                            entry[i][j].insert(0, value[i][j])
-                else:
-                    for i, _ in enumerate(entry):
-                        entry[i].delete(0, 'end')
-                        entry[i].insert(0, value[i])
+                for i, item in enumerate(entry):
+                    if isinstance(item, list):
+                        for j, sub_item in enumerate(item):
+                            sub_item.delete(0, 'end')
+                            sub_item.insert(0, value[i][j])
+                    else:
+                        item.delete(0, 'end')
+                        item.insert(0, value[i])
             elif isinstance(entry, tk.BooleanVar):
                 entry.set(bool(value))
             elif isinstance(entry, tk.IntVar):
@@ -273,14 +369,14 @@ class GUIElements:
                 entry.insert(0, value)
 
     @staticmethod
-    def button_frame(master: ttk.LabelFrame, config: Dict[str, Dict[str, any]]) -> ttk.Frame:
+    def button_frame(master: ttk.LabelFrame, config: Dict[str, Dict[str, Any]]) -> ttk.Frame:
         button_frame = ttk.Frame(master=master)
         button_frame.pack(side="top", fill="both", expand=True, padx=(3, 3 + int(config['GUI']['arrow_size'])), pady=2)
 
         return button_frame
 
     @staticmethod
-    def init_style(master: tk.Tk, config: Dict[str, Dict[str, any]]) -> None:
+    def init_style(master: tk.Tk, config: Dict[str, Dict[str, Any]]) -> None:
         base_res = files("libs") / "resources" / "themes" / "awthemes-10.4.0"
         with as_file(base_res) as base_dir:
             master.tk.call("set", "base_theme_dir", str(base_dir))
@@ -317,7 +413,7 @@ class GUIElements:
         style.configure('TRadiobutton', padding=(config['GUI']['padding']))
 
     @staticmethod
-    def scrollable_frame(master: ttk.LabelFrame, config: Dict[str, Dict[str, any]]) -> ttk.Frame:
+    def scrollable_frame(master: ttk.LabelFrame, config: Dict[str, Dict[str, Any]]) -> ttk.Frame:
 
         scrolled_frame = ScrolledFrame(master=master,
                                        scrollbars='both',
@@ -358,7 +454,7 @@ class GUIElements:
         return usable_width, usable_height
 
     @staticmethod
-    def auto_frame_size(root: tk.Tk, inner_frame: ttk.Frame, config: Dict[str, Dict[str, any]],
+    def auto_frame_size(root: tk.Tk, inner_frame: ttk.Frame, config: Dict[str, Dict[str, Any]],
                         screen_width: int, screen_height: int):
         """Function determines the size of the window by comparing ideal size of the root frame and
         the size of the screen"""
