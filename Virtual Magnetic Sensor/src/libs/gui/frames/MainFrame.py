@@ -58,7 +58,7 @@ class MainFrame(tk.Tk):
                                                                              self.data_stack, self.config_handler))
         self.bind_all("<Control-s>", lambda event: FileDialogs.save(self.data_stack, self.gui_handler))
         self.bind_all("<Control-x>", lambda event: self.gui_handler.close_tab(self.data_stack))
-        self.bind_all("<Control-Alt-s>", lambda event: SettingsFrame(self.config_handler))
+        self.bind_all("<Control-Alt-s>", lambda event: SettingsFrame(self.config_handler, self))
         self.bind_all("<Control-q>", lambda event: self.gui_handler.exit())
         self.bind_all("<F8>", lambda event: SimulationHandler.draw(
             self.multiprocessing_tasks, self.data_stack, self.gui_handler, self.gui_handler.selected_tab()))

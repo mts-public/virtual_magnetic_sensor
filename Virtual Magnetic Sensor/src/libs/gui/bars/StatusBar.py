@@ -6,8 +6,9 @@ class StatusBar:
 
     def __init__(self, root: tk.Tk) -> None:
 
-        self.status = ttk.Label(root, text="", relief=tk.GROOVE, anchor=tk.W)
+        self.status = ttk.Label(root, text="Ready", style='Status.TLabel', anchor=tk.W)
         self.status.pack(side=tk.BOTTOM, fill=tk.X)
+        ttk.Separator(root, orient='horizontal').pack(side=tk.BOTTOM, fill=tk.X)
 
     def set(self, message: str) -> None:
         self.status.config(text=message)

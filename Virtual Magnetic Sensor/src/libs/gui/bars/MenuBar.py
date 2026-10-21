@@ -61,7 +61,7 @@ class MenuBar(tk.Menu):
         self.file_menu.add_separator()
         self.file_menu.add_command(
             label='Settings',
-            command=lambda: SettingsFrame(config_handler),
+            command=lambda: SettingsFrame(config_handler, root),
             accelerator="Ctrl+Alt+S"
         )
         self.file_menu.add_separator()
@@ -96,7 +96,7 @@ class MenuBar(tk.Menu):
         )
         self.help_menu.add_command(
             label='Info',
-            command=AboutFrame,
+            command=lambda: AboutFrame(root),
         )
 
         self.add_cascade(

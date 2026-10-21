@@ -2,4 +2,5 @@ numpy>=1.26.4
 matplotlib>=3.8.4
 h5py>=3.11.0
 psutil>=5.9.8
+sv-ttk>=2.6.0
 ngsolve>=6.2.2402

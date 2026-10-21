@@ -77,7 +77,7 @@ class ConfigHandler:
                 'max_process_memory': 2048.0
             },
             'GUI': {
-                'theme': 'awdark',
+                'theme': 'dark',
                 'padding': 3,
                 'v_spacing': 5,
                 'h_spacing': 1,

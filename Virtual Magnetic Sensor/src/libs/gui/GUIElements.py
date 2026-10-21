@@ -2,12 +2,14 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog as fd
 from pathlib import Path
+import ctypes
+import sys
 import numpy as np
+import sv_ttk
 from typing import Any, Dict, Union, List, Tuple, Literal
 
 from libs.gui.ScrolledFrame import ScrolledFrame
 
-from importlib.resources import files, as_file
 
 
 class GUIElements:
@@ -104,7 +106,7 @@ class GUIElements:
         label = ttk.Label(master, text=label)
         label.grid(column=0, row=row, sticky=tk.W, padx=config['GUI']['v_spacing'])
         state_label = ttk.Label(master, text="")
-        switch = ttk.Checkbutton(master, variable=var, onvalue=1, offvalue=0,
+        switch = ttk.Checkbutton(master, variable=var, onvalue=1, offvalue=0, style='Switch.TCheckbutton',
                                  command=lambda: state_label.config(text="On" if var.get() else "Off"))
         switch.grid(column=1, row=row, sticky='w', pady=config['GUI']['h_spacing'])
         state_label.config(text="On" if var.get() else "Off")
@@ -375,42 +377,50 @@ class GUIElements:
 
         return button_frame
 
+    # legacy awthemes names are mapped onto the Sun Valley themes
+    themes: Dict[str, str] = {'dark': 'dark', 'light': 'light', 'awdark': 'dark', 'awlight': 'light'}
+
     @staticmethod
     def init_style(master: tk.Tk, config: Dict[str, Dict[str, Any]]) -> None:
-        base_res = files("libs") / "resources" / "themes" / "awthemes-10.4.0"
-        with as_file(base_res) as base_dir:
-            master.tk.call("set", "base_theme_dir", str(base_dir))
-            master.tk.eval(r"""
-                        set base_theme_dir [file normalize $base_theme_dir]
-                        package ifneeded awthemes 10.4.0 \
-                            [list source [file join $base_theme_dir awthemes.tcl]]
-                        package ifneeded awlight 7.10 \
-                            [list source [file join $base_theme_dir awlight.tcl]]
-                        package ifneeded awdark 7.12 \
-                            [list source [file join $base_theme_dir awdark.tcl]]
-                    """)
-            master.tk.call('package', 'require', 'awdark')
-            master.tk.call('package', 'require', 'awlight')
-            style = ttk.Style(master)
+        """Applies the Sun Valley (Windows 11) theme and the layout options from the config to the root window."""
 
-        if config['GUI']['theme'] in style.theme_names():
-            style.theme_use(config['GUI']['theme'])
-        else:
-            style.theme_use('vista')
+        theme = GUIElements.themes.get(str(config['GUI']['theme']).lower(), 'dark')
+        sv_ttk.set_theme(theme, root=master)
+        # sv-ttk applies its colours on the next <<ThemeChanged>> event, but the widgets built right after need them
+        master.tk.call('configure_colors')
+        style = ttk.Style(master)
 
-        style.configure('TFrame',
-                        bg=style.lookup('TFrame', 'background'),
-                        highlightbackground=style.lookup('TFrame', 'background'),
-                        padding=(config['GUI']['padding']),
-                        relief=tk.FLAT)
-        style.configure('TLabelFrame',
-                        bg=style.lookup('TFrame', 'background'),
-                        highlightbackground=style.lookup('TFrame', 'background'),
-                        padding=(config['GUI']['padding']),
-                        relief=tk.FLAT)
-        style.configure('Vertical.TScrollbar', arrowsize=config['GUI']['arrow_size'])
-        style.configure('Horizontal.TScrollbar', arrowsize=config['GUI']['arrow_size'])
-        style.configure('TRadiobutton', padding=(config['GUI']['padding']))
+        style.configure('TFrame', padding=config['GUI']['padding'])
+        style.configure('TLabelframe', padding=(config['GUI']['padding'] + 4, config['GUI']['padding']))
+        style.configure('TLabelframe.Label', font='SunValleyBodyStrongFont')
+        style.configure('TRadiobutton', padding=config['GUI']['padding'])
+        style.configure('Status.TLabel', font='SunValleyCaptionFont', padding=(10, 3))
+        style.configure('Title.TLabel', font='SunValleySubtitleFont')
+        style.configure('Caption.TLabel', font='SunValleyCaptionFont')
+        style.configure('Link.TLabel', foreground='#57c8ff' if theme == 'dark' else '#005fb8')
+
+        # dark title bars on Windows for the root window and every toplevel opened later
+        GUIElements.title_bar(master, theme == 'dark')
+        master.bind_class('Toplevel', '<Map>', lambda event: GUIElements.title_bar(event.widget, theme == 'dark'),
+                          add='+')
+
+    @staticmethod
+    def title_bar(window: Union[tk.Tk, tk.Toplevel], dark: bool) -> None:
+        """Switches the native Windows title bar of the window to dark or light mode."""
+
+        if sys.platform != 'win32' or not isinstance(window, (tk.Tk, tk.Toplevel)):
+            return
+        try:
+            window.update_idletasks()
+            hwnd = ctypes.windll.user32.GetParent(window.winfo_id())
+            value = ctypes.c_int(1 if dark else 0)
+            # DWMWA_USE_IMMERSIVE_DARK_MODE is 20 on Windows 10 20H1 and later, 19 on earlier builds
+            for attribute in (20, 19):
+                if ctypes.windll.dwmapi.DwmSetWindowAttribute(hwnd, attribute, ctypes.byref(value),
+                                                              ctypes.sizeof(value)) == 0:
+                    break
+        except (AttributeError, OSError, tk.TclError):
+            pass
 
     @staticmethod
     def scrollable_frame(master: ttk.LabelFrame, config: Dict[str, Dict[str, Any]]) -> ttk.Frame:
@@ -419,7 +429,7 @@ class GUIElements:
                                        scrollbars='both',
                                        use_ttk=True,
                                        relief=tk.FLAT,
-                                       background=ttk.Style().lookup('TFrame', 'background'),
+                                       background=ttk.Style().lookup('.', 'background'),
                                        width=config['GUI']['column_width'],
                                        height=config['GUI']['height'])
         scrolled_frame.pack(side="top", expand=1, fill="both")
@@ -431,10 +441,21 @@ class GUIElements:
                                        int(config['GUI']['arrow_size']) + int(config['GUI']['padding']),
                                        config['GUI']['padding']))
 
-        scrolled_frame.canvas.create_window((0, 0),
-                                            window=inner_frame,
-                                            anchor="nw",
-                                            width=int(config['GUI']['column_width']) + int(config['GUI']['arrow_size']))
+        min_width = int(config['GUI']['column_width']) + int(config['GUI']['arrow_size'])
+        window_id = scrolled_frame.canvas.create_window((0, 0),
+                                                        window=inner_frame,
+                                                        anchor="nw",
+                                                        width=min_width)
+
+        def fit_width(_event=None) -> None:
+            # widen the column when its content needs more space than column_width, so labels are not cut off
+            width = max(min_width, inner_frame.winfo_reqwidth())
+            if int(float(scrolled_frame.canvas.itemcget(window_id, 'width'))) != width:
+                scrolled_frame.canvas.itemconfigure(window_id, width=width)
+                scrolled_frame.canvas.configure(width=width)
+
+        inner_frame.bind("<Configure>", fit_width, add='+')
+        inner_frame.after_idle(fit_width)
 
         return inner_frame
 

@@ -1,35 +1,37 @@
 import tkinter as tk
 from tkinter import ttk
 import webbrowser
+from typing import Union
 
 
-class AboutFrame(tk.Tk):
+class AboutFrame(tk.Toplevel):
 
-    def __init__(self):
-        super().__init__()
+    links = [('University of Kaiserslautern-Landau', "https://rptu.de/"),
+             ('Institute for Measurement and Sensor Technology', "https://mv.rptu.de/fgs/mts"),
+             ('Sensitec GmbH', "https://www.sensitec.com/")]
+
+    def __init__(self, master: Union[tk.Tk, None] = None):
+        # toplevel of the main window, so it shares its theme and event loop
+        super().__init__(master)
         self.title("Info")
+        self.resizable(False, False)
 
-        ttk.Label(self, text='Virtual Magnetic Sensor', font=("Arial", 16)).pack()
+        content = ttk.Frame(self, padding=(24, 20, 24, 16))
+        content.pack(fill='both', expand=True)
 
-        ttk.Separator(self, orient='horizontal').pack(fill='x')
+        ttk.Label(content, text='Virtual Magnetic Sensor', style='Title.TLabel').pack(anchor='w', pady=(0, 12))
 
-        rptu_label = ttk.Label(self, text='University of Kaiserslautern-Landau', font=("Arial", 11))
-        rptu_label.pack(anchor='w')
-        rptu_label.bind("<Button-1>", lambda e: self.callback("https://rptu.de/"))
+        for text, url in self.links:
+            label = ttk.Label(content, text=text, style='Link.TLabel', cursor='hand2')
+            label.pack(anchor='w', pady=2)
+            label.bind("<Button-1>", lambda e, link=url: self.callback(link))
 
-        mts_label = ttk.Label(self, text='Institute for Measurement and Sensor Technology', font=("Arial", 11))
-        mts_label.pack(anchor='w')
-        mts_label.bind("<Button-1>", lambda e: self.callback("https://mv.rptu.de/fgs/mts"))
+        ttk.Separator(content, orient='horizontal').pack(fill='x', pady=(16, 12))
 
-        sensitec_label = ttk.Label(self, text='Sensitec GmbH', font=("Arial", 11))
-        sensitec_label.pack(anchor='w')
-        sensitec_label.bind("<Button-1>", lambda e: self.callback("https://www.sensitec.com/"))
+        ttk.Button(content, text="Ok", width=10, style='Accent.TButton', command=self.ok).pack(side='right')
 
-        ttk.Separator(self, orient='horizontal').pack(fill='x')
-
-        ttk.Button(self, text="Ok", command=self.ok).pack(side='bottom')
-
-        self.mainloop()
+        self.bind('<Escape>', lambda event: self.ok())
+        self.focus_set()
 
     @staticmethod
     def callback(url):
@@ -37,4 +39,3 @@ class AboutFrame(tk.Tk):
 
     def ok(self):
         self.destroy()
-        self.quit()

@@ -30,7 +30,7 @@ class TabFrame(ttk.Frame):
         self.frames: List[any] = list()
 
         scrolled_frame = ScrolledFrame(self, scrollbars='both', use_ttk=True, relief=tk.FLAT,
-                                       background=ttk.Style().lookup('TFrame', 'background'))
+                                       background=ttk.Style().lookup('.', 'background'))
         scrolled_frame.pack(side="top", expand=1, fill="both")
         self.inner_frame = scrolled_frame.display_widget(ttk.Frame)
 
