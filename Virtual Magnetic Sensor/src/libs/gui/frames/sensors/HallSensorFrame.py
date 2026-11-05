@@ -6,7 +6,6 @@ from typing import Callable, Union
 from libs.gui.frames.ObjectFrame import ObjectFrame
 from libs.gui.GUIHandler import GUIHandler
 from libs.gui.GUIElements import GUIElements as Gui
-from libs.gui.plot.HallSensorPlot import HallSensorPlot
 
 from libs.DataHandler import DataHandler
 from libs.ConfigHandler import ConfigHandler
@@ -80,6 +79,8 @@ class PlotButton:
     def click(data_handler: DataHandler, sensor: Union[HallSensor, None]) -> None:
         if sensor is not None:
             if len(sensor.hall_voltage) != 0:
+                # imported on demand, matplotlib takes about a second to load
+                from libs.gui.plot.HallSensorPlot import HallSensorPlot
                 HallSensorPlot(data_handler, sensor)
             else:
                 showinfo(title='Error', message='No data available for plot.')

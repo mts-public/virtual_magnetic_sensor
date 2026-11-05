@@ -398,11 +398,66 @@ class GUIElements:
         style.configure('Title.TLabel', font='SunValleySubtitleFont')
         style.configure('Caption.TLabel', font='SunValleyCaptionFont')
         style.configure('Link.TLabel', foreground='#57c8ff' if theme == 'dark' else '#005fb8')
+        GUIElements.flat_widgets(style, theme)
 
         # dark title bars on Windows for the root window and every toplevel opened later
         GUIElements.title_bar(master, theme == 'dark')
         master.bind_class('Toplevel', '<Map>', lambda event: GUIElements.title_bar(event.widget, theme == 'dark'),
                           add='+')
+
+    # colours taken from the Sun Valley sprites
+    flat_colors: Dict[str, Dict[str, str]] = {
+        'dark': {'field': '#292929', 'field_hover': '#2f2f2f', 'field_focus': '#1c1c1c', 'field_disabled': '#262626',
+                 'button': '#2a2a2a', 'button_hover': '#2f2f2f', 'button_pressed': '#232323',
+                 'border': '#3a3a3a', 'accent': '#57c8ff', 'card': '#1c1c1c', 'card_border': '#2f2f2f'},
+        'light': {'field': '#fdfdfd', 'field_hover': '#f9f9f9', 'field_focus': '#ffffff', 'field_disabled': '#fafafa',
+                  'button': '#fdfdfd', 'button_hover': '#f6f6f6', 'button_pressed': '#f0f0f0',
+                  'border': '#d6d6d6', 'accent': '#005fb8', 'card': '#fafafa', 'card_border': '#e7e7e7'}
+    }
+
+    @staticmethod
+    def flat_widgets(style: ttk.Style, theme: str) -> None:
+        """Replaces the image based entry, button and labelframe elements of Sun Valley with drawn ones in the same
+        colours.
+
+        Tk redraws image elements about three times slower than drawn ones, and labelframes stretch their card image
+        over their whole area. These widgets make up most of the main window, so this keeps window resizing,
+        scrolling and adding objects responsive.
+        """
+
+        c = GUIElements.flat_colors[theme]
+        try:
+            style.element_create('Flat.field', 'from', 'clam')
+            style.element_create('Flat.border', 'from', 'clam')
+            style.element_create('Flat.Labelframe.border', 'from', 'clam')
+        except tk.TclError:
+            pass  # elements already exist in this theme
+
+        style.layout('TEntry', [('Flat.field', {'sticky': 'nswe', 'border': '1', 'children': [
+            ('Entry.padding', {'sticky': 'nswe', 'children': [('Entry.textarea', {'sticky': 'nswe'})]})]})])
+        style.configure('TEntry', fieldbackground=c['field'], bordercolor=c['border'], lightcolor=c['field'],
+                        darkcolor=c['field'])
+        style.map('TEntry',
+                  fieldbackground=[('disabled', c['field_disabled']), ('focus', c['field_focus']),
+                                   ('hover', c['field_hover'])],
+                  bordercolor=[('focus', c['accent'])],
+                  lightcolor=[('disabled', c['field_disabled']), ('focus', c['field_focus']),
+                              ('hover', c['field_hover'])],
+                  darkcolor=[('focus', c['accent']), ('disabled', c['field_disabled']), ('hover', c['field_hover'])])
+
+        style.layout('TButton', [('Flat.border', {'sticky': 'nswe', 'border': '1', 'children': [
+            ('Button.padding', {'sticky': 'nswe', 'children': [('Button.label', {'expand': '1', 'sticky': 'nswe'})]})]})])
+        style.configure('TButton', background=c['button'], bordercolor=c['border'], lightcolor=c['button'],
+                        darkcolor=c['button'], relief='solid', borderwidth=1)
+        style.map('TButton',
+                  background=[('pressed', c['button_pressed']), ('active', c['button_hover'])],
+                  lightcolor=[('pressed', c['button_pressed']), ('active', c['button_hover'])],
+                  darkcolor=[('pressed', c['button_pressed']), ('active', c['button_hover'])],
+                  bordercolor=[('focus', c['accent'])])
+
+        style.layout('TLabelframe', [('Flat.Labelframe.border', {'sticky': 'nswe'})])
+        style.configure('TLabelframe', bordercolor=c['card_border'], lightcolor=c['card'], darkcolor=c['card'],
+                        relief='solid', borderwidth=1)
 
     @staticmethod
     def title_bar(window: Union[tk.Tk, tk.Toplevel], dark: bool) -> None:
@@ -447,15 +502,23 @@ class GUIElements:
                                                         anchor="nw",
                                                         width=min_width)
 
-        def fit_width(_event=None) -> None:
+        pending: List[str] = list()
+
+        def fit_width() -> None:
             # widen the column when its content needs more space than column_width, so labels are not cut off
+            pending.clear()
             width = max(min_width, inner_frame.winfo_reqwidth())
             if int(float(scrolled_frame.canvas.itemcget(window_id, 'width'))) != width:
                 scrolled_frame.canvas.itemconfigure(window_id, width=width)
                 scrolled_frame.canvas.configure(width=width)
 
-        inner_frame.bind("<Configure>", fit_width, add='+')
-        inner_frame.after_idle(fit_width)
+        def schedule_fit_width(_event=None) -> None:
+            # several sub frames are often added at once, so the width is only checked once they are all laid out
+            if not pending:
+                pending.append(inner_frame.after_idle(fit_width))
+
+        inner_frame.bind("<Configure>", schedule_fit_width, add='+')
+        schedule_fit_width()
 
         return inner_frame
 
@@ -480,9 +543,10 @@ class GUIElements:
         """Function determines the size of the window by comparing ideal size of the root frame and
         the size of the screen"""
 
-        inner_frame.update()
-        window_w = inner_frame.winfo_width() + int(config['GUI']['arrow_size'])
-        window_h = inner_frame.winfo_height() + int(config['GUI']['arrow_size']) + 20
+        # requested size, the window is not mapped yet
+        inner_frame.update_idletasks()
+        window_w = inner_frame.winfo_reqwidth() + int(config['GUI']['arrow_size'])
+        window_h = inner_frame.winfo_reqheight() + int(config['GUI']['arrow_size']) + 20
 
         if screen_width >= window_w and screen_height >= window_h:
             root.geometry(f"{window_w}x{window_h}+0+0")

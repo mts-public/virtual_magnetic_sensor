@@ -7,7 +7,6 @@ from libs.ConfigHandler import ConfigHandler
 
 from libs.elements.sensors.GMRSensor import GMRSensor
 
-from libs.gui.plot.PlotHandler import PlotHandler
 from libs.gui.GUIHandler import GUIHandler
 
 
@@ -30,6 +29,8 @@ class PlotButton:
     def click(data_handler: DataHandler, sensor: Union[GMRSensor, None]) -> None:
         if sensor is not None:
             if len(sensor.u_sin) != 0:
+                # imported on demand, matplotlib takes about a second to load
+                from libs.gui.plot.PlotHandler import PlotHandler
                 PlotHandler(data_handler, sensor)
             else:
                 showinfo(title='Error', message='No data available for plot.')

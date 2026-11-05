@@ -31,7 +31,8 @@ class MainFrame(tk.Tk):
         self.config_handler = ConfigHandler()
 
         super().__init__()
-        self.focus_force()
+        # hidden while the widgets are built, so the window is drawn once instead of after every layout step
+        self.withdraw()
         self.title("Virtual Magnetic Sensor")
         Gui.init_style(self, self.config_handler.config)
         self.gui_handler = GUIHandler(self, self.bindings_enable, self.bindings_disable)
@@ -49,6 +50,9 @@ class MainFrame(tk.Tk):
                             screen_width, screen_height)
 
         self.bindings_enable()
+
+        self.deiconify()
+        self.focus_force()
 
         if not test_flag:
             self.mainloop()
